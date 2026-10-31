@@ -1,0 +1,16 @@
+import { STATUS_LABEL, STATUS_TONE, type OrderStatus } from "@/lib/orders/status";
+import { cn } from "@/lib/utils";
+
+export function OrderStatusBadge({ status, className }: { status: OrderStatus; className?: string }) {
+  return (
+    <span
+      className={cn(
+        "inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium whitespace-nowrap",
+        STATUS_TONE[status],
+        className,
+      )}
+    >
+      {STATUS_LABEL[status]}
+    </span>
+  );
+}

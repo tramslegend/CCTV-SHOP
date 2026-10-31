@@ -1,0 +1,61 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Scraper page cache (re-creatable with scripts/scrape-cctvmaster.mjs)
+.cache/
+
+# Build
+.next/
+out/
+build/
+dist/
+
+# Environment
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Vercel
+.vercel
+
+# Local temp files
+temp/
+
+# Local embedded database
+.data/
+
+# Admin uploads in local development (production uses Vercel Blob)
+public/uploads/
+
+# The reference catalogue from the original site (data/cctvmaster/, public/sites/cctvmaster/) and its research
+# screenshots (docs/research/cctvmaster/) are kept in this private repository for local development only.
+# .vercelignore keeps them out of every deployment: they are never part of the live shop.
+
+# Database snapshot loaded by scripts/import-snapshot.ts: contains accounts, never committed
+snapshot/
+# Full database copy used by `npm run db:restore`: contains accounts and customer orders, never committed
+database/
+.env*

@@ -1,0 +1,17 @@
+# Reference material from the site this shop was originally modelled on. Its images (public/sites/cctvmaster/) ship
+# only while the deployment is behind the access gate (SITE_PASSWORD, see src/proxy.ts): add that folder back here
+# once the shop has its own branding and catalogue.
+data/
+.cache/
+# Local admin uploads: production images live in Vercel Blob (see src/lib/storage.ts).
+public/uploads/
+.data/
+docs/research/
+scripts/scrape-cctvmaster.mjs
+scripts/download-cctvmaster-assets.mjs
+scripts/seed-dev.ts
+
+# Local settings and secrets stay on the developer machine (production values live in Vercel).
+.env
+.env.local
+.env.*.local
