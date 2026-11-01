@@ -91,7 +91,7 @@ export function Hero({ hero, tokens, kit }: { hero: HeroSettings; tokens: TokenV
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 right-0 hidden w-[42%] bg-emerald-50/70 lg:block"
+        className="pointer-events-none absolute inset-y-0 right-0 hidden w-[42%] bg-emerald-100/70 lg:block"
       />
       <div
         aria-hidden="true"

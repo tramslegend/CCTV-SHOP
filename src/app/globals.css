@@ -74,10 +74,10 @@
   /* Logo green (#047857): white text on it is 5.5:1 (WCAG AA). */
   --primary: #047857;
   --primary-foreground: #ffffff;
-  --secondary: #eef3f0;
+  --secondary: #eaf1ed;
   --secondary-foreground: #111816;
-  --muted: #eef3f0;
-  /* 6.0:1 on white, 5.4:1 on --surface. */
+  --muted: #eaf1ed;
+  /* 6.0:1 on white, 5.1:1 on --surface. */
   --muted-foreground: #5b6661;
   --accent: #e3f1ea;
   --accent-foreground: #065f46;
@@ -85,10 +85,10 @@
   --border: #dde4e0;
   --input: #9aa5a0;
   --ring: #047857;
-  /* Section bands and panels: visibly grey next to white, unlike #fafafa. */
-  --surface: #f1f5f3;
-  /* Top bar, footer and other dark bands. */
-  --ink: #15211d;
+  /* Section bands and panels: a clearly visible green-grey next to white. */
+  --surface: #e6efe9;
+  /* Top bar, footer and other dark bands: deep forest green from the logo hue (white text 12:1). */
+  --ink: #0f3d2e;
   --ink-foreground: #e8efeb;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
