@@ -22,7 +22,7 @@ export function TopBar({
   links: LinkSetting[];
 }) {
   return (
-    <div className="w-full text-white bg-zinc-950">
+    <div className="w-full text-white bg-ink">
       <div className="mx-auto flex h-10 max-w-450 items-center justify-between px-4 text-sm md:px-6 lg:px-8">
         <div className="flex items-center gap-4">
           {phoneHref && (

@@ -18,7 +18,7 @@ export function ProductCard({ card, eager = false }: { card: ProductCardData; ea
     <div className="flex h-full flex-col gap-2">
       <Link
         href={href}
-        className="group flex flex-1 flex-col overflow-hidden rounded-2xl border border-zinc-100 bg-white transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-200 hover:shadow-[0_18px_30px_-16px_rgba(16,185,129,0.25)] focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:outline-none"
+        className="group flex flex-1 flex-col overflow-hidden rounded-2xl border border-border bg-white transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-200 hover:shadow-[0_18px_30px_-16px_rgba(16,185,129,0.25)] focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:outline-none"
       >
         <div className="relative aspect-square w-full shrink-0 overflow-hidden bg-white">
           {image ? (

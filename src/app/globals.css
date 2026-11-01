@@ -41,6 +41,9 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -56,25 +59,37 @@
   --shadow-lg: 0 4px 10px -3px rgb(0 0 0 / 0.05);
 }
 
+/*
+ * CCTV Spania palette: white canvas (~60%), green-grey surfaces and a deep green-charcoal "ink" for bars and the
+ * footer (~30%), and the logo green as the one accent for actions (~10%). Every neutral leans slightly toward the
+ * logo green so the greys, the ink and the accent read as one family.
+ */
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.53 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --background: #ffffff;
+  --foreground: #111816;
+  --card: #ffffff;
+  --card-foreground: #111816;
+  --popover: #ffffff;
+  --popover-foreground: #111816;
+  /* Logo green (#047857): white text on it is 5.5:1 (WCAG AA). */
+  --primary: #047857;
+  --primary-foreground: #ffffff;
+  --secondary: #eef3f0;
+  --secondary-foreground: #111816;
+  --muted: #eef3f0;
+  /* 6.0:1 on white, 5.4:1 on --surface. */
+  --muted-foreground: #5b6661;
+  --accent: #e3f1ea;
+  --accent-foreground: #065f46;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.65 0 0);
-  --ring: oklch(0.55 0 0);
+  --border: #dde4e0;
+  --input: #9aa5a0;
+  --ring: #047857;
+  /* Section bands and panels: visibly grey next to white, unlike #fafafa. */
+  --surface: #f1f5f3;
+  /* Top bar, footer and other dark bands. */
+  --ink: #15211d;
+  --ink-foreground: #e8efeb;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);

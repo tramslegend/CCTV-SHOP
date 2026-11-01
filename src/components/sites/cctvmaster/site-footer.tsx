@@ -17,13 +17,13 @@ const SOCIAL_LABELS: Record<keyof SocialSettings, string> = {
 };
 
 const outlineButton =
-  "inline-flex h-11 items-center gap-2 rounded-md border border-zinc-700 px-5 text-sm font-semibold text-zinc-100 transition-all hover:border-emerald-400/60 hover:bg-emerald-400/10 focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 focus-visible:outline-none";
+  "inline-flex h-11 items-center gap-2 rounded-md border border-white/25 px-5 text-sm font-semibold text-zinc-100 transition-all hover:border-emerald-400/60 hover:bg-emerald-400/10 focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 focus-visible:outline-none";
 
 export function CtaBand({ section, tokens }: { section: CtaSection; tokens: TokenValues }) {
   const t = (text: string) => fillTokens(text, tokens);
   const [first, ...rest] = section.buttons;
   return (
-    <section className="relative overflow-hidden bg-zinc-950">
+    <section className="relative overflow-hidden bg-ink">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(16,185,129,0.18),transparent_60%),radial-gradient(circle_at_80%_50%,rgba(20,184,166,0.12),transparent_60%)] opacity-40"
@@ -93,12 +93,12 @@ export function SiteFooter({
   const payments = PAYMENT_MARKS.filter((m) => footer.payments.includes(m.id));
   const columns = footer.columns.filter((c) => c.title || c.links.length);
   return (
-    <footer className="bg-zinc-950 text-zinc-300">
+    <footer className="bg-ink text-zinc-300">
       {footer.highlights.length > 0 && (
-        <div className="border-y border-zinc-900 bg-zinc-900/40">
+        <div className="border-y border-white/10 bg-white/5">
           <div className={cn("mx-auto grid max-w-7xl grid-cols-1 gap-px overflow-hidden text-sm", highlightColumns[footer.highlights.length])}>
             {footer.highlights.map((item, i) => (
-              <div key={i} className="flex items-center gap-4 bg-zinc-950 px-6 py-5 sm:bg-transparent">
+              <div key={i} className="flex items-center gap-4 bg-ink px-6 py-5 sm:bg-transparent">
                 <FeatureIcon name={item.icon} className="h-5 w-5 shrink-0 text-emerald-400" />
                 <div>
                   <p className="font-semibold text-white">{t(item.title)}</p>
@@ -110,7 +110,7 @@ export function SiteFooter({
         </div>
       )}
       <div className="mx-auto max-w-7xl px-6">
-        <div className="flex flex-col gap-8 border-b border-zinc-900 py-12 md:flex-row md:items-start md:justify-between">
+        <div className="flex flex-col gap-8 border-b border-white/10 py-12 md:flex-row md:items-start md:justify-between">
           <div className="max-w-md">
             <BrandLogo
               name={store.name}
@@ -134,7 +134,7 @@ export function SiteFooter({
                       href={social[key]}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex h-8 items-center rounded-md border border-zinc-800 px-3 text-xs font-medium text-zinc-300 transition-colors hover:border-emerald-400/60 hover:text-white"
+                      className="inline-flex h-8 items-center rounded-md border border-white/15 px-3 text-xs font-medium text-zinc-300 transition-colors hover:border-emerald-400/60 hover:text-white"
                     >
                       {SOCIAL_LABELS[key]}
                     </a>
@@ -214,7 +214,7 @@ export function SiteFooter({
         <div
           className={cn(
             "flex flex-col items-start gap-5 py-8 text-xs sm:flex-row sm:items-center sm:justify-between",
-            columns.length > 0 && "border-t border-zinc-900",
+            columns.length > 0 && "border-t border-white/10",
           )}
         >
           {footer.bottomText && <p className="font-mono text-[10px] tracking-[0.18em] text-zinc-400 uppercase">{t(footer.bottomText)}</p>}
@@ -224,7 +224,7 @@ export function SiteFooter({
                 <li
                   key={method.id}
                   aria-label={method.label}
-                  className="grid h-7 min-w-12 place-items-center rounded border border-zinc-800 bg-zinc-900 px-2 font-mono text-[10px] font-semibold tracking-wider text-zinc-400"
+                  className="grid h-7 min-w-12 place-items-center rounded border border-white/15 bg-white/5 px-2 font-mono text-[10px] font-semibold tracking-wider text-zinc-400"
                 >
                   {method.mark}
                 </li>

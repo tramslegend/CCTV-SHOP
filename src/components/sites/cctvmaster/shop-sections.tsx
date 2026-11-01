@@ -93,7 +93,7 @@ export function PopularProducts({ section, cards, tokens }: { section: PopularSe
   const t = (text: string) => fillTokens(text, tokens);
   if (!cards.length) return null;
   return (
-    <section className="bg-zinc-50">
+    <section className="bg-surface">
       <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
         <div className="mb-8 flex flex-col gap-2 md:mb-10 md:flex-row md:items-end md:justify-between md:gap-4">
           <div>

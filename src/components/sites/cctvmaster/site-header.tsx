@@ -119,7 +119,7 @@ export function SiteHeader({ brand, nav }: { brand: { name: string; logoUrl: str
         </div>
       </div>
       {nav.length > 0 && (
-      <div className="relative hidden w-full border-t bg-gradient-to-b from-slate-50 to-white lg:block dark:from-slate-900/50 dark:to-slate-900/30">
+      <div className="relative hidden w-full border-t bg-surface lg:block">
         <div className="mx-auto max-w-450">
           <nav className="flex items-center justify-center gap-0 overflow-x-auto px-4 py-1 md:px-6 lg:px-8">
             {nav.map((cat) => {

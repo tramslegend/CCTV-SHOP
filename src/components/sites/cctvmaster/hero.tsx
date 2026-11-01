@@ -67,7 +67,7 @@ function FeaturedKitCard({ kit, label, badge, chip }: { kit: FeaturedKit; label:
         {chip && (
           <div
             aria-hidden="true"
-            className="absolute -right-3 -bottom-3 inline-flex h-9 items-center gap-1.5 rounded-full bg-zinc-950 px-3 text-[11px] font-semibold text-white shadow-[0_10px_20px_-10px_rgba(0,0,0,0.45)]"
+            className="absolute -right-3 -bottom-3 inline-flex h-9 items-center gap-1.5 rounded-full bg-ink px-3 text-[11px] font-semibold text-white shadow-[0_10px_20px_-10px_rgba(0,0,0,0.45)]"
           >
             <PlusIcon className="h-3 w-3" />
             {chip}
@@ -86,7 +86,7 @@ export function Hero({ hero, tokens, kit }: { hero: HeroSettings; tokens: TokenV
   const card = kit && <FeaturedKitCard kit={kit} label={t(hero.kit.label)} badge={t(hero.kit.badge)} chip={t(hero.kit.chip)} />;
   return (
     <section
-      className="relative overflow-hidden border-b border-zinc-100 bg-[#FAF9F6] text-zinc-950"
+      className="relative overflow-hidden border-b border-border bg-surface text-zinc-950"
       aria-label="Welcome"
     >
       <div
@@ -124,7 +124,7 @@ export function Hero({ hero, tokens, kit }: { hero: HeroSettings; tokens: TokenV
               {buttons[0] && (
                 <div className="fc-press">
                   <SmartLink
-                    className="inline-flex h-12 items-center gap-2 rounded-md bg-zinc-950 px-5 text-sm font-semibold text-white transition-colors hover:bg-zinc-800 focus-visible:ring-2 focus-visible:ring-zinc-950 focus-visible:ring-offset-2 focus-visible:outline-none"
+                    className="inline-flex h-12 items-center gap-2 rounded-md bg-primary px-5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-emerald-800 focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2 focus-visible:outline-none"
                     href={buttons[0].href}
                   >
                     {t(buttons[0].label)}
@@ -188,7 +188,7 @@ export function Hero({ hero, tokens, kit }: { hero: HeroSettings; tokens: TokenV
         )}
       </div>
       {points.length > 0 && (
-        <div className="relative border-t border-zinc-100 bg-white">
+        <div className="relative border-t border-border bg-white">
           <ul className={cn("mx-auto grid max-w-7xl divide-x divide-zinc-100", points.length === 1 ? "grid-cols-1" : "grid-cols-2", pointColumns[points.length])}>
             {points.map((point, i) => (
               <li key={i} className="flex items-center gap-3 px-4 py-4 md:px-6 md:py-5">
@@ -205,7 +205,7 @@ export function Hero({ hero, tokens, kit }: { hero: HeroSettings; tokens: TokenV
         </div>
       )}
       {hero.brands.length > 0 && (
-        <div className="relative border-t border-zinc-100 bg-zinc-50/60">
+        <div className="relative border-t border-border bg-surface">
           <div className="mx-auto max-w-7xl px-4 py-4 md:px-6">
             <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-between">
               {hero.brandsTitle && (
