@@ -273,7 +273,8 @@
   }
 }
 
-/* Homepage hero: two soft green lights drifting behind the content, and a camera-style scan line. */
+/* Homepage hero: two soft green lights drifting behind the content, and a camera-style scan line that sweeps the
+   right-hand panel behind the featured kit (it sits inside that panel, so it never crosses the headline). */
 .fc-aurora {
   position: absolute;
   inset: 0;
@@ -308,9 +309,9 @@
   top: 0;
   height: 2px;
   pointer-events: none;
-  background: linear-gradient(90deg, transparent, rgb(16 185 129 / 0.55) 30%, rgb(52 211 153 / 0.9) 50%, rgb(16 185 129 / 0.55) 70%, transparent);
-  box-shadow: 0 0 18px 2px rgb(52 211 153 / 0.35);
-  animation: fc-scan 9s linear infinite;
+  background: linear-gradient(90deg, transparent, rgb(16 185 129 / 0.3) 25%, rgb(52 211 153 / 0.6) 50%, rgb(16 185 129 / 0.3) 75%, transparent);
+  box-shadow: 0 0 12px 1px rgb(52 211 153 / 0.2);
+  animation: fc-scan 11s linear infinite;
 }
 @keyframes fc-scan {
   0% {

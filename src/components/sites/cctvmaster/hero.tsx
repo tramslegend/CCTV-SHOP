@@ -90,18 +90,16 @@ export function Hero({ hero, tokens, kit }: { hero: HeroSettings; tokens: TokenV
       aria-label="Welcome"
     >
       <div aria-hidden="true" className="fc-aurora" />
-      <div aria-hidden="true" className="fc-scan" />
+      {/* Right-hand panel behind the featured kit; the camera-style scan line sweeps here only, never over the text. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 right-0 hidden w-[42%] bg-emerald-100/70 lg:block"
-      />
+        className="pointer-events-none absolute inset-y-0 right-0 hidden w-[42%] overflow-hidden bg-emerald-100/70 lg:block"
+      >
+        <div className="fc-scan" />
+      </div>
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-y-0 right-[42%] hidden w-px bg-linear-to-b from-transparent via-emerald-300/40 to-transparent lg:block"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-8 mx-auto h-px max-w-7xl bg-linear-to-r from-transparent via-emerald-300/30 to-transparent"
       />
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-y-12 px-4 pt-14 pb-12 md:px-6 md:pt-20 md:pb-16 lg:grid-cols-12 lg:gap-x-10 lg:py-24">
         <div className="fc-stagger lg:col-span-7">
