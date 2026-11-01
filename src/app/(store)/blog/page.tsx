@@ -29,22 +29,28 @@ export default async function BlogPage({ searchParams }: PageProps<"/blog">) {
   const visible = posts.slice((page - 1) * BLOG_PAGE_SIZE, page * BLOG_PAGE_SIZE);
 
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
-      <header className="max-w-2xl">
-        <p className="text-muted-foreground text-sm font-semibold tracking-wide uppercase">{store.name}</p>
-        <h1 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">Blog</h1>
-        <p className="text-muted-foreground mt-3 text-base leading-relaxed md:text-lg">
-          Buying guides, side-by-side comparisons and straight answers from the {store.name} team.
-        </p>
-      </header>
-      <div className="scroll-mt-24 outline-none" tabIndex={-1}>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {visible.map((post, i) => (
-            <BlogCard key={post.slug} post={post} eager={i < 3} />
-          ))}
+    <>
+      <header className="fc-band">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold tracking-wide text-emerald-700 uppercase">{store.name}</p>
+            <h1 className="fc-rise mt-2 text-3xl font-bold tracking-tight md:text-5xl">Blog</h1>
+            <p className="text-muted-foreground mt-3 text-base leading-relaxed md:text-lg">
+              Buying guides, side-by-side comparisons and straight answers from the {store.name} team.
+            </p>
+          </div>
         </div>
-        <BlogPagination current={page} total={totalPages} />
+      </header>
+      <div className="mx-auto w-full max-w-6xl px-4 pb-12 sm:px-6 md:pb-16 lg:px-8">
+        <div className="scroll-mt-24 outline-none" tabIndex={-1}>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {visible.map((post, i) => (
+              <BlogCard key={post.slug} post={post} eager={i < 3} />
+            ))}
+          </div>
+          <BlogPagination current={page} total={totalPages} />
+        </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -40,7 +40,7 @@ export function AuthShell({
             <ShopLogo width={180} height={48} className="h-11 w-auto" textClassName="text-2xl" />
           </Link>
         )}
-        <div className={cn("rounded-xl border border-border bg-white p-8", cardShadow)}>{children}</div>
+        <div className={cn("fc-rise rounded-xl border border-border bg-white p-8", cardShadow)}>{children}</div>
         {decorated && (
           <ul className="mt-7 flex items-center justify-center gap-x-5 gap-y-2 text-muted-foreground">
             {trust.map(({ label, Icon }) => (

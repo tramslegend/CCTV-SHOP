@@ -24,11 +24,11 @@ export function TrustTiles({ delivery, className }: { delivery: DeliverySettings
           <li
             key={label}
             className={cn(
-              "fc-rise flex flex-col items-center gap-1 rounded-xl border border-border bg-surface/50 p-3 text-center",
+              "fc-rise group flex flex-col items-center gap-1 rounded-xl border border-border bg-surface/50 p-3 text-center transition-[translate,background-color,border-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:bg-white hover:shadow-[0_12px_24px_-16px_rgba(4,120,87,0.5)]",
               delay,
             )}
           >
-            <Icon className="text-primary h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
+            <Icon className="text-primary h-5 w-5 transition-transform duration-300 group-hover:scale-115 sm:h-6 sm:w-6" aria-hidden="true" />
             <span className="text-[11px] font-medium sm:text-xs">{label}</span>
             <span className="text-muted-foreground text-[10px]">{sub}</span>
           </li>

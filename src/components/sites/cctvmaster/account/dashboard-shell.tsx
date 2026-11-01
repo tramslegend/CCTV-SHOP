@@ -69,7 +69,7 @@ export function DashboardShell({
             <span>/</span>
             <span className="text-foreground">My account</span>
           </div>
-          <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-8">
+          <div className="fc-stagger grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-8">
             <aside className="min-w-0 space-y-3 lg:sticky lg:top-32 lg:h-fit">
               <div className="flex items-center gap-3 rounded-xl border border-border bg-white p-4">
                 <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-emerald-50 text-sm font-semibold text-emerald-800">

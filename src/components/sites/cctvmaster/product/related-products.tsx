@@ -3,27 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { withVat } from "@/lib/cctvmaster/money";
 import type { ProductCard } from "@/lib/cctvmaster/types";
-import { cn } from "@/lib/utils";
 import { ProductPrice } from "./product-price";
-
-const DELAYS = [
-  "[animation-delay:0ms]",
-  "[animation-delay:50ms]",
-  "[animation-delay:100ms]",
-  "[animation-delay:150ms]",
-  "[animation-delay:200ms]",
-  "[animation-delay:250ms]",
-  "[animation-delay:300ms]",
-  "[animation-delay:350ms]",
-  "[animation-delay:400ms]",
-  "[animation-delay:450ms]",
-];
 
 /** "You May Also Like" horizontal, snap-scrolling card row. */
 export function RelatedProducts({ cards, viewAllHref }: { cards: ProductCard[]; viewAllHref: string }) {
   if (!cards.length) return null;
   return (
-    <section className="fc-rise mt-16" aria-labelledby="pdp-related-heading">
+    <section className="mt-16" aria-labelledby="pdp-related-heading">
       <div className="mb-6 flex items-center justify-between">
         <h2 id="pdp-related-heading" className="flex items-center gap-3 text-xl font-bold sm:text-2xl">
           <span className="bg-primary h-7 w-1.5 rounded-full" aria-hidden="true" />
@@ -38,14 +24,14 @@ export function RelatedProducts({ cards, viewAllHref }: { cards: ProductCard[]; 
         </Link>
       </div>
       <div className="relative -mx-4 px-4">
-        <ul className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {cards.map((card, i) => {
+        <ul className="flex snap-x snap-mandatory gap-4 overflow-x-auto pt-2 pb-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {cards.map((card) => {
             const image = card.imageUrl ?? card.image;
             return (
-              <li key={card.slug} className={cn("fc-rise", DELAYS[Math.min(i, DELAYS.length - 1)])}>
+              <li key={card.slug} className="fc-reveal">
                 <Link
                   href={`/products/${card.slug}`}
-                  className="group bg-card w-[200px] flex-shrink-0 snap-start overflow-hidden rounded-xl border transition-all hover:shadow-lg"
+                  className="group bg-card block w-[200px] flex-shrink-0 snap-start overflow-hidden rounded-xl border transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_22px_40px_-20px_rgba(4,120,87,0.45)]"
                 >
                   <div className="relative h-[200px] w-[200px] overflow-hidden bg-white">
                     {image && (

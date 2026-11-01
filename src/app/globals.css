@@ -161,7 +161,8 @@
 /* Entry motion used across cctvmaster.co.uk sections. */
 @keyframes fc-rise {
   from {
-    transform: translateY(14px);
+    opacity: 0;
+    transform: translateY(18px);
   }
   to {
     transform: none;
@@ -348,14 +349,42 @@
   }
 }
 
-/* Cards and sections fade and rise as they scroll into view (browsers without scroll timelines show them as is).
-   Animates `transform` and `opacity` only, so the `translate`/`scale` hover utilities keep working. */
-@supports (animation-timeline: view()) {
-  .fc-reveal {
-    animation: fc-reveal linear both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 40%;
+/* Cards and sections fade and rise as they scroll into view. RevealObserver (reveal-observer.tsx) sets
+   `data-fc-reveal` on <html> once it runs and `data-fc-in` on each element as it arrives, with a small stagger in
+   --fc-delay. Uses `transform` and `opacity`, so the `translate`/`scale` hover utilities keep working; the other
+   transitions are listed so cards that are also `.fc-reveal` keep their hover easing. */
+:root[data-fc-reveal] .fc-reveal {
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--fc-delay, 0ms),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--fc-delay, 0ms),
+    translate 0.3s ease,
+    scale 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+:root[data-fc-reveal] .fc-reveal:not([data-fc-in]) {
+  opacity: 0;
+  transform: translateY(32px) scale(0.97);
+}
+
+/* Main product photo: settles in each time the image changes (the element is re-keyed per image). */
+.fc-photo-in {
+  animation: fc-photo-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes fc-photo-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
   }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@supports (animation-timeline: scroll()) {
   /* Sticky header: turns translucent and blurred, with a deeper shadow, over the first 120px of scrolling. */
   .fc-header {
     animation: fc-header-shadow linear both;
@@ -366,16 +395,6 @@
     animation: fc-header-glass linear both;
     animation-timeline: scroll(root);
     animation-range: 0 120px;
-  }
-}
-@keyframes fc-reveal {
-  from {
-    opacity: 0;
-    transform: translateY(28px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: none;
   }
 }
 @keyframes fc-header-shadow {
@@ -410,7 +429,7 @@
   .fc-band::before,
   .fc-aurora::before,
   .fc-aurora::after,
-  .fc-reveal,
+  .fc-photo-in,
   .fc-header,
   .fc-header > :first-child {
     animation: none !important;

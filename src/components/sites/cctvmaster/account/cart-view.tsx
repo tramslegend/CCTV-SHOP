@@ -77,7 +77,7 @@ export function CartView({ pricing }: { pricing: PricingSettings }) {
         <h1 className="text-3xl font-bold">Shopping Cart</h1>
       </div>
 
-      <div className="grid gap-8 lg:grid-cols-3">
+      <div className="fc-stagger grid gap-8 lg:grid-cols-3">
         <div className="min-w-0 space-y-4 lg:col-span-2">
           {lines.map((line, i) => (
             <CartLineCard key={line.slug} line={line} eager={i < 3} vatRate={pricing.vatRate} problem={problems[line.slug]} />
@@ -266,7 +266,7 @@ function CartLineCard({ line, eager, vatRate, problem }: { line: CartLine; eager
 function EmptyCart() {
   return (
     <div className={cn(CONTAINER, "py-16")}>
-      <div className="mx-auto max-w-md text-center">
+      <div className="fc-rise mx-auto max-w-md text-center">
         <div className="bg-muted mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full">
           <ShoppingCart className="text-muted-foreground h-10 w-10" aria-hidden="true" />
         </div>

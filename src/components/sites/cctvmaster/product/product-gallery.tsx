@@ -74,7 +74,7 @@ export function ProductGallery({ images }: { images: GalleryImage[] }) {
         onPointerDown={onPointerDown}
         onPointerUp={onPointerUp}
         onPointerCancel={() => (start.current = null)}
-        className="focus-visible:ring-ring relative aspect-square touch-pan-y overflow-hidden rounded-xl border border-border bg-white select-none focus-visible:ring-2 focus-visible:outline-none"
+        className="group focus-visible:ring-ring relative aspect-square touch-pan-y overflow-hidden rounded-xl border border-border bg-white transition-shadow duration-300 select-none hover:shadow-[0_22px_40px_-22px_rgba(4,120,87,0.4)] focus-visible:ring-2 focus-visible:outline-none"
       >
         <Image
           key={current.src}
@@ -85,7 +85,7 @@ export function ProductGallery({ images }: { images: GalleryImage[] }) {
           loading="eager"
           fetchPriority={index === 0 ? "high" : "auto"}
           sizes="(max-width: 639px) calc(100vw - 64px), (max-width: 1023px) calc(100vw - 80px), (max-width: 1280px) 50vw, 640px"
-          className="object-contain p-4"
+          className="fc-photo-in object-contain p-4 transition-[scale] duration-700 ease-out group-hover:scale-[1.04]"
         />
         {many && (
           <>
@@ -117,7 +117,7 @@ export function ProductGallery({ images }: { images: GalleryImage[] }) {
               aria-label={`View image ${i + 1} of ${count}`}
               aria-current={i === index ? "true" : undefined}
               className={cn(
-                "relative h-20 w-20 shrink-0 overflow-hidden rounded-lg border-2 bg-white transition-all focus-visible:outline-none",
+                "relative h-20 w-20 shrink-0 overflow-hidden rounded-lg border-2 bg-white transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-none",
                 i === index
                   ? "border-primary ring-primary/20 ring-2"
                   : "hover:border-primary/50 focus-visible:border-primary/50 border-border",

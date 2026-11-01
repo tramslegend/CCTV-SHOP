@@ -98,7 +98,7 @@ const PAUSED_TEXT = "We're not taking online orders at the moment. Please call o
 export function CheckoutFrame({ children }: { children: ReactNode }) {
   return (
     <div className="pt-26">
-      <div className="mx-auto w-full max-w-6xl px-3 py-4 sm:px-4 sm:py-6 md:py-10">{children}</div>
+      <div className="fc-rise mx-auto w-full max-w-6xl px-3 py-4 sm:px-4 sm:py-6 md:py-10">{children}</div>
     </div>
   );
 }

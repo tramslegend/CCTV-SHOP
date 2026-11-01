@@ -13,7 +13,7 @@ export function WhyUs({ section, tokens }: { section: WhyUsSection; tokens: Toke
     <section>
       <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
         <div className="grid gap-10 md:grid-cols-12 md:gap-12">
-          <div className={section.reasons.length ? "md:col-span-4" : "md:col-span-8"}>
+          <div className={cn("fc-reveal", section.reasons.length ? "md:col-span-4" : "md:col-span-8")}>
             {section.eyebrow && (
               <p className="mb-2 font-mono text-[10px] font-medium tracking-[0.18em] text-emerald-700 uppercase">{t(section.eyebrow)}</p>
             )}
@@ -33,12 +33,12 @@ export function WhyUs({ section, tokens }: { section: WhyUsSection; tokens: Toke
             )}
           </div>
           {section.reasons.length > 0 && (
-            <ul className="fc-stagger grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:col-span-8 md:grid-cols-2">
+            <ul className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:col-span-8 md:grid-cols-2">
               {section.reasons.map((reason, i) => (
                 <li
                   key={i}
                   className={cn(
-                    "group relative flex flex-col gap-2 bg-white p-6 transition-colors hover:bg-surface",
+                    "fc-reveal group relative flex flex-col gap-2 bg-white p-6 transition-colors hover:bg-surface",
                     // An odd last card spans both columns so the grid has no gap.
                     section.reasons.length % 2 === 1 && i === section.reasons.length - 1 && "md:col-span-2",
                   )}
@@ -69,7 +69,7 @@ export function DeliveryPromise({ section, tokens }: { section: PromiseSection; 
   return (
     <section className="relative overflow-hidden bg-surface">
       <div className="mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-24">
-        <div className="fc-rise text-center">
+        <div className="fc-reveal text-center">
           <QuoteIcon className="mx-auto mb-6 h-7 w-7 text-emerald-600" strokeWidth="1.5" />
           <p className="font-sentient mx-auto max-w-3xl text-2xl leading-tight tracking-tight text-balance text-foreground sm:text-3xl md:text-[2.25rem]">
             <Highlighted text={t(section.quote)} highlight={t(section.highlight)} wrap={(phrase) => <span className="text-emerald-700">{phrase}</span>} />
@@ -79,7 +79,7 @@ export function DeliveryPromise({ section, tokens }: { section: PromiseSection; 
         {section.stats.length > 0 && (
           <div
             className={cn(
-              "mx-auto mt-12 grid divide-x divide-border overflow-hidden rounded-xl border border-border bg-white",
+              "fc-reveal mx-auto mt-12 grid divide-x divide-border overflow-hidden rounded-xl border border-border bg-white",
               statColumns[section.stats.length],
             )}
           >

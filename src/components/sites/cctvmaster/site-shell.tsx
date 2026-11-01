@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { AnnouncementBar } from "./announcement-bar";
 import { CookieBanner } from "./cookie-banner";
 import { MobileNav } from "./mobile-nav";
+import { RevealObserver } from "./reveal-observer";
 import { ShopInfoProvider } from "./shop-info";
 import { SiteFooter } from "./site-footer";
 import { SiteHeader } from "./site-header";
@@ -29,6 +30,7 @@ export async function SiteShell({ variant, children }: { variant: "home" | "stor
   return (
     <ShopInfoProvider value={info}>
       <CookieBanner />
+      <RevealObserver />
       <div className="flex min-h-screen flex-col pb-16 md:pb-0">
         <div
           className={cn(

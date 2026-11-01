@@ -70,16 +70,21 @@ function sections() {
 export default async function CategoriesPage() {
   await ensureCatalog();
   return (
-    <div className="bg-white text-foreground">
-      <div className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6">
-        <header className="mb-8">
-          <h1 className="text-3xl font-bold tracking-[-0.02em]">All Categories</h1>
-          <p className="text-muted-foreground mt-2 max-w-2xl text-sm">Pick a category to see everything we sell in it.</p>
-        </header>
-        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+    <div className="text-foreground">
+      <header className="fc-band">
+        <div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-12">
+          <h1 className="fc-rise text-3xl font-bold tracking-[-0.02em] sm:text-4xl">All Categories</h1>
+          <p className="text-muted-foreground mt-2 max-w-2xl text-sm sm:text-base">Pick a category to see everything we sell in it.</p>
+        </div>
+      </header>
+      <div className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {sections().map((section) => (
-            <section key={section.slug} className="border-border rounded-lg border p-5">
-              <Link href={section.href} className="text-lg font-semibold hover:text-emerald-700">
+            <section
+              key={section.slug}
+              className="fc-reveal border-border rounded-xl border bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_22px_40px_-22px_rgba(4,120,87,0.45)]"
+            >
+              <Link href={section.href} className="text-lg font-semibold transition-colors hover:text-emerald-700">
                 {section.name}
                 <span className="text-muted-foreground ml-2 text-xs font-normal">{section.count}</span>
               </Link>
@@ -87,7 +92,7 @@ export default async function CategoriesPage() {
                 <ul className="mt-3 space-y-1.5 text-sm">
                   {section.children.map((child) => (
                     <li key={child.slug}>
-                      <Link href={child.href} className="text-muted-foreground hover:text-foreground hover:underline">
+                      <Link href={child.href} className="text-muted-foreground transition-colors hover:text-primary hover:underline">
                         {child.name}
                         <span className="ml-1.5 text-xs">{child.count}</span>
                       </Link>
