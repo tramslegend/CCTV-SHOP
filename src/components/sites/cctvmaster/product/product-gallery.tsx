@@ -14,14 +14,50 @@ export interface GalleryImage {
 const arrowClass =
   "absolute top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2.5 shadow-lg transition-all hover:scale-105 hover:bg-white focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none";
 
-/** Main product image with arrows, "1 / 5" counter, swipe and arrow-key navigation, plus a thumbnail strip. */
+const MAIN_SIZES =
+  "(max-width: 639px) calc(100vw - 64px), (max-width: 1023px) calc(100vw - 80px), (max-width: 1280px) 50vw, 640px";
+/** Longest slide animation in globals.css (fc-slide-*), plus a margin: the outgoing photo is dropped after it. */
+const SLIDE_MS = 600;
+
+interface View {
+  index: number;
+  /** The photo sliding out, or -1 when nothing is moving. */
+  from: number;
+  /** 1: the new photo comes in from the right (next); -1: from the left (previous); 0: no slide. */
+  dir: 1 | -1 | 0;
+}
+
+/**
+ * Main product image with arrows, "1 / 5" counter, swipe and arrow-key navigation, plus a thumbnail strip.
+ * Changing photo slides like a carousel: the old photo leaves on one side while the new one enters from the other.
+ */
 export function ProductGallery({ images }: { images: GalleryImage[] }) {
-  const [index, setIndex] = useState(0);
+  const [view, setView] = useState<View>({ index: 0, from: -1, dir: 0 });
+  const index = view.index;
   const strip = useRef<HTMLDivElement>(null);
   const start = useRef<{ x: number; y: number } | null>(null);
+  const reduceMotion = useRef(false);
   const count = images.length;
   const many = count > 1;
-  const go = (step: number) => setIndex((i) => (i + step + count) % count);
+
+  useEffect(() => {
+    reduceMotion.current = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }, []);
+
+  /** Shows photo `next`, sliding in direction `dir` (1 forward, -1 back). */
+  const show = (next: number, dir: 1 | -1) =>
+    setView((v) =>
+      next === v.index ? v : { index: next, from: reduceMotion.current ? -1 : v.index, dir: reduceMotion.current ? 0 : dir },
+    );
+  const go = (step: 1 | -1) => show((index + step + count) % count, step);
+  const pick = (i: number) => show(i, i > index ? 1 : -1);
+
+  // Drop the outgoing photo once its slide is over (a timer, so it also goes if the animation never runs).
+  useEffect(() => {
+    if (view.from < 0) return;
+    const timer = setTimeout(() => setView((v) => ({ ...v, from: -1 })), SLIDE_MS);
+    return () => clearTimeout(timer);
+  }, [view.from, view.index]);
 
   useEffect(() => {
     const el = strip.current?.children[index] as HTMLElement | undefined;
@@ -42,10 +78,10 @@ export function ProductGallery({ images }: { images: GalleryImage[] }) {
       go(1);
     } else if (e.key === "Home") {
       e.preventDefault();
-      setIndex(0);
+      pick(0);
     } else if (e.key === "End") {
       e.preventDefault();
-      setIndex(count - 1);
+      pick(count - 1);
     }
   };
   const onPointerDown = (e: PointerEvent<HTMLDivElement>) => {
@@ -62,6 +98,11 @@ export function ProductGallery({ images }: { images: GalleryImage[] }) {
 
   const current = images[index] ?? images[0];
   if (!current) return null;
+  const leaving = view.from >= 0 ? images[view.from] : undefined;
+  // The photos either side load in the background (same sizes, so the same file), so a slide never shows a blank.
+  const neighbours = many
+    ? [...new Set([(index + 1) % count, (index - 1 + count) % count])].filter((i) => i !== index && i !== view.from)
+    : [];
 
   return (
     <div className="space-y-4">
@@ -76,6 +117,31 @@ export function ProductGallery({ images }: { images: GalleryImage[] }) {
         onPointerCancel={() => (start.current = null)}
         className="group focus-visible:ring-ring relative aspect-square touch-pan-y overflow-hidden rounded-xl border border-border bg-white transition-shadow duration-300 select-none hover:shadow-[0_22px_40px_-22px_rgba(4,120,87,0.4)] focus-visible:ring-2 focus-visible:outline-none"
       >
+        {neighbours.map((i) => (
+          <Image
+            key={`preload-${images[i].src}`}
+            src={images[i].src}
+            alt=""
+            aria-hidden="true"
+            fill
+            draggable={false}
+            loading="lazy"
+            sizes={MAIN_SIZES}
+            className="pointer-events-none object-contain p-4 opacity-0"
+          />
+        ))}
+        {leaving && (
+          <Image
+            key={`out-${view.from}-${index}`}
+            src={leaving.src}
+            alt=""
+            aria-hidden="true"
+            fill
+            draggable={false}
+            sizes={MAIN_SIZES}
+            className={cn("pointer-events-none object-contain p-4", view.dir > 0 ? "fc-slide-out-left" : "fc-slide-out-right")}
+          />
+        )}
         <Image
           key={current.src}
           src={current.src}
@@ -84,8 +150,11 @@ export function ProductGallery({ images }: { images: GalleryImage[] }) {
           draggable={false}
           loading="eager"
           fetchPriority={index === 0 ? "high" : "auto"}
-          sizes="(max-width: 639px) calc(100vw - 64px), (max-width: 1023px) calc(100vw - 80px), (max-width: 1280px) 50vw, 640px"
-          className="fc-photo-in object-contain p-4 transition-[scale] duration-700 ease-out group-hover:scale-[1.04]"
+          sizes={MAIN_SIZES}
+          className={cn(
+            "object-contain p-4 transition-[scale] duration-700 ease-out group-hover:scale-[1.04]",
+            view.dir > 0 ? "fc-slide-in-right" : view.dir < 0 ? "fc-slide-in-left" : "fc-photo-in",
+          )}
         />
         {many && (
           <>
@@ -113,7 +182,7 @@ export function ProductGallery({ images }: { images: GalleryImage[] }) {
             <button
               key={img.src}
               type="button"
-              onClick={() => setIndex(i)}
+              onClick={() => pick(i)}
               aria-label={`View image ${i + 1} of ${count}`}
               aria-current={i === index ? "true" : undefined}
               className={cn(

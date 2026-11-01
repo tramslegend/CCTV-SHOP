@@ -384,6 +384,61 @@
   }
 }
 
+/* Product gallery carousel: the new photo slides in from one side while the old one leaves by the other, both
+   moving together across the frame. Keep the duration under SLIDE_MS in product-gallery.tsx. */
+.fc-slide-in-right,
+.fc-slide-in-left,
+.fc-slide-out-left,
+.fc-slide-out-right {
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  animation-fill-mode: both;
+}
+.fc-slide-in-right {
+  animation-name: fc-slide-in-right;
+}
+.fc-slide-in-left {
+  animation-name: fc-slide-in-left;
+}
+.fc-slide-out-left {
+  animation-name: fc-slide-out-left;
+}
+.fc-slide-out-right {
+  animation-name: fc-slide-out-right;
+}
+@keyframes fc-slide-in-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0.4;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes fc-slide-in-left {
+  from {
+    transform: translateX(-100%);
+    opacity: 0.4;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes fc-slide-out-left {
+  to {
+    transform: translateX(-100%);
+    opacity: 0.4;
+  }
+}
+@keyframes fc-slide-out-right {
+  to {
+    transform: translateX(100%);
+    opacity: 0.4;
+  }
+}
+
 @supports (animation-timeline: scroll()) {
   /* Sticky header: turns translucent and blurred, with a deeper shadow, over the first 120px of scrolling. */
   .fc-header {
@@ -430,6 +485,10 @@
   .fc-aurora::before,
   .fc-aurora::after,
   .fc-photo-in,
+  .fc-slide-in-right,
+  .fc-slide-in-left,
+  .fc-slide-out-left,
+  .fc-slide-out-right,
   .fc-header,
   .fc-header > :first-child {
     animation: none !important;
