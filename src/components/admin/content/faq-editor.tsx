@@ -51,7 +51,7 @@ export function FaqEditor({
             const qId = fieldId(idPrefix, qKey);
             const aId = fieldId(idPrefix, aKey);
             return (
-              <li key={item.id} className="flex gap-2 rounded-lg border bg-zinc-50/60 p-3">
+              <li key={item.id} className="flex gap-2 rounded-lg border bg-surface/60 p-3">
                 <span className="text-muted-foreground w-5 pt-2 text-xs tabular-nums">{i + 1}</span>
                 <div className="flex min-w-0 flex-1 flex-col gap-2">
                   <div className="flex flex-col gap-1">

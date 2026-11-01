@@ -19,24 +19,24 @@ interface SidebarProps {
 /** Left-hand "Categories" panel of every product listing. */
 export function ListingSidebar({ basePath, query, allCount, nodes, kitNav, clearHref }: SidebarProps) {
   return (
-    <div className="max-h-[calc(100dvh-9rem)] overflow-y-auto rounded-xl border border-gray-100 bg-white p-4 shadow-sm">
+    <div className="max-h-[calc(100dvh-9rem)] overflow-y-auto rounded-xl border border-border bg-white p-4 shadow-sm">
       <ListingSearch basePath={basePath} query={query} />
       <div className="space-y-0.5">
-        <p className="mb-2 px-1 text-xs font-semibold tracking-wider text-gray-500 uppercase">Categories</p>
+        <p className="mb-2 px-1 text-xs font-semibold tracking-wider text-muted-foreground uppercase">Categories</p>
         <Link
           href="/products"
           className="flex min-h-11 w-full items-center justify-between rounded-lg bg-emerald-50 px-3 py-2 text-sm font-semibold text-emerald-700 transition-colors"
         >
           <span>All Products</span>
-          <span className="text-xs text-gray-500">{allCount}</span>
+          <span className="text-xs text-muted-foreground">{allCount}</span>
         </Link>
         <div className="space-y-0.5">
           <Link
             href={kitNav.href}
-            className="flex min-h-11 w-full items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 hover:text-emerald-700"
+            className="flex min-h-11 w-full items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-surface hover:text-emerald-700"
           >
             <span>{kitNav.name}</span>
-            <span className="text-xs text-gray-600">{kitNav.count}</span>
+            <span className="text-xs text-muted-foreground">{kitNav.count}</span>
           </Link>
           {kitNav.systems.map((system) => (
             <KitSystem key={system.slug} system={system} />
@@ -50,7 +50,7 @@ export function ListingSidebar({ basePath, query, allCount, nodes, kitNav, clear
         <Link
           href={clearHref}
           scroll={false}
-          className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-lg border border-gray-100 px-3 py-2 text-xs font-medium text-gray-500 transition-colors hover:border-red-100 hover:bg-red-50 hover:text-red-600"
+          className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-lg border border-border px-3 py-2 text-xs font-medium text-muted-foreground transition-colors hover:border-red-100 hover:bg-red-50 hover:text-red-600"
         >
           <X className="h-3.5 w-3.5" aria-hidden="true" />
           Clear filters
@@ -64,14 +64,14 @@ function KitSystem({ system }: { system: KitNavSystem }) {
   const [open, setOpen] = useState(false);
   const id = `kit-nav-${system.slug}`;
   return (
-    <div className="ml-3 border-l border-gray-100 pl-3">
+    <div className="ml-3 border-l border-border pl-3">
       <div className="flex items-center gap-1">
         <Link
           href={system.href}
-          className="flex min-h-11 flex-1 items-center justify-between rounded-lg px-2.5 py-1.5 text-sm text-gray-700 transition-colors hover:bg-gray-50 hover:text-emerald-700"
+          className="flex min-h-11 flex-1 items-center justify-between rounded-lg px-2.5 py-1.5 text-sm text-foreground/80 transition-colors hover:bg-surface hover:text-emerald-700"
         >
           <span>{system.name}</span>
-          <span className="text-xs text-gray-600">{system.count}</span>
+          <span className="text-xs text-muted-foreground">{system.count}</span>
         </Link>
         <button
           type="button"
@@ -79,7 +79,7 @@ function KitSystem({ system }: { system: KitNavSystem }) {
           aria-controls={id}
           aria-label={`${open ? "Hide" : "Show"} ${system.name} subcategories`}
           onClick={() => setOpen((v) => !v)}
-          className="flex min-h-11 min-w-11 items-center justify-center rounded text-gray-400 hover:bg-gray-100 hover:text-gray-600"
+          className="flex min-h-11 min-w-11 items-center justify-center rounded text-gray-400 hover:bg-muted hover:text-muted-foreground"
         >
           <ChevronDown className={cn("h-3.5 w-3.5 transition-transform", open && "rotate-180")} aria-hidden="true" />
         </button>
@@ -87,7 +87,7 @@ function KitSystem({ system }: { system: KitNavSystem }) {
       <div id={id} className={cn("mt-1 mb-2 ml-2.5 space-y-2", !open && "hidden")}>
         {system.groups.map((group) => (
           <div key={group.label}>
-            <p className="px-2 pb-0.5 text-[0.6875rem] font-semibold tracking-wide text-gray-600 uppercase">
+            <p className="px-2 pb-0.5 text-[0.6875rem] font-semibold tracking-wide text-muted-foreground uppercase">
               {group.label}
             </p>
             <div className="space-y-0.5">
@@ -95,10 +95,10 @@ function KitSystem({ system }: { system: KitNavSystem }) {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="flex min-h-11 w-full items-center justify-between rounded-lg px-2 py-1 text-xs text-gray-600 transition-colors hover:bg-gray-50 hover:text-emerald-700"
+                  className="flex min-h-11 w-full items-center justify-between rounded-lg px-2 py-1 text-xs text-muted-foreground transition-colors hover:bg-surface hover:text-emerald-700"
                 >
                   <span className="truncate">{link.name}</span>
-                  <span className="ml-2 shrink-0 text-gray-600">{link.count}</span>
+                  <span className="ml-2 shrink-0 text-muted-foreground">{link.count}</span>
                 </Link>
               ))}
             </div>
@@ -117,12 +117,12 @@ function CategoryBranch({ node, depth }: { node: SidebarNode; depth: number }) {
       <Link
         href={node.href}
         className={cn(
-          "flex min-h-11 w-full items-center gap-1 rounded-lg text-sm transition-colors hover:bg-gray-50 hover:text-emerald-700",
-          depth === 0 ? "px-3 py-2 text-gray-700" : "px-2.5 py-1.5 text-gray-600",
+          "flex min-h-11 w-full items-center gap-1 rounded-lg text-sm transition-colors hover:bg-surface hover:text-emerald-700",
+          depth === 0 ? "px-3 py-2 text-foreground/80" : "px-2.5 py-1.5 text-muted-foreground",
         )}
       >
         <span className="flex-1 text-left">{node.name}</span>
-        <span className="text-xs text-gray-500">{node.count}</span>
+        <span className="text-xs text-muted-foreground">{node.count}</span>
         {hasChildren ? (
           <span
             role="button"
@@ -137,14 +137,14 @@ function CategoryBranch({ node, depth }: { node: SidebarNode; depth: number }) {
             className="-m-2 ml-0.5 rounded p-2 hover:bg-emerald-100"
           >
             <ChevronDown
-              className={cn("h-3.5 w-3.5 text-gray-500 transition-transform", open && "rotate-180")}
+              className={cn("h-3.5 w-3.5 text-muted-foreground transition-transform", open && "rotate-180")}
               aria-hidden="true"
             />
           </span>
         ) : null}
       </Link>
       {hasChildren && open ? (
-        <div className="mt-0.5 ml-3 space-y-0.5 border-l border-gray-100 pl-3">
+        <div className="mt-0.5 ml-3 space-y-0.5 border-l border-border pl-3">
           {node.children.map((child) => (
             <CategoryBranch key={child.slug} node={child} depth={depth + 1} />
           ))}

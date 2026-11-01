@@ -33,8 +33,8 @@ export function CompareToggle({ item, name }: { item: CompareItem; name: string 
     <label
       title={full ? `You can compare up to ${COMPARE_MAX} at a time` : undefined}
       className={cn(
-        "inline-flex min-h-9 cursor-pointer items-center gap-2 rounded-full border border-zinc-200 bg-white px-3 text-xs font-medium text-zinc-700 transition-colors select-none hover:border-emerald-300 has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50 has-[:checked]:text-emerald-800 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-emerald-600",
-        full && "cursor-not-allowed opacity-50 hover:border-zinc-200",
+        "inline-flex min-h-9 cursor-pointer items-center gap-2 rounded-full border border-border bg-white px-3 text-xs font-medium text-foreground/80 transition-colors select-none hover:border-emerald-300 has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50 has-[:checked]:text-emerald-800 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-emerald-600",
+        full && "cursor-not-allowed opacity-50 hover:border-border",
       )}
     >
       <input

@@ -116,7 +116,7 @@ export function MediaDetailDialog({ item, open, onClose }: { item: MediaItem; op
                   {copied ? <Check /> : <Copy />} {copied ? "Copied" : "Copy URL"}
                 </Button>
               </div>
-              <a href={item.url} target="_blank" rel="noreferrer" className="text-muted-foreground inline-flex items-center gap-1 text-xs underline-offset-2 hover:text-zinc-950 hover:underline">
+              <a href={item.url} target="_blank" rel="noreferrer" className="text-muted-foreground inline-flex items-center gap-1 text-xs underline-offset-2 hover:text-foreground hover:underline">
                 Open the original <ExternalLink className="size-3" aria-hidden="true" />
               </a>
             </div>

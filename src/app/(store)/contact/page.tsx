@@ -28,7 +28,7 @@ function Route({ href, label, value, icon, external }: { href: string; label: st
   return (
     <li>
       <a
-        className="group flex items-center gap-3 rounded-xl border border-zinc-200 bg-white px-5 py-4 transition-all hover:-translate-y-0.5 hover:border-emerald-700 hover:shadow-[0_12px_24px_-16px_rgba(16,185,129,0.3)]"
+        className="group flex items-center gap-3 rounded-xl border border-border bg-white px-5 py-4 transition-all hover:-translate-y-0.5 hover:border-emerald-700 hover:shadow-[0_12px_24px_-16px_rgba(16,185,129,0.3)]"
         href={href}
         {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       >
@@ -36,8 +36,8 @@ function Route({ href, label, value, icon, external }: { href: string; label: st
           {icon}
         </span>
         <div className="min-w-0">
-          <p className="font-mono text-[10px] font-medium tracking-[0.16em] text-zinc-500 uppercase">{label}</p>
-          <p className="truncate text-sm font-semibold text-zinc-950">{value}</p>
+          <p className="font-mono text-[10px] font-medium tracking-[0.16em] text-muted-foreground uppercase">{label}</p>
+          <p className="truncate text-sm font-semibold text-foreground">{value}</p>
         </div>
       </a>
     </li>
@@ -53,7 +53,7 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
   // A version published in /admin/content/pages replaces the heading and intro; the contact details and form stay.
   if (page) return <ManagedPage page={page} settings={settings} slot={reach} />;
   return (
-    <div className="bg-white text-zinc-950">
+    <div className="bg-white text-foreground">
       <ContactHero
         title="Get In Touch"
         badge="Avg reply: under 1 hour, weekdays"
@@ -78,12 +78,12 @@ function ReachUs({ store, product }: { store: StoreSettings; product: Product | 
     ? `Hi, I'd like a quote for the ${product.name}${product.sku ? ` (SKU ${product.sku})` : ""}. Quantity: 1. Please let me know price and availability.`
     : "";
   return (
-    <section className="bg-zinc-50/60 py-14 sm:py-20">
+    <section className="bg-surface/60 py-14 sm:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid gap-8 lg:grid-cols-5 lg:gap-10">
           <div className="lg:col-span-2">
             <p className="font-mono text-[10px] font-medium tracking-[0.18em] text-emerald-700 uppercase">Reach us</p>
-            <h2 className="font-sentient mt-2 text-2xl leading-[1.1] font-bold tracking-tight text-zinc-950 md:text-3xl">
+            <h2 className="font-sentient mt-2 text-2xl leading-[1.1] font-bold tracking-tight text-foreground md:text-3xl">
               The fastest routes in.
             </h2>
             <ul className="mt-6 space-y-3">
@@ -98,16 +98,16 @@ function ReachUs({ store, product }: { store: StoreSettings; product: Product | 
               )}
             </ul>
             {store.openingHours.length > 0 && (
-              <div className="mt-6 overflow-hidden rounded-2xl border border-zinc-200 bg-white">
-                <div className="flex items-center gap-3 border-b border-zinc-100 bg-zinc-50/60 px-5 py-3">
+              <div className="mt-6 overflow-hidden rounded-2xl border border-border bg-white">
+                <div className="flex items-center gap-3 border-b border-border bg-surface/60 px-5 py-3">
                   <Clock className="h-4 w-4 text-emerald-700" aria-hidden="true" />
-                  <p className="text-sm font-semibold text-zinc-950">Opening hours</p>
+                  <p className="text-sm font-semibold text-foreground">Opening hours</p>
                 </div>
-                <dl className="divide-y divide-zinc-100 px-5 py-3 text-sm">
+                <dl className="divide-y divide-border px-5 py-3 text-sm">
                   {store.openingHours.map((row, i) => (
                     <div key={`${i}-${row.days}`} className="flex items-center justify-between py-2">
-                      <dt className="text-zinc-500">{row.days}</dt>
-                      <dd className="font-medium text-zinc-950">{row.hours}</dd>
+                      <dt className="text-muted-foreground">{row.days}</dt>
+                      <dd className="font-medium text-foreground">{row.hours}</dd>
                     </div>
                   ))}
                 </dl>
@@ -120,12 +120,12 @@ function ReachUs({ store, product }: { store: StoreSettings; product: Product | 
           </div>
 
           <div className="lg:col-span-3">
-            <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-[0_18px_40px_-22px_rgba(0,0,0,0.25)]">
-              <div className="border-b border-zinc-100 bg-zinc-50/60 px-6 py-4 sm:px-8">
-                <h2 className="text-lg font-semibold tracking-tight text-zinc-950">
+            <div className="overflow-hidden rounded-2xl border border-border bg-white shadow-[0_18px_40px_-22px_rgba(0,0,0,0.25)]">
+              <div className="border-b border-border bg-surface/60 px-6 py-4 sm:px-8">
+                <h2 className="text-lg font-semibold tracking-tight text-foreground">
                   {product ? "Request a quote" : "Send a message"}
                 </h2>
-                <p className="mt-0.5 text-sm text-zinc-500">
+                <p className="mt-0.5 text-sm text-muted-foreground">
                   {product
                     ? `Asking about: ${product.name}`
                     : "Fill in the form and someone from our team will reply as soon as they can."}

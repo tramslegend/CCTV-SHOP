@@ -191,7 +191,7 @@ export function PageEditor({
       }}
     >
       <AdminToaster />
-      <div className="sticky top-14 z-20 -mx-4 mb-6 border-b bg-zinc-50/95 px-4 py-3 backdrop-blur lg:-mx-8 lg:px-8">
+      <div className="sticky top-14 z-20 -mx-4 mb-6 border-b bg-surface/95 px-4 py-3 backdrop-blur lg:-mx-8 lg:px-8">
         <div className="flex flex-wrap items-center gap-3">
           <Link href="/admin/content/pages" className={buttonVariants({ variant: "ghost", size: "icon-sm" })} aria-label="Back to pages">
             <ArrowLeft />
@@ -252,7 +252,7 @@ export function PageEditor({
 
       <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]">
         <div className="flex min-w-0 flex-col gap-4">
-          <div className="inline-flex self-start rounded-lg bg-zinc-200/60 p-0.5 text-sm" role="tablist" aria-label="Editor view">
+          <div className="inline-flex self-start rounded-lg bg-border/60 p-0.5 text-sm" role="tablist" aria-label="Editor view">
             {(
               [
                 { key: "edit", label: "Edit", icon: PencilLine },
@@ -265,7 +265,7 @@ export function PageEditor({
                 role="tab"
                 aria-selected={tab === t.key}
                 onClick={() => setTab(t.key)}
-                className={cn("inline-flex items-center gap-1.5 rounded-md px-3 py-1 font-medium", tab === t.key ? "bg-white shadow-sm" : "text-zinc-600 hover:text-zinc-950")}
+                className={cn("inline-flex items-center gap-1.5 rounded-md px-3 py-1 font-medium", tab === t.key ? "bg-white shadow-sm" : "text-muted-foreground hover:text-foreground")}
               >
                 <t.icon className="size-3.5" aria-hidden="true" /> {t.label}
               </button>
@@ -274,9 +274,9 @@ export function PageEditor({
 
           {tab === "preview" ? (
             <section aria-label="Preview" className="overflow-hidden rounded-xl bg-white ring-1 ring-black/10">
-              <div className="text-muted-foreground flex items-center justify-between border-b bg-zinc-50 px-4 py-2 text-xs">
+              <div className="text-muted-foreground flex items-center justify-between border-b bg-surface px-4 py-2 text-xs">
                 <span>
-                  Preview of <span className="font-medium text-zinc-900">{def.path}</span> with your unsaved changes
+                  Preview of <span className="font-medium text-foreground">{def.path}</span> with your unsaved changes
                 </span>
                 <span>{values.status === "active" ? "Will be published" : "Draft: the shop keeps the built-in page"}</span>
               </div>
@@ -391,7 +391,7 @@ export function PageEditor({
 
         <aside className="flex flex-col gap-6 lg:sticky lg:top-36">
           <FormSection id="visibility" title="Visibility">
-            <div className="grid grid-cols-2 gap-1 rounded-lg bg-zinc-100 p-1 text-sm" role="radiogroup" aria-label="Visibility">
+            <div className="grid grid-cols-2 gap-1 rounded-lg bg-muted p-1 text-sm" role="radiogroup" aria-label="Visibility">
               {(["active", "draft"] as PageStatus[]).map((s) => (
                 <button
                   key={s}
@@ -400,7 +400,7 @@ export function PageEditor({
                   role="radio"
                   aria-checked={values.status === s}
                   onClick={() => set("status", s)}
-                  className={cn("rounded-md px-2 py-1.5 font-medium", values.status === s ? "bg-white shadow-sm" : "text-zinc-600 hover:text-zinc-950")}
+                  className={cn("rounded-md px-2 py-1.5 font-medium", values.status === s ? "bg-white shadow-sm" : "text-muted-foreground hover:text-foreground")}
                 >
                   {PAGE_STATUS_LABELS[s]}
                 </button>

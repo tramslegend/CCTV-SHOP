@@ -41,7 +41,7 @@ function NavLinks({ role, badges, onNavigate }: { role: string; badges: NavBadge
                 aria-current={isActive(href) ? "page" : undefined}
                 className={cn(
                   "flex items-center gap-2.5 rounded-md px-2 py-1.5 font-medium transition-colors",
-                  isActive(href) ? "bg-zinc-900 text-white" : "text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950",
+                  isActive(href) ? "bg-primary text-white" : "text-foreground/80 hover:bg-muted hover:text-foreground",
                 )}
               >
                 <Icon className="size-4 shrink-0" aria-hidden="true" />
@@ -50,7 +50,7 @@ function NavLinks({ role, badges, onNavigate }: { role: string; badges: NavBadge
                   <span
                     className={cn(
                       "min-w-5 rounded-full px-1.5 text-center text-[11px] leading-5 font-semibold tabular-nums",
-                      isActive(href) ? "bg-white text-zinc-900" : "bg-emerald-600 text-white",
+                      isActive(href) ? "bg-white text-foreground" : "bg-emerald-600 text-white",
                     )}
                   >
                     <span className="sr-only">(</span>
@@ -87,14 +87,14 @@ export function AdminShell({
   };
   const brand = (
     <Link href="/admin" className="flex items-center gap-2 px-5 py-4 font-semibold tracking-tight">
-      <span className="flex size-7 items-center justify-center rounded-md bg-zinc-900 text-xs text-white">{storeName.slice(0, 1)}</span>
+      <span className="flex size-7 items-center justify-center rounded-md bg-primary text-xs text-white">{storeName.slice(0, 1)}</span>
       <span className="truncate">{storeName}</span>
       <span className="text-muted-foreground text-xs font-normal">Admin</span>
     </Link>
   );
 
   return (
-    <div className="flex min-h-screen bg-zinc-50 text-zinc-950">
+    <div className="flex min-h-screen bg-canvas text-foreground">
       <aside className="sticky top-0 hidden h-screen w-60 shrink-0 flex-col border-r bg-white lg:flex">
         {brand}
         <div className="flex-1 overflow-y-auto">
@@ -114,7 +114,7 @@ export function AdminShell({
             <Menu />
           </Button>
           <div className="flex-1" />
-          <Link href="/" target="_blank" className="text-muted-foreground hidden items-center gap-1.5 text-sm hover:text-zinc-950 sm:flex">
+          <Link href="/" target="_blank" className="text-muted-foreground hidden items-center gap-1.5 text-sm hover:text-foreground sm:flex">
             View shop <ExternalLink className="size-3.5" aria-hidden="true" />
           </Link>
           <div className="flex items-center gap-3 border-l pl-3">

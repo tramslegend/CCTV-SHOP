@@ -7,13 +7,13 @@ export const BROWSE_PAGE_SIZE = 60;
 
 export function KitsHero({ eyebrow, title, intro }: { eyebrow: string; title: string; intro: ReactNode }) {
   return (
-    <section className="relative overflow-hidden border-b border-zinc-100 bg-[#FAF9F6]">
+    <section className="relative overflow-hidden border-b border-border bg-[#FAF9F6]">
       <div aria-hidden="true" className="absolute inset-y-0 left-0 hidden w-[6px] bg-emerald-600 lg:block" />
       <div className={cn(CONTAINER, "py-12 sm:py-16")}>
         <div className="max-w-3xl">
           <p className="mb-3 font-mono text-xs tracking-widest text-emerald-700 uppercase">{eyebrow}</p>
-          <h1 className="text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl md:text-5xl">{title}</h1>
-          <p className="mt-4 text-base leading-relaxed text-zinc-600 sm:text-lg">{intro}</p>
+          <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">{title}</h1>
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">{intro}</p>
         </div>
       </div>
     </section>
@@ -134,7 +134,7 @@ const MORE: { id: string; title: string; body: string; links: { label: string; h
 
 export function KitsMoreInfo() {
   return (
-    <div className="mt-10 max-w-3xl space-y-3 text-sm leading-relaxed text-zinc-600">
+    <div className="mt-10 max-w-3xl space-y-3 text-sm leading-relaxed text-muted-foreground">
       {MORE.map((m) => (
         <section key={m.id} id={m.id} className="scroll-mt-28 pt-4">
           <h2 className="text-foreground text-lg font-semibold">{m.title}</h2>

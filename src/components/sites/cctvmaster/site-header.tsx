@@ -97,7 +97,7 @@ export function SiteHeader({ brand, nav }: { brand: { name: string; logoUrl: str
   }, [open]);
 
   return (
-    <header ref={headerRef} className="sticky top-0 z-50 w-full border-b shadow-sm">
+    <header ref={headerRef} className="fc-header sticky top-0 z-50 w-full border-b shadow-sm">
       <div className="bg-background w-full">
         <div className="mx-auto flex h-16 max-w-450 items-center gap-4 px-4 md:px-6 lg:px-8">
           <Link className="flex shrink-0 items-center" href="/">
@@ -129,10 +129,10 @@ export function SiteHeader({ brand, nav }: { brand: { name: string; logoUrl: str
                 return (
                   <Link
                     key={cat.slug}
-                    className="hover:text-foreground flex items-center gap-2 px-3 py-2 text-sm font-medium whitespace-nowrap text-slate-700 dark:text-slate-300"
+                    className="hover:text-foreground flex items-center gap-2 px-3 py-2 text-sm font-medium whitespace-nowrap text-foreground/80 dark:text-slate-300"
                     href={cat.href}
                   >
-                    <div className="h-6 w-6 shrink-0 overflow-hidden rounded bg-slate-100 dark:bg-slate-800">{thumb}</div>
+                    <div className="fc-blend h-6 w-6 shrink-0 overflow-hidden rounded">{thumb}</div>
                     <span>{cat.name}</span>
                   </Link>
                 );
@@ -146,13 +146,13 @@ export function SiteHeader({ brand, nav }: { brand: { name: string; logoUrl: str
                     onClick={() => toggle(cat.slug)}
                     className="relative flex cursor-pointer items-center gap-2 px-3 py-2 text-sm font-medium whitespace-nowrap"
                   >
-                    <div className="pointer-events-none h-6 w-6 shrink-0 overflow-hidden rounded bg-slate-100 dark:bg-slate-800">
+                    <div className="fc-blend pointer-events-none h-6 w-6 shrink-0 overflow-hidden rounded">
                       {thumb}
                     </div>
                     <span
                       className={cn(
                         "pointer-events-none",
-                        isOpen ? "text-[#047857]" : "text-slate-700 dark:text-slate-300",
+                        isOpen ? "text-[#047857]" : "text-foreground/80 dark:text-slate-300",
                       )}
                     >
                       {cat.name}

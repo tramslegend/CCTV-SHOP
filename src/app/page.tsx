@@ -40,7 +40,7 @@ export default async function Home() {
   const blocks: ReactNode[] = [];
   let run: ReactNode[] = [];
   const flush = () => {
-    if (run.length) blocks.push(<div key={`wrap-${blocks.length}`} className="bg-white text-zinc-950">{run}</div>);
+    if (run.length) blocks.push(<div key={`wrap-${blocks.length}`} className="bg-white text-foreground">{run}</div>);
     run = [];
   };
   for (const id of shown) {

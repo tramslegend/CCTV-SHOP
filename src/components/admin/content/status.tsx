@@ -5,13 +5,13 @@ const pill = "inline-flex h-5 items-center gap-1.5 rounded-full border px-2 text
 
 const STYLE: Record<PostStatus, string> = {
   active: "border-emerald-200 bg-emerald-50 text-emerald-800",
-  draft: "border-zinc-200 bg-zinc-100 text-zinc-700",
+  draft: "border-border bg-muted text-foreground/80",
   archived: "border-amber-200 bg-amber-50 text-amber-800",
 };
 
 /** A page's state: built in (no custom version), or the custom version's status. */
 export function PageStatusBadge({ status, className }: { status: PageStatus | null; className?: string }) {
-  if (!status) return <span className={cn(pill, "border-zinc-200 bg-white text-zinc-600", className)}>Built-in</span>;
+  if (!status) return <span className={cn(pill, "border-border bg-white text-muted-foreground", className)}>Built-in</span>;
   return <span className={cn(pill, STYLE[status], className)}>{status === "active" ? "Your version · published" : `Your version · ${PAGE_STATUS_LABELS[status].toLowerCase()}`}</span>;
 }
 

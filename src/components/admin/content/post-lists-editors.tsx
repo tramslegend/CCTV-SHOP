@@ -146,7 +146,7 @@ export function SourcesEditor({ items, onChange, errors }: { items: SourceValue[
             const tId = `pf-sources-${i}-title`;
             const uId = `pf-sources-${i}-url`;
             return (
-              <li key={src.id} className="flex gap-2 rounded-lg border bg-zinc-50/60 p-3">
+              <li key={src.id} className="flex gap-2 rounded-lg border bg-surface/60 p-3">
                 <div className="grid min-w-0 flex-1 gap-2 sm:grid-cols-2">
                   <div className="flex flex-col gap-1">
                     <Input

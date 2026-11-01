@@ -38,7 +38,7 @@ export default async function NewCategoryPage(props: PageProps<"/admin/categorie
 
   return (
     <>
-      <div className="mb-4 inline-flex rounded-lg bg-zinc-200/60 p-0.5 text-sm" role="tablist" aria-label="What are you adding?">
+      <div className="mb-4 inline-flex rounded-lg bg-border/60 p-0.5 text-sm" role="tablist" aria-label="What are you adding?">
         {[
           { href: "/admin/categories/new", label: "Shop category", active: !isKit },
           { href: "/admin/categories/new?type=kit", label: "Kit range", active: isKit },
@@ -48,7 +48,7 @@ export default async function NewCategoryPage(props: PageProps<"/admin/categorie
             href={t.href}
             role="tab"
             aria-selected={t.active}
-            className={cn("rounded-md px-3 py-1 font-medium", t.active ? "bg-white shadow-sm" : "text-zinc-600 hover:text-zinc-950")}
+            className={cn("rounded-md px-3 py-1 font-medium", t.active ? "bg-white shadow-sm" : "text-muted-foreground hover:text-foreground")}
           >
             {t.label}
           </Link>

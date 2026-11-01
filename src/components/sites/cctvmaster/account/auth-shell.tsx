@@ -27,7 +27,7 @@ export function AuthShell({
   return (
     <Outer
       className={cn(
-        "flex items-center justify-center bg-zinc-50 px-6 py-16",
+        "flex items-center justify-center bg-surface px-6 py-16",
         variant !== "signup" && "min-h-[calc(100vh-200px)]",
       )}
     >
@@ -40,9 +40,9 @@ export function AuthShell({
             <ShopLogo width={180} height={48} className="h-11 w-auto" textClassName="text-2xl" />
           </Link>
         )}
-        <div className={cn("rounded-xl border border-zinc-200 bg-white p-8", cardShadow)}>{children}</div>
+        <div className={cn("rounded-xl border border-border bg-white p-8", cardShadow)}>{children}</div>
         {decorated && (
-          <ul className="mt-7 flex items-center justify-center gap-x-5 gap-y-2 text-zinc-500">
+          <ul className="mt-7 flex items-center justify-center gap-x-5 gap-y-2 text-muted-foreground">
             {trust.map(({ label, Icon }) => (
               <li key={label} className="flex items-center gap-1.5 font-mono text-[10px] tracking-[0.14em] uppercase">
                 <Icon className="h-3.5 w-3.5 text-emerald-700" aria-hidden="true" />
@@ -63,8 +63,8 @@ export function AuthHeading({ kicker, title, lede }: { kicker: string; title: st
         <span aria-hidden="true" className="h-px w-6 bg-emerald-700" />
         {kicker}
       </p>
-      <h1 className="text-2xl font-semibold tracking-tight text-balance text-zinc-950">{title}</h1>
-      <p className="mt-1.5 text-sm text-zinc-500">{lede}</p>
+      <h1 className="text-2xl font-semibold tracking-tight text-balance text-foreground">{title}</h1>
+      <p className="mt-1.5 text-sm text-muted-foreground">{lede}</p>
     </>
   );
 }
@@ -72,9 +72,9 @@ export function AuthHeading({ kicker, title, lede }: { kicker: string; title: st
 export function AuthDivider({ label }: { label: string }) {
   return (
     <div className="mt-6 flex items-center gap-3">
-      <span className="h-px flex-1 bg-zinc-100" />
+      <span className="h-px flex-1 bg-muted" />
       <span className="font-mono text-[10px] tracking-[0.18em] text-zinc-400 uppercase">{label}</span>
-      <span className="h-px flex-1 bg-zinc-100" />
+      <span className="h-px flex-1 bg-muted" />
     </div>
   );
 }

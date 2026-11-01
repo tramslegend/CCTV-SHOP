@@ -129,7 +129,7 @@ export function NavigationEditor({
           errorCount={count("announcement")}
           muted={!a.enabled}
           header={
-            <label className="flex items-center gap-2 text-xs font-medium text-zinc-700">
+            <label className="flex items-center gap-2 text-xs font-medium text-foreground/80">
               <Switch checked={a.enabled} aria-label="Show the announcement banner" onCheckedChange={(enabled) => setBanner({ enabled }, "announcement")} />
               {a.enabled ? "On" : "Off"}
             </label>
@@ -164,7 +164,7 @@ export function NavigationEditor({
                   key={c}
                   className={cn(
                     "flex cursor-pointer items-center gap-2 rounded-lg border px-2.5 py-1.5 text-xs font-medium",
-                    a.colour === c ? "border-zinc-900 ring-1 ring-zinc-900" : "hover:border-zinc-400",
+                    a.colour === c ? "border-primary ring-1 ring-primary" : "hover:border-zinc-400",
                   )}
                 >
                   <input type="radio" name="announcement-colour" value={c} checked={a.colour === c} onChange={() => setBanner({ colour: c })} className="sr-only" />
@@ -200,7 +200,7 @@ export function NavigationEditor({
           errorCount={count("topLinks")}
           muted={!top.enabled}
           header={
-            <label className="flex items-center gap-2 text-xs font-medium text-zinc-700">
+            <label className="flex items-center gap-2 text-xs font-medium text-foreground/80">
               <Switch checked={top.enabled} aria-label="Show the top bar" onCheckedChange={(enabled) => setTopBar({ enabled }, "navigation.topBar")} />
               {top.enabled ? "On" : "Off"}
             </label>
@@ -378,7 +378,7 @@ export function NavigationEditor({
                 const id = fieldId(N, `payments-${m.id}`);
                 const on = footer.payments.includes(m.id);
                 return (
-                  <label key={m.id} htmlFor={id} className={cn("flex cursor-pointer items-center gap-2 rounded-lg border px-2.5 py-1.5 text-sm", on && "border-zinc-900")}>
+                  <label key={m.id} htmlFor={id} className={cn("flex cursor-pointer items-center gap-2 rounded-lg border px-2.5 py-1.5 text-sm", on && "border-primary")}>
                     <Checkbox
                       id={id}
                       checked={on}
@@ -387,7 +387,7 @@ export function NavigationEditor({
                         setFooter({ payments: checked ? [...footer.payments, m.id] : footer.payments.filter((p) => p !== m.id) })
                       }
                     />
-                    <span className={cn("grid h-6 min-w-11 place-items-center rounded border border-zinc-800 bg-zinc-900 px-1.5 text-[10px] font-semibold tracking-wider text-zinc-300", MONO)}>
+                    <span className={cn("grid h-6 min-w-11 place-items-center rounded border border-zinc-800 bg-primary px-1.5 text-[10px] font-semibold tracking-wider text-zinc-300", MONO)}>
                       {m.mark}
                     </span>
                     {m.label}

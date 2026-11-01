@@ -124,7 +124,7 @@ export function HomepageEditor({
         </p>
         <button
           type="button"
-          className="text-sm font-medium text-zinc-700 underline-offset-4 hover:underline"
+          className="text-sm font-medium text-foreground/80 underline-offset-4 hover:underline"
           onClick={() => setOpen(allOpen ? {} : Object.fromEntries(SECTION_IDS.map((id) => [id, true])))}
         >
           {allOpen ? "Collapse all" : "Expand all"}
@@ -147,7 +147,7 @@ export function HomepageEditor({
                 muted={!section.enabled}
                 header={
                   <>
-                    <label className="flex items-center gap-2 text-xs font-medium text-zinc-700">
+                    <label className="flex items-center gap-2 text-xs font-medium text-foreground/80">
                       <Switch
                         checked={section.enabled}
                         aria-label={`Show ${label} on the homepage`}

@@ -44,7 +44,7 @@ function Option({ option, mobile }: { option: KitOption; mobile?: boolean }) {
 export function KitPickers({ saving, pickers }: { saving?: KitSaving; pickers: KitPicker[] }) {
   if (!saving && !pickers.length) return null;
   return (
-    <div className="space-y-5 rounded-2xl border border-gray-100 bg-gray-50/50 p-4">
+    <div className="space-y-5 rounded-2xl border border-border bg-surface/50 p-4">
       {saving && (
         <div className="space-y-1" data-testid="kit-bundle-saving">
           <p className="text-muted-foreground text-sm">

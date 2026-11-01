@@ -126,7 +126,7 @@ export function CheckoutFlow(props: {
   if (placing) {
     return (
       <CheckoutFrame>
-        <div className="mx-auto flex max-w-2xl items-center justify-center gap-2 px-4 py-16 text-zinc-600" role="status">
+        <div className="mx-auto flex max-w-2xl items-center justify-center gap-2 px-4 py-16 text-muted-foreground" role="status">
           <LoaderCircle className="h-5 w-5 animate-spin text-emerald-700" aria-hidden="true" />
           {placing === "stripe" ? "Taking you to secure payment…" : "Placing your order…"}
         </div>
@@ -139,9 +139,9 @@ export function CheckoutFlow(props: {
       <CheckoutFrame>
         <div className="mx-auto max-w-2xl px-4 py-16 text-center" role="status">
           <PauseCircle className="mx-auto h-10 w-10 text-amber-600" aria-hidden="true" />
-          <h1 className="mt-4 text-2xl font-semibold tracking-tight text-zinc-950">Online ordering is paused</h1>
-          <p className="mt-2 whitespace-pre-line text-zinc-600">{props.checkout.ordering.pausedMessage || PAUSED_TEXT}</p>
-          <p className="mt-2 text-sm text-zinc-500">Your basket is saved, so you can come back to it later.</p>
+          <h1 className="mt-4 text-2xl font-semibold tracking-tight text-foreground">Online ordering is paused</h1>
+          <p className="mt-2 whitespace-pre-line text-muted-foreground">{props.checkout.ordering.pausedMessage || PAUSED_TEXT}</p>
+          <p className="mt-2 text-sm text-muted-foreground">Your basket is saved, so you can come back to it later.</p>
           <Link
             href="/products"
             className="mt-6 inline-flex h-11 items-center gap-2 rounded-md bg-emerald-700 px-5 text-sm font-semibold text-white hover:bg-emerald-800"
@@ -158,8 +158,8 @@ export function CheckoutFlow(props: {
       <CheckoutFrame>
         <div className="mx-auto max-w-2xl px-4 py-16 text-center">
           <Lock className="mx-auto h-9 w-9 text-emerald-700" aria-hidden="true" />
-          <h1 className="mt-4 text-2xl font-semibold tracking-tight text-zinc-950">Sign in to check out</h1>
-          <p className="mt-2 text-zinc-600">You need an account to place an order. It takes a minute, and you can follow your orders from it.</p>
+          <h1 className="mt-4 text-2xl font-semibold tracking-tight text-foreground">Sign in to check out</h1>
+          <p className="mt-2 text-muted-foreground">You need an account to place an order. It takes a minute, and you can follow your orders from it.</p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Link
               href="/login?next=/checkout"
@@ -169,7 +169,7 @@ export function CheckoutFlow(props: {
             </Link>
             <Link
               href="/signup?next=/checkout"
-              className="inline-flex h-11 items-center gap-2 rounded-md border border-zinc-300 px-5 text-sm font-semibold text-zinc-900 hover:bg-zinc-50"
+              className="inline-flex h-11 items-center gap-2 rounded-md border border-zinc-300 px-5 text-sm font-semibold text-foreground hover:bg-surface"
             >
               Create an account
             </Link>
@@ -183,8 +183,8 @@ export function CheckoutFlow(props: {
     return (
       <CheckoutFrame>
         <div className="mx-auto max-w-2xl px-4 py-16 text-center">
-          <h1 className="text-2xl font-semibold tracking-tight text-zinc-950">Your cart is empty</h1>
-          <p className="mt-2 text-zinc-500">Add some products to your cart before checking out.</p>
+          <h1 className="text-2xl font-semibold tracking-tight text-foreground">Your cart is empty</h1>
+          <p className="mt-2 text-muted-foreground">Add some products to your cart before checking out.</p>
           <Link
             href="/products"
             className="mt-6 inline-flex h-11 items-center gap-2 rounded-md bg-emerald-700 px-5 text-sm font-semibold text-white hover:bg-emerald-800"
@@ -595,9 +595,9 @@ function CheckoutForm({
           )}
 
           {step === "shipping" && (
-            <section className="space-y-6 rounded-xl border border-zinc-200 bg-white p-4 sm:p-6">
+            <section className="space-y-6 rounded-xl border border-border bg-white p-4 sm:p-6">
               {!account && (
-                <p className="rounded-lg border border-zinc-200 bg-zinc-50/80 px-3 py-2.5 text-sm text-zinc-600">
+                <p className="rounded-lg border border-border bg-surface/80 px-3 py-2.5 text-sm text-muted-foreground">
                   Have an account?{" "}
                   <Link href="/login?next=/checkout" className="font-semibold text-emerald-700 underline underline-offset-2">
                     Sign in
@@ -606,7 +606,7 @@ function CheckoutForm({
                 </p>
               )}
               <div className="space-y-3">
-                <h2 className="text-base font-semibold text-zinc-950">Your details</h2>
+                <h2 className="text-base font-semibold text-foreground">Your details</h2>
                 <div className="grid gap-3 sm:grid-cols-2">
                   <TextField
                     id="guest-name"
@@ -637,7 +637,7 @@ function CheckoutForm({
                             *
                           </span>
                         ) : (
-                          <span className="ml-1 font-normal text-zinc-500">(optional)</span>
+                          <span className="ml-1 font-normal text-muted-foreground">(optional)</span>
                         )}
                       </label>
                       <PhoneInput
@@ -669,7 +669,7 @@ function CheckoutForm({
                     />
                   )}
                 </div>
-                <label className="flex items-start gap-2 text-sm leading-5 text-zinc-600">
+                <label className="flex items-start gap-2 text-sm leading-5 text-muted-foreground">
                   <input
                     className="mt-0.5 h-4 w-4 shrink-0 rounded border-zinc-300 accent-emerald-700"
                     type="checkbox"
@@ -684,8 +684,8 @@ function CheckoutForm({
               </div>
 
               <div className="space-y-3">
-                <h2 className="flex items-center gap-2 text-base font-semibold text-zinc-950">{collect ? "Your address" : "Delivery address"}</h2>
-                {collect && <p className="text-sm text-zinc-600">For your invoice. You&apos;ll collect the order from {checkout.collectFrom}.</p>}
+                <h2 className="flex items-center gap-2 text-base font-semibold text-foreground">{collect ? "Your address" : "Delivery address"}</h2>
+                {collect && <p className="text-sm text-muted-foreground">For your invoice. You&apos;ll collect the order from {checkout.collectFrom}.</p>}
                 {addresses.length > 0 && (
                   <fieldset className="space-y-2">
                     <legend className="sr-only">Saved addresses</legend>
@@ -694,7 +694,7 @@ function CheckoutForm({
                         key={a.id}
                         className={cn(
                           "flex cursor-pointer items-start gap-3 rounded-lg border px-3 py-3 text-sm",
-                          savedId === a.id ? "border-emerald-600/40 bg-emerald-50/70" : "border-zinc-200 hover:bg-zinc-50",
+                          savedId === a.id ? "border-emerald-600/40 bg-emerald-50/70" : "border-border hover:bg-surface",
                         )}
                       >
                         <input
@@ -706,11 +706,11 @@ function CheckoutForm({
                         />
                         <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-emerald-700" aria-hidden="true" />
                         <span className="min-w-0 flex-1">
-                          <span className="block font-semibold text-zinc-950">
+                          <span className="block font-semibold text-foreground">
                             {a.label || a.name}
-                            {a.isDefault && <span className="ml-2 text-xs font-normal text-zinc-500">Default</span>}
+                            {a.isDefault && <span className="ml-2 text-xs font-normal text-muted-foreground">Default</span>}
                           </span>
-                          <span className="block text-zinc-600">
+                          <span className="block text-muted-foreground">
                             {[a.label ? a.name : null, a.company, a.line1, a.line2, a.city, a.county, a.postcode].filter(Boolean).join(", ")}
                           </span>
                         </span>
@@ -719,7 +719,7 @@ function CheckoutForm({
                     <label
                       className={cn(
                         "flex cursor-pointer items-center gap-3 rounded-lg border px-3 py-3 text-sm font-semibold",
-                        savedId === null ? "border-emerald-600/40 bg-emerald-50/70" : "border-zinc-200 hover:bg-zinc-50",
+                        savedId === null ? "border-emerald-600/40 bg-emerald-50/70" : "border-border hover:bg-surface",
                       )}
                     >
                       <input
@@ -751,7 +751,7 @@ function CheckoutForm({
                       onModeChange={setShipMode}
                     />
                     {account && (
-                      <label className="flex items-center gap-2 text-sm text-zinc-600">
+                      <label className="flex items-center gap-2 text-sm text-muted-foreground">
                         <input
                           type="checkbox"
                           checked={saveAddress}
@@ -766,9 +766,9 @@ function CheckoutForm({
               </div>
 
               {billingSame ? (
-                <div className="checkout-billing-fold flex items-center gap-3 rounded-lg border border-zinc-200 bg-zinc-50/80 px-3 py-1.5">
+                <div className="checkout-billing-fold flex items-center gap-3 rounded-lg border border-border bg-surface/80 px-3 py-1.5">
                   <CircleCheck className="h-5 w-5 shrink-0 text-emerald-600" aria-hidden="true" />
-                  <p className="min-w-0 flex-1 py-1.5 text-sm text-gray-800">
+                  <p className="min-w-0 flex-1 py-1.5 text-sm text-foreground/80">
                     <span className="font-semibold">Billing address:</span> same as delivery
                   </p>
                   <button
@@ -782,9 +782,9 @@ function CheckoutForm({
                   </button>
                 </div>
               ) : (
-                <div id="guest-billing-panel" className="space-y-3 rounded-lg border border-zinc-200 p-3 sm:p-4">
+                <div id="guest-billing-panel" className="space-y-3 rounded-lg border border-border p-3 sm:p-4">
                   <div className="flex items-center justify-between gap-3">
-                    <h2 className="text-base font-semibold text-zinc-950">Billing address</h2>
+                    <h2 className="text-base font-semibold text-foreground">Billing address</h2>
                     <button
                       type="button"
                       aria-expanded="true"
@@ -817,7 +817,7 @@ function CheckoutForm({
               )}
 
               <fieldset id="delivery-options" tabIndex={-1} className="space-y-3 focus:outline-none">
-                <legend className="mb-3 text-base font-semibold text-zinc-950">Delivery method</legend>
+                <legend className="mb-3 text-base font-semibold text-foreground">Delivery method</legend>
                 {available.map((o) => {
                   const chosen = selected?.id === o.id;
                   const cost = optionPrice(o, local.subtotal);
@@ -830,7 +830,7 @@ function CheckoutForm({
                       key={o.id}
                       className={cn(
                         "flex cursor-pointer items-start gap-3 rounded-lg border px-3 py-3",
-                        chosen ? "border-emerald-600/30 bg-emerald-50/70" : "border-zinc-200 hover:bg-zinc-50",
+                        chosen ? "border-emerald-600/30 bg-emerald-50/70" : "border-border hover:bg-surface",
                       )}
                     >
                       <input
@@ -846,13 +846,13 @@ function CheckoutForm({
                       />
                       {o.kind === "collect" && <Store className="mt-0.5 h-4 w-4 shrink-0 text-emerald-700" aria-hidden="true" />}
                       <span className="min-w-0 flex-1">
-                        <span className="block text-sm font-semibold text-zinc-950">{o.name}</span>
-                        {detail && <span className="mt-0.5 block text-xs text-zinc-600">{detail}</span>}
+                        <span className="block text-sm font-semibold text-foreground">{o.name}</span>
+                        {detail && <span className="mt-0.5 block text-xs text-muted-foreground">{detail}</span>}
                         {cost > 0 && o.freeFrom !== null && o.freeFrom > 0 && (
-                          <span className="mt-0.5 block text-xs text-zinc-500">Free when your items come to {formatGBP(o.freeFrom)} or more.</span>
+                          <span className="mt-0.5 block text-xs text-muted-foreground">Free when your items come to {formatGBP(o.freeFrom)} or more.</span>
                         )}
                       </span>
-                      <span className="shrink-0 text-sm font-semibold text-zinc-950">{cost === 0 ? "Free" : formatGBP(cost)}</span>
+                      <span className="shrink-0 text-sm font-semibold text-foreground">{cost === 0 ? "Free" : formatGBP(cost)}</span>
                     </label>
                   );
                 })}
@@ -869,7 +869,7 @@ function CheckoutForm({
                   </p>
                 )}
                 {available.length > 0 && hiddenOptions > 0 && postcodeKnown && (
-                  <p className="text-xs text-zinc-500">
+                  <p className="text-xs text-muted-foreground">
                     {hiddenOptions === 1 ? "One option isn't" : `${hiddenOptions} options aren't`} available for {ship.postcode.trim().toUpperCase()}.
                   </p>
                 )}
@@ -879,11 +879,11 @@ function CheckoutForm({
                   </p>
                 )}
                 {!checkout.options.some((o) => o.kind === "collect") && shop.phoneHref && (
-                  <p className="flex items-start gap-1.5 text-xs leading-5 text-zinc-500">
+                  <p className="flex items-start gap-1.5 text-xs leading-5 text-muted-foreground">
                     <Info className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-700" aria-hidden="true" />
                     <span>
                       Collecting from our {shop.city ? `${shop.city} ` : ""}store instead? Ring{" "}
-                      <PhoneLink className="font-semibold text-zinc-700 underline underline-offset-2" /> and we&apos;ll have it ready.
+                      <PhoneLink className="font-semibold text-foreground/80 underline underline-offset-2" /> and we&apos;ll have it ready.
                     </span>
                   </p>
                 )}
@@ -892,7 +892,7 @@ function CheckoutForm({
               {rules.notes && (
                 <div>
                   <label htmlFor="order-note" className={checkoutLabel}>
-                    Order note <span className="font-normal text-zinc-500">(optional)</span>
+                    Order note <span className="font-normal text-muted-foreground">(optional)</span>
                   </label>
                   <textarea
                     id="order-note"
@@ -922,10 +922,10 @@ function CheckoutForm({
           )}
 
           {step === "review" && (
-            <section className="space-y-5 rounded-xl border border-zinc-200 bg-white p-6">
-              <h2 className="text-lg font-semibold text-zinc-950">Review your order</h2>
+            <section className="space-y-5 rounded-xl border border-border bg-white p-6">
+              <h2 className="text-lg font-semibold text-foreground">Review your order</h2>
               {!quote ? (
-                <div className="flex items-center gap-2 py-6 text-sm text-zinc-500" role="status">
+                <div className="flex items-center gap-2 py-6 text-sm text-muted-foreground" role="status">
                   <LoaderCircle className="h-4 w-4 animate-spin text-emerald-700" aria-hidden="true" />
                   Checking prices and stock…
                   <button type="button" onClick={() => void refreshQuote()} disabled={quoting} className={cn(linkButton, "ml-auto min-h-9")}>
@@ -933,63 +933,63 @@ function CheckoutForm({
                   </button>
                 </div>
               ) : reviewLines.length === 0 ? (
-                <p className="py-6 text-sm text-zinc-600">
+                <p className="py-6 text-sm text-muted-foreground">
                   Nothing in your basket can be bought online right now.{" "}
                   <Link href="/cart" className="font-semibold text-emerald-700 underline underline-offset-2">
                     Back to your basket
                   </Link>
                 </p>
               ) : (
-                <ul className="divide-y divide-zinc-100">
+                <ul className="divide-y divide-border">
                   {reviewLines.map((line) => (
                     <li key={line.slug} className="flex items-center gap-4 py-4">
                       <ProductThumb
                         src={line.image}
                         alt={line.name}
                         sizes="56px"
-                        className="h-14 w-14 rounded border border-zinc-200 bg-zinc-50"
+                        className="h-14 w-14 rounded border border-border bg-white"
                       />
                       <div className="min-w-0 flex-1">
-                        <p className="truncate text-sm font-medium text-zinc-950">{line.name}</p>
-                        <p className="text-xs text-zinc-500">
+                        <p className="truncate text-sm font-medium text-foreground">{line.name}</p>
+                        <p className="text-xs text-muted-foreground">
                           Qty {line.qty} × {formatGBP(line.unitIncVat)}
                         </p>
                       </div>
-                      <p className="text-sm font-semibold text-zinc-950">{formatGBP(line.unitIncVat * line.qty)}</p>
+                      <p className="text-sm font-semibold text-foreground">{formatGBP(line.unitIncVat * line.qty)}</p>
                     </li>
                   ))}
                 </ul>
               )}
               {applied && reviewLines.length > 0 && (
-                <dl className="space-y-1 border-t border-zinc-100 pt-3 text-sm" data-testid="review-discount">
+                <dl className="space-y-1 border-t border-border pt-3 text-sm" data-testid="review-discount">
                   <div className="flex items-baseline justify-between">
-                    <dt className="text-zinc-600">{discountLabel(applied.code)}</dt>
+                    <dt className="text-muted-foreground">{discountLabel(applied.code)}</dt>
                     <dd className="font-semibold text-emerald-700 tabular-nums">−{formatGBP(quote?.totals.discount ?? 0)}</dd>
                   </div>
                   <div className="flex items-baseline justify-between">
-                    <dt className="font-semibold text-zinc-950">New total</dt>
-                    <dd className="font-semibold text-zinc-950 tabular-nums">{formatGBP(totals.total)}</dd>
+                    <dt className="font-semibold text-foreground">New total</dt>
+                    <dd className="font-semibold text-foreground tabular-nums">{formatGBP(totals.total)}</dd>
                   </div>
                 </dl>
               )}
-              <div className="rounded-md bg-zinc-50 p-4 text-sm">
-                <p className="font-semibold text-zinc-950">{collect ? "Your details" : "Ship to"}</p>
-                <p className="mt-1 text-zinc-700">{shipTo}</p>
-                <p className="mt-1 text-zinc-500">
+              <div className="rounded-md bg-surface p-4 text-sm">
+                <p className="font-semibold text-foreground">{collect ? "Your details" : "Ship to"}</p>
+                <p className="mt-1 text-foreground/80">{shipTo}</p>
+                <p className="mt-1 text-muted-foreground">
                   {contact.email.trim()}
                   {rules.phone !== "hidden" && contact.phone.trim() ? ` · ${contact.phone.trim()}` : ""}
                 </p>
-                <p className="mt-2 text-zinc-700">
-                  <span className="font-semibold text-zinc-950">Billing:</span> {billingSame ? (collect ? "same as above" : "same as delivery") : billTo}
+                <p className="mt-2 text-foreground/80">
+                  <span className="font-semibold text-foreground">Billing:</span> {billingSame ? (collect ? "same as above" : "same as delivery") : billTo}
                 </p>
-                <p className="mt-2 text-zinc-700">
-                  <span className="font-semibold text-zinc-950">{collect ? "Collection:" : "Delivery:"}</span> {selected?.name ?? "—"} (
+                <p className="mt-2 text-foreground/80">
+                  <span className="font-semibold text-foreground">{collect ? "Collection:" : "Delivery:"}</span> {selected?.name ?? "—"} (
                   {totals.delivery === 0 ? "free" : formatGBP(totals.delivery)})
-                  {collect && <span className="block text-zinc-500">Collect from {checkout.collectFrom}</span>}
+                  {collect && <span className="block text-muted-foreground">Collect from {checkout.collectFrom}</span>}
                 </p>
                 {rules.notes && note.trim() && (
-                  <p className="mt-2 text-zinc-700">
-                    <span className="font-semibold text-zinc-950">Note:</span> {note.trim()}
+                  <p className="mt-2 text-foreground/80">
+                    <span className="font-semibold text-foreground">Note:</span> {note.trim()}
                   </p>
                 )}
               </div>
@@ -1006,7 +1006,7 @@ function CheckoutForm({
                 <button
                   type="button"
                   onClick={() => go("shipping")}
-                  className="text-sm font-semibold text-zinc-700 hover:text-emerald-700"
+                  className="text-sm font-semibold text-foreground/80 hover:text-emerald-700"
                 >
                   ← Edit details
                 </button>
@@ -1024,12 +1024,12 @@ function CheckoutForm({
           )}
 
           {step === "payment" && (
-            <section className="space-y-5 rounded-xl border border-zinc-200 bg-white p-6">
-              <h2 className="text-lg font-semibold text-zinc-950">Payment</h2>
+            <section className="space-y-5 rounded-xl border border-border bg-white p-6">
+              <h2 className="text-lg font-semibold text-foreground">Payment</h2>
               <PaymentNotice mode={mode} total={totals.total} termsBox={rules.requireTerms} />
               {rules.requireTerms && mode !== "disabled" && (
                 <div>
-                  <label className="flex items-start gap-2 text-sm leading-5 text-zinc-700">
+                  <label className="flex items-start gap-2 text-sm leading-5 text-foreground/80">
                     <input
                       id="accept-terms"
                       type="checkbox"
@@ -1061,7 +1061,7 @@ function CheckoutForm({
                 <button
                   type="button"
                   onClick={() => go("review")}
-                  className="text-sm font-semibold text-zinc-700 hover:text-emerald-700"
+                  className="text-sm font-semibold text-foreground/80 hover:text-emerald-700"
                 >
                   ← Back to review
                 </button>
@@ -1087,8 +1087,8 @@ function CheckoutForm({
           )}
         </div>
 
-        <aside className="h-fit min-w-0 space-y-4 rounded-xl border border-zinc-200 bg-white p-6 lg:sticky lg:top-24">
-          <h3 className="font-mono text-sm tracking-[0.18em] text-zinc-500 uppercase">Order summary</h3>
+        <aside className="h-fit min-w-0 space-y-4 rounded-xl border border-border bg-white p-6 lg:sticky lg:top-24">
+          <h3 className="font-mono text-sm tracking-[0.18em] text-muted-foreground uppercase">Order summary</h3>
           {applied && quote ? (
             // With a discount code the summary is inc. VAT (the discount is an inc-VAT amount), so the rows add up.
             <dl className="space-y-2 text-sm" data-testid="summary-discounted">
@@ -1110,26 +1110,26 @@ function CheckoutForm({
                 {formatGBP(totals.vat)}
               </SummaryRow>
               {appliedCode && (
-                <SummaryRow label={discountLabel(appliedCode)} tone="text-zinc-500">
+                <SummaryRow label={discountLabel(appliedCode)} tone="text-muted-foreground">
                   Checked at review
                 </SummaryRow>
               )}
             </dl>
           )}
-          <div className="border-t border-zinc-100 pt-3">
+          <div className="border-t border-border pt-3">
             <dl>
               <SummaryRow label="Total" bold>
                 {formatGBP(totals.total)}
               </SummaryRow>
             </dl>
             {applied && quote && (
-              <p className="mt-1 text-right text-xs text-zinc-500 tabular-nums">
+              <p className="mt-1 text-right text-xs text-muted-foreground tabular-nums">
                 Includes VAT ({totals.vatPercent}%) of {formatGBP(quote.totals.vat)}
               </p>
             )}
-            {!quote && <p className="mt-1 text-xs text-zinc-500">Prices are checked again before you pay.</p>}
+            {!quote && <p className="mt-1 text-xs text-muted-foreground">Prices are checked again before you pay.</p>}
           </div>
-          <div className="border-t border-zinc-100 pt-3">
+          <div className="border-t border-border pt-3">
             {appliedCode ? (
               <div className="flex items-center gap-2 rounded-md border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm" data-testid="discount-applied">
                 <Tag className="h-4 w-4 shrink-0 text-emerald-700" aria-hidden="true" />
@@ -1152,7 +1152,7 @@ function CheckoutForm({
                 )}
               </div>
             ) : step === "payment" ? (
-              <p className="text-xs text-zinc-500">Have a discount code? Go back to review to enter it.</p>
+              <p className="text-xs text-muted-foreground">Have a discount code? Go back to review to enter it.</p>
             ) : (
               <form
                 onSubmit={(e) => {
@@ -1160,7 +1160,7 @@ function CheckoutForm({
                   void applyCode();
                 }}
               >
-                <label htmlFor="guest-discount-code" className="mb-1.5 block text-xs font-medium text-zinc-600">
+                <label htmlFor="guest-discount-code" className="mb-1.5 block text-xs font-medium text-muted-foreground">
                   Discount code
                 </label>
                 <div className="flex gap-2">
@@ -1178,12 +1178,12 @@ function CheckoutForm({
                     placeholder="e.g. THANKS-7K3QF9X"
                     aria-invalid={discountError ? true : undefined}
                     aria-describedby={discountError ? "guest-discount-error" : undefined}
-                    className="h-10 min-w-0 flex-1 rounded-md border border-zinc-200 px-3 font-mono text-sm uppercase focus:border-emerald-700 focus:outline-none"
+                    className="h-10 min-w-0 flex-1 rounded-md border border-border px-3 font-mono text-sm uppercase focus:border-emerald-700 focus:outline-none"
                   />
                   <button
                     type="submit"
                     disabled={!discount.trim() || applying}
-                    className="inline-flex h-10 shrink-0 items-center gap-1.5 rounded-md border border-zinc-300 px-3 text-sm font-semibold text-zinc-800 hover:bg-zinc-50 disabled:opacity-50"
+                    className="inline-flex h-10 shrink-0 items-center gap-1.5 rounded-md border border-zinc-300 px-3 text-sm font-semibold text-foreground/80 hover:bg-surface disabled:opacity-50"
                   >
                     {applying && <LoaderCircle className="h-3.5 w-3.5 animate-spin" aria-hidden="true" />}
                     Apply
@@ -1197,7 +1197,7 @@ function CheckoutForm({
               </form>
             )}
           </div>
-          <div className="space-y-2 pt-2 text-xs text-zinc-500">
+          <div className="space-y-2 pt-2 text-xs text-muted-foreground">
             <p className="flex items-center gap-1.5">
               {mode === "test" ? (
                 <>
@@ -1302,7 +1302,7 @@ function StepList({ current, onBack }: { current: Step; onBack: (step: Step) => 
                 "grid h-6 w-6 place-items-center rounded-full sm:h-7 sm:w-7",
                 active && "border-2 border-emerald-700 text-emerald-700",
                 done && "border border-emerald-700 bg-emerald-700 text-white",
-                !active && !done && "border border-zinc-200 text-zinc-400",
+                !active && !done && "border border-border text-zinc-400",
               )}
             >
               {done ? (
@@ -1311,7 +1311,7 @@ function StepList({ current, onBack }: { current: Step; onBack: (step: Step) => 
                 <Icon className="h-3 w-3 sm:h-3.5 sm:w-3.5" aria-hidden="true" />
               )}
             </span>
-            <span className={cn(active ? "font-semibold text-zinc-950" : done ? "text-zinc-700" : "text-zinc-400")}>
+            <span className={cn(active ? "font-semibold text-foreground" : done ? "text-foreground/80" : "text-zinc-400")}>
               {label}
             </span>
           </>
@@ -1325,7 +1325,7 @@ function StepList({ current, onBack }: { current: Step; onBack: (step: Step) => 
             ) : (
               content
             )}
-            {i < steps.length - 1 && <span className="ml-1 hidden h-px w-6 bg-zinc-200 sm:inline-block sm:w-8" />}
+            {i < steps.length - 1 && <span className="ml-1 hidden h-px w-6 bg-border sm:inline-block sm:w-8" />}
           </li>
         );
       })}
@@ -1336,8 +1336,8 @@ function StepList({ current, onBack }: { current: Step; onBack: (step: Step) => 
 function SummaryRow({ label, bold, tone, children }: { label: string; bold?: boolean; tone?: string; children: ReactNode }) {
   return (
     <div className="flex items-baseline justify-between gap-3">
-      <dt className={bold ? "text-sm font-semibold text-zinc-950" : "text-zinc-600"}>{label}</dt>
-      <dd className={bold ? "text-base font-semibold text-zinc-950" : (tone ?? "text-zinc-950")}>{children}</dd>
+      <dt className={bold ? "text-sm font-semibold text-foreground" : "text-muted-foreground"}>{label}</dt>
+      <dd className={bold ? "text-base font-semibold text-foreground" : (tone ?? "text-foreground")}>{children}</dd>
     </div>
   );
 }
@@ -1374,7 +1374,7 @@ function TextField({
             *
           </span>
         )}
-        {optional && <span className="ml-1 font-normal text-zinc-500">(optional)</span>}
+        {optional && <span className="ml-1 font-normal text-muted-foreground">(optional)</span>}
       </label>
       <input
         id={id}

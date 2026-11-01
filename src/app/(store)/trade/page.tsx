@@ -89,13 +89,13 @@ export default async function TradePage() {
         phone={store.phone}
       />
       <section className="mx-auto max-w-5xl px-4 py-14 md:px-6 md:py-20">
-        <h2 className="text-2xl font-semibold tracking-tight text-zinc-950 sm:text-3xl">What you get with a trade account</h2>
-        <div className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-200 sm:grid-cols-2">
+        <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">What you get with a trade account</h2>
+        <div className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2">
           {benefits.map(({ icon: Icon, title, body }) => (
             <div key={title} className="flex flex-col gap-2 bg-white p-6">
               <Icon className="h-5 w-5 text-emerald-600" aria-hidden="true" />
-              <h3 className="text-base font-semibold text-zinc-950">{title}</h3>
-              <p className="text-sm leading-relaxed text-zinc-600">{body}</p>
+              <h3 className="text-base font-semibold text-foreground">{title}</h3>
+              <p className="text-sm leading-relaxed text-muted-foreground">{body}</p>
             </div>
           ))}
         </div>
@@ -145,16 +145,16 @@ export default async function TradePage() {
 function ApplySection({ store }: { store: StoreSettings }) {
   const phoneHref = telHref(store.phone);
   return (
-    <section id="apply" className="scroll-mt-24 border-t border-zinc-200 bg-zinc-50">
+    <section id="apply" className="scroll-mt-24 border-t border-border bg-surface">
       <div className="mx-auto max-w-2xl px-4 py-14 md:px-6 md:py-20">
-        <h2 className="text-2xl font-semibold tracking-tight text-zinc-950 sm:text-3xl">Apply for a trade account</h2>
-        <p className="mt-3 text-sm leading-relaxed text-zinc-600">
+        <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">Apply for a trade account</h2>
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
           It takes about a minute. A real person reads every application and replies within one working day.
         </p>
-        <div className="mt-8 rounded-2xl border border-zinc-200 bg-white p-6 sm:p-8">
+        <div className="mt-8 rounded-2xl border border-border bg-white p-6 sm:p-8">
           <TradeForm />
         </div>
-        <p className="mt-4 text-xs leading-relaxed text-zinc-500">
+        <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
           Only after a project quote, volume pricing or a PO? You don’t need an account —{" "}
           {store.email ? (
             <a className="font-semibold text-emerald-700 hover:text-emerald-800" href={`mailto:${store.email}`}>

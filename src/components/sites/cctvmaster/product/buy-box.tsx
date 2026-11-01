@@ -59,7 +59,7 @@ function StatusBox({ tone, icon, title, text }: { tone: "emerald" | "blue" | "am
     emerald: { box: "from-emerald-50 to-green-100/50", dot: "bg-emerald-100", text: "text-emerald-700" },
     blue: { box: "from-blue-50 to-indigo-100/50", dot: "bg-blue-100", text: "text-blue-700" },
     amber: { box: "from-amber-50 to-orange-100/50", dot: "bg-amber-100", text: "text-amber-800" },
-    gray: { box: "from-gray-50 to-gray-100/60", dot: "bg-gray-200", text: "text-gray-700" },
+    gray: { box: "from-surface to-muted/60", dot: "bg-border", text: "text-foreground/80" },
   }[tone];
   return (
     <div className={cn("animate-in fade-in zoom-in-95 flex items-center gap-3 rounded-xl bg-gradient-to-r px-4 py-3 duration-500", tones.box)}>
@@ -112,7 +112,7 @@ export function BuyBox({
         )}
       </div>
 
-      <div className="fc-rise rounded-2xl border border-gray-100 bg-gradient-to-br from-gray-50 to-white p-5 [animation-delay:200ms]">
+      <div className="fc-rise rounded-2xl border border-border bg-gradient-to-br from-surface to-white p-5 [animation-delay:200ms]">
         {state === "contact" ? (
           <p className="text-2xl font-bold">Price on request</p>
         ) : (
@@ -150,7 +150,7 @@ export function BuyBox({
       {state === "discontinued" && (
         <StatusBox
           tone="gray"
-          icon={<Ban className="h-5 w-5 text-gray-500" aria-hidden="true" />}
+          icon={<Ban className="h-5 w-5 text-muted-foreground" aria-hidden="true" />}
           title="No longer available"
           text="This product has been discontinued."
         />

@@ -152,15 +152,15 @@ export function MediaPickerDialog({
                       aria-label={`${item.fileName}${added ? " (already added)" : ""}`}
                       onClick={() => toggle(item)}
                       className={cn(
-                        "group relative flex w-full flex-col overflow-hidden rounded-lg border bg-white text-left transition outline-none focus-visible:ring-3 focus-visible:ring-zinc-900/30",
-                        isSelected ? "border-zinc-900 ring-2 ring-zinc-900" : "hover:border-zinc-400",
+                        "group relative flex w-full flex-col overflow-hidden rounded-lg border bg-white text-left transition outline-none focus-visible:ring-3 focus-visible:ring-primary/30",
+                        isSelected ? "border-primary ring-2 ring-primary" : "hover:border-zinc-400",
                         (added || (!isSelected && atLimit)) && "cursor-not-allowed opacity-50",
                       )}
                     >
-                      <span className="relative block aspect-square bg-zinc-50">
+                      <span className="relative block aspect-square bg-white">
                         <Image src={item.url} alt={item.alt || ""} fill sizes="(min-width: 768px) 140px, 30vw" className="object-contain p-1.5" />
                         {isSelected && (
-                          <span className="absolute top-1.5 right-1.5 flex size-5 items-center justify-center rounded-full bg-zinc-900 text-[11px] font-semibold text-white">
+                          <span className="absolute top-1.5 right-1.5 flex size-5 items-center justify-center rounded-full bg-primary text-[11px] font-semibold text-white">
                             {order + 1}
                           </span>
                         )}

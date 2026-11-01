@@ -166,7 +166,7 @@ export function CategoryForm({
     >
       <AdminToaster />
       {/* Title + save bar: stays under the admin header while scrolling. */}
-      <div className="sticky top-14 z-20 -mx-4 mb-6 border-b bg-zinc-50/95 px-4 py-3 backdrop-blur lg:-mx-8 lg:px-8">
+      <div className="sticky top-14 z-20 -mx-4 mb-6 border-b bg-surface/95 px-4 py-3 backdrop-blur lg:-mx-8 lg:px-8">
         <div className="flex flex-wrap items-center gap-3">
           <Link href="/admin/categories" className={buttonVariants({ variant: "ghost", size: "icon-sm" })} aria-label="Back to categories">
             <ArrowLeft />
@@ -267,7 +267,7 @@ export function CategoryForm({
                   !isKitRoot && (
                     <button
                       type="button"
-                      className="text-muted-foreground inline-flex items-center gap-1 text-xs hover:text-zinc-950"
+                      className="text-muted-foreground inline-flex items-center gap-1 text-xs hover:text-foreground"
                       onClick={() => {
                         set("slug", slugify(values.name));
                         setSlugEdited(false);
@@ -279,7 +279,7 @@ export function CategoryForm({
                 }
               >
                 <div className="flex items-center">
-                  <span className="text-muted-foreground flex h-8 items-center rounded-l-lg border border-r-0 bg-zinc-50 px-2.5 text-sm">/categories/</span>
+                  <span className="text-muted-foreground flex h-8 items-center rounded-l-lg border border-r-0 bg-surface px-2.5 text-sm">/categories/</span>
                   <Input
                     id="cf-slug"
                     value={values.slug}
@@ -310,7 +310,7 @@ export function CategoryForm({
                   <p className="text-muted-foreground text-sm">Top level. CCTV Kits is the top of the kit ranges.</p>
                 ) : (
                   <>
-                    <div className="flex items-center gap-2 rounded-lg border bg-zinc-50 px-2.5 py-1.5" data-testid="parent-current">
+                    <div className="flex items-center gap-2 rounded-lg border bg-surface px-2.5 py-1.5" data-testid="parent-current">
                       <span className="min-w-0 flex-1 truncate text-sm" title={parent?.path.join(" › ")}>
                         {parent ? (
                           parent.path.map((name, i) => (

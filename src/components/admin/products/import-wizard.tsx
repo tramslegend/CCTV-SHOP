@@ -75,7 +75,7 @@ const ACTION_BADGE: Record<ImportAction, { label: string; className: string }> =
 const OUTCOME_BADGE: Record<ImportOutcome, { label: string; className: string }> = {
   created: { label: "Created", className: "bg-emerald-50 text-emerald-700" },
   updated: { label: "Updated", className: "bg-sky-50 text-sky-700" },
-  unchanged: { label: "No changes", className: "bg-zinc-100 text-zinc-600" },
+  unchanged: { label: "No changes", className: "bg-muted text-muted-foreground" },
   failed: { label: "Not imported", className: "bg-red-50 text-red-700" },
 };
 
@@ -152,7 +152,7 @@ export function ImportWizard() {
             }}
             className={cn(
               "flex flex-col items-center gap-3 rounded-xl border-2 border-dashed bg-white px-6 py-12 text-center transition-colors",
-              dragging ? "border-zinc-900 bg-zinc-50" : "border-zinc-300",
+              dragging ? "border-primary bg-surface" : "border-zinc-300",
             )}
           >
             {phase.step === "checking" ? (
@@ -271,11 +271,11 @@ function PreviewStep({
             aria-pressed={filter === t.key}
             className={cn(
               "-mb-px flex items-center gap-1.5 border-b-2 px-3 py-2 text-sm font-medium transition-colors",
-              filter === t.key ? "border-zinc-900 text-zinc-950" : "border-transparent text-zinc-500 hover:text-zinc-900",
+              filter === t.key ? "border-primary text-foreground" : "border-transparent text-muted-foreground hover:text-foreground",
             )}
           >
             {t.label}
-            <span className={cn("rounded-full px-1.5 text-xs tabular-nums", filter === t.key ? "bg-zinc-900 text-white" : "bg-zinc-100 text-zinc-600")}>
+            <span className={cn("rounded-full px-1.5 text-xs tabular-nums", filter === t.key ? "bg-primary text-white" : "bg-muted text-muted-foreground")}>
               {n(t.count)}
             </span>
           </button>
@@ -348,7 +348,7 @@ function ResultStep({ fileName, result, onReset }: { fileName: string; result: I
         </h2>
         <ul className="mt-3 grid gap-2 text-sm sm:grid-cols-4">
           {(["created", "updated", "unchanged", "failed"] as const).map((k) => (
-            <li key={k} className="rounded-lg bg-zinc-50 px-3 py-2">
+            <li key={k} className="rounded-lg bg-surface px-3 py-2">
               <span className="block text-xl font-semibold tabular-nums">{n(counts[k])}</span>
               <span className="text-muted-foreground">{OUTCOME_BADGE[k].label}</span>
             </li>

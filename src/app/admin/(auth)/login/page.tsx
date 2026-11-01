@@ -13,7 +13,7 @@ export default async function AdminLoginPage({ searchParams }: PageProps<"/admin
   if (session && isBackOffice(session.user.role) && !session.user.banned) redirect(target);
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-zinc-50 px-4">
+    <main className="flex min-h-screen items-center justify-center bg-surface px-4">
       <div className="w-full max-w-sm rounded-xl border bg-white p-8 shadow-sm">
         <h1 className="text-xl font-semibold tracking-tight">Sign in to the admin</h1>
         <p className="text-muted-foreground mt-1 text-sm">For the shop owner only.</p>

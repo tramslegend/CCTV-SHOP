@@ -24,7 +24,7 @@ export function PasswordInput({ className, ...props }: Omit<ComponentProps<"inpu
         type="button"
         onClick={() => setShow((s) => !s)}
         aria-label={show ? "Hide password" : "Show password"}
-        className="absolute inset-y-0 right-0 grid w-11 place-items-center text-zinc-400 hover:text-zinc-700 focus-visible:text-emerald-700 focus-visible:outline-none"
+        className="absolute inset-y-0 right-0 grid w-11 place-items-center text-zinc-400 hover:text-foreground/80 focus-visible:text-emerald-700 focus-visible:outline-none"
         tabIndex={-1}
       >
         {show ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
@@ -47,7 +47,7 @@ function PasswordRules({ id, password }: { id: string; password: string }) {
       {PASSWORD_RULES.map((rule) => {
         const met = rule.test(password);
         return (
-          <li key={rule.key} className={cn("flex items-center gap-1", met ? "text-emerald-700" : "text-zinc-500")}>
+          <li key={rule.key} className={cn("flex items-center gap-1", met ? "text-emerald-700" : "text-muted-foreground")}>
             {met ? <Check className="h-3 w-3" aria-hidden="true" /> : <Circle className="h-2.5 w-2.5" aria-hidden="true" />}
             {rule.label}
             <span className="sr-only">{met ? " – done" : " – needed"}</span>
@@ -345,13 +345,13 @@ export function SignupForm({ next }: { next: string }) {
           {busy && <LoaderCircle className="h-4 w-4 animate-spin" aria-hidden="true" />}
           Create account
         </button>
-        <p className="text-center text-[11px] text-zinc-500">
+        <p className="text-center text-[11px] text-muted-foreground">
           By signing up, you&apos;re agreeing to our{" "}
-          <Link className="font-semibold text-zinc-700 hover:text-emerald-700" href="/terms">
+          <Link className="font-semibold text-foreground/80 hover:text-emerald-700" href="/terms">
             Terms
           </Link>{" "}
           and{" "}
-          <Link className="font-semibold text-zinc-700 hover:text-emerald-700" href="/privacy">
+          <Link className="font-semibold text-foreground/80 hover:text-emerald-700" href="/privacy">
             Privacy Policy
           </Link>
           .
@@ -376,9 +376,9 @@ export function ForgotPasswordForm({ heading }: { heading: ReactNode }) {
           <MailCheck className="h-7 w-7 text-emerald-700" aria-hidden="true" />
         </div>
         <div className="space-y-1.5">
-          <h1 className="text-2xl font-semibold tracking-tight text-zinc-950">Check your email</h1>
-          <p className="text-sm text-zinc-500">
-            If there&apos;s an account for <span className="font-medium text-zinc-900">{sentTo}</span>, we&apos;ve sent it a
+          <h1 className="text-2xl font-semibold tracking-tight text-foreground">Check your email</h1>
+          <p className="text-sm text-muted-foreground">
+            If there&apos;s an account for <span className="font-medium text-foreground">{sentTo}</span>, we&apos;ve sent it a
             reset link. It works for one hour.
           </p>
         </div>
@@ -469,8 +469,8 @@ export function ResetPasswordForm({ token }: { token: string }) {
           <Check className="h-7 w-7 text-emerald-700" aria-hidden="true" />
         </div>
         <div className="space-y-1.5">
-          <h1 className="text-2xl font-semibold tracking-tight text-zinc-950">Password updated</h1>
-          <p className="text-sm text-zinc-500">You&apos;ve been signed out everywhere. Sign in with your new password.</p>
+          <h1 className="text-2xl font-semibold tracking-tight text-foreground">Password updated</h1>
+          <p className="text-sm text-muted-foreground">You&apos;ve been signed out everywhere. Sign in with your new password.</p>
         </div>
         <Link href="/login" className={primaryButton}>
           Sign in
@@ -494,8 +494,8 @@ export function ResetPasswordForm({ token }: { token: string }) {
 
   return (
     <>
-      <h1 className="text-2xl font-semibold tracking-tight text-zinc-950">Choose a new password</h1>
-      <p className="mt-1.5 text-sm text-zinc-500">Use at least 10 characters with a mix of letters, numbers and symbols.</p>
+      <h1 className="text-2xl font-semibold tracking-tight text-foreground">Choose a new password</h1>
+      <p className="mt-1.5 text-sm text-muted-foreground">Use at least 10 characters with a mix of letters, numbers and symbols.</p>
       <form onSubmit={submit} className="mt-7 space-y-4" noValidate>
         {error && (
           <p role="alert" className={formAlert}>

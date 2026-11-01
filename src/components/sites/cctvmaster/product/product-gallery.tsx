@@ -74,7 +74,7 @@ export function ProductGallery({ images }: { images: GalleryImage[] }) {
         onPointerDown={onPointerDown}
         onPointerUp={onPointerUp}
         onPointerCancel={() => (start.current = null)}
-        className="focus-visible:ring-ring relative aspect-square touch-pan-y overflow-hidden rounded-xl border border-gray-100 bg-white select-none focus-visible:ring-2 focus-visible:outline-none"
+        className="focus-visible:ring-ring relative aspect-square touch-pan-y overflow-hidden rounded-xl border border-border bg-white select-none focus-visible:ring-2 focus-visible:outline-none"
       >
         <Image
           key={current.src}
@@ -120,7 +120,7 @@ export function ProductGallery({ images }: { images: GalleryImage[] }) {
                 "relative h-20 w-20 shrink-0 overflow-hidden rounded-lg border-2 bg-white transition-all focus-visible:outline-none",
                 i === index
                   ? "border-primary ring-primary/20 ring-2"
-                  : "hover:border-primary/50 focus-visible:border-primary/50 border-gray-200",
+                  : "hover:border-primary/50 focus-visible:border-primary/50 border-border",
               )}
             >
               {/* Eager like the main image: the strip is above the fold and shares its first file, so a lazy thumb

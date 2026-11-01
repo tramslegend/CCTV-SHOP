@@ -33,11 +33,11 @@ const PROSE: Record<BlockVariant, ProseClasses> = {
     a: "text-foreground font-semibold underline underline-offset-2",
   },
   help: {
-    h2: "mt-12 mb-5 text-xl font-semibold tracking-tight text-zinc-950 first:mt-0 sm:text-2xl",
-    h3: "mt-8 mb-3 font-semibold text-zinc-950",
-    p: "my-3 text-sm leading-relaxed text-zinc-600",
-    ul: "my-3 list-disc space-y-1.5 pl-6 text-sm leading-relaxed text-zinc-600",
-    ol: "my-3 list-decimal space-y-1.5 pl-6 text-sm leading-relaxed text-zinc-600",
+    h2: "mt-12 mb-5 text-xl font-semibold tracking-tight text-foreground first:mt-0 sm:text-2xl",
+    h3: "mt-8 mb-3 font-semibold text-foreground",
+    p: "my-3 text-sm leading-relaxed text-muted-foreground",
+    ul: "my-3 list-disc space-y-1.5 pl-6 text-sm leading-relaxed text-muted-foreground",
+    ol: "my-3 list-decimal space-y-1.5 pl-6 text-sm leading-relaxed text-muted-foreground",
     a: helpLink,
   },
   legal: {
@@ -55,7 +55,7 @@ const PROSE: Record<BlockVariant, ProseClasses> = {
 const ANSWER: Record<BlockVariant, ProseClasses> = {
   article: { ...PROSE.article, p: "text-muted-foreground leading-relaxed [&+p]:mt-2" },
   plain: { ...PROSE.plain, p: "text-muted-foreground text-sm leading-relaxed [&+p]:mt-2" },
-  help: { ...PROSE.help, p: "text-sm leading-relaxed text-zinc-600 [&+p]:mt-2" },
+  help: { ...PROSE.help, p: "text-sm leading-relaxed text-muted-foreground [&+p]:mt-2" },
   legal: { ...PROSE.legal, p: "leading-[1.7] text-[oklab(0.1912_0_0)] [&+p]:mt-2" },
 };
 
@@ -99,8 +99,8 @@ function Faq({ items, variant }: { items: { id: string; q: string; a: string }[]
     return (
       <div className="mb-6 flex flex-col gap-6">
         {shown.map((item) => (
-          <details key={item.id} open className="group border-b border-zinc-200 pb-5">
-            <summary className="mb-2 flex cursor-pointer list-none items-start justify-between gap-4 font-medium text-zinc-950 [&::-webkit-details-marker]:hidden">
+          <details key={item.id} open className="group border-b border-border pb-5">
+            <summary className="mb-2 flex cursor-pointer list-none items-start justify-between gap-4 font-medium text-foreground [&::-webkit-details-marker]:hidden">
               <span>{item.q}</span>
               <ChevronDown className="mt-1 h-4 w-4 shrink-0 text-zinc-400 transition-transform group-open:rotate-180" aria-hidden="true" />
             </summary>
@@ -124,7 +124,7 @@ function Faq({ items, variant }: { items: { id: string; q: string; a: string }[]
     <div className={cn("space-y-5", variant === "legal" ? "my-6" : "mb-6")}>
       {shown.map((item) => (
         <div key={item.id}>
-          <h3 className={cn("mb-1 font-semibold", variant === "legal" && "text-zinc-950")}>{item.q}</h3>
+          <h3 className={cn("mb-1 font-semibold", variant === "legal" && "text-foreground")}>{item.q}</h3>
           <ContentMarkdown source={item.a} classes={ANSWER[variant]} />
         </div>
       ))}
@@ -201,7 +201,7 @@ export function PageBlocks({ blocks, variant }: { blocks: PageBlock[]; variant: 
                   width={1600}
                   height={900}
                   sizes="(max-width: 1280px) 100vw, 1200px"
-                  className="h-auto w-full rounded-xl border bg-zinc-50"
+                  className="h-auto w-full rounded-xl border bg-surface"
                 />
                 {block.caption.trim() && <figcaption className="text-muted-foreground mt-2 text-sm">{block.caption}</figcaption>}
               </figure>

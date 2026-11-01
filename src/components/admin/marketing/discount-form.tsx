@@ -124,7 +124,7 @@ export function DiscountForm({
       }}
     >
       <AdminToaster />
-      <div className="sticky top-14 z-20 -mx-4 mb-6 border-b bg-zinc-50/95 px-4 py-3 backdrop-blur lg:-mx-8 lg:px-8">
+      <div className="sticky top-14 z-20 -mx-4 mb-6 border-b bg-surface/95 px-4 py-3 backdrop-blur lg:-mx-8 lg:px-8">
         <div className="flex flex-wrap items-center gap-3">
           <Link href="/admin/marketing" className={buttonVariants({ variant: "ghost", size: "icon-sm" })} aria-label="Back to discount codes">
             <ArrowLeft />
@@ -195,7 +195,7 @@ export function DiscountForm({
                       key={value}
                       className={cn(
                         "flex cursor-pointer items-start gap-2.5 rounded-lg border bg-white p-3 text-sm transition-colors",
-                        values.type === value ? "border-zinc-900 ring-1 ring-zinc-900" : "hover:bg-zinc-50",
+                        values.type === value ? "border-primary ring-1 ring-primary" : "hover:bg-surface",
                       )}
                     >
                       <input

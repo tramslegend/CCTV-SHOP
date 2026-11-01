@@ -94,7 +94,7 @@ export function DeliverySection({ initial, onDirtyChange }: { initial: DeliveryF
             <p className="text-muted-foreground text-xs">Working days after dispatch{transit ? `: ${transit}` : ""}.</p>
           </div>
         </div>
-        <div className="rounded-lg border bg-zinc-50 px-4 py-3 text-sm" aria-live="polite">
+        <div className="rounded-lg border bg-surface px-4 py-3 text-sm" aria-live="polite">
           <p className="text-muted-foreground mb-1 text-xs font-medium">What customers see</p>
           {fee === null || freeFrom === null ? (
             <p className="text-muted-foreground">Enter the charge and threshold to preview the delivery message.</p>
@@ -120,7 +120,7 @@ export function DeliverySection({ initial, onDirtyChange }: { initial: DeliveryF
           hint="Prices across the shop are calculated at 20% UK VAT. Catalogue prices are entered ex VAT."
         >
           <div className="relative">
-            <Input id="delivery-vatRate" value={`${vatPercent(VAT_RATE)}`} readOnly aria-readonly="true" className="bg-zinc-50 pr-12 tabular-nums" />
+            <Input id="delivery-vatRate" value={`${vatPercent(VAT_RATE)}`} readOnly aria-readonly="true" className="bg-surface pr-12 tabular-nums" />
             <span className="text-muted-foreground pointer-events-none absolute top-1/2 right-2.5 flex -translate-y-1/2 items-center gap-1 text-sm">
               % <Lock className="size-3" aria-hidden="true" />
             </span>

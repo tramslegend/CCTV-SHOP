@@ -72,7 +72,7 @@ export function CategoryImageField({
         }}
         className={cn(
           "relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-lg border bg-white",
-          dropActive ? "border-zinc-900 ring-2 ring-zinc-900" : shown ? "border-zinc-200" : "border-dashed border-zinc-300",
+          dropActive ? "border-primary ring-2 ring-primary" : shown ? "border-border" : "border-dashed border-zinc-300",
           error && "border-red-300",
         )}
       >
@@ -92,8 +92,8 @@ export function CategoryImageField({
           </div>
         )}
         {uploading && (
-          <div className="absolute inset-x-3 bottom-3 h-1.5 overflow-hidden rounded-full bg-zinc-200" role="progressbar" aria-label="Uploading" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100}>
-            <div className="h-full rounded-full bg-zinc-900 transition-[width]" style={{ width: `${progress}%` }} />
+          <div className="absolute inset-x-3 bottom-3 h-1.5 overflow-hidden rounded-full bg-border" role="progressbar" aria-label="Uploading" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100}>
+            <div className="h-full rounded-full bg-primary transition-[width]" style={{ width: `${progress}%` }} />
           </div>
         )}
       </div>

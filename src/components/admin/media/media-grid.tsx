@@ -42,9 +42,9 @@ function MediaCard({ item, eager, onOpen }: { item: MediaItem; eager: boolean; o
       onClick={onOpen}
       data-media-id={item.id}
       aria-haspopup="dialog"
-      className="group flex h-full w-full flex-col overflow-hidden rounded-xl border bg-white text-left transition-colors outline-none hover:border-zinc-400 focus-visible:ring-3 focus-visible:ring-zinc-900/30"
+      className="group flex h-full w-full flex-col overflow-hidden rounded-xl border bg-white text-left transition-colors outline-none hover:border-zinc-400 focus-visible:ring-3 focus-visible:ring-primary/30"
     >
-      <span className="relative block aspect-square bg-zinc-50">
+      <span className="relative block aspect-square bg-white">
         <Image
           src={item.url}
           alt={item.alt || ""}
@@ -56,14 +56,14 @@ function MediaCard({ item, eager, onOpen }: { item: MediaItem; eager: boolean; o
         <span
           className={cn(
             "absolute top-2 left-2 rounded-full px-2 py-0.5 text-[11px] font-medium shadow-sm",
-            item.usedIn ? "bg-zinc-900 text-white" : "border bg-white text-zinc-600",
+            item.usedIn ? "bg-primary text-white" : "border bg-white text-muted-foreground",
           )}
         >
           {item.usedIn ? `Used in ${item.usedIn}` : "Unused"}
         </span>
       </span>
       <span className="flex flex-1 flex-col gap-0.5 border-t p-2.5 text-xs">
-        <span className="truncate text-sm font-medium text-zinc-950" title={item.fileName}>
+        <span className="truncate text-sm font-medium text-foreground" title={item.fileName}>
           {item.fileName}
         </span>
         <span className="text-muted-foreground tabular-nums">
@@ -72,7 +72,7 @@ function MediaCard({ item, eager, onOpen }: { item: MediaItem; eager: boolean; o
         </span>
         <span className="text-muted-foreground">{item.createdLabel}</span>
         {item.alt ? (
-          <span className="line-clamp-1 text-zinc-700" title={item.alt}>
+          <span className="line-clamp-1 text-foreground/80" title={item.alt}>
             {item.alt}
           </span>
         ) : (

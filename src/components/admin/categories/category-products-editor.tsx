@@ -121,7 +121,7 @@ export function CategoryProductsEditor({ categoryId, initial }: { categoryId: nu
                   dragFrom.current = null;
                   setDragOver(null);
                 }}
-                className={cn("flex items-center gap-2 bg-white px-2 py-1.5", dragOver === i && "ring-2 ring-zinc-900 ring-inset")}
+                className={cn("flex items-center gap-2 bg-white px-2 py-1.5", dragOver === i && "ring-2 ring-primary ring-inset")}
               >
                 <GripVertical className="text-muted-foreground size-4 shrink-0 cursor-grab" aria-hidden="true" />
                 <span className="text-muted-foreground w-7 text-right text-xs tabular-nums">{i + 1}</span>

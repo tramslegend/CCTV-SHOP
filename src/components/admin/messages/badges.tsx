@@ -3,7 +3,7 @@ import { type EnquiryStatus, type EnquiryType, STATUS_LABEL, TYPE_LABEL } from "
 import { cn } from "@/lib/utils";
 
 const TYPE_CLASS: Record<EnquiryType, string> = {
-  contact: "bg-zinc-100 text-zinc-700",
+  contact: "bg-muted text-foreground/80",
   quote: "bg-sky-50 text-sky-700",
   trade: "bg-violet-50 text-violet-700",
   parts: "bg-amber-50 text-amber-800",
@@ -12,7 +12,7 @@ const TYPE_CLASS: Record<EnquiryType, string> = {
 const STATUS_CLASS: Record<EnquiryStatus, string> = {
   new: "bg-emerald-600 text-white",
   open: "bg-amber-100 text-amber-900",
-  closed: "bg-zinc-100 text-zinc-500",
+  closed: "bg-muted text-muted-foreground",
 };
 
 export function TypeBadge({ type, className }: { type: EnquiryType; className?: string }) {

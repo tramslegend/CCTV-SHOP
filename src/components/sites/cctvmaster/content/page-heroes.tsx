@@ -23,14 +23,14 @@ export function TradeHero({
 }) {
   const phoneHref = telHref(phone);
   return (
-    <section className="border-b border-zinc-200 bg-zinc-50">
+    <section className="fc-band border-b border-border">
       <div className="mx-auto max-w-5xl px-4 py-14 md:px-6 md:py-20">
         <p className="font-mono text-[10px] tracking-[0.18em] text-emerald-700 uppercase">{kicker}</p>
-        <h1 className="mt-3 max-w-3xl text-3xl leading-tight font-semibold tracking-tight text-balance text-zinc-950 sm:text-4xl md:text-5xl">
+        <h1 className="mt-3 max-w-3xl text-3xl leading-tight font-semibold tracking-tight text-balance text-foreground sm:text-4xl md:text-5xl">
           {title}
         </h1>
-        {intro && <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-600">{intro}</p>}
-        {note && <p className="mt-4 max-w-2xl text-sm leading-relaxed text-zinc-500">{note}</p>}
+        {intro && <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">{intro}</p>}
+        {note && <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">{note}</p>}
         <div className="mt-8 flex flex-wrap gap-3">
           <a
             className="inline-flex items-center gap-2 rounded-full bg-emerald-700 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-800"
@@ -41,7 +41,7 @@ export function TradeHero({
           </a>
           {phoneHref && (
             <a
-              className="inline-flex items-center gap-2 rounded-full border border-zinc-300 px-5 py-2.5 text-sm font-semibold text-zinc-800 transition-colors hover:bg-white"
+              className="inline-flex items-center gap-2 rounded-full border border-zinc-300 px-5 py-2.5 text-sm font-semibold text-foreground/80 transition-colors hover:bg-white"
               href={phoneHref}
             >
               <Phone className="h-4 w-4" aria-hidden="true" />
@@ -56,7 +56,7 @@ export function TradeHero({
 
 export function VisitHero({ title, intro }: { title: string; intro?: string }) {
   return (
-    <section className="from-primary/5 via-primary/0 to-primary/5 border-primary/20 border-b bg-gradient-to-br">
+    <section className="fc-band border-b border-border">
       <div className={cn(CONTAINER, "py-12 sm:py-16")}>
         <div className="mx-auto max-w-3xl text-center">
           <div className="text-muted-foreground mb-4 flex items-center justify-center gap-2 text-xs sm:text-sm">
@@ -66,8 +66,8 @@ export function VisitHero({ title, intro }: { title: string; intro?: string }) {
             <span>/</span>
             <span className="text-primary font-medium">Find Us</span>
           </div>
-          <h1 className="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl md:text-5xl">{title}</h1>
-          {intro && <p className="text-base text-gray-700 sm:text-lg">{intro}</p>}
+          <h1 className="mb-4 text-3xl font-bold text-foreground sm:text-4xl md:text-5xl">{title}</h1>
+          {intro && <p className="text-base text-foreground/80 sm:text-lg">{intro}</p>}
         </div>
       </div>
     </section>
@@ -76,7 +76,7 @@ export function VisitHero({ title, intro }: { title: string; intro?: string }) {
 
 export function ContactHero({ title, intro, badge }: { title: string; intro?: ReactNode; badge?: string }) {
   return (
-    <section className="relative overflow-hidden border-b border-zinc-100 bg-[#FAF9F6] text-zinc-950">
+    <section className="fc-band border-b border-border">
       <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-[38%] bg-emerald-50/70 lg:block" aria-hidden="true" />
       <div
         className="pointer-events-none absolute inset-y-0 left-[38%] hidden w-px bg-linear-to-b from-transparent via-emerald-300/40 to-transparent lg:block"
@@ -96,13 +96,13 @@ export function ContactHero({ title, intro, badge }: { title: string; intro?: Re
         )}
         <h1
           className={cn(
-            "font-sentient max-w-3xl text-4xl leading-[1.05] font-bold tracking-tight text-balance text-zinc-950 sm:text-5xl md:text-6xl",
+            "font-sentient max-w-3xl text-4xl leading-[1.05] font-bold tracking-tight text-balance text-foreground sm:text-5xl md:text-6xl",
             badge && "mt-5",
           )}
         >
           {title}
         </h1>
-        {intro && <p className="mt-4 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg">{intro}</p>}
+        {intro && <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">{intro}</p>}
       </div>
     </section>
   );

@@ -29,28 +29,28 @@ export function StatusBadge({ status }: { status: OrderStatus }) {
 /** Item rows of an order, linking back to each product. */
 export function OrderLines({ order }: { order: Pick<ReceiptOrder, "items"> }) {
   return (
-    <ul className="divide-y divide-zinc-100">
+    <ul className="divide-y divide-border">
       {order.items.map((line) => (
         <li key={line.id} className="flex items-center gap-4 py-4">
           <ProductThumb
             src={line.image}
             alt={line.name}
             sizes="56px"
-            className="h-14 w-14 rounded border border-zinc-200 bg-zinc-50"
+            className="h-14 w-14 rounded border border-border bg-white"
           />
           <div className="min-w-0 flex-1">
             {line.slug ? (
-              <Link href={`/products/${line.slug}`} className="line-clamp-2 text-sm font-medium text-zinc-950 hover:text-emerald-700">
+              <Link href={`/products/${line.slug}`} className="line-clamp-2 text-sm font-medium text-foreground hover:text-emerald-700">
                 {line.name}
               </Link>
             ) : (
-              <p className="line-clamp-2 text-sm font-medium text-zinc-950">{line.name}</p>
+              <p className="line-clamp-2 text-sm font-medium text-foreground">{line.name}</p>
             )}
-            <p className="text-xs text-zinc-500">
+            <p className="text-xs text-muted-foreground">
               {line.sku ? `Model ${line.sku} · ` : ""}Qty {line.qty} × {formatGBP(line.unitIncVat)}
             </p>
           </div>
-          <p className="shrink-0 text-sm font-semibold text-zinc-950 tabular-nums">{formatGBP(line.unitIncVat * line.qty)}</p>
+          <p className="shrink-0 text-sm font-semibold text-foreground tabular-nums">{formatGBP(line.unitIncVat * line.qty)}</p>
         </li>
       ))}
     </ul>
@@ -78,16 +78,16 @@ export function OrderTotals({ order }: { order: Pick<ReceiptOrder, "figures" | "
     <dl className="space-y-2 text-sm">
       {rows.map((r) => (
         <div key={r.label} className="flex items-baseline justify-between">
-          <dt className="text-zinc-600">{r.label}</dt>
-          <dd className={cn("tabular-nums", r.tone ?? "text-zinc-950")}>{r.value}</dd>
+          <dt className="text-muted-foreground">{r.label}</dt>
+          <dd className={cn("tabular-nums", r.tone ?? "text-foreground")}>{r.value}</dd>
         </div>
       ))}
-      <div className="flex items-baseline justify-between border-t border-zinc-100 pt-3">
-        <dt className="text-sm font-semibold text-zinc-950">Total</dt>
-        <dd className="text-base font-semibold text-zinc-950 tabular-nums">{formatGBP(f.total)}</dd>
+      <div className="flex items-baseline justify-between border-t border-border pt-3">
+        <dt className="text-sm font-semibold text-foreground">Total</dt>
+        <dd className="text-base font-semibold text-foreground tabular-nums">{formatGBP(f.total)}</dd>
       </div>
       {f.discount > 0 && (
-        <p className="-mt-1 text-right text-xs text-zinc-500 tabular-nums">
+        <p className="-mt-1 text-right text-xs text-muted-foreground tabular-nums">
           Includes VAT ({f.vatPercent}%) of {formatGBP(f.vat)}
         </p>
       )}

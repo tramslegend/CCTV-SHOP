@@ -26,7 +26,14 @@ export function AdminLoginForm({ next }: { next: string }) {
         });
         if (signInError) {
           setPending(false);
-          setError(signInError.status === 429 ? "Too many attempts. Wait a minute and try again." : "Email or password is incorrect.");
+          setError(
+            signInError.status === 429
+              ? "Too many attempts. Wait a minute and try again."
+              : // Better Auth refuses sign-ins from an address it doesn't trust: not a password problem.
+                signInError.code === "INVALID_ORIGIN"
+                ? "Signing in isn't allowed from this web address. Open the shop at its usual address and try again."
+                : "Email or password is incorrect.",
+          );
           return;
         }
         // The server decides whether this account may enter the back office.

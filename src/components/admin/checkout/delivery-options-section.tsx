@@ -89,7 +89,7 @@ export function DeliveryOptionsSection({
           const standard = i === 0;
           const areas = parseAreas(o.excludedAreas).areas;
           return (
-            <li key={o.key} className={cn("rounded-lg border p-4", !o.enabled && "bg-zinc-50")}>
+            <li key={o.key} className={cn("rounded-lg border p-4", !o.enabled && "bg-surface")}>
               <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
                 <div className="flex min-w-0 items-center gap-2">
                   {o.kind === "collect" ? (
@@ -226,7 +226,7 @@ export function DeliveryOptionsSection({
                         option.{" "}
                         <button
                           type="button"
-                          className="font-medium text-zinc-900 underline underline-offset-2 hover:no-underline"
+                          className="font-medium text-foreground underline underline-offset-2 hover:no-underline"
                           onClick={() =>
                             setOption(i, { excludedAreas: parseAreas([o.excludedAreas, REMOTE_UK_AREAS].filter(Boolean).join(", ")).areas.join(", ") })
                           }
@@ -240,7 +240,7 @@ export function DeliveryOptionsSection({
                 )}
               </div>
 
-              <p className="mt-3 rounded-md bg-zinc-50 px-3 py-2 text-xs" aria-live="polite">
+              <p className="mt-3 rounded-md bg-surface px-3 py-2 text-xs" aria-live="polite">
                 <span className="text-muted-foreground">Customers see: </span>
                 {preview(o, collectFrom)}
                 {o.kind === "delivery" && areas.length > 0 && (

@@ -27,7 +27,7 @@ export default async function TestPaymentPage(props: PageProps<"/checkout/test-p
       <CheckoutFrame>
         <div className="mx-auto max-w-2xl px-4 py-16 text-center">
           <SearchX className="mx-auto h-10 w-10 text-zinc-400" aria-hidden="true" />
-          <h1 className="mt-4 text-2xl font-semibold tracking-tight text-zinc-950">This payment link isn&apos;t valid</h1>
+          <h1 className="mt-4 text-2xl font-semibold tracking-tight text-foreground">This payment link isn&apos;t valid</h1>
           <Link href="/checkout" className={`${emeraldButton} mt-6`}>
             Back to checkout
           </Link>
@@ -47,21 +47,21 @@ export default async function TestPaymentPage(props: PageProps<"/checkout/test-p
             <FlaskConical className="h-4 w-4" aria-hidden="true" />
             Local test payment · no card · nothing is charged
           </p>
-          <h1 className="mt-3 text-2xl font-semibold tracking-tight text-zinc-950">Pay for order {order.number}</h1>
-          <p className="mt-1 text-sm text-zinc-500">
+          <h1 className="mt-3 text-2xl font-semibold tracking-tight text-foreground">Pay for order {order.number}</h1>
+          <p className="mt-1 text-sm text-muted-foreground">
             Stripe isn&apos;t configured on this machine (no STRIPE_SECRET_KEY). This page stands in for Stripe&apos;s
             payment page so the order can be completed end to end.
           </p>
-          <ul className="mt-5 divide-y divide-zinc-100 border-y border-zinc-100 text-sm">
+          <ul className="mt-5 divide-y divide-border border-y border-border text-sm">
             {items.map((i) => (
               <li key={i.id} className="flex justify-between gap-3 py-2">
-                <span className="min-w-0 truncate text-zinc-700">
+                <span className="min-w-0 truncate text-foreground/80">
                   {i.qty} × {i.name}
                 </span>
               </li>
             ))}
           </ul>
-          <p className="mt-4 flex items-baseline justify-between text-lg font-semibold text-zinc-950">
+          <p className="mt-4 flex items-baseline justify-between text-lg font-semibold text-foreground">
             <span>Total to pay</span>
             <span className="tabular-nums">{formatGBP(order.total)}</span>
           </p>
@@ -84,7 +84,7 @@ export default async function TestPaymentPage(props: PageProps<"/checkout/test-p
             </div>
           ) : (
             <div className="mt-6 space-y-3">
-              <p className="rounded-md bg-zinc-50 px-3 py-2 text-sm text-zinc-600">This order was cancelled before payment.</p>
+              <p className="rounded-md bg-surface px-3 py-2 text-sm text-muted-foreground">This order was cancelled before payment.</p>
               <Link href="/checkout" className={`${emeraldButton} w-full`}>
                 Back to checkout
               </Link>

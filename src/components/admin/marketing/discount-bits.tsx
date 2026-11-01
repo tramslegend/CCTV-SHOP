@@ -5,9 +5,9 @@ import { cn } from "@/lib/utils";
 export const DISCOUNT_STATUS_TONE: Record<DiscountStatus, string> = {
   active: "border-emerald-200 bg-emerald-50 text-emerald-800",
   scheduled: "border-sky-200 bg-sky-50 text-sky-800",
-  expired: "border-zinc-200 bg-zinc-100 text-zinc-600",
+  expired: "border-border bg-muted text-muted-foreground",
   used_up: "border-amber-200 bg-amber-50 text-amber-800",
-  inactive: "border-zinc-200 bg-white text-zinc-500",
+  inactive: "border-border bg-white text-muted-foreground",
 };
 
 export function DiscountStatusBadge({ status, className }: { status: DiscountStatus; className?: string }) {

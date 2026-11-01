@@ -15,10 +15,10 @@ export function ProductCard({ card, eager = false }: { card: ProductCardData; ea
   const href = `/products/${card.slug}`;
   const image = card.imageUrl ?? card.image;
   return (
-    <div className="flex h-full flex-col gap-2">
+    <div className="fc-reveal flex h-full flex-col gap-2">
       <Link
         href={href}
-        className="group flex flex-1 flex-col overflow-hidden rounded-2xl border border-border bg-white transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-200 hover:shadow-[0_18px_30px_-16px_rgba(16,185,129,0.25)] focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:outline-none"
+        className="group flex flex-1 flex-col overflow-hidden rounded-2xl border border-border bg-white transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_22px_40px_-18px_rgba(4,120,87,0.45)] focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:outline-none"
       >
         <div className="relative aspect-square w-full shrink-0 overflow-hidden bg-white">
           {image ? (
@@ -40,7 +40,7 @@ export function ProductCard({ card, eager = false }: { card: ProductCardData; ea
         <div className="flex flex-1 flex-col p-4">
           <h2
             className={cn(
-              "text-sm font-bold tracking-[-0.02em] text-zinc-900 transition-colors group-hover:text-emerald-800",
+              "text-sm font-bold tracking-[-0.02em] text-foreground transition-colors group-hover:text-emerald-800",
               decide ? "line-clamp-3" : "line-clamp-2",
             )}
           >
@@ -54,7 +54,7 @@ export function ProductCard({ card, eager = false }: { card: ProductCardData; ea
             )}
           </h2>
           {decide?.maker ? (
-            <p className="mt-0.5 truncate text-[11px] tracking-wide text-zinc-500">{decide.maker}</p>
+            <p className="mt-0.5 truncate text-[11px] tracking-wide text-muted-foreground">{decide.maker}</p>
           ) : null}
           {decide?.chips.length ? (
             <ul className="mt-2 flex flex-wrap gap-1">
@@ -69,8 +69,8 @@ export function ProductCard({ card, eager = false }: { card: ProductCardData; ea
             </ul>
           ) : null}
           {decide?.goodFor ? (
-            <p className="mt-2 text-xs text-zinc-600">
-              <span className="font-semibold text-zinc-800">{decide.goodForLabel ?? "Good for"}:</span> {decide.goodFor}
+            <p className="mt-2 text-xs text-muted-foreground">
+              <span className="font-semibold text-foreground/80">{decide.goodForLabel ?? "Good for"}:</span> {decide.goodFor}
             </p>
           ) : null}
           <p className="mt-2">

@@ -136,7 +136,7 @@ export function SearchBox() {
                     onClick={close}
                     className="hover:bg-muted flex items-center gap-3 rounded-md p-2 transition-colors"
                   >
-                    <div className="bg-muted flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-md">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-md border border-border bg-white">
                       {p.image && <Image src={p.image} alt={p.name} width={48} height={48} className="h-full w-full object-cover" />}
                     </div>
                     <div className="min-w-0 flex-1">

@@ -30,11 +30,11 @@ export function TokenHelp({ values }: { values: TokenValues }) {
               <button
                 type="button"
                 onClick={() => void copy(token)}
-                className="flex w-full items-start gap-2 px-5 py-2 text-left hover:bg-zinc-50"
+                className="flex w-full items-start gap-2 px-5 py-2 text-left hover:bg-surface"
                 title={`Copy ${token}`}
               >
                 <span className="min-w-0 flex-1">
-                  <span className="block font-mono text-[12px] text-zinc-900">{token}</span>
+                  <span className="block font-mono text-[12px] text-foreground">{token}</span>
                   <span className="text-muted-foreground block truncate text-xs">
                     {label}: {values[key] || <em>not set</em>}
                   </span>

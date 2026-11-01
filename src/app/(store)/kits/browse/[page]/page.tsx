@@ -32,7 +32,7 @@ export default async function KitBrowsePage({ params }: PageProps<"/kits/browse/
   const from = (n - 1) * BROWSE_PAGE_SIZE;
   const kits = all.slice(from, from + BROWSE_PAGE_SIZE);
   return (
-    <div className={`flex min-h-full flex-col bg-white text-zinc-950 ${STORE_HEADINGS}`}>
+    <div className={`flex min-h-full flex-col bg-white text-foreground ${STORE_HEADINGS}`}>
       <KitsHero
         eyebrow="CCTV kits · UK stock"
         title={`Ready-made kits — page ${n}`}

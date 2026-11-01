@@ -53,7 +53,7 @@ export default async function AdminCustomersPage({ searchParams }: PageProps<"/a
             aria-current={type === t.id ? "page" : undefined}
             className={cn(
               "rounded-full border px-3 py-1 text-sm font-medium transition-colors",
-              type === t.id ? "border-zinc-900 bg-zinc-900 text-white" : "bg-white text-zinc-700 hover:bg-zinc-50",
+              type === t.id ? "border-primary bg-primary text-white" : "bg-white text-foreground/80 hover:bg-surface",
             )}
           >
             {t.label}

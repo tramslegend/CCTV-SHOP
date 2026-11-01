@@ -144,7 +144,7 @@ export function PostForm({
       }}
     >
       <AdminToaster />
-      <div className="sticky top-14 z-20 -mx-4 mb-6 border-b bg-zinc-50/95 px-4 py-3 backdrop-blur lg:-mx-8 lg:px-8">
+      <div className="sticky top-14 z-20 -mx-4 mb-6 border-b bg-surface/95 px-4 py-3 backdrop-blur lg:-mx-8 lg:px-8">
         <div className="flex flex-wrap items-center gap-3">
           <Link href="/admin/content/blog" className={buttonVariants({ variant: "ghost", size: "icon-sm" })} aria-label="Back to blog posts">
             <ArrowLeft />
@@ -219,7 +219,7 @@ export function PostForm({
               labelAside={
                 <button
                   type="button"
-                  className="text-muted-foreground inline-flex items-center gap-1 text-xs hover:text-zinc-950"
+                  className="text-muted-foreground inline-flex items-center gap-1 text-xs hover:text-foreground"
                   onClick={() => {
                     set("slug", slugify(values.title));
                     setSlugEdited(false);
@@ -230,7 +230,7 @@ export function PostForm({
               }
             >
               <div className="flex items-center">
-                <span className="text-muted-foreground flex h-8 items-center rounded-l-lg border border-r-0 bg-zinc-50 px-2.5 text-sm">/blog/</span>
+                <span className="text-muted-foreground flex h-8 items-center rounded-l-lg border border-r-0 bg-surface px-2.5 text-sm">/blog/</span>
                 <Input
                   id="pf-slug"
                   value={values.slug}
@@ -349,7 +349,7 @@ export function PostForm({
               label="Updated"
               hint="Shown as “Updated …” when it's later than the publish date."
               labelAside={
-                <button type="button" className="text-muted-foreground text-xs hover:text-zinc-950" onClick={() => set("modifiedAt", today)}>
+                <button type="button" className="text-muted-foreground text-xs hover:text-foreground" onClick={() => set("modifiedAt", today)}>
                   Today
                 </button>
               }

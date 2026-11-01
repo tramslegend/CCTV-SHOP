@@ -50,7 +50,7 @@ export function SpecificationsSection({ attributes }: { attributes: Attribute[] 
   if (!attributes.length) return null;
   return (
     <SectionCard title="Specifications" id="pdp-specs">
-      <dl className="divide-y divide-gray-100">
+      <dl className="divide-y divide-border">
         {attributes.map((a, i) => (
           <div key={`${a.name}-${i}`} className="grid gap-x-6 gap-y-1 py-3 sm:grid-cols-[minmax(8rem,15rem)_1fr]">
             <dt className="text-muted-foreground text-sm leading-relaxed break-words">{a.name}</dt>
@@ -69,7 +69,7 @@ export function PartNumbersSection({ partNumbers }: { partNumbers?: Record<strin
   if (!mpn && !gtin && !aliases.length) return null;
   return (
     <SectionCard title="Technical Specifications" id="pdp-part-numbers">
-      <div className="divide-y divide-gray-100">
+      <div className="divide-y divide-border">
         {mpn && (
           <div className="flex justify-between gap-4 py-3">
             <span className="text-muted-foreground">Manufacturer part number</span>
@@ -97,7 +97,7 @@ export function FaqSection({ faqs }: { faqs: Faq[] }) {
   if (!faqs.length) return null;
   return (
     <SectionCard title="Frequently Asked Questions" id="pdp-faq">
-      <div className="divide-y divide-gray-100">
+      <div className="divide-y divide-border">
         {faqs.map((f) => (
           <details key={f.q} className="group py-3">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-medium sm:text-base [&::-webkit-details-marker]:hidden">

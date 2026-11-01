@@ -56,7 +56,7 @@ export default async function VisitPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       <VisitHero
         title={`Find ${store.name}${city ? ` in ${city}` : ""}`}
         intro={`${city ? `A ${city} counter` : "A shop counter"} with public prices and UK stock — give us a ring before you travel.`}
@@ -118,13 +118,13 @@ function FindUsCard({ store }: { store: StoreSettings }) {
   const phoneHref = telHref(store.phone);
   return (
     <div className="border-primary/20 rounded-2xl border bg-white p-6 sm:p-8">
-      <h2 className="text-xl font-bold text-gray-900">Where to find us</h2>
+      <h2 className="text-xl font-bold text-foreground">Where to find us</h2>
       {address && (
-        <p className="mt-2 text-sm leading-relaxed text-gray-700">
+        <p className="mt-2 text-sm leading-relaxed text-foreground/80">
           {store.name}, {address}
         </p>
       )}
-      <p className="mt-3 text-sm leading-relaxed text-gray-700">
+      <p className="mt-3 text-sm leading-relaxed text-foreground/80">
         Want to see something in person or collect an order?{" "}
         {phoneHref ? (
           <>
@@ -147,15 +147,15 @@ function FindUsCard({ store }: { store: StoreSettings }) {
       <div className="mt-6 grid gap-6 sm:grid-cols-2">
         {store.openingHours.length > 0 && (
           <div>
-            <p className="flex items-center gap-2 text-sm font-semibold text-gray-900">
+            <p className="flex items-center gap-2 text-sm font-semibold text-foreground">
               <Clock className="h-4 w-4 text-emerald-700" aria-hidden="true" />
               Opening hours
             </p>
-            <dl className="mt-2 divide-y divide-zinc-100 text-sm">
+            <dl className="mt-2 divide-y divide-border text-sm">
               {store.openingHours.map((row, i) => (
                 <div key={`${i}-${row.days}`} className="flex items-center justify-between py-1.5">
-                  <dt className="text-zinc-500">{row.days}</dt>
-                  <dd className="font-medium text-zinc-950">{row.hours}</dd>
+                  <dt className="text-muted-foreground">{row.days}</dt>
+                  <dd className="font-medium text-foreground">{row.hours}</dd>
                 </div>
               ))}
             </dl>

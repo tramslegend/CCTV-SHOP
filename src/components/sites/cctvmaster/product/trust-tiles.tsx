@@ -24,7 +24,7 @@ export function TrustTiles({ delivery, className }: { delivery: DeliverySettings
           <li
             key={label}
             className={cn(
-              "fc-rise flex flex-col items-center gap-1 rounded-xl border border-gray-100 bg-gray-50/50 p-3 text-center",
+              "fc-rise flex flex-col items-center gap-1 rounded-xl border border-border bg-surface/50 p-3 text-center",
               delay,
             )}
           >

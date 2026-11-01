@@ -73,16 +73,16 @@ export function ListingView({
 
   return (
     <>
-      <div className="min-h-screen bg-gray-50/40">
+      <div className="min-h-screen bg-surface/40">
         {breadcrumbBar ? (
-          <div className="border-b border-gray-100 bg-white">
+          <div className="border-b border-border bg-white">
             <div className={`${CONTAINER} py-3`}>
-              <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm text-gray-500">
+              <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm text-muted-foreground">
                 <Link href="/" className="transition-colors hover:text-emerald-700">
                   Home
                 </Link>
                 <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
-                <span className="font-medium text-gray-900">Products</span>
+                <span className="font-medium text-foreground">Products</span>
               </nav>
             </div>
           </div>

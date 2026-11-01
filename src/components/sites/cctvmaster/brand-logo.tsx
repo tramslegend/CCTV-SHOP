@@ -32,7 +32,7 @@ export function BrandLogo({
   const src = onDark ? logoDarkUrl || logoUrl : logoUrl;
   if (!src)
     return (
-      <span className={cn("font-sentient text-xl leading-none font-semibold tracking-tight", onDark ? "text-white" : "text-zinc-950", textClassName)}>
+      <span className={cn("font-sentient text-xl leading-none font-semibold tracking-tight", onDark ? "text-white" : "text-foreground", textClassName)}>
         {name}
       </span>
     );

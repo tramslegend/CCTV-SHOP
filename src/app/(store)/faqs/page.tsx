@@ -108,7 +108,7 @@ export default async function FaqsPage() {
   if (page) return <ManagedPage page={page} settings={settings} />;
   const groups = groupsFor(settings);
   return (
-    <div className="flex min-h-full flex-col bg-white text-zinc-950">
+    <div className="flex min-h-full flex-col bg-white text-foreground">
       <HelpHero
         kicker="Help · UK"
         title="Frequently asked questions"
@@ -119,18 +119,18 @@ export default async function FaqsPage() {
           <div className="mx-auto flex max-w-3xl flex-col gap-12">
             {groups.map((group) => (
               <div key={group.title}>
-                <h2 className="mb-5 text-xl font-semibold tracking-tight text-zinc-950 sm:text-2xl">{group.title}</h2>
+                <h2 className="mb-5 text-xl font-semibold tracking-tight text-foreground sm:text-2xl">{group.title}</h2>
                 <div className="flex flex-col gap-6">
                   {group.items.map((item) => (
-                    <details key={item.q} open className="group border-b border-zinc-200 pb-5">
-                      <summary className="mb-2 flex cursor-pointer list-none items-start justify-between gap-4 font-medium text-zinc-950 [&::-webkit-details-marker]:hidden">
+                    <details key={item.q} open className="group border-b border-border pb-5">
+                      <summary className="mb-2 flex cursor-pointer list-none items-start justify-between gap-4 font-medium text-foreground [&::-webkit-details-marker]:hidden">
                         <span>{item.q}</span>
                         <ChevronDown
                           className={cn("mt-1 h-4 w-4 shrink-0 text-zinc-400 transition-transform group-open:rotate-180")}
                           aria-hidden="true"
                         />
                       </summary>
-                      <p className="text-sm leading-relaxed text-zinc-600">
+                      <p className="text-sm leading-relaxed text-muted-foreground">
                         {item.a}
                         {item.link ? (
                           <>
@@ -146,7 +146,7 @@ export default async function FaqsPage() {
                 </div>
               </div>
             ))}
-            <p className="text-sm text-zinc-600">
+            <p className="text-sm text-muted-foreground">
               Can’t find it?{" "}
               <Link className={linkCls} href="/contact">
                 Contact support

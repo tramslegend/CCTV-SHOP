@@ -56,17 +56,17 @@ export default async function AdminContentPage() {
           <li key={href}>
             <Link
               href={href}
-              className="group flex h-full flex-col gap-3 rounded-xl bg-white p-5 ring-1 ring-black/10 transition-shadow hover:shadow-md hover:ring-black/20 focus-visible:ring-2 focus-visible:ring-zinc-900 focus-visible:outline-none"
+              className="group flex h-full flex-col gap-3 rounded-xl bg-white p-5 ring-1 ring-black/10 transition-shadow hover:shadow-md hover:ring-black/20 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
             >
               <div className="flex items-center gap-3">
-                <span className="flex size-9 items-center justify-center rounded-lg bg-zinc-100 text-zinc-700">
+                <span className="flex size-9 items-center justify-center rounded-lg bg-muted text-foreground/80">
                   <Icon className="size-4.5" aria-hidden="true" />
                 </span>
                 <h2 className="text-base font-semibold">{title}</h2>
                 <ArrowRight className="text-muted-foreground ml-auto size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
               </div>
               <p className="text-muted-foreground text-sm">{body}</p>
-              {stat && <p className="mt-auto text-xs font-medium text-zinc-700 tabular-nums">{stat}</p>}
+              {stat && <p className="mt-auto text-xs font-medium text-foreground/80 tabular-nums">{stat}</p>}
             </Link>
           </li>
         ))}

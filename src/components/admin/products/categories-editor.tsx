@@ -57,7 +57,7 @@ export function CategoriesEditor({
       <div className="flex flex-col gap-1.5">
         <Label htmlFor="pf-primaryCategoryId">Primary category</Label>
         {primary ? (
-          <div className="flex items-center gap-2 rounded-lg border bg-zinc-50 px-2.5 py-1.5">
+          <div className="flex items-center gap-2 rounded-lg border bg-surface px-2.5 py-1.5">
             <span className="min-w-0 flex-1 truncate text-sm" title={primary.path.join(" › ")}>
               {primary.path.map((name, i) => (
                 <span key={`${name}-${i}`} className={i === primary.path.length - 1 ? "font-medium" : "text-muted-foreground"}>
@@ -101,7 +101,7 @@ export function CategoriesEditor({
                   {o?.name ?? `Category #${id}`}
                   <button
                     type="button"
-                    className="text-muted-foreground rounded-full p-0.5 hover:bg-zinc-100 hover:text-zinc-950"
+                    className="text-muted-foreground rounded-full p-0.5 hover:bg-muted hover:text-foreground"
                     aria-label={`Remove ${o?.name ?? "category"}`}
                     onClick={() => onExtraChange(extraIds.filter((x) => x !== id))}
                   >
@@ -125,7 +125,7 @@ export function CategoriesEditor({
         {extraErrors.length > 0 && <p className="text-xs text-red-700">{extraErrors[0]}</p>}
       </div>
 
-      <div className="text-muted-foreground rounded-lg bg-zinc-50 p-3 text-xs leading-relaxed">
+      <div className="text-muted-foreground rounded-lg bg-surface p-3 text-xs leading-relaxed">
         {listed.length ? (
           <>
             <span className="text-foreground font-medium">Shown in {listed.length === 1 ? "1 listing" : `${listed.length} listings`}:</span>{" "}

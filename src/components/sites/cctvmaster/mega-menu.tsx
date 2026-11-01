@@ -13,11 +13,11 @@ function Thumb({ src, size }: { src: string; size: number }) {
 export function MegaMenuPanel({ category, top }: { category: MegaMenu; top: number }) {
   return (
     <div className="fixed inset-x-0 z-60" style={{ top }}>
-      <div className="border-t border-slate-200 bg-white shadow-lg dark:border-slate-800 dark:bg-slate-900">
+      <div className="border-t border-border bg-white shadow-lg dark:border-slate-800 dark:bg-slate-900">
         <div className="mx-auto max-w-450 px-4 py-6 md:px-6 lg:px-8">
-          <div className="mb-6 flex items-center justify-between border-b border-slate-200 pb-4 dark:border-slate-700">
+          <div className="mb-6 flex items-center justify-between border-b border-border pb-4 dark:border-slate-700">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 shrink-0 overflow-hidden rounded-lg bg-slate-100 dark:bg-slate-800">
+              <div className="h-10 w-10 shrink-0 overflow-hidden rounded-lg bg-white">
                 <Thumb src={category.icon} size={40} />
               </div>
               <div>
@@ -40,7 +40,7 @@ export function MegaMenuPanel({ category, top }: { category: MegaMenu; top: numb
                   className="group/header mb-3 flex items-center gap-3 rounded-lg p-2 transition-all duration-200"
                   href={group.href}
                 >
-                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-slate-100 dark:bg-slate-800">
+                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-white">
                     <Thumb src={group.icon} size={48} />
                   </div>
                   <div className="min-w-0 flex-1">
@@ -61,7 +61,7 @@ export function MegaMenuPanel({ category, top }: { category: MegaMenu; top: numb
                         className="group/item flex items-center gap-2 rounded-md p-1 transition-all duration-200"
                         href={item.href}
                       >
-                        <div className="relative h-7 w-7 shrink-0 overflow-hidden rounded bg-slate-100 dark:bg-slate-800">
+                        <div className="relative h-7 w-7 shrink-0 overflow-hidden rounded bg-white">
                           <Thumb src={item.icon} size={28} />
                         </div>
                         <span className="text-muted-foreground group-hover/item:text-foreground truncate text-xs transition-colors duration-200">

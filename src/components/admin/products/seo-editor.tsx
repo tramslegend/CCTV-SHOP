@@ -83,7 +83,7 @@ export function SeoEditor({
         <p className="text-muted-foreground mb-1.5 text-xs font-medium">Search result preview</p>
         <div className="rounded-lg border bg-white p-4 font-[arial,sans-serif]" aria-label="Google search result preview">
           <div className="flex items-center gap-2.5">
-            <span className="flex size-7 items-center justify-center rounded-full bg-zinc-100 text-[11px] font-semibold text-zinc-700">
+            <span className="flex size-7 items-center justify-center rounded-full bg-muted text-[11px] font-semibold text-foreground/80">
               {siteName
                 .split(/ +/)
                 .map((w) => w[0])

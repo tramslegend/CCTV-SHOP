@@ -121,7 +121,7 @@ export default async function ComparePage(props: PageProps<"/compare">) {
           <span
             key={i.sku}
             aria-label={`£${p.pounds}.${p.pence}`}
-            className="inline-flex items-start font-semibold tracking-tight text-zinc-950 tabular-nums"
+            className="inline-flex items-start font-semibold tracking-tight text-foreground tabular-nums"
           >
             <span className="mt-0.5 font-mono text-sm" aria-hidden="true">
               £
@@ -172,20 +172,20 @@ export default async function ComparePage(props: PageProps<"/compare">) {
 
   return (
     <div className="mx-auto w-full max-w-[1280px] px-4 py-8 sm:px-6 md:py-10 lg:px-8">
-      <nav aria-label="Breadcrumb" className="mb-3 flex gap-2 text-sm text-zinc-500">
+      <nav aria-label="Breadcrumb" className="mb-3 flex gap-2 text-sm text-muted-foreground">
         <Link href="/" className="hover:underline">
           Home
         </Link>
         <span aria-hidden="true">/</span>
         <span aria-current="page">Compare</span>
       </nav>
-      <h1 id="compare-heading" className="text-2xl font-bold tracking-[-0.02em] text-zinc-900 sm:text-3xl">
+      <h1 id="compare-heading" className="text-2xl font-bold tracking-[-0.02em] text-foreground sm:text-3xl">
         Compare side by side
       </h1>
-      <p className="mt-2 max-w-2xl text-zinc-600">The same facts in the same rows, so the differences jump out.</p>
+      <p className="mt-2 max-w-2xl text-muted-foreground">The same facts in the same rows, so the differences jump out.</p>
       {items.length === 0 ? (
         <div className="mt-8 rounded-2xl border border-dashed border-emerald-200 bg-white p-8 text-center">
-          <h2 className="text-lg font-bold tracking-[-0.02em] text-zinc-900">Nothing to compare yet</h2>
+          <h2 className="text-lg font-bold tracking-[-0.02em] text-foreground">Nothing to compare yet</h2>
           <p className="mt-2">Tick “Compare” on any camera or recorder (four at most), then come back here.</p>
           <p className="mt-4">
             <Link
@@ -199,7 +199,7 @@ export default async function ComparePage(props: PageProps<"/compare">) {
       ) : (
         <div className="mt-6">
           <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
-            <p className="text-sm text-zinc-500">Shaded rows are where they differ.</p>
+            <p className="text-sm text-muted-foreground">Shaded rows are where they differ.</p>
             <Link
               href={compareUrl(skus, hideSame ? "" : "&same=hide")}
               className="inline-flex min-h-10 items-center rounded-full border border-emerald-200 bg-white px-4 text-sm font-semibold text-emerald-800 hover:bg-emerald-50"
@@ -211,7 +211,7 @@ export default async function ComparePage(props: PageProps<"/compare">) {
             role="region"
             aria-labelledby="compare-heading"
             tabIndex={0}
-            className="relative max-w-full overflow-x-auto rounded-2xl border border-zinc-100 bg-white focus-visible:outline-2 focus-visible:outline-emerald-600"
+            className="relative max-w-full overflow-x-auto rounded-2xl border border-border bg-white focus-visible:outline-2 focus-visible:outline-emerald-600"
           >
             <table className="w-full min-w-max border-separate border-spacing-0 text-left text-sm">
               <thead>
@@ -232,11 +232,11 @@ export default async function ComparePage(props: PageProps<"/compare">) {
                           >
                             {image ? <Image src={image} alt="" width={120} height={120} sizes="120px" /> : null}
                           </span>
-                          <Link href={href} className="text-sm leading-snug font-semibold text-zinc-900 hover:text-emerald-800">
+                          <Link href={href} className="text-sm leading-snug font-semibold text-foreground hover:text-emerald-800">
                             {title}
                             {item.card.decide ? <span className="sr-only"> — {item.product.name}</span> : null}
                           </Link>
-                          <span className="text-[11px] tracking-wide text-zinc-500 uppercase">{item.product.sku}</span>
+                          <span className="text-[11px] tracking-wide text-muted-foreground uppercase">{item.product.sku}</span>
                           <div className="flex flex-wrap items-center gap-x-3 gap-y-2 pt-1">
                             <CompareAddButton
                               item={{
@@ -256,7 +256,7 @@ export default async function ComparePage(props: PageProps<"/compare">) {
                             <Link
                               href={compareUrl(skus.filter((s) => s !== item.sku), hideSame ? "&same=hide" : "")}
                               aria-label={`Remove ${item.product.name} from the comparison`}
-                              className="text-xs text-zinc-500 underline-offset-2 hover:text-zinc-900 hover:underline"
+                              className="text-xs text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
                             >
                               Remove
                             </Link>
@@ -272,12 +272,12 @@ export default async function ComparePage(props: PageProps<"/compare">) {
                   <tr key={row.label} className={cn(row.differs ? "bg-emerald-50" : "bg-white")} data-differs={row.differs || undefined}>
                     <th
                       scope="row"
-                      className="sticky left-0 z-10 border-t border-zinc-100 bg-inherit p-3 align-top text-xs font-semibold text-zinc-600"
+                      className="sticky left-0 z-10 border-t border-border bg-inherit p-3 align-top text-xs font-semibold text-muted-foreground"
                     >
                       {row.label}
                     </th>
                     {row.values.map((value, n) => (
-                      <td key={skus[n]} className="border-t border-zinc-100 p-3 align-top text-zinc-800">
+                      <td key={skus[n]} className="border-t border-border p-3 align-top text-foreground/80">
                         {value}
                       </td>
                     ))}

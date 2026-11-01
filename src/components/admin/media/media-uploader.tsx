@@ -115,11 +115,11 @@ export function MediaUploader({ mode }: { mode: UploadMode }) {
         }}
         className={cn(
           "flex flex-col items-center justify-center gap-2 rounded-xl border border-dashed bg-white px-4 py-6 text-center transition-colors sm:flex-row sm:gap-4 sm:py-5",
-          dropActive ? "border-zinc-900 bg-zinc-50" : "border-zinc-300",
+          dropActive ? "border-primary bg-surface" : "border-zinc-300",
         )}
       >
-        <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-zinc-100">
-          <Upload className="size-5 text-zinc-600" aria-hidden="true" />
+        <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-muted">
+          <Upload className="size-5 text-muted-foreground" aria-hidden="true" />
         </span>
         <div className="sm:flex-1 sm:text-left">
           <p className="text-sm font-medium">{dropActive ? "Drop to upload" : "Drag images here to upload"}</p>
@@ -171,7 +171,7 @@ export function MediaUploader({ mode }: { mode: UploadMode }) {
                   <p className="text-xs text-red-700">{item.error}</p>
                 ) : (
                   <div
-                    className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-zinc-100"
+                    className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-muted"
                     role="progressbar"
                     aria-label={`Uploading ${item.name}`}
                     aria-valuemin={0}
@@ -179,7 +179,7 @@ export function MediaUploader({ mode }: { mode: UploadMode }) {
                     aria-valuenow={item.progress}
                   >
                     <div
-                      className={cn("h-full rounded-full transition-[width] duration-200", item.status === "done" ? "bg-emerald-500" : "bg-zinc-900")}
+                      className={cn("h-full rounded-full transition-[width] duration-200", item.status === "done" ? "bg-emerald-500" : "bg-primary")}
                       style={{ width: `${item.progress}%` }}
                     />
                   </div>

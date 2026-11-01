@@ -55,7 +55,7 @@ function SortHeader({ state, sort, label, className }: { state: ListState; sort:
       <Link
         href={listHref(state, { sort, dir: nextDir })}
         scroll={false}
-        className={cn("inline-flex items-center gap-1 hover:text-zinc-950", active ? "text-zinc-950" : "text-zinc-600")}
+        className={cn("inline-flex items-center gap-1 hover:text-foreground", active ? "text-foreground" : "text-muted-foreground")}
       >
         {label}
         <Icon className="size-3.5" aria-hidden="true" />
@@ -97,7 +97,7 @@ export function ProductsTable({ rows, state }: { rows: ProductTableRow[]; state:
   return (
     <div className="overflow-hidden rounded-xl bg-white ring-1 ring-black/10">
       {visible.length > 0 && (
-        <div className="flex flex-wrap items-center gap-2 border-b bg-zinc-50 px-3 py-2 text-sm" role="toolbar" aria-label="Bulk actions">
+        <div className="flex flex-wrap items-center gap-2 border-b bg-surface px-3 py-2 text-sm" role="toolbar" aria-label="Bulk actions">
           <span className="font-medium">{visible.length} selected</span>
           <DropdownMenu>
             <DropdownMenuTrigger render={<Button type="button" variant="outline" size="sm" disabled={pending} />}>
@@ -184,7 +184,7 @@ export function ProductsTable({ rows, state }: { rows: ProductTableRow[]; state:
                   </Link>
                   <p className="text-muted-foreground mt-0.5 flex items-center gap-1.5 text-xs">
                     <span className={MONO}>{r.sku}</span>
-                    {r.isKit && <span className="rounded border px-1 text-[10px] leading-4 font-medium text-zinc-700">KIT</span>}
+                    {r.isKit && <span className="rounded border px-1 text-[10px] leading-4 font-medium text-foreground/80">KIT</span>}
                     {r.brand && <span className="truncate">· {r.brand}</span>}
                   </p>
                 </TableCell>

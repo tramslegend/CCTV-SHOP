@@ -25,8 +25,8 @@ export default async function ResetPasswordPage(props: PageProps<"/reset-passwor
             <TriangleAlert className="h-7 w-7 text-amber-600" aria-hidden="true" />
           </div>
           <div className="space-y-1.5">
-            <h1 className="text-2xl font-semibold tracking-tight text-zinc-950">Invalid link</h1>
-            <p className="text-sm text-zinc-500">This reset link is invalid or has expired.</p>
+            <h1 className="text-2xl font-semibold tracking-tight text-foreground">Invalid link</h1>
+            <p className="text-sm text-muted-foreground">This reset link is invalid or has expired.</p>
           </div>
           <Link className={primaryButton} href="/forgot-password">
             Request a new link

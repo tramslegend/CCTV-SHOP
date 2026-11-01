@@ -40,7 +40,7 @@ export function CheckoutForms({
             <li key={s.id}>
               <a
                 href={`#${s.id}`}
-                className="flex items-center justify-between gap-2 rounded-md px-2.5 py-1.5 text-sm font-medium text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950"
+                className="flex items-center justify-between gap-2 rounded-md px-2.5 py-1.5 text-sm font-medium text-foreground/80 hover:bg-muted hover:text-foreground"
               >
                 {s.label}
                 <span className={cn("size-1.5 rounded-full bg-amber-500", !dirty[s.id] && "invisible")} aria-label={dirty[s.id] ? "unsaved changes" : undefined} />

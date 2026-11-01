@@ -6,7 +6,7 @@ export function ProductGuides({ posts }: { posts: BlogPost[] }) {
   if (!posts.length) return null;
   return (
     <section className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pb-10" aria-labelledby="pdp-guides-heading">
-      <div className="rounded-2xl border border-gray-100 bg-gray-50/50 p-5 sm:p-7">
+      <div className="rounded-2xl border border-border bg-surface/50 p-5 sm:p-7">
         <h2 id="pdp-guides-heading" className="text-lg font-bold sm:text-xl">
           Helpful guides for this item
         </h2>
@@ -38,9 +38,9 @@ export function ProductGuides({ posts }: { posts: BlogPost[] }) {
 /** Reviews block in its empty state (the clone has no review data). */
 export function ProductReviews({ name }: { name: string }) {
   return (
-    <section id="reviews" className="border-t bg-gray-50/70 py-12" aria-labelledby="pdp-reviews-heading">
+    <section id="reviews" className="border-t bg-surface/70 py-12" aria-labelledby="pdp-reviews-heading">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 id="pdp-reviews-heading" className="text-2xl font-bold tracking-tight text-gray-950">
+        <h2 id="pdp-reviews-heading" className="text-2xl font-bold tracking-tight text-foreground">
           What customers say
         </h2>
         <p className="text-muted-foreground mt-3 max-w-2xl text-sm">

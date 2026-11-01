@@ -235,7 +235,7 @@ export function ProductForm({
     >
       <AdminToaster />
       {/* Title + save bar: stays under the admin header while scrolling. */}
-      <div className="sticky top-14 z-20 -mx-4 mb-6 border-b bg-zinc-50/95 px-4 py-3 backdrop-blur lg:-mx-8 lg:px-8">
+      <div className="sticky top-14 z-20 -mx-4 mb-6 border-b bg-surface/95 px-4 py-3 backdrop-blur lg:-mx-8 lg:px-8">
         <div className="flex flex-wrap items-center gap-3">
           <Link href="/admin/products" className={buttonVariants({ variant: "ghost", size: "icon-sm" })} aria-label="Back to products">
             <ArrowLeft />
@@ -312,7 +312,7 @@ export function ProductForm({
               labelAside={
                 <button
                   type="button"
-                  className="text-muted-foreground inline-flex items-center gap-1 text-xs hover:text-zinc-950"
+                  className="text-muted-foreground inline-flex items-center gap-1 text-xs hover:text-foreground"
                   onClick={() => {
                     set("slug", slugify(values.name));
                     setSlugEdited(false);
@@ -323,7 +323,7 @@ export function ProductForm({
               }
             >
               <div className="flex items-center">
-                <span className="text-muted-foreground flex h-8 items-center rounded-l-lg border border-r-0 bg-zinc-50 px-2.5 text-sm">/products/</span>
+                <span className="text-muted-foreground flex h-8 items-center rounded-l-lg border border-r-0 bg-surface px-2.5 text-sm">/products/</span>
                 <Input
                   id="pf-slug"
                   value={values.slug}

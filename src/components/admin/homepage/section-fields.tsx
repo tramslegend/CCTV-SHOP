@@ -37,7 +37,7 @@ export interface SectionCtx {
 const HIGHLIGHT_HINT = "Copy part of the text above exactly, e.g. its last few words, to show it in another colour. Leave empty for none.";
 const NOTE_HINT = (
   <>
-    Optional. Write a link as <code className={cn("rounded bg-zinc-100 px-1 text-[11px]", MONO)}>[link text](/page)</code>.
+    Optional. Write a link as <code className={cn("rounded bg-muted px-1 text-[11px]", MONO)}>[link text](/page)</code>.
   </>
 );
 
@@ -60,7 +60,7 @@ function ModeChoice<V extends string>({
           key={o.value}
           className={cn(
             "flex cursor-pointer items-start gap-2.5 rounded-lg border p-3 text-sm transition-colors",
-            value === o.value ? "border-zinc-900 bg-zinc-50" : "hover:border-zinc-400",
+            value === o.value ? "border-primary bg-surface" : "hover:border-zinc-400",
           )}
         >
           <input type="radio" name={name} value={o.value} checked={value === o.value} onChange={() => onChange(o.value)} className="mt-0.5 accent-zinc-900" />
@@ -158,9 +158,9 @@ export function HeroFields({ v, patch, errors, warnings, products, addProduct, o
         <TextInput prefix={P} path="hero.note" label="Line under the search box" value={h.note} maxLength={300} error={errors["hero.note"]} warning={warnings["hero.note"]} hint={NOTE_HINT} onChange={(note) => patch("hero", { note }, "hero.note")} />
       </Group>
       <Group title="Buttons" description="Leave both fields of a button empty to hide it.">
-        <p className="text-xs font-medium text-zinc-600">Main button (dark)</p>
+        <p className="text-xs font-medium text-muted-foreground">Main button (dark)</p>
         <LinkFields prefix={P} path="hero.primary" value={h.primary} errors={errors} warnings={warnings} onChange={(primary, changed) => patch("hero", { primary }, changed)} />
-        <p className="text-xs font-medium text-zinc-600">Second button (outlined)</p>
+        <p className="text-xs font-medium text-muted-foreground">Second button (outlined)</p>
         <LinkFields prefix={P} path="hero.secondary" value={h.secondary} errors={errors} warnings={warnings} onChange={(secondary, changed) => patch("hero", { secondary }, changed)} />
       </Group>
       <Group title="Trust points" description="The strip under the hero, up to four.">

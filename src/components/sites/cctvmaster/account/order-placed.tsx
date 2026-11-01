@@ -51,11 +51,11 @@ export function OrderNotFound() {
   return (
     <CheckoutFrame>
       <div className="mx-auto max-w-2xl px-4 py-16 text-center">
-        <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-zinc-100">
-          <SearchX className="h-7 w-7 text-zinc-500" aria-hidden="true" />
+        <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-muted">
+          <SearchX className="h-7 w-7 text-muted-foreground" aria-hidden="true" />
         </div>
-        <h1 className="text-2xl font-semibold tracking-tight text-zinc-950">We couldn&apos;t find that order</h1>
-        <p className="mt-2 text-zinc-500">
+        <h1 className="text-2xl font-semibold tracking-tight text-foreground">We couldn&apos;t find that order</h1>
+        <p className="mt-2 text-muted-foreground">
           Open it from the link in your confirmation email, or sign in to see your orders.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
@@ -107,10 +107,10 @@ export function OrderPlaced({
             <span aria-hidden="true" className="h-px w-6 bg-emerald-700" />
             {awaiting ? "Confirming payment" : closed ? "Order" : "Order placed"}
           </p>
-          <h1 className="text-2xl font-semibold tracking-tight text-balance text-zinc-950 sm:text-3xl">
+          <h1 className="text-2xl font-semibold tracking-tight text-balance text-foreground sm:text-3xl">
             {awaiting ? "We’re confirming your payment." : closed ? `This order is ${order.status}.` : "Thank you. The order is in."}
           </h1>
-          <p className="mx-auto mt-2 max-w-xl text-sm text-zinc-500 sm:text-base">
+          <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground sm:text-base">
             {awaiting
               ? "This usually takes a few seconds. Refresh this page in a moment; we’ll also email you as soon as it’s confirmed."
               : closed
@@ -118,36 +118,36 @@ export function OrderPlaced({
                 : `A confirmation is on its way to ${order.email}.`}
           </p>
           {thankYou && !awaiting && !closed && (
-            <p className="mx-auto mt-4 max-w-xl rounded-lg border border-emerald-100 bg-emerald-50/60 px-4 py-3 text-sm whitespace-pre-line text-zinc-700">
+            <p className="mx-auto mt-4 max-w-xl rounded-lg border border-emerald-100 bg-emerald-50/60 px-4 py-3 text-sm whitespace-pre-line text-foreground/80">
               {thankYou}
             </p>
           )}
         </div>
 
-        <section aria-labelledby="order-title" className="mt-8 rounded-xl border border-zinc-200 bg-white p-6">
-          <div className="flex flex-wrap items-start justify-between gap-4 border-b border-zinc-100 pb-4">
+        <section aria-labelledby="order-title" className="mt-8 rounded-xl border border-border bg-white p-6">
+          <div className="flex flex-wrap items-start justify-between gap-4 border-b border-border pb-4">
             <div>
-              <h2 id="order-title" className="font-mono text-[10px] font-medium tracking-[0.18em] text-zinc-500 uppercase">
+              <h2 id="order-title" className="font-mono text-[10px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
                 Order number
               </h2>
-              <p className="mt-1 text-2xl font-semibold tracking-wide text-zinc-950 tabular-nums">{order.number}</p>
+              <p className="mt-1 text-2xl font-semibold tracking-wide text-foreground tabular-nums">{order.number}</p>
             </div>
-            <div className="space-y-1.5 text-right text-sm text-zinc-500">
+            <div className="space-y-1.5 text-right text-sm text-muted-foreground">
               <p>Placed {formatDate(order.placedAt, true)}</p>
               <StatusBadge status={order.status} />
             </div>
           </div>
           <OrderLines order={order} />
-          <div className="grid gap-6 border-t border-zinc-100 pt-5 sm:grid-cols-2">
+          <div className="grid gap-6 border-t border-border pt-5 sm:grid-cols-2">
             <dl className="text-sm">
               {collectFrom && (
                 <>
-                  <dt className="font-semibold text-zinc-950">Collect from</dt>
-                  <dd className="mt-1 mb-3 leading-6 text-zinc-700">{collectFrom}</dd>
+                  <dt className="font-semibold text-foreground">Collect from</dt>
+                  <dd className="mt-1 mb-3 leading-6 text-foreground/80">{collectFrom}</dd>
                 </>
               )}
-              <dt className="font-semibold text-zinc-950">{collectFrom ? "Your address" : "Delivering to"}</dt>
-              <dd className="mt-1 leading-6 text-zinc-700">
+              <dt className="font-semibold text-foreground">{collectFrom ? "Your address" : "Delivering to"}</dt>
+              <dd className="mt-1 leading-6 text-foreground/80">
                 {deliveryAddressLines(order).map((line, i) => (
                   // Two address lines can read the same (e.g. "1" as the street and the town), so the key includes the position.
                   <span key={`${i}-${line}`} className="block">
@@ -155,15 +155,15 @@ export function OrderPlaced({
                   </span>
                 ))}
               </dd>
-              <dt className="mt-3 font-semibold text-zinc-950">Contact</dt>
-              <dd className="mt-1 break-words text-zinc-700">
+              <dt className="mt-3 font-semibold text-foreground">Contact</dt>
+              <dd className="mt-1 break-words text-foreground/80">
                 {order.email}
                 {order.phone ? ` · ${order.phone}` : ""}
               </dd>
               {order.trackingNumber && (
                 <>
-                  <dt className="mt-3 font-semibold text-zinc-950">Tracking</dt>
-                  <dd className="mt-1 text-zinc-700">
+                  <dt className="mt-3 font-semibold text-foreground">Tracking</dt>
+                  <dd className="mt-1 text-foreground/80">
                     {order.carrier} ·{" "}
                     {order.trackingUrl ? (
                       <a href={order.trackingUrl} className="font-semibold text-emerald-700 underline underline-offset-2" target="_blank" rel="noreferrer">
@@ -181,8 +181,8 @@ export function OrderPlaced({
         </section>
 
         {!closed && (
-          <section aria-labelledby="next-title" className="mt-6 rounded-xl border border-zinc-200 bg-white p-6">
-            <h2 id="next-title" className="text-base font-semibold text-zinc-950">
+          <section aria-labelledby="next-title" className="mt-6 rounded-xl border border-border bg-white p-6">
+            <h2 id="next-title" className="text-base font-semibold text-foreground">
               What happens next
             </h2>
             <ol className="mt-4 space-y-4">
@@ -192,8 +192,8 @@ export function OrderPlaced({
                     {i + 1}
                   </span>
                   <div>
-                    <p className="text-sm font-semibold text-zinc-950">{step.title}</p>
-                    <p className="text-sm text-zinc-600">{step.body}</p>
+                    <p className="text-sm font-semibold text-foreground">{step.title}</p>
+                    <p className="text-sm text-muted-foreground">{step.body}</p>
                   </div>
                 </li>
               ))}
@@ -216,13 +216,13 @@ export function OrderPlaced({
               Create an account to track orders
             </Link>
           )}
-          <Link href="/products" className="inline-flex h-11 items-center justify-center px-3 text-sm font-semibold text-zinc-700 hover:text-emerald-700">
+          <Link href="/products" className="inline-flex h-11 items-center justify-center px-3 text-sm font-semibold text-foreground/80 hover:text-emerald-700">
             Continue browsing
           </Link>
         </div>
-        <p className="mt-6 text-center text-sm text-zinc-500">
+        <p className="mt-6 text-center text-sm text-muted-foreground">
           A question about this order? Every way to reach us is on the{" "}
-          <Link href="/contact" className="font-semibold text-zinc-700 underline underline-offset-2 hover:text-emerald-700">
+          <Link href="/contact" className="font-semibold text-foreground/80 underline underline-offset-2 hover:text-emerald-700">
             contact page
           </Link>
           .

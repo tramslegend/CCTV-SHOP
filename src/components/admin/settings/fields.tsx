@@ -60,7 +60,7 @@ export function SettingsSection({
         {description && <p className="text-muted-foreground mt-0.5 text-sm">{description}</p>}
       </header>
       <div className="flex flex-col gap-6 p-5">{children}</div>
-      <footer className="flex flex-wrap items-center justify-between gap-3 rounded-b-xl border-t bg-zinc-50/70 px-5 py-3">
+      <footer className="flex flex-wrap items-center justify-between gap-3 rounded-b-xl border-t bg-surface/70 px-5 py-3">
         <p className={cn("text-xs", dirty ? "font-medium text-amber-700" : "text-muted-foreground")} aria-live="polite">
           {saving ? "Saving…" : busy ? busy : dirty ? "Unsaved changes" : "All changes saved"}
         </p>

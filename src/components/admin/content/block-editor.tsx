@@ -81,7 +81,7 @@ function FactsEditor({
           {items.map((item, i) => {
             const k = (f: string) => `${key}.${i}.${f}`;
             return (
-              <li key={item.id} className="flex gap-2 rounded-lg border bg-zinc-50/60 p-3">
+              <li key={item.id} className="flex gap-2 rounded-lg border bg-surface/60 p-3">
                 <div className="grid min-w-0 flex-1 gap-2 sm:grid-cols-[1fr_1fr]">
                   <div className="flex flex-col gap-1">
                     <Input
@@ -190,7 +190,7 @@ export function BlockEditor({
             />
             <FieldMessage id={f("text").id} error={f("text").error} />
           </div>
-          <div className="inline-flex shrink-0 rounded-lg bg-zinc-100 p-0.5 text-xs" role="radiogroup" aria-label="Heading size">
+          <div className="inline-flex shrink-0 rounded-lg bg-muted p-0.5 text-xs" role="radiogroup" aria-label="Heading size">
             {([2, 3] as const).map((level) => (
               <button
                 key={level}
@@ -198,7 +198,7 @@ export function BlockEditor({
                 role="radio"
                 aria-checked={block.level === level}
                 onClick={() => onChange({ ...block, level })}
-                className={cn("rounded-md px-2.5 py-1.5 font-medium", block.level === level ? "bg-white shadow-sm" : "text-zinc-600 hover:text-zinc-950")}
+                className={cn("rounded-md px-2.5 py-1.5 font-medium", block.level === level ? "bg-white shadow-sm" : "text-muted-foreground hover:text-foreground")}
               >
                 {level === 2 ? "Main heading" : "Sub-heading"}
               </button>

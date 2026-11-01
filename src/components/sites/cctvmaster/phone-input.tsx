@@ -65,7 +65,7 @@ function NumberInput({ className, height, ...props }: ComponentProps<"input"> & 
 function FlagIcon({ country }: { country?: Country }) {
   const Flag = country ? flags[country] : undefined;
   return (
-    <span aria-hidden="true" className="flex h-4 w-6 shrink-0 overflow-hidden rounded-sm bg-zinc-200 [&_svg]:size-full">
+    <span aria-hidden="true" className="flex h-4 w-6 shrink-0 overflow-hidden rounded-sm bg-border [&_svg]:size-full">
       {Flag ? <Flag title={country ?? ""} /> : null}
     </span>
   );
@@ -114,17 +114,17 @@ function CountrySelect({
         disabled={disabled}
         aria-label={current ? `Country: ${current.label} (+${current.code})` : "Choose country"}
         className={cn(
-          "border-input flex shrink-0 items-center gap-1.5 rounded-s-md rounded-e-none border border-r-0 bg-zinc-50 px-2.5 shadow-xs outline-none hover:bg-zinc-100 focus-visible:border-emerald-700 focus-visible:ring-[3px] focus-visible:ring-emerald-700/50 disabled:opacity-50",
+          "border-input flex shrink-0 items-center gap-1.5 rounded-s-md rounded-e-none border border-r-0 bg-surface px-2.5 shadow-xs outline-none hover:bg-muted focus-visible:border-emerald-700 focus-visible:ring-[3px] focus-visible:ring-emerald-700/50 disabled:opacity-50",
           height,
         )}
       >
         <FlagIcon country={value} />
-        <span className="text-sm font-medium text-gray-700">{current ? `+${current.code}` : "+"}</span>
+        <span className="text-sm font-medium text-foreground/80">{current ? `+${current.code}` : "+"}</span>
         <ChevronsUpDown className="size-4 shrink-0 opacity-50" aria-hidden="true" />
       </Popover.Trigger>
       <Popover.Portal>
         <Popover.Positioner side="bottom" align="start" sideOffset={4} className="z-[100]">
-          <Popover.Popup initialFocus={search} className="w-[min(18rem,calc(100vw-2rem))] rounded-md border bg-white text-zinc-900 shadow-md outline-none">
+          <Popover.Popup initialFocus={search} className="w-[min(18rem,calc(100vw-2rem))] rounded-md border bg-white text-foreground shadow-md outline-none">
             <div className="flex items-center gap-2 border-b px-3">
               <Search className="size-4 shrink-0 opacity-50" aria-hidden="true" />
               <input
@@ -144,7 +144,7 @@ function CountrySelect({
             </div>
             <ul className="max-h-72 overflow-y-auto p-1">
               {shown.length === 0 ? (
-                <li className="px-3 py-6 text-center text-sm text-zinc-500">No country found.</li>
+                <li className="px-3 py-6 text-center text-sm text-muted-foreground">No country found.</li>
               ) : (
                 shown.map((c) => (
                   <li key={c.value}>
@@ -153,13 +153,13 @@ function CountrySelect({
                       onClick={() => pick(c.value)}
                       aria-current={c.value === value || undefined}
                       className={cn(
-                        "flex w-full items-center gap-3 rounded-sm px-2 py-1.5 text-left text-sm outline-none hover:bg-zinc-100 focus-visible:bg-zinc-100",
-                        c.value === value && "bg-zinc-100 font-medium",
+                        "flex w-full items-center gap-3 rounded-sm px-2 py-1.5 text-left text-sm outline-none hover:bg-muted focus-visible:bg-muted",
+                        c.value === value && "bg-muted font-medium",
                       )}
                     >
                       <FlagIcon country={c.value} />
                       <span className="flex-1 truncate">{c.label}</span>
-                      <span className="text-zinc-500">+{c.code}</span>
+                      <span className="text-muted-foreground">+{c.code}</span>
                     </button>
                   </li>
                 ))

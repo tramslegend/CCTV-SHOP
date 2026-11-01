@@ -47,7 +47,7 @@ export function RelatedProducts({ cards, viewAllHref }: { cards: ProductCard[]; 
                   href={`/products/${card.slug}`}
                   className="group bg-card w-[200px] flex-shrink-0 snap-start overflow-hidden rounded-xl border transition-all hover:shadow-lg"
                 >
-                  <div className="relative h-[200px] w-[200px] overflow-hidden bg-gray-50">
+                  <div className="relative h-[200px] w-[200px] overflow-hidden bg-white">
                     {image && (
                       <Image
                         src={image}
@@ -80,7 +80,7 @@ export function RelatedProducts({ cards, viewAllHref }: { cards: ProductCard[]; 
 
 export function BackToProducts() {
   return (
-    <div className="mt-16 border-t border-gray-100 pt-8">
+    <div className="mt-16 border-t border-border pt-8">
       <div className="flex justify-center">
         <Link
           href="/products"

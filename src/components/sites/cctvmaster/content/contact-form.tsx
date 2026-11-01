@@ -101,11 +101,11 @@ export function ContactForm({
           <CircleCheck className="h-5 w-5" aria-hidden="true" />
         </span>
         <div>
-          <h3 className="text-lg font-semibold tracking-tight text-zinc-950">
+          <h3 className="text-lg font-semibold tracking-tight text-foreground">
             Thanks, {values.name.trim().split(/\s+/)[0]} — {product ? "quote request" : "message"} received
           </h3>
-          <p className="mt-1 text-sm leading-relaxed text-zinc-600">
-            We’ve emailed a copy to <span className="font-medium text-zinc-950">{values.email.trim()}</span> and someone
+          <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+            We’ve emailed a copy to <span className="font-medium text-foreground">{values.email.trim()}</span> and someone
             from our team will reply as soon as they can — usually within an hour on weekdays.
             {shop.phoneHref && (
               <>

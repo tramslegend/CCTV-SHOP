@@ -20,7 +20,7 @@ export default async function KitsPage({ searchParams }: PageProps<"/kits">) {
   const kits = getKitSummaries();
   const bestSellers = getBestSellers();
   return (
-    <div className={`flex min-h-full flex-col bg-white text-zinc-950 ${STORE_HEADINGS}`}>
+    <div className={`flex min-h-full flex-col bg-white text-foreground ${STORE_HEADINGS}`}>
       <KitsHero
         eyebrow="Free tool · UK"
         title="Find your CCTV kit"

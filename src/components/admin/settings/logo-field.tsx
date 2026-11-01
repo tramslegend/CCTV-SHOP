@@ -82,7 +82,7 @@ export function LogoField({
           {shown ? (
             <Image src={shown} alt={altText} width={200} height={64} unoptimized className={cn("max-h-14 w-auto object-contain", uploading && "opacity-50")} />
           ) : (
-            <span className={cn("text-xs", dark ? "text-zinc-500" : "text-muted-foreground")}>No logo</span>
+            <span className={cn("text-xs", dark ? "text-muted-foreground" : "text-muted-foreground")}>No logo</span>
           )}
           {uploading && <Loader2 className="absolute size-5 animate-spin text-emerald-600" aria-label="Uploading" />}
         </div>

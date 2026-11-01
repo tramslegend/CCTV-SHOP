@@ -30,7 +30,7 @@ export default async function GuidesPage() {
   // A version published in /admin/content/pages replaces the heading and intro; the calculators and guide list stay.
   if (page) return <ManagedPage page={page} settings={settings} slot={<GuideList />} />;
   return (
-    <div className="flex min-h-full flex-col bg-white text-zinc-950">
+    <div className="flex min-h-full flex-col bg-white text-foreground">
       <HelpHero
         kicker="Free tool · UK"
         title="CCTV help and guides"
@@ -88,7 +88,7 @@ function GuideList() {
             </section>
           ))}
         </div>
-        <div className="mt-10 max-w-3xl space-y-3 text-sm leading-relaxed text-zinc-600">
+        <div className="mt-10 max-w-3xl space-y-3 text-sm leading-relaxed text-muted-foreground">
           <p>
             <span>Can&apos;t find what you need?</span>{" "}
             <Link

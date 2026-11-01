@@ -14,7 +14,7 @@ export function MatchingKits({ total, kits, shopHref }: { total: number; kits: M
       description="Kit ranges list kits by their rule, so there's nothing to add by hand. Change the rule above to change the list."
       actions={
         shopHref ? (
-          <a href={shopHref} target="_blank" rel="noreferrer" className="text-muted-foreground inline-flex items-center gap-1 text-xs hover:text-zinc-950">
+          <a href={shopHref} target="_blank" rel="noreferrer" className="text-muted-foreground inline-flex items-center gap-1 text-xs hover:text-foreground">
             See the range page <ExternalLink className="size-3" aria-hidden="true" />
           </a>
         ) : undefined

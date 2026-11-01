@@ -10,21 +10,21 @@ import { ArrowRightIcon, CircleCheckIcon, QuoteIcon } from "./icons";
 export function WhyUs({ section, tokens }: { section: WhyUsSection; tokens: TokenValues }) {
   const t = (text: string) => fillTokens(text, tokens);
   return (
-    <section className="bg-white">
+    <section>
       <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
         <div className="grid gap-10 md:grid-cols-12 md:gap-12">
           <div className={section.reasons.length ? "md:col-span-4" : "md:col-span-8"}>
             {section.eyebrow && (
               <p className="mb-2 font-mono text-[10px] font-medium tracking-[0.18em] text-emerald-700 uppercase">{t(section.eyebrow)}</p>
             )}
-            <h2 className="font-sentient text-3xl leading-[1.05] font-medium tracking-tight text-zinc-950 [font-variation-settings:'opsz'_28] md:text-4xl">
+            <h2 className="font-sentient text-3xl leading-[1.05] font-medium tracking-tight text-foreground [font-variation-settings:'opsz'_28] md:text-4xl">
               <Highlighted
                 text={t(section.title)}
                 highlight={t(section.highlight)}
                 wrap={(phrase) => <span className="bg-linear-to-r from-emerald-700 to-teal-600 bg-clip-text text-transparent">{phrase}</span>}
               />
             </h2>
-            {section.intro && <p className="mt-4 text-base leading-relaxed text-zinc-600">{t(section.intro)}</p>}
+            {section.intro && <p className="mt-4 text-base leading-relaxed text-muted-foreground">{t(section.intro)}</p>}
             {section.badge && (
               <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 font-mono text-[10px] font-medium tracking-[0.18em] text-emerald-700 uppercase">
                 <CircleCheckIcon className="h-3 w-3" />
@@ -33,21 +33,21 @@ export function WhyUs({ section, tokens }: { section: WhyUsSection; tokens: Toke
             )}
           </div>
           {section.reasons.length > 0 && (
-            <ul className="fc-stagger grid gap-px overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-200 md:col-span-8 md:grid-cols-2">
+            <ul className="fc-stagger grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:col-span-8 md:grid-cols-2">
               {section.reasons.map((reason, i) => (
                 <li
                   key={i}
                   className={cn(
-                    "group relative flex flex-col gap-2 bg-white p-6 transition-colors hover:bg-zinc-50",
+                    "group relative flex flex-col gap-2 bg-white p-6 transition-colors hover:bg-surface",
                     // An odd last card spans both columns so the grid has no gap.
                     section.reasons.length % 2 === 1 && i === section.reasons.length - 1 && "md:col-span-2",
                   )}
                 >
-                  <span className="font-mono text-[10px] font-medium tracking-[0.18em] text-zinc-500 uppercase tabular-nums">
+                  <span className="font-mono text-[10px] font-medium tracking-[0.18em] text-muted-foreground uppercase tabular-nums">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="text-lg font-semibold tracking-tight text-zinc-950">{t(reason.title)}</h3>
-                  {reason.text && <p className="text-sm leading-relaxed text-zinc-600">{t(reason.text)}</p>}
+                  <h3 className="text-lg font-semibold tracking-tight text-foreground">{t(reason.title)}</h3>
+                  {reason.text && <p className="text-sm leading-relaxed text-muted-foreground">{t(reason.text)}</p>}
                   <span
                     aria-hidden="true"
                     className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-emerald-600 transition-transform duration-300 group-hover:scale-x-100"
@@ -67,34 +67,34 @@ const statColumns = ["", "grid-cols-1 max-w-xs", "grid-cols-2 max-w-xl", "grid-c
 export function DeliveryPromise({ section, tokens }: { section: PromiseSection; tokens: TokenValues }) {
   const t = (text: string) => fillTokens(text, tokens);
   return (
-    <section className="relative overflow-hidden bg-zinc-50">
+    <section className="relative overflow-hidden bg-surface">
       <div className="mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-24">
         <div className="fc-rise text-center">
           <QuoteIcon className="mx-auto mb-6 h-7 w-7 text-emerald-600" strokeWidth="1.5" />
-          <p className="font-sentient mx-auto max-w-3xl text-2xl leading-tight tracking-tight text-balance text-zinc-950 sm:text-3xl md:text-[2.25rem]">
+          <p className="font-sentient mx-auto max-w-3xl text-2xl leading-tight tracking-tight text-balance text-foreground sm:text-3xl md:text-[2.25rem]">
             <Highlighted text={t(section.quote)} highlight={t(section.highlight)} wrap={(phrase) => <span className="text-emerald-700">{phrase}</span>} />
           </p>
-          {section.byline && <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-zinc-600">{t(section.byline)}</p>}
+          {section.byline && <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-muted-foreground">{t(section.byline)}</p>}
         </div>
         {section.stats.length > 0 && (
           <div
             className={cn(
-              "mx-auto mt-12 grid divide-x divide-zinc-200 overflow-hidden rounded-xl border border-zinc-200 bg-white",
+              "mx-auto mt-12 grid divide-x divide-border overflow-hidden rounded-xl border border-border bg-white",
               statColumns[section.stats.length],
             )}
           >
             {section.stats.map((stat, i) => (
               <div key={i} className="flex flex-col items-center px-4 py-5 text-center">
-                <p className="font-sentient text-2xl font-semibold tracking-tight text-zinc-950 tabular-nums sm:text-3xl">{t(stat.value)}</p>
-                {stat.label && <p className="mt-1 font-mono text-[10px] tracking-[0.18em] text-zinc-500 uppercase">{t(stat.label)}</p>}
+                <p className="font-sentient text-2xl font-semibold tracking-tight text-foreground tabular-nums sm:text-3xl">{t(stat.value)}</p>
+                {stat.label && <p className="mt-1 font-mono text-[10px] tracking-[0.18em] text-muted-foreground uppercase">{t(stat.label)}</p>}
               </div>
             ))}
           </div>
         )}
         {section.note && (
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-zinc-500">
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
             <span>
-              <InlineText text={t(section.note)} linkClassName="underline underline-offset-2 hover:text-zinc-700" />
+              <InlineText text={t(section.note)} linkClassName="underline underline-offset-2 hover:text-foreground/80" />
             </span>
           </div>
         )}

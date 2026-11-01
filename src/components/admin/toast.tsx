@@ -68,7 +68,7 @@ export function AdminToaster() {
           <button
             type="button"
             onClick={() => dismiss(t.id)}
-            className="text-muted-foreground -m-1 rounded p-1 hover:bg-zinc-100 hover:text-zinc-950"
+            className="text-muted-foreground -m-1 rounded p-1 hover:bg-muted hover:text-foreground"
             aria-label="Dismiss notification"
           >
             <X className="size-3.5" aria-hidden="true" />

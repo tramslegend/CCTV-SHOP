@@ -163,14 +163,14 @@ export function AddressFields({
                 className="border-foreground/40 bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary/15 aria-[invalid=true]:border-destructive h-12 w-full rounded-lg border-2 pr-20 pl-11 text-base font-medium shadow-sm transition-colors outline-none placeholder:font-normal focus:ring-4"
               />
             </div>
-            <span id={`${idPrefix}-find-status`} className={cn("mt-1.5 block text-sm", status ? "text-zinc-500" : "sr-only")} aria-live="polite">
+            <span id={`${idPrefix}-find-status`} className={cn("mt-1.5 block text-sm", status ? "text-muted-foreground" : "sr-only")} aria-live="polite">
               {status}
             </span>
             <ul
               id={`${idPrefix}-find-list`}
               role="listbox"
               hidden={!candidate}
-              className="mt-1 overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-sm"
+              className="mt-1 overflow-hidden rounded-lg border border-border bg-white shadow-sm"
             >
               {candidate && (
                 <li
@@ -178,10 +178,10 @@ export function AddressFields({
                   aria-selected="true"
                   tabIndex={-1}
                   onClick={() => toManual(candidate)}
-                  className="cursor-pointer px-4 py-3 text-sm hover:bg-zinc-50"
+                  className="cursor-pointer px-4 py-3 text-sm hover:bg-surface"
                 >
                   <span className="font-semibold">{candidate}</span>
-                  <span className="text-zinc-500"> — enter the house number and street</span>
+                  <span className="text-muted-foreground"> — enter the house number and street</span>
                 </li>
               )}
             </ul>

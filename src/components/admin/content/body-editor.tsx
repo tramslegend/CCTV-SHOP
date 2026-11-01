@@ -22,7 +22,7 @@ export function BodyEditor({ value, onChange, error }: { value: string; onChange
   return (
     <div className="flex flex-col gap-2">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <div className="inline-flex rounded-lg bg-zinc-100 p-0.5 text-sm" role="tablist" aria-label="Body editor">
+        <div className="inline-flex rounded-lg bg-muted p-0.5 text-sm" role="tablist" aria-label="Body editor">
           {(["write", "preview"] as const).map((t) => (
             <button
               key={t}
@@ -30,7 +30,7 @@ export function BodyEditor({ value, onChange, error }: { value: string; onChange
               role="tab"
               aria-selected={tab === t}
               onClick={() => setTab(t)}
-              className={cn("rounded-md px-3 py-1 font-medium capitalize", tab === t ? "bg-white shadow-sm" : "text-zinc-600 hover:text-zinc-950")}
+              className={cn("rounded-md px-3 py-1 font-medium capitalize", tab === t ? "bg-white shadow-sm" : "text-muted-foreground hover:text-foreground")}
             >
               {t}
             </button>

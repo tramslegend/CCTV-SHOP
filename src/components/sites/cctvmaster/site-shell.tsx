@@ -32,7 +32,7 @@ export async function SiteShell({ variant, children }: { variant: "home" | "stor
       <div className="flex min-h-screen flex-col pb-16 md:pb-0">
         <div
           className={cn(
-            variant === "home" ? "bg-white font-sans text-zinc-950" : "store-font bg-background flex min-h-screen flex-col",
+            variant === "home" ? "bg-canvas font-sans text-foreground" : "store-font bg-canvas flex min-h-screen flex-col",
           )}
         >
           {announcement.enabled && bannerText && (

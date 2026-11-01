@@ -20,11 +20,11 @@ export default async function ContentPagesPage() {
   return (
     <>
       <nav className="text-muted-foreground mb-2 flex items-center gap-1 text-sm" aria-label="Breadcrumb">
-        <Link href="/admin/content" className="hover:text-zinc-950">
+        <Link href="/admin/content" className="hover:text-foreground">
           Content
         </Link>
         <ChevronRight className="size-3.5" aria-hidden="true" />
-        <span className="text-zinc-950">Pages</span>
+        <span className="text-foreground">Pages</span>
       </nav>
       <PageHeader
         title="Pages"
@@ -35,7 +35,7 @@ export default async function ContentPagesPage() {
           const defs = PAGE_SLUGS.map((slug) => PAGE_DEFS[slug]).filter((d) => d.group === group);
           return (
             <section key={group} aria-labelledby={`group-${group}`} className="overflow-hidden rounded-xl bg-white ring-1 ring-black/10">
-              <h2 id={`group-${group}`} className="border-b bg-zinc-50/70 px-5 py-2.5 text-xs font-semibold tracking-wide text-zinc-600 uppercase">
+              <h2 id={`group-${group}`} className="border-b bg-surface/70 px-5 py-2.5 text-xs font-semibold tracking-wide text-muted-foreground uppercase">
                 {group}
               </h2>
               <ul className="divide-y">
@@ -43,7 +43,7 @@ export default async function ContentPagesPage() {
                   const row = bySlug.get(def.slug);
                   const status = row ? (row.status === "active" ? "active" : "draft") : null;
                   return (
-                    <li key={def.slug} className="group relative flex flex-col gap-2 px-5 py-3.5 hover:bg-zinc-50 sm:flex-row sm:items-center sm:gap-4">
+                    <li key={def.slug} className="group relative flex flex-col gap-2 px-5 py-3.5 hover:bg-surface sm:flex-row sm:items-center sm:gap-4">
                       <div className="min-w-0 flex-1">
                         <Link href={`/admin/content/pages/${def.slug}`} className="font-medium after:absolute after:inset-0 hover:underline">
                           {def.label}
@@ -59,7 +59,7 @@ export default async function ContentPagesPage() {
                           href={def.path}
                           target="_blank"
                           rel="noreferrer"
-                          className="text-muted-foreground relative z-10 inline-flex items-center gap-1 rounded px-1.5 py-1 hover:bg-zinc-100 hover:text-zinc-950"
+                          className="text-muted-foreground relative z-10 inline-flex items-center gap-1 rounded px-1.5 py-1 hover:bg-muted hover:text-foreground"
                           aria-label={`View ${def.label} in the shop`}
                         >
                           View <ExternalLink className="size-3" aria-hidden="true" />

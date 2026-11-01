@@ -29,24 +29,24 @@ export function ShopByCategory({ section, tiles, tokens }: { section: Categories
   const t = (text: string) => fillTokens(text, tokens);
   if (!tiles.length) return null;
   return (
-    <section id="shop" className="bg-white">
+    <section id="shop">
       <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
         <div className="mb-8 flex flex-col gap-2 md:mb-10 md:flex-row md:items-end md:justify-between md:gap-4">
           <div>
             {section.eyebrow && (
               <p className="mb-2 font-mono text-[10px] font-medium tracking-[0.18em] text-emerald-700 uppercase">{t(section.eyebrow)}</p>
             )}
-            <h2 className="font-sentient text-3xl leading-[1.05] font-medium tracking-tight text-zinc-950 [font-variation-settings:'opsz'_28] md:text-4xl">
-              <Highlighted text={t(section.title)} highlight={t(section.highlight)} wrap={(phrase) => <span className="text-zinc-500">{phrase}</span>} />
+            <h2 className="font-sentient text-3xl leading-[1.05] font-medium tracking-tight text-foreground [font-variation-settings:'opsz'_28] md:text-4xl">
+              <Highlighted text={t(section.title)} highlight={t(section.highlight)} wrap={(phrase) => <span className="text-muted-foreground">{phrase}</span>} />
             </h2>
           </div>
           <SectionLink link={section.link}>{t(section.link.label)}</SectionLink>
         </div>
         <ul className="fc-stagger grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4 lg:grid-cols-4">
           {tiles.map((category) => (
-            <li key={category.slug}>
+            <li key={category.slug} className="fc-reveal">
               <Link
-                className="group relative flex aspect-square flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white transition-all hover:-translate-y-0.5 hover:border-emerald-700 hover:shadow-[0_12px_30px_-12px_rgba(16,185,129,0.35)] focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2 focus-visible:outline-none"
+                className="group relative flex aspect-square flex-col overflow-hidden rounded-2xl border border-border bg-white transition-all hover:-translate-y-0.5 hover:border-emerald-700 hover:shadow-[0_12px_30px_-12px_rgba(16,185,129,0.35)] focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2 focus-visible:outline-none"
                 href={category.href}
               >
                 <div className="relative flex-1 overflow-hidden bg-white">
@@ -60,7 +60,7 @@ export function ShopByCategory({ section, tiles, tokens }: { section: Categories
                       className="object-contain p-4 transition-transform duration-500 ease-out group-hover:scale-105"
                     />
                   ) : (
-                    <span aria-hidden="true" className="absolute inset-4 grid place-items-center rounded-xl bg-zinc-50 text-zinc-300">
+                    <span aria-hidden="true" className="absolute inset-4 grid place-items-center rounded-xl bg-surface text-zinc-300">
                       <PackageIcon className="h-10 w-10" strokeWidth="1.25" />
                     </span>
                   )}
@@ -69,12 +69,12 @@ export function ShopByCategory({ section, tiles, tokens }: { section: Categories
                     className="pointer-events-none absolute top-0 right-0 h-12 w-12 origin-top-right scale-0 bg-linear-to-bl from-emerald-700/15 to-transparent transition-transform duration-300 group-hover:scale-100"
                   />
                 </div>
-                <div className="flex items-center justify-between border-t border-zinc-100 bg-white px-4 py-3">
+                <div className="flex items-center justify-between border-t border-border bg-white px-4 py-3">
                   <div className="min-w-0">
-                    <p className="truncate text-sm font-semibold tracking-tight text-zinc-950 md:text-base">
+                    <p className="truncate text-sm font-semibold tracking-tight text-foreground md:text-base">
                       {category.name}
                     </p>
-                    <p className="mt-0.5 font-mono text-[10px] tracking-wider text-zinc-500 uppercase tabular-nums">
+                    <p className="mt-0.5 font-mono text-[10px] tracking-wider text-muted-foreground uppercase tabular-nums">
                       Browse
                     </p>
                   </div>
@@ -97,18 +97,18 @@ export function PopularProducts({ section, cards, tokens }: { section: PopularSe
       <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
         <div className="mb-8 flex flex-col gap-2 md:mb-10 md:flex-row md:items-end md:justify-between md:gap-4">
           <div>
-            <h2 className="font-sentient text-3xl leading-[1.05] font-medium tracking-tight text-zinc-950 [font-variation-settings:'opsz'_28] md:text-4xl">
+            <h2 className="font-sentient text-3xl leading-[1.05] font-medium tracking-tight text-foreground [font-variation-settings:'opsz'_28] md:text-4xl">
               {t(section.title)}
             </h2>
-            {section.subtitle && <p className="mt-2 text-sm text-zinc-600">{t(section.subtitle)}</p>}
+            {section.subtitle && <p className="mt-2 text-sm text-muted-foreground">{t(section.subtitle)}</p>}
           </div>
           <SectionLink link={section.link}>{t(section.link.label)}</SectionLink>
         </div>
         <ul className="fc-stagger grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4 lg:grid-cols-4">
           {cards.map((product) => (
-            <li key={product.slug}>
+            <li key={product.slug} className="fc-reveal">
               <Link
-                className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-zinc-200 bg-white transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_30px_-16px_rgba(0,0,0,0.25)] focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:outline-none"
+                className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-white transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_30px_-16px_rgba(0,0,0,0.25)] focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:outline-none"
                 href={`/products/${product.slug}`}
               >
                 <div className="relative aspect-square overflow-hidden bg-white">
@@ -122,7 +122,7 @@ export function PopularProducts({ section, cards, tokens }: { section: PopularSe
                       className="object-contain p-3 transition-transform duration-500 ease-out group-hover:scale-105"
                     />
                   ) : (
-                    <span aria-hidden="true" className="absolute inset-3 grid place-items-center rounded-lg bg-zinc-50 text-zinc-300">
+                    <span aria-hidden="true" className="absolute inset-3 grid place-items-center rounded-lg bg-surface text-zinc-300">
                       <PackageIcon className="h-10 w-10" strokeWidth="1.25" />
                     </span>
                   )}
@@ -134,14 +134,14 @@ export function PopularProducts({ section, cards, tokens }: { section: PopularSe
                   )}
                 </div>
                 <div className="flex flex-1 flex-col p-3.5">
-                  <p className="line-clamp-2 flex-1 text-sm font-medium text-zinc-900 transition-colors group-hover:text-emerald-800">
+                  <p className="line-clamp-2 flex-1 text-sm font-medium text-foreground transition-colors group-hover:text-emerald-800">
                     {product.name}
                   </p>
                   <div className="mt-2.5 flex items-start gap-2">
                     {product.isCallForPrice || product.isContactSales ? (
-                      <span className="text-sm font-semibold text-zinc-950">Call for price</span>
+                      <span className="text-sm font-semibold text-foreground">Call for price</span>
                     ) : (
-                      <Price value={priceParts(withVat(product.price))} size="md" className="text-zinc-950" />
+                      <Price value={priceParts(withVat(product.price))} size="md" className="text-foreground" />
                     )}
                   </div>
                 </div>

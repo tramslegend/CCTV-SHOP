@@ -27,8 +27,8 @@ export default async function ProductIndexPage() {
   const total = getShopProducts().length;
   return (
     <div className="mx-auto w-full max-w-[1280px] px-4 py-10 sm:px-6 lg:px-8">
-      <h1 className="text-3xl font-bold tracking-[-0.02em] text-gray-950">Every product, A to Z</h1>
-      <p className="mt-3 max-w-2xl text-sm text-gray-600">
+      <h1 className="text-3xl font-bold tracking-[-0.02em] text-foreground">Every product, A to Z</h1>
+      <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
         <span>All {total} products we sell right now, in one A–Z list. Rather browse by type? </span>
         <Link href="/categories" className="underline">
           Go by category
@@ -45,7 +45,7 @@ export default async function ProductIndexPage() {
             <li key={letter}>
               <a
                 href={`#index-${letter}`}
-                className="inline-flex min-h-9 min-w-9 items-center justify-center rounded-md border border-gray-200 px-2 text-sm font-semibold text-gray-800 hover:bg-gray-50"
+                className="inline-flex min-h-9 min-w-9 items-center justify-center rounded-md border border-border px-2 text-sm font-semibold text-foreground/80 hover:bg-surface"
               >
                 {letter}
               </a>
@@ -55,11 +55,11 @@ export default async function ProductIndexPage() {
       </nav>
       {groups.map(([letter, items]) => (
         <section key={letter} id={`index-${letter}`} className="mt-10 scroll-mt-24">
-          <h2 className="border-b border-gray-200 pb-2 text-xl font-bold tracking-[-0.02em] text-gray-950">{letter}</h2>
+          <h2 className="border-b border-border pb-2 text-xl font-bold tracking-[-0.02em] text-foreground">{letter}</h2>
           <ul className="mt-4 grid gap-x-8 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
             {items.map((item) => (
               <li key={item.slug} className="min-w-0 text-sm">
-                <Link href={`/products/${item.slug}`} className="break-words text-gray-800 hover:underline">
+                <Link href={`/products/${item.slug}`} className="break-words text-foreground/80 hover:underline">
                   {item.name}
                 </Link>
               </li>

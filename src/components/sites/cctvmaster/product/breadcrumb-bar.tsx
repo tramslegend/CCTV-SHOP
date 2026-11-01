@@ -6,7 +6,7 @@ export function BreadcrumbBar({ crumbs }: { crumbs: Crumb[] }) {
   const trail = crumbs.slice(0, -1);
   const current = crumbs.at(-1);
   return (
-    <div className="border-b bg-gray-50/50">
+    <div className="border-b bg-surface/50">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
         <nav aria-label="Breadcrumb">
           <ol className="text-muted-foreground flex flex-wrap items-center gap-2 text-sm">

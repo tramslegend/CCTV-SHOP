@@ -71,7 +71,7 @@ export function MarkdownInput({
   };
   return (
     <div className="flex flex-col">
-      <div className="flex flex-wrap gap-0.5 rounded-t-lg border border-b-0 bg-zinc-50 p-1">
+      <div className="flex flex-wrap gap-0.5 rounded-t-lg border border-b-0 bg-surface p-1">
         {TOOLS.filter((t) => headings || !t.heading).map(({ label, icon: Icon, edit }) => (
           <Button key={label} type="button" variant="ghost" size="icon-xs" aria-label={label} title={label} onClick={() => apply(edit)}>
             <Icon />

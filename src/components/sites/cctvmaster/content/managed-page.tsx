@@ -51,7 +51,7 @@ export function ManagedPage({ page, settings, slot }: { page: ManagedPageData; s
 
     case "help":
       return (
-        <div className="flex min-h-full flex-col bg-white text-zinc-950">
+        <div className="flex min-h-full flex-col bg-white text-foreground">
           <HelpHero kicker={def.kicker ?? ""} title={title} intro={intro} />
           {blocks.length > 0 && (
             <section className={slot ? "pt-12 sm:pt-16" : "py-12 sm:py-16"}>
@@ -86,7 +86,7 @@ export function ManagedPage({ page, settings, slot }: { page: ManagedPageData; s
 
     case "visit":
       return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen">
           <VisitHero title={title} intro={intro} />
           <section className="py-12 sm:py-16">
             <div className={cn(CONTAINER, "space-y-8")}>
@@ -99,7 +99,7 @@ export function ManagedPage({ page, settings, slot }: { page: ManagedPageData; s
 
     case "contact":
       return (
-        <div className="bg-white text-zinc-950">
+        <div className="bg-white text-foreground">
           <ContactHero title={title} intro={intro} />
           {blocks.length > 0 && (
             <section className="mx-auto max-w-6xl px-4 pt-12 sm:px-6 sm:pt-16">

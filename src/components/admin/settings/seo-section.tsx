@@ -103,7 +103,7 @@ export function SeoSection({
           <p className="text-muted-foreground mb-1.5 text-xs font-medium">Homepage search result preview</p>
           <div className="rounded-lg border bg-white p-4 font-[arial,sans-serif]" aria-label="Search result preview">
             <div className="flex items-center gap-2.5">
-              <span className="flex size-7 items-center justify-center rounded-full bg-zinc-100 text-[11px] font-semibold text-zinc-700" aria-hidden="true">
+              <span className="flex size-7 items-center justify-center rounded-full bg-muted text-[11px] font-semibold text-foreground/80" aria-hidden="true">
                 {storeName.slice(0, 1).toUpperCase()}
               </span>
               <div className="min-w-0 leading-tight">

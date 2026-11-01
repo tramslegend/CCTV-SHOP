@@ -15,7 +15,7 @@ const ROLE_ICON: Record<string, LucideIcon> = {
   accessory: Box,
 };
 
-const cardClass = "flex items-start gap-3 rounded-xl border border-gray-100 bg-gray-50/50 p-3";
+const cardClass = "flex items-start gap-3 rounded-xl border border-border bg-surface/50 p-3";
 
 function Part({ part, href }: { part: KitComponent; href?: string }) {
   const role = ROLE_COPY[part.role] ?? ROLE_COPY.other;
@@ -94,7 +94,7 @@ export function KitBox({
           <Part key={`${part.role}-${part.sku}`} part={part} href={partHref(part)} />
         ))}
       </ul>
-      <div className="mt-6 rounded-xl border border-gray-100 bg-gray-50/50 p-4 sm:flex sm:items-center sm:justify-between sm:gap-4">
+      <div className="mt-6 rounded-xl border border-border bg-surface/50 p-4 sm:flex sm:items-center sm:justify-between sm:gap-4">
         <p className="text-muted-foreground text-sm leading-relaxed">
           Want other cameras, more storage or longer cables? Load this kit into the builder and swap whatever you like —
           every change is checked so the parts still work together.

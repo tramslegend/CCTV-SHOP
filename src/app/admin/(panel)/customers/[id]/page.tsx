@@ -50,7 +50,7 @@ export default async function AdminCustomerPage({ params }: PageProps<"/admin/cu
 
   return (
     <>
-      <Link href="/admin/customers" className="text-muted-foreground mb-3 inline-flex items-center gap-1 text-sm hover:text-zinc-950">
+      <Link href="/admin/customers" className="text-muted-foreground mb-3 inline-flex items-center gap-1 text-sm hover:text-foreground">
         <ArrowLeft className="size-4" aria-hidden="true" /> Customers
       </Link>
       <PageHeader

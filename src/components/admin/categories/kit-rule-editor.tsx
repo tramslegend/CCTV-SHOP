@@ -79,7 +79,7 @@ export function KitRuleEditor({
       <div
         className={cn(
           "flex flex-wrap items-center justify-between gap-3 rounded-lg border px-3 py-2.5",
-          count === 0 ? "border-amber-200 bg-amber-50" : "bg-zinc-50",
+          count === 0 ? "border-amber-200 bg-amber-50" : "bg-surface",
         )}
         aria-live="polite"
         data-testid="kit-rule-count"

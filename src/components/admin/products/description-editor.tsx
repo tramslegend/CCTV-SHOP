@@ -76,7 +76,7 @@ export function DescriptionEditor({
         <span className="text-muted-foreground text-xs">Markdown: ## heading, **bold**, - list, [link](https://…)</span>
       </div>
       <TabsContent value="write" className="flex flex-col gap-1.5">
-        <div className="flex flex-wrap gap-0.5 rounded-t-lg border border-b-0 bg-zinc-50 p-1">
+        <div className="flex flex-wrap gap-0.5 rounded-t-lg border border-b-0 bg-surface p-1">
           {TOOLS.map(({ label, icon: Icon, edit }) => (
             <Button key={label} type="button" variant="ghost" size="icon-sm" aria-label={label} title={label} onClick={() => apply(edit)}>
               <Icon />

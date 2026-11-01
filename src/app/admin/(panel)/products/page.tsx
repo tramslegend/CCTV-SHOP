@@ -90,11 +90,11 @@ export default async function ProductsPage(props: PageProps<"/admin/products">) 
               aria-current={active ? "page" : undefined}
               className={cn(
                 "-mb-px flex items-center gap-1.5 border-b-2 px-3 py-2 text-sm font-medium transition-colors",
-                active ? "border-zinc-900 text-zinc-950" : "border-transparent text-zinc-500 hover:text-zinc-900",
+                active ? "border-primary text-foreground" : "border-transparent text-muted-foreground hover:text-foreground",
               )}
             >
               {t.label}
-              <span className={cn("rounded-full px-1.5 text-xs tabular-nums", active ? "bg-zinc-900 text-white" : "bg-zinc-100 text-zinc-600")}>
+              <span className={cn("rounded-full px-1.5 text-xs tabular-nums", active ? "bg-primary text-white" : "bg-muted text-muted-foreground")}>
                 {n(t.count)}
               </span>
             </Link>

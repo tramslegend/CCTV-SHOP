@@ -98,8 +98,8 @@ function EmptyState({
       <div className="bg-muted mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full">
         <Icon className="text-muted-foreground h-8 w-8" aria-hidden="true" />
       </div>
-      <h2 className="text-lg font-semibold text-zinc-950">{title}</h2>
-      <p className="mx-auto mt-1 max-w-sm text-sm text-zinc-500">{body}</p>
+      <h2 className="text-lg font-semibold text-foreground">{title}</h2>
+      <p className="mx-auto mt-1 max-w-sm text-sm text-muted-foreground">{body}</p>
       {action && <div className="mt-6 flex justify-center">{action}</div>}
     </div>
   );
@@ -112,11 +112,11 @@ function OrderRow({ order }: { order: DashboardOrder }) {
     <li>
       <Link
         href={`/dashboard/orders/${order.number}`}
-        className="flex flex-wrap items-center gap-x-4 gap-y-3 px-5 py-4 transition-colors hover:bg-zinc-50 sm:flex-nowrap"
+        className="flex flex-wrap items-center gap-x-4 gap-y-3 px-5 py-4 transition-colors hover:bg-surface sm:flex-nowrap"
       >
         <div className="min-w-0 flex-1">
-          <p className="text-sm font-semibold tracking-wide text-zinc-950 tabular-nums">{order.number}</p>
-          <p className="mt-0.5 text-xs text-zinc-500">
+          <p className="text-sm font-semibold tracking-wide text-foreground tabular-nums">{order.number}</p>
+          <p className="mt-0.5 text-xs text-muted-foreground">
             {formatDate(order.placedAt)} · {itemsText(orderUnits(order))}
           </p>
         </div>
@@ -127,13 +127,13 @@ function OrderRow({ order }: { order: DashboardOrder }) {
               src={line.image}
               alt=""
               sizes="40px"
-              className="h-10 w-10 rounded-md border border-zinc-200 ring-2 ring-white"
+              className="h-10 w-10 rounded-md border border-border ring-2 ring-white"
             />
           ))}
         </div>
         <div className="flex items-center gap-3">
           <StatusBadge status={order.status} />
-          <span className="w-20 text-right text-sm font-semibold text-zinc-950 tabular-nums">{formatGBP(order.figures.total)}</span>
+          <span className="w-20 text-right text-sm font-semibold text-foreground tabular-nums">{formatGBP(order.figures.total)}</span>
           <ChevronRight className="h-4 w-4 text-zinc-400" aria-hidden="true" />
         </div>
       </Link>
@@ -225,7 +225,7 @@ export function DashboardOverview({
         title={`Hi, ${firstName(account)}`}
         lede={
           <>
-            Signed in as <span className="font-medium text-zinc-700">{account.email}</span> · Member since {since}
+            Signed in as <span className="font-medium text-foreground/80">{account.email}</span> · Member since {since}
           </>
         }
       />
@@ -234,9 +234,9 @@ export function DashboardOverview({
         {stats.map(({ label, value, note, href, Icon }) => (
           <Link key={label} href={href} className={cn(panel, "group flex items-start justify-between gap-3 p-5 hover:border-zinc-300")}>
             <div>
-              <p className="font-mono text-[10px] font-medium tracking-[0.14em] text-zinc-500 uppercase">{label}</p>
-              <p className="mt-1.5 text-2xl font-semibold tracking-tight text-zinc-950 tabular-nums">{value}</p>
-              {note && <p className="text-xs text-zinc-500">{note}</p>}
+              <p className="font-mono text-[10px] font-medium tracking-[0.14em] text-muted-foreground uppercase">{label}</p>
+              <p className="mt-1.5 text-2xl font-semibold tracking-tight text-foreground tabular-nums">{value}</p>
+              {note && <p className="text-xs text-muted-foreground">{note}</p>}
             </div>
             <Icon className="h-5 w-5 text-emerald-700" aria-hidden="true" />
           </Link>
@@ -244,8 +244,8 @@ export function DashboardOverview({
       </div>
 
       <section className={cn(panel, "mt-6")} aria-labelledby="recent-orders">
-        <div className="flex items-center justify-between gap-3 border-b border-zinc-100 px-5 py-4">
-          <h2 id="recent-orders" className="text-base font-semibold text-zinc-950">
+        <div className="flex items-center justify-between gap-3 border-b border-border px-5 py-4">
+          <h2 id="recent-orders" className="text-base font-semibold text-foreground">
             Recent orders
           </h2>
           {orderCount > 0 && (
@@ -255,14 +255,14 @@ export function DashboardOverview({
           )}
         </div>
         {recent.length ? (
-          <ul className="divide-y divide-zinc-100">
+          <ul className="divide-y divide-border">
             {recent.map((order) => (
               <OrderRow key={order.number} order={order} />
             ))}
           </ul>
         ) : (
           <div className="px-5 py-8 text-center">
-            <p className="text-sm text-zinc-500">No orders yet. When you check out, your orders show up here.</p>
+            <p className="text-sm text-muted-foreground">No orders yet. When you check out, your orders show up here.</p>
             <Link href="/products" className={cn(emeraldButton, "mt-4")}>
               <ShoppingBag className="h-4 w-4" aria-hidden="true" />
               Start shopping
@@ -272,7 +272,7 @@ export function DashboardOverview({
       </section>
 
       <section className="mt-6" aria-labelledby="quick-links">
-        <h2 id="quick-links" className="mb-3 text-base font-semibold text-zinc-950">
+        <h2 id="quick-links" className="mb-3 text-base font-semibold text-foreground">
           Quick links
         </h2>
         <ul className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
@@ -283,8 +283,8 @@ export function DashboardOverview({
                   <Icon className="h-4 w-4" aria-hidden="true" />
                 </span>
                 <span className="min-w-0">
-                  <span className="block text-sm font-semibold text-zinc-950">{title}</span>
-                  <span className="block text-xs text-zinc-500">{body}</span>
+                  <span className="block text-sm font-semibold text-foreground">{title}</span>
+                  <span className="block text-xs text-muted-foreground">{body}</span>
                 </span>
               </Link>
             </li>
@@ -320,11 +320,11 @@ export function OrdersList({
       {!account.emailVerified && <VerifyEmailNotice email={account.email} unclaimed={unclaimed} />}
       {orders.length ? (
         <section className={panel} aria-label="Orders">
-          <div className="hidden grid-cols-[1fr_auto] border-b border-zinc-100 px-5 py-3 font-mono text-[10px] tracking-[0.14em] text-zinc-500 uppercase sm:grid">
+          <div className="hidden grid-cols-[1fr_auto] border-b border-border px-5 py-3 font-mono text-[10px] tracking-[0.14em] text-muted-foreground uppercase sm:grid">
             <span>Order</span>
             <span>Status · Total</span>
           </div>
-          <ul className="divide-y divide-zinc-100">
+          <ul className="divide-y divide-border">
             {orders.map((order) => (
               <OrderRow key={order.number} order={order} />
             ))}
@@ -381,7 +381,7 @@ export function OrderDetail({ order, collectFrom = null }: { order: DashboardOrd
 
   return (
     <>
-      <Link href="/dashboard/orders" className="mb-4 inline-flex items-center gap-1 text-sm font-semibold text-zinc-600 hover:text-emerald-700">
+      <Link href="/dashboard/orders" className="mb-4 inline-flex items-center gap-1 text-sm font-semibold text-muted-foreground hover:text-emerald-700">
         ← Your orders
       </Link>
       <DashHeader
@@ -393,7 +393,7 @@ export function OrderDetail({ order, collectFrom = null }: { order: DashboardOrd
 
       <section className={cn(panel, "p-5")} aria-label="Order progress">
         {closed ? (
-          <div className="flex items-start gap-3 text-sm text-zinc-700">
+          <div className="flex items-start gap-3 text-sm text-foreground/80">
             <PackageX className="mt-0.5 h-5 w-5 shrink-0 text-red-600" aria-hidden="true" />
             <p>
               {order.status === "cancelled" ? "This order was cancelled." : "This order has been refunded."}
@@ -411,18 +411,18 @@ export function OrderDetail({ order, collectFrom = null }: { order: DashboardOrd
                     <span
                       className={cn(
                         "grid h-9 w-9 place-items-center rounded-full border",
-                        done ? "border-emerald-700 bg-emerald-700 text-white" : "border-zinc-200 bg-white text-zinc-400",
+                        done ? "border-emerald-700 bg-emerald-700 text-white" : "border-border bg-white text-zinc-400",
                       )}
                     >
                       <Icon className="h-4 w-4" aria-hidden="true" />
                     </span>
-                    <span className={cn("text-xs font-medium", done ? "text-zinc-950" : "text-zinc-400")}>{label}</span>
-                    {done && at && <span className="text-[11px] text-zinc-500">{formatDate(at)}</span>}
+                    <span className={cn("text-xs font-medium", done ? "text-foreground" : "text-zinc-400")}>{label}</span>
+                    {done && at && <span className="text-[11px] text-muted-foreground">{formatDate(at)}</span>}
                   </li>
                 );
               })}
             </ol>
-            <p className="mt-4 border-t border-zinc-100 pt-4 text-sm text-zinc-600">
+            <p className="mt-4 border-t border-border pt-4 text-sm text-muted-foreground">
               {order.status === "paid" || order.status === "processing" ? (
                 "We’re picking and packing this order. The tracking number arrives by email once it leaves us."
               ) : order.status === "dispatched" ? (
@@ -453,15 +453,15 @@ export function OrderDetail({ order, collectFrom = null }: { order: DashboardOrd
 
       <div className="mt-6 grid gap-6 xl:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
         <section className={cn(panel, "h-fit")} aria-labelledby="order-items">
-          <div className="border-b border-zinc-100 px-5 py-4">
-            <h2 id="order-items" className="text-base font-semibold text-zinc-950">
+          <div className="border-b border-border px-5 py-4">
+            <h2 id="order-items" className="text-base font-semibold text-foreground">
               Items
             </h2>
           </div>
           <div className="px-5">
             <OrderLines order={order} />
           </div>
-          <div className="border-t border-zinc-100 px-5 py-4">
+          <div className="border-t border-border px-5 py-4">
             <OrderTotals order={order} />
           </div>
         </section>
@@ -470,14 +470,14 @@ export function OrderDetail({ order, collectFrom = null }: { order: DashboardOrd
           <section className={cn(panel, "p-5 text-sm")} aria-labelledby="order-address">
             {collectFrom && (
               <>
-                <h2 className="font-semibold text-zinc-950">Collect from</h2>
-                <p className="mt-1 mb-4 leading-6 text-zinc-700">{collectFrom}</p>
+                <h2 className="font-semibold text-foreground">Collect from</h2>
+                <p className="mt-1 mb-4 leading-6 text-foreground/80">{collectFrom}</p>
               </>
             )}
-            <h2 id="order-address" className="font-semibold text-zinc-950">
+            <h2 id="order-address" className="font-semibold text-foreground">
               {collectFrom ? "Your address" : "Delivering to"}
             </h2>
-            <p className="mt-1 leading-6 text-zinc-700">
+            <p className="mt-1 leading-6 text-foreground/80">
               {deliveryAddressLines(order).map((line, i) => (
                 // Two address lines can read the same, so the key includes the position.
                 <span key={`${i}-${line}`} className="block">
@@ -485,20 +485,20 @@ export function OrderDetail({ order, collectFrom = null }: { order: DashboardOrd
                 </span>
               ))}
             </p>
-            <h3 className="mt-4 font-semibold text-zinc-950">Billing address</h3>
-            <p className="mt-1 text-zinc-700">
+            <h3 className="mt-4 font-semibold text-foreground">Billing address</h3>
+            <p className="mt-1 text-foreground/80">
               {billing
                 ? [billing.line1, billing.line2, billing.city, billing.county, billing.postcode].filter(Boolean).join(", ")
                 : "Same as delivery"}
             </p>
-            <h3 className="mt-4 font-semibold text-zinc-950">Contact</h3>
-            <p className="mt-1 break-words text-zinc-700">
+            <h3 className="mt-4 font-semibold text-foreground">Contact</h3>
+            <p className="mt-1 break-words text-foreground/80">
               {order.email}
               {order.phone ? ` · ${order.phone}` : ""}
               {order.shipping.company ? ` · ${order.shipping.company}` : ""}
             </p>
-            <h3 className="mt-4 font-semibold text-zinc-950">{collectFrom ? "Collection" : "Delivery"}</h3>
-            <p className="mt-1 text-zinc-700">
+            <h3 className="mt-4 font-semibold text-foreground">{collectFrom ? "Collection" : "Delivery"}</h3>
+            <p className="mt-1 text-foreground/80">
               {order.deliveryMethod} ({order.figures.deliveryIncVat === 0 ? "free" : formatGBP(order.figures.deliveryIncVat)})
             </p>
           </section>
@@ -534,11 +534,11 @@ export function WishlistView() {
         <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {items.map((item, i) => (
             <li key={item.slug} className={cn(panel, "flex flex-col overflow-hidden")}>
-              <Link href={`/products/${item.slug}`} className="block border-b border-zinc-100">
+              <Link href={`/products/${item.slug}`} className="block border-b border-border">
                 <ProductThumb src={item.image} alt={item.name} sizes="(min-width: 1280px) 280px, (min-width: 640px) 45vw, 90vw" className="aspect-[4/3] w-full" eager={i < 3} />
               </Link>
               <div className="flex flex-1 flex-col p-4">
-                <Link href={`/products/${item.slug}`} className="line-clamp-2 text-sm font-medium text-zinc-950 hover:text-emerald-700">
+                <Link href={`/products/${item.slug}`} className="line-clamp-2 text-sm font-medium text-foreground hover:text-emerald-700">
                   {item.name}
                 </Link>
                 <p className="mt-2 text-lg font-bold text-[#047857]">
@@ -558,7 +558,7 @@ export function WishlistView() {
                     type="button"
                     onClick={() => toggleWishlist(item)}
                     aria-label={`Remove ${item.name} from your wishlist`}
-                    className="grid h-10 w-10 shrink-0 place-items-center rounded-md border border-zinc-200 text-zinc-500 transition-colors hover:border-red-200 hover:bg-red-50 hover:text-red-700"
+                    className="grid h-10 w-10 shrink-0 place-items-center rounded-md border border-border text-muted-foreground transition-colors hover:border-red-200 hover:bg-red-50 hover:text-red-700"
                   >
                     <Trash2 className="h-4 w-4" aria-hidden="true" />
                   </button>
@@ -608,7 +608,7 @@ export function NotificationsView({ notes }: { notes: DashboardNotification[] })
       />
       {notes.length ? (
         <section className={panel} aria-label="Notifications">
-          <ul className="divide-y divide-zinc-100">
+          <ul className="divide-y divide-border">
             {notes.map((n) => {
               const fresh = isUnread(n.id);
               const Icon = n.type === "dispatched" ? Truck : n.type === "delivered" ? PackageCheck : n.type === "cancelled" ? PackageX : Package;
@@ -617,21 +617,21 @@ export function NotificationsView({ notes }: { notes: DashboardNotification[] })
                   <Link
                     href={`/dashboard/orders/${n.orderNumber}`}
                     onClick={() => markNotificationsRead([n.id])}
-                    className={cn("flex gap-3 px-5 py-4 transition-colors hover:bg-zinc-50", fresh && "bg-emerald-50/40")}
+                    className={cn("flex gap-3 px-5 py-4 transition-colors hover:bg-surface", fresh && "bg-emerald-50/40")}
                   >
                     <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-emerald-50 text-emerald-700">
                       <Icon className="h-4 w-4" aria-hidden="true" />
                     </span>
                     <span className="min-w-0 flex-1">
                       <span className="flex items-center gap-2">
-                        <span className={cn("text-sm text-zinc-950", fresh ? "font-semibold" : "font-medium")}>{n.title}</span>
+                        <span className={cn("text-sm text-foreground", fresh ? "font-semibold" : "font-medium")}>{n.title}</span>
                         {fresh && (
                           <span className="h-2 w-2 rounded-full bg-emerald-600">
                             <span className="sr-only">Unread</span>
                           </span>
                         )}
                       </span>
-                      <span className="mt-0.5 block text-sm text-zinc-600">{n.body}</span>
+                      <span className="mt-0.5 block text-sm text-muted-foreground">{n.body}</span>
                       <span className="mt-1 block text-xs text-zinc-400">{formatDate(n.at, true)}</span>
                     </span>
                   </Link>
@@ -659,8 +659,8 @@ export function NotificationsView({ notes }: { notes: DashboardNotification[] })
 // ---------- /dashboard/addresses ----------
 
 const fieldInput =
-  "h-11 w-full rounded-md border border-zinc-300 bg-white px-3 text-base text-zinc-950 placeholder:text-zinc-400 focus:border-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-700/20 aria-[invalid=true]:border-red-600 md:text-sm";
-const fieldLabel = "mb-1 block text-sm font-medium text-zinc-700";
+  "h-11 w-full rounded-md border border-zinc-300 bg-white px-3 text-base text-foreground placeholder:text-zinc-400 focus:border-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-700/20 aria-[invalid=true]:border-red-600 md:text-sm";
+const fieldLabel = "mb-1 block text-sm font-medium text-foreground/80";
 
 export function AddressesView({ addresses }: { addresses: DashboardAddress[] }) {
   const [editing, setEditing] = useState<DashboardAddress | "new" | null>(null);
@@ -704,7 +704,7 @@ export function AddressesView({ addresses }: { addresses: DashboardAddress[] }) 
           {addresses.map((a) => (
             <li key={a.id} className={cn(panel, "flex flex-col p-5 text-sm")}>
               <div className="mb-2 flex items-center justify-between gap-2">
-                <span className="flex items-center gap-2 font-semibold text-zinc-950">
+                <span className="flex items-center gap-2 font-semibold text-foreground">
                   <MapPin className="h-4 w-4 text-emerald-700" aria-hidden="true" />
                   {a.label || "Address"}
                 </span>
@@ -714,14 +714,14 @@ export function AddressesView({ addresses }: { addresses: DashboardAddress[] }) 
                   </span>
                 )}
               </div>
-              <p className="leading-6 text-zinc-700">
+              <p className="leading-6 text-foreground/80">
                 {[a.name, a.company, a.line1, a.line2, a.city, a.county, a.postcode].filter(Boolean).map((line, i) => (
                   <span key={`${i}-${line}`} className="block">
                     {line}
                   </span>
                 ))}
               </p>
-              {a.phone && <p className="mt-1 text-zinc-500">{a.phone}</p>}
+              {a.phone && <p className="mt-1 text-muted-foreground">{a.phone}</p>}
               <div className="mt-auto flex flex-wrap gap-2 pt-4">
                 <button type="button" onClick={() => setEditing(a)} disabled={pending} className={cn(outlineButton, "h-9 px-3")}>
                   <Pencil className="h-3.5 w-3.5" aria-hidden="true" />
@@ -740,7 +740,7 @@ export function AddressesView({ addresses }: { addresses: DashboardAddress[] }) 
                   }}
                   disabled={pending}
                   aria-label={`Remove address ${a.line1}`}
-                  className="grid h-9 w-9 place-items-center rounded-md border border-zinc-200 text-zinc-500 transition-colors hover:border-red-200 hover:bg-red-50 hover:text-red-700"
+                  className="grid h-9 w-9 place-items-center rounded-md border border-border text-muted-foreground transition-colors hover:border-red-200 hover:bg-red-50 hover:text-red-700"
                 >
                   <Trash2 className="h-4 w-4" aria-hidden="true" />
                 </button>
@@ -821,7 +821,7 @@ function AddressForm({ initial, onDone }: { initial: DashboardAddress | null; on
 
   return (
     <form onSubmit={submit} noValidate className={cn(panel, "mb-6 space-y-4 p-5 sm:p-6")} aria-label={initial ? "Edit address" : "New address"}>
-      <h2 className="text-base font-semibold text-zinc-950">{initial ? "Edit address" : "New address"}</h2>
+      <h2 className="text-base font-semibold text-foreground">{initial ? "Edit address" : "New address"}</h2>
       {formError && (
         <p role="alert" className={formAlert}>
           {formError}
@@ -844,7 +844,7 @@ function AddressForm({ initial, onDone }: { initial: DashboardAddress | null; on
         </div>
         <div>
           <label htmlFor="addr-label" className={fieldLabel}>
-            Nickname <span className="font-normal text-zinc-500">(optional)</span>
+            Nickname <span className="font-normal text-muted-foreground">(optional)</span>
           </label>
           <input
             id="addr-label"
@@ -856,7 +856,7 @@ function AddressForm({ initial, onDone }: { initial: DashboardAddress | null; on
         </div>
         <div>
           <label htmlFor="addr-company" className={fieldLabel}>
-            Company <span className="font-normal text-zinc-500">(optional)</span>
+            Company <span className="font-normal text-muted-foreground">(optional)</span>
           </label>
           <input
             id="addr-company"
@@ -868,7 +868,7 @@ function AddressForm({ initial, onDone }: { initial: DashboardAddress | null; on
         </div>
         <div>
           <label htmlFor="addr-phone" className={fieldLabel}>
-            Phone <span className="font-normal text-zinc-500">(optional)</span>
+            Phone <span className="font-normal text-muted-foreground">(optional)</span>
           </label>
           <PhoneInput
             id="addr-phone"
@@ -895,7 +895,7 @@ function AddressForm({ initial, onDone }: { initial: DashboardAddress | null; on
         mode={mode}
         onModeChange={setMode}
       />
-      <label className="flex items-center gap-2 text-sm text-zinc-700">
+      <label className="flex items-center gap-2 text-sm text-foreground/80">
         <input
           type="checkbox"
           checked={meta.isDefault}
@@ -904,7 +904,7 @@ function AddressForm({ initial, onDone }: { initial: DashboardAddress | null; on
         />
         Use as my default delivery address
       </label>
-      <div className="flex flex-wrap justify-end gap-3 border-t border-zinc-100 pt-4">
+      <div className="flex flex-wrap justify-end gap-3 border-t border-border pt-4">
         <button type="button" onClick={onDone} className={outlineButton}>
           Cancel
         </button>
@@ -930,10 +930,10 @@ export function SettingsForm({ account }: { account: DashboardAccount }) {
       <PasswordForm />
       <section className={cn(panel, "mt-6 flex flex-wrap items-center justify-between gap-4 p-5")} aria-labelledby="signout-title">
         <div>
-          <h2 id="signout-title" className="text-base font-semibold text-zinc-950">
+          <h2 id="signout-title" className="text-base font-semibold text-foreground">
             Sign out
           </h2>
-          <p className="mt-1 text-sm text-zinc-500">Your basket and wishlist stay in this browser.</p>
+          <p className="mt-1 text-sm text-muted-foreground">Your basket and wishlist stay in this browser.</p>
         </div>
         <button type="button" onClick={leave} className={outlineButton}>
           Sign out
@@ -1002,8 +1002,8 @@ function AccountDetailsForm({ account }: { account: DashboardAccount }) {
           <label htmlFor="account-email" className={fieldLabel}>
             Email
           </label>
-          <input id="account-email" type="email" value={account.email} readOnly className={cn(fieldInput, "bg-zinc-50 text-zinc-600")} aria-describedby="account-email-note" />
-          <p id="account-email-note" className="mt-1 text-xs text-zinc-500">
+          <input id="account-email" type="email" value={account.email} readOnly className={cn(fieldInput, "bg-surface text-muted-foreground")} aria-describedby="account-email-note" />
+          <p id="account-email-note" className="mt-1 text-xs text-muted-foreground">
             {account.emailVerified ? "Confirmed." : "Not confirmed yet."} To change it,{" "}
             <Link href="/contact" className="font-semibold text-emerald-700 underline underline-offset-2">
               contact us
@@ -1013,7 +1013,7 @@ function AccountDetailsForm({ account }: { account: DashboardAccount }) {
         </div>
         <div>
           <label htmlFor="account-phone" className={fieldLabel}>
-            Phone <span className="font-normal text-zinc-500">(optional)</span>
+            Phone <span className="font-normal text-muted-foreground">(optional)</span>
           </label>
           <PhoneInput
             id="account-phone"
@@ -1026,7 +1026,7 @@ function AccountDetailsForm({ account }: { account: DashboardAccount }) {
         </div>
         <div>
           <label htmlFor="account-company" className={fieldLabel}>
-            Company <span className="font-normal text-zinc-500">(optional)</span>
+            Company <span className="font-normal text-muted-foreground">(optional)</span>
           </label>
           <input
             id="account-company"
@@ -1040,8 +1040,8 @@ function AccountDetailsForm({ account }: { account: DashboardAccount }) {
           {error("company")}
         </div>
       </div>
-      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-zinc-100 pt-4">
-        <p className="text-xs text-zinc-500">Member since {formatDate(account.createdAt)}</p>
+      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border pt-4">
+        <p className="text-xs text-muted-foreground">Member since {formatDate(account.createdAt)}</p>
         <button type="submit" disabled={busy} className={emeraldButton}>
           {busy && <LoaderCircle className="h-4 w-4 animate-spin" aria-hidden="true" />}
           Save changes
@@ -1076,10 +1076,10 @@ function PasswordForm() {
   return (
     <form onSubmit={submit} noValidate className={cn(panel, "mt-6 space-y-4 p-5 sm:p-6")} aria-labelledby="security-title">
       <div>
-        <h2 id="security-title" className="text-base font-semibold text-zinc-950">
+        <h2 id="security-title" className="text-base font-semibold text-foreground">
           Password
         </h2>
-        <p className="mt-1 text-sm text-zinc-500">At least 10 characters with upper and lower case letters, a number and a symbol.</p>
+        <p className="mt-1 text-sm text-muted-foreground">At least 10 characters with upper and lower case letters, a number and a symbol.</p>
       </div>
       {error && (
         <p role="alert" className={formAlert}>
@@ -1100,7 +1100,7 @@ function PasswordForm() {
           <PasswordInput id="account-new-password" autoComplete="new-password" value={next} onChange={(e) => setNext(e.target.value)} />
         </div>
       </div>
-      <div className="flex justify-end border-t border-zinc-100 pt-4">
+      <div className="flex justify-end border-t border-border pt-4">
         <button type="submit" disabled={busy} className={emeraldButton}>
           {busy && <LoaderCircle className="h-4 w-4 animate-spin" aria-hidden="true" />}
           Change password

@@ -44,7 +44,7 @@ function MenuContents({
       <li key={link.href} className={cn(level === 0 ? "rounded-lg border p-3" : "")}>
         <div className={cn("flex flex-wrap items-center gap-3", !shown && "opacity-60")}>
           <Checkbox id={id} checked={shown} onCheckedChange={(v) => toggle(link.href, v === true)} aria-label={`Show ${link.name} in the ${meta.name} menu`} />
-          <label htmlFor={id} className={cn("min-w-0 flex-1 text-sm", level === 0 ? "font-semibold" : "text-zinc-700")}>
+          <label htmlFor={id} className={cn("min-w-0 flex-1 text-sm", level === 0 ? "font-semibold" : "text-foreground/80")}>
             {link.name}
             <span className={cn("text-muted-foreground ml-2 text-[11px] font-normal", MONO)}>{link.href}</span>
           </label>
@@ -111,11 +111,11 @@ export function HeaderEditor({
           const shownLinks = links - item.hidden.filter((h) => hrefs.has(h)).length;
           const isOpen = expanded === item.slug;
           return (
-            <li key={item.slug} className={cn("rounded-lg border bg-white", !item.show && "bg-zinc-50")} data-testid={`header-item-${item.slug}`}>
+            <li key={item.slug} className={cn("rounded-lg border bg-white", !item.show && "bg-surface")} data-testid={`header-item-${item.slug}`}>
               <div className="flex flex-wrap items-center gap-x-4 gap-y-3 p-3">
                 <RowActions index={i} count={items.length} label={m.name} onMove={(to) => onChange(move(items, i, to))} />
                 <div className="min-w-36 flex-1">
-                  <p className={cn("text-sm font-semibold", !item.show && "text-zinc-500")}>{m.name}</p>
+                  <p className={cn("text-sm font-semibold", !item.show && "text-muted-foreground")}>{m.name}</p>
                   <p className={cn("text-muted-foreground text-[11px]", MONO)}>{m.href}</p>
                 </div>
                 <ImagePicker
@@ -148,7 +148,7 @@ export function HeaderEditor({
                     type="button"
                     aria-expanded={isOpen}
                     onClick={() => setExpanded(isOpen ? null : item.slug)}
-                    className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium text-zinc-700 hover:bg-zinc-100"
+                    className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium text-foreground/80 hover:bg-muted"
                   >
                     Menu contents ({shownLinks}/{links} links)
                     <ChevronDown className={cn("size-3.5 transition-transform", isOpen && "rotate-180")} aria-hidden="true" />

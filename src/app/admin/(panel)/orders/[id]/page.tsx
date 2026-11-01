@@ -123,7 +123,7 @@ export default async function AdminOrderPage({ params }: PageProps<"/admin/order
 
   return (
     <>
-      <Link href="/admin/orders" className="text-muted-foreground mb-3 inline-flex items-center gap-1 text-sm hover:text-zinc-950">
+      <Link href="/admin/orders" className="text-muted-foreground mb-3 inline-flex items-center gap-1 text-sm hover:text-foreground">
         <ArrowLeft className="size-4" aria-hidden="true" /> Orders
       </Link>
       <PageHeader
@@ -238,7 +238,7 @@ export default async function AdminOrderPage({ params }: PageProps<"/admin/order
                   <li key={event.id} className="grid grid-cols-[110px_minmax(0,1fr)] gap-3 text-sm">
                     <span className="text-muted-foreground text-xs tabular-nums">{when.format(event.createdAt)}</span>
                     <div className="min-w-0">
-                      <span className="mr-2 inline-flex rounded bg-zinc-100 px-1.5 py-0.5 text-[11px] font-medium text-zinc-700">
+                      <span className="mr-2 inline-flex rounded bg-muted px-1.5 py-0.5 text-[11px] font-medium text-foreground/80">
                         {EVENT_LABEL[event.type] ?? event.type}
                       </span>
                       <span className={event.type === "note" ? "whitespace-pre-wrap" : undefined}>{event.message}</span>

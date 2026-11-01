@@ -97,9 +97,9 @@ export function TradeForm() {
           <CircleCheck className="h-5 w-5" aria-hidden="true" />
         </span>
         <div>
-          <h3 className="text-lg font-semibold text-zinc-950">Application received for {values.company.trim()}</h3>
-          <p className="mt-2 text-sm text-zinc-600">
-            We’ve emailed a copy to <span className="font-medium text-zinc-950">{values.email.trim()}</span>. A real
+          <h3 className="text-lg font-semibold text-foreground">Application received for {values.company.trim()}</h3>
+          <p className="mt-2 text-sm text-muted-foreground">
+            We’ve emailed a copy to <span className="font-medium text-foreground">{values.email.trim()}</span>. A real
             person reads every application and replies within one working day.
             {shop.phoneHref && (
               <>
@@ -244,7 +244,7 @@ export function TradeForm() {
         />
       </Field>
       <div>
-        <label className="flex items-start gap-2.5 text-sm text-zinc-700" htmlFor="trade-terms">
+        <label className="flex items-start gap-2.5 text-sm text-foreground/80" htmlFor="trade-terms">
           <input
             id="trade-terms"
             type="checkbox"

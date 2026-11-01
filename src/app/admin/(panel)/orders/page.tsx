@@ -48,11 +48,11 @@ export default async function AdminOrdersPage({ searchParams }: PageProps<"/admi
               aria-current={active ? "page" : undefined}
               className={cn(
                 "inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm font-medium transition-colors",
-                active ? "border-zinc-900 bg-zinc-900 text-white" : "bg-white text-zinc-700 hover:bg-zinc-50",
+                active ? "border-primary bg-primary text-white" : "bg-white text-foreground/80 hover:bg-surface",
               )}
             >
               {t.label}
-              <span className={cn("rounded-full px-1.5 text-xs tabular-nums", active ? "bg-white/20" : "bg-zinc-100 text-zinc-600")}>
+              <span className={cn("rounded-full px-1.5 text-xs tabular-nums", active ? "bg-white/20" : "bg-muted text-muted-foreground")}>
                 {counts[t.id]}
               </span>
             </Link>

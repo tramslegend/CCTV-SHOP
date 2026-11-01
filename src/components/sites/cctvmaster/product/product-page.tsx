@@ -47,7 +47,7 @@ export function ProductPage({ product }: { product: Product }) {
               {images.length ? (
                 <ProductGallery images={images} />
               ) : (
-                <div className="text-muted-foreground flex aspect-square items-center justify-center rounded-xl border border-gray-100 bg-gray-50">
+                <div className="text-muted-foreground flex aspect-square items-center justify-center rounded-xl border border-border bg-surface">
                   <ImageOff className="h-10 w-10" aria-label="No image available" />
                 </div>
               )}

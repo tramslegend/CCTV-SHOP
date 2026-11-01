@@ -93,7 +93,7 @@ export function ImagesEditor({
         }}
         className={cn(
           "flex flex-col items-center justify-center gap-2 rounded-lg border border-dashed px-4 py-6 text-center transition-colors",
-          dropActive ? "border-zinc-900 bg-zinc-50" : "border-zinc-300",
+          dropActive ? "border-primary bg-surface" : "border-zinc-300",
         )}
       >
         <Upload className="text-muted-foreground size-5" aria-hidden="true" />
@@ -168,11 +168,11 @@ export function ImagesEditor({
                 }}
                 className={cn(
                   "group flex flex-col gap-2 rounded-lg border bg-white p-2 transition-shadow",
-                  dragOver === i && "ring-2 ring-zinc-900",
+                  dragOver === i && "ring-2 ring-primary",
                   error && "border-red-300",
                 )}
               >
-                <div className="relative aspect-square overflow-hidden rounded-md bg-zinc-50">
+                <div className="relative aspect-square overflow-hidden rounded-md bg-white">
                   <Image
                     src={img.url}
                     alt={img.alt || `${productName || "Product"} image ${i + 1}`}
@@ -183,14 +183,14 @@ export function ImagesEditor({
                   />
                   {img.uploading && (
                     <span className="absolute inset-0 flex flex-col items-center justify-center gap-1">
-                      <Loader2 className="size-6 animate-spin text-zinc-700" aria-label="Uploading" />
+                      <Loader2 className="size-6 animate-spin text-foreground/80" aria-label="Uploading" />
                       {progress[img.key] !== undefined && (
-                        <span className="rounded bg-white/90 px-1.5 text-[11px] font-medium text-zinc-800 tabular-nums">{progress[img.key]}%</span>
+                        <span className="rounded bg-white/90 px-1.5 text-[11px] font-medium text-foreground/80 tabular-nums">{progress[img.key]}%</span>
                       )}
                     </span>
                   )}
-                  {i === 0 && <span className="absolute top-1.5 left-1.5 rounded bg-zinc-900 px-1.5 py-0.5 text-[11px] font-medium text-white">Main image</span>}
-                  <span className="absolute top-1.5 right-1.5 cursor-grab rounded bg-white/90 p-0.5 text-zinc-500 shadow-sm" aria-hidden="true">
+                  {i === 0 && <span className="absolute top-1.5 left-1.5 rounded bg-primary px-1.5 py-0.5 text-[11px] font-medium text-white">Main image</span>}
+                  <span className="absolute top-1.5 right-1.5 cursor-grab rounded bg-white/90 p-0.5 text-muted-foreground shadow-sm" aria-hidden="true">
                     <GripVertical className="size-3.5" />
                   </span>
                 </div>
@@ -242,7 +242,7 @@ export function ImagesEditor({
             <button
               type="button"
               onClick={() => fileInput.current?.click()}
-              className="text-muted-foreground flex aspect-square w-full flex-col items-center justify-center gap-1.5 rounded-lg border border-dashed text-xs hover:border-zinc-400 hover:text-zinc-900"
+              className="text-muted-foreground flex aspect-square w-full flex-col items-center justify-center gap-1.5 rounded-lg border border-dashed text-xs hover:border-zinc-400 hover:text-foreground"
             >
               <ImagePlus className="size-5" aria-hidden="true" />
               Add images

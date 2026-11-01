@@ -41,6 +41,7 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-canvas: var(--canvas);
   --color-surface: var(--surface);
   --color-ink: var(--ink);
   --color-ink-foreground: var(--ink-foreground);
@@ -60,11 +61,13 @@
 }
 
 /*
- * CCTV Spania palette: white canvas (~60%), green-grey surfaces and a deep green-charcoal "ink" for bars and the
- * footer (~30%), and the logo green as the one accent for actions (~10%). Every neutral leans slightly toward the
- * logo green so the greys, the ink and the accent read as one family.
+ * CCTV Spania palette: a light green-grey page canvas with white cards and panels on it (~60%), deeper green-grey
+ * bands and a forest-green "ink" for the top bar and footer (~30%), and the logo green as the one accent for
+ * actions (~10%). Every neutral leans toward the logo green so the greys, the ink and the accent read as one family.
  */
 :root {
+  /* Page background behind everything (body, site shell, admin). Cards, header and dialogs stay white. */
+  --canvas: #f0f5f2;
   --background: #ffffff;
   --foreground: #111816;
   --card: #ffffff;
@@ -151,7 +154,7 @@
     @apply font-sans;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-canvas text-foreground;
   }
 }
 
@@ -206,6 +209,194 @@
   transform: scale(0.98);
 }
 
+/*
+ * Dark band: a forest-green section scheme. Anything inside follows it through the theme variables (text, muted
+ * text, borders, rings), and the few hard-coded light-theme greens and whites the page heroes use are remapped to
+ * their on-dark versions, so a light hero turns dark by adding this one class. A slow green glow drifts behind the
+ * content. These rules sit outside the cascade layers so they win over the utilities they remap.
+ */
+.fc-band {
+  --foreground: #ffffff;
+  --muted-foreground: rgb(255 255 255 / 0.75);
+  --border: rgb(255 255 255 / 0.16);
+  --primary: #34d399;
+  --primary-foreground: #0f3d2e;
+  --ring: #6ee7b7;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: var(--ink);
+  color: var(--foreground);
+}
+.fc-band::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -40% -10%;
+  background:
+    radial-gradient(38% 55% at 18% 30%, rgb(52 211 153 / 0.22), transparent 70%),
+    radial-gradient(32% 50% at 82% 70%, rgb(16 185 129 / 0.16), transparent 70%);
+  animation: fc-drift 22s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+.fc-band :where(.text-emerald-600, .text-emerald-700, .text-emerald-800, .text-emerald-900, .text-primary) {
+  color: #6ee7b7;
+}
+.fc-band :where(.bg-white, .bg-surface, .bg-emerald-50, .bg-emerald-50\/70, .bg-emerald-100) {
+  background-color: rgb(255 255 255 / 0.07);
+}
+.fc-band :where(.border-emerald-200, .border-zinc-300, .border-input) {
+  border-color: rgb(255 255 255 / 0.28);
+}
+.fc-band :where(.bg-emerald-700, .bg-primary) {
+  background-color: #34d399;
+  color: #0f3d2e;
+}
+.fc-band :where(.hover\:bg-emerald-800, .hover\:bg-white):hover {
+  background-color: #6ee7b7;
+  color: #0f3d2e;
+}
+
+/* Product photos have white backgrounds. Where a thumbnail sits straight on a tinted strip, multiply blending lets
+   the strip's colour show through the white, so there's no white square around the product. */
+.fc-blend img {
+  mix-blend-mode: multiply;
+}
+
+@keyframes fc-drift {
+  from {
+    transform: translate3d(-4%, -3%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(4%, 3%, 0) scale(1.12);
+  }
+}
+
+/* Homepage hero: two soft green lights drifting behind the content, and a camera-style scan line. */
+.fc-aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.fc-aurora::before,
+.fc-aurora::after {
+  content: "";
+  position: absolute;
+  width: 46vmax;
+  height: 46vmax;
+  border-radius: 9999px;
+  filter: blur(70px);
+  will-change: transform;
+}
+.fc-aurora::before {
+  top: -22vmax;
+  left: -12vmax;
+  background: rgb(52 211 153 / 0.35);
+  animation: fc-drift 18s ease-in-out infinite alternate;
+}
+.fc-aurora::after {
+  right: -14vmax;
+  bottom: -26vmax;
+  background: rgb(4 120 87 / 0.28);
+  animation: fc-drift 24s ease-in-out -6s infinite alternate-reverse;
+}
+.fc-scan {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 2px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgb(16 185 129 / 0.55) 30%, rgb(52 211 153 / 0.9) 50%, rgb(16 185 129 / 0.55) 70%, transparent);
+  box-shadow: 0 0 18px 2px rgb(52 211 153 / 0.35);
+  animation: fc-scan 9s linear infinite;
+}
+@keyframes fc-scan {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  55% {
+    top: 100%;
+    opacity: 0.9;
+  }
+  60%,
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+/* Endless brand strip: the list is rendered twice and the track moves by exactly one copy. */
+.fc-marquee {
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.fc-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: fc-marquee 32s linear infinite;
+}
+.fc-marquee:hover .fc-marquee-track {
+  animation-play-state: paused;
+}
+@keyframes fc-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Cards and sections fade and rise as they scroll into view (browsers without scroll timelines show them as is).
+   Animates `transform` and `opacity` only, so the `translate`/`scale` hover utilities keep working. */
+@supports (animation-timeline: view()) {
+  .fc-reveal {
+    animation: fc-reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 40%;
+  }
+  /* Sticky header: turns translucent and blurred, with a deeper shadow, over the first 120px of scrolling. */
+  .fc-header {
+    animation: fc-header-shadow linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 120px;
+  }
+  .fc-header > :first-child {
+    animation: fc-header-glass linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 120px;
+  }
+}
+@keyframes fc-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fc-header-shadow {
+  from {
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  }
+  to {
+    box-shadow: 0 10px 30px -12px rgb(15 61 46 / 0.35);
+  }
+}
+@keyframes fc-header-glass {
+  from {
+    background-color: rgb(255 255 255 / 1);
+    backdrop-filter: blur(0);
+  }
+  to {
+    background-color: rgb(255 255 255 / 0.82);
+    backdrop-filter: blur(14px) saturate(1.4);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .fc-rise,
   .fc-stagger > * {
@@ -215,6 +406,30 @@
   .fc-press:hover,
   .fc-press:active {
     transform: none !important;
+  }
+  .fc-band::before,
+  .fc-aurora::before,
+  .fc-aurora::after,
+  .fc-reveal,
+  .fc-header,
+  .fc-header > :first-child {
+    animation: none !important;
+  }
+  .fc-scan {
+    display: none;
+  }
+  /* The brand strip stops and wraps; the duplicate copy is hidden. */
+  .fc-marquee {
+    mask-image: none;
+  }
+  .fc-marquee-track {
+    animation: none;
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .fc-marquee-copy {
+    display: none;
   }
 }
 

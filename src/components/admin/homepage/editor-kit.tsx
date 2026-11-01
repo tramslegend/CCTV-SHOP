@@ -141,7 +141,7 @@ export function EditorBar({
   actions?: ReactNode;
 }) {
   return (
-    <div className="sticky top-14 z-20 -mx-4 mb-6 border-b bg-zinc-50/95 px-4 py-3 backdrop-blur lg:-mx-8 lg:px-8">
+    <div className="sticky top-14 z-20 -mx-4 mb-6 border-b bg-surface/95 px-4 py-3 backdrop-blur lg:-mx-8 lg:px-8">
       <div className="flex flex-wrap items-center gap-3">
         <Link href={backHref} className={buttonVariants({ variant: "ghost", size: "icon-sm" })} aria-label={backLabel}>
           <ArrowLeft />
@@ -325,7 +325,7 @@ export function TokenHelp({ only }: { only?: readonly (typeof TOKENS)[number][] 
       You can write{" "}
       {list.map((t, i) => (
         <span key={t}>
-          <code className={cn("rounded bg-zinc-100 px-1 text-[11px] text-zinc-800", MONO)}>{`{${t}}`}</code> for {TOKEN_HELP[t]}
+          <code className={cn("rounded bg-muted px-1 text-[11px] text-foreground/80", MONO)}>{`{${t}}`}</code> for {TOKEN_HELP[t]}
           {i < list.length - 1 ? (i === list.length - 2 ? " and " : ", ") : "."}
         </span>
       ))}{" "}
@@ -393,7 +393,7 @@ export function ImagePicker({
         ) : (
           <ImageOff className="text-muted-foreground size-4" aria-hidden="true" />
         )}
-        {uploading && <Loader2 className="absolute size-4 animate-spin text-zinc-700" aria-label="Uploading" />}
+        {uploading && <Loader2 className="absolute size-4 animate-spin text-foreground/80" aria-label="Uploading" />}
       </span>
       <div className={cn("flex flex-wrap gap-1", !compact && "gap-2")}>
         <Button id={id} type="button" variant="outline" size={compact ? "xs" : "sm"} onClick={() => setPickerOpen(true)} disabled={uploading}>
@@ -461,13 +461,13 @@ export function Panel({
           onClick={() => onOpenChange(!open)}
           aria-expanded={open}
           aria-controls={`${id}-body`}
-          className="flex min-w-0 flex-1 items-center gap-2 rounded-md text-left focus-visible:ring-2 focus-visible:ring-zinc-900/30 focus-visible:outline-none"
+          className="flex min-w-0 flex-1 items-center gap-2 rounded-md text-left focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:outline-none"
         >
-          <ChevronDown className={cn("size-4 shrink-0 text-zinc-500 transition-transform", !open && "-rotate-90")} aria-hidden="true" />
+          <ChevronDown className={cn("size-4 shrink-0 text-muted-foreground transition-transform", !open && "-rotate-90")} aria-hidden="true" />
           <span className="min-w-0">
-            <span id={`${id}-title`} className={cn("block text-[15px] font-semibold", muted && "text-zinc-500")}>
+            <span id={`${id}-title`} className={cn("block text-[15px] font-semibold", muted && "text-muted-foreground")}>
               {title}
-              {muted && <span className="ml-2 rounded-full bg-zinc-100 px-2 py-0.5 align-middle text-[11px] font-medium text-zinc-600">Hidden</span>}
+              {muted && <span className="ml-2 rounded-full bg-muted px-2 py-0.5 align-middle text-[11px] font-medium text-muted-foreground">Hidden</span>}
               {errorCount > 0 && (
                 <span className="ml-2 rounded-full bg-red-100 px-2 py-0.5 align-middle text-[11px] font-medium text-red-800">
                   {errorCount === 1 ? "1 problem" : `${errorCount} problems`}

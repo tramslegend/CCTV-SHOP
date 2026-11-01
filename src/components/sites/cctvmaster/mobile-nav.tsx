@@ -12,7 +12,7 @@ import { cartCount, showToast, useCart } from "./shop-state";
 
 const tab =
   "relative flex h-full min-w-0 flex-1 flex-col items-center justify-center gap-1 transition-[color,background-color,transform,opacity] duration-200 focus-visible:ring-primary rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
-const idleTab = "text-gray-600 hover:text-gray-900 active:scale-95";
+const idleTab = "text-muted-foreground hover:text-foreground active:scale-95";
 const tabIcon = "relative flex h-10 w-10 items-center justify-center rounded-xl transition-[color,background-color,transform,opacity] duration-200";
 const glyph = "h-5 w-5 transition-[color,background-color,transform,opacity] duration-200";
 
@@ -46,18 +46,18 @@ function TabLink({
     <Link
       aria-label={ariaLabel}
       aria-current={active ? "page" : undefined}
-      className={cn(tab, active ? "text-gray-900" : idleTab)}
+      className={cn(tab, active ? "text-foreground" : idleTab)}
       href={href}
     >
-      <div className={cn(tabIcon, active && "bg-gray-900/10")}>
+      <div className={cn(tabIcon, active && "bg-primary/10")}>
         <Icon className={cn(glyph, active && "scale-110")} />
         {!!badge && (
-          <span className="absolute top-0.5 right-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-gray-900 px-1 text-[10px] font-bold text-white">
+          <span className="absolute top-0.5 right-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-primary px-1 text-[10px] font-bold text-white">
             {badge}
           </span>
         )}
       </div>
-      <span className={cn("text-[11px] leading-none font-medium transition-colors", active && "text-gray-900")}>{label}</span>
+      <span className={cn("text-[11px] leading-none font-medium transition-colors", active && "text-foreground")}>{label}</span>
     </Link>
   );
 }
@@ -71,7 +71,7 @@ export function MobileNav() {
   const inShop = shopPaths.some((p) => pathname === p || pathname.startsWith(`${p}/`));
   return (
     <nav
-      className="fixed right-0 bottom-0 left-0 z-50 border-t border-gray-200/80 bg-white pb-[env(safe-area-inset-bottom)] md:hidden"
+      className="fixed right-0 bottom-0 left-0 z-50 border-t border-border/80 bg-white pb-[env(safe-area-inset-bottom)] md:hidden"
       aria-label="Mobile navigation"
     >
       <div className="mx-auto flex h-16 max-w-lg items-center justify-around px-2">
@@ -101,9 +101,9 @@ export function MobileNav() {
                   </Dialog.Close>
                 </div>
               </div>
-              <div className="mb-4 rounded-xl bg-gray-50 p-4">
-                <p className="font-semibold text-gray-900">{account ? `Hi, ${account.name.split(" ")[0]}` : "Welcome"}</p>
-                <p className="mt-1 text-sm text-gray-500">
+              <div className="mb-4 rounded-xl bg-surface p-4">
+                <p className="font-semibold text-foreground">{account ? `Hi, ${account.name.split(" ")[0]}` : "Welcome"}</p>
+                <p className="mt-1 text-sm text-muted-foreground">
                   {account ? account.email : "Sign in to track your orders, keep your basket and check out faster."}
                 </p>
                 <div className="mt-3 flex gap-2">
@@ -154,11 +154,11 @@ export function MobileNav() {
                     key={label}
                     nativeButton={false}
                     render={<Link href={href} />}
-                    className="flex w-full items-center gap-3 rounded-xl px-4 py-3 transition-colors text-gray-700 hover:bg-gray-100 active:bg-gray-200"
+                    className="flex w-full items-center gap-3 rounded-xl px-4 py-3 transition-colors text-foreground/80 hover:bg-muted active:bg-border"
                   >
                     <Icon className="h-5 w-5 shrink-0" />
                     <span className="flex-1 text-left font-medium">{label}</span>
-                    {label === "Cart" && count > 0 && <span className="text-sm text-gray-500">{count}</span>}
+                    {label === "Cart" && count > 0 && <span className="text-sm text-muted-foreground">{count}</span>}
                     <ChevronRightIcon className="h-4 w-4 text-gray-400" />
                   </Dialog.Close>
                 ))}

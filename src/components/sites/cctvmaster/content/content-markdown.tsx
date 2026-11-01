@@ -85,11 +85,11 @@ function buildComponents(c: ProseClasses): Components {
     strong: (props: Props<"strong">) => <strong {...dom(props)} className={c.strong ?? "text-foreground font-semibold"} />,
     em: (props: Props<"em">) => <em {...dom(props)} className="italic" />,
     blockquote: (props: Props<"blockquote">) => (
-      <blockquote {...dom(props)} className={c.blockquote ?? "my-5 border-l-4 border-zinc-200 pl-4 text-zinc-600"} />
+      <blockquote {...dom(props)} className={c.blockquote ?? "my-5 border-l-4 border-border pl-4 text-muted-foreground"} />
     ),
-    hr: (props: Props<"hr">) => <hr {...dom(props)} className={c.hr ?? "my-8 border-zinc-100"} />,
-    code: (props: Props<"code">) => <code {...dom(props)} className="rounded bg-zinc-100 px-1 py-0.5 text-[0.9em]" />,
-    pre: (props: Props<"pre">) => <pre {...dom(props)} className="my-4 overflow-x-auto rounded-lg bg-zinc-50 p-4 [&_code]:bg-transparent [&_code]:p-0" />,
+    hr: (props: Props<"hr">) => <hr {...dom(props)} className={c.hr ?? "my-8 border-border"} />,
+    code: (props: Props<"code">) => <code {...dom(props)} className="rounded bg-muted px-1 py-0.5 text-[0.9em]" />,
+    pre: (props: Props<"pre">) => <pre {...dom(props)} className="my-4 overflow-x-auto rounded-lg bg-surface p-4 [&_code]:bg-transparent [&_code]:p-0" />,
     // Unsafe URLs (javascript: …) arrive with an empty href: show their text without a link.
     a: ({ href, children }: Props<"a">) =>
       !href ? (
@@ -112,7 +112,7 @@ function buildComponents(c: ProseClasses): Components {
       isTrustedImage(src) ? <img src={src} alt={alt ?? ""} loading="lazy" decoding="async" className={c.img ?? "my-6 h-auto max-w-full rounded-lg"} /> : null,
     table: (props: Props<"table">) => (
       <div className="my-5 overflow-x-auto">
-        <table {...dom(props)} className={c.table ?? "w-full border-collapse text-sm [&_td]:border-b [&_td]:border-zinc-100 [&_td]:px-3 [&_td]:py-2 [&_th]:border-b [&_th]:border-zinc-200 [&_th]:px-3 [&_th]:py-2 [&_th]:text-left [&_th]:font-semibold"} />
+        <table {...dom(props)} className={c.table ?? "w-full border-collapse text-sm [&_td]:border-b [&_td]:border-border [&_td]:px-3 [&_td]:py-2 [&_th]:border-b [&_th]:border-border [&_th]:px-3 [&_th]:py-2 [&_th]:text-left [&_th]:font-semibold"} />
       </div>
     ),
   };

@@ -45,11 +45,11 @@ export default async function AdminBlogPage(props: PageProps<"/admin/content/blo
         </Suspense>
       )}
       <nav className="text-muted-foreground mb-2 flex items-center gap-1 text-sm" aria-label="Breadcrumb">
-        <Link href="/admin/content" className="hover:text-zinc-950">
+        <Link href="/admin/content" className="hover:text-foreground">
           Content
         </Link>
         <ChevronRight className="size-3.5" aria-hidden="true" />
-        <span className="text-zinc-950">Blog</span>
+        <span className="text-foreground">Blog</span>
       </nav>
       <PageHeader
         title="Blog"
@@ -76,11 +76,11 @@ export default async function AdminBlogPage(props: PageProps<"/admin/content/blo
               aria-current={active ? "page" : undefined}
               className={cn(
                 "-mb-px flex items-center gap-1.5 border-b-2 px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors",
-                active ? "border-zinc-900 text-zinc-950" : "border-transparent text-zinc-500 hover:text-zinc-900",
+                active ? "border-primary text-foreground" : "border-transparent text-muted-foreground hover:text-foreground",
               )}
             >
               {t.label}
-              <span className={cn("rounded-full px-1.5 text-xs tabular-nums", active ? "bg-zinc-900 text-white" : "bg-zinc-100 text-zinc-600")}>{n(t.count)}</span>
+              <span className={cn("rounded-full px-1.5 text-xs tabular-nums", active ? "bg-primary text-white" : "bg-muted text-muted-foreground")}>{n(t.count)}</span>
             </Link>
           );
         })}
@@ -93,7 +93,7 @@ export default async function AdminBlogPage(props: PageProps<"/admin/content/blo
       {rows.length ? (
         <div className="overflow-hidden rounded-xl bg-white ring-1 ring-black/10">
           <table className="w-full text-sm">
-            <thead className="border-b bg-zinc-50/70 text-left text-xs text-zinc-600">
+            <thead className="border-b bg-surface/70 text-left text-xs text-muted-foreground">
               <tr>
                 <th scope="col" className="px-4 py-2.5 font-medium">
                   Post
@@ -114,10 +114,10 @@ export default async function AdminBlogPage(props: PageProps<"/admin/content/blo
             </thead>
             <tbody className="divide-y">
               {rows.map((r) => (
-                <tr key={r.id} className="group relative hover:bg-zinc-50">
+                <tr key={r.id} className="group relative hover:bg-surface">
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-3">
-                      <span className="relative block h-10 w-16 shrink-0 overflow-hidden rounded-md border bg-zinc-100">
+                      <span className="relative block h-10 w-16 shrink-0 overflow-hidden rounded-md border bg-muted">
                         {r.coverImage ? (
                           <Image src={r.coverImage} alt="" fill sizes="64px" className="object-cover" />
                         ) : (

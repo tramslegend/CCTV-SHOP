@@ -21,7 +21,7 @@ export default async function NewProductPage(props: PageProps<"/admin/products/n
 
   return (
     <>
-      <div className="mb-4 inline-flex rounded-lg bg-zinc-200/60 p-0.5 text-sm" role="tablist" aria-label="What are you adding?">
+      <div className="mb-4 inline-flex rounded-lg bg-border/60 p-0.5 text-sm" role="tablist" aria-label="What are you adding?">
         {[
           { href: "/admin/products/new", label: "Single product", active: !isKit },
           { href: "/admin/products/new?type=kit", label: "Ready-made kit", active: isKit },
@@ -31,7 +31,7 @@ export default async function NewProductPage(props: PageProps<"/admin/products/n
             href={t.href}
             role="tab"
             aria-selected={t.active}
-            className={cn("rounded-md px-3 py-1 font-medium", t.active ? "bg-white shadow-sm" : "text-zinc-600 hover:text-zinc-950")}
+            className={cn("rounded-md px-3 py-1 font-medium", t.active ? "bg-white shadow-sm" : "text-muted-foreground hover:text-foreground")}
           >
             {t.label}
           </Link>

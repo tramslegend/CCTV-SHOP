@@ -46,7 +46,7 @@ export function CtaBand({ section, tokens }: { section: CtaSection; tokens: Toke
           <div className="flex flex-wrap items-center gap-3">
             <div className="fc-press">
               <SmartLink
-                className="inline-flex h-11 items-center gap-2 rounded-md bg-emerald-500 px-5 text-sm font-semibold text-zinc-950 transition-colors hover:bg-emerald-400 focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 focus-visible:outline-none"
+                className="inline-flex h-11 items-center gap-2 rounded-md bg-emerald-500 px-5 text-sm font-semibold text-foreground transition-colors hover:bg-emerald-400 focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 focus-visible:outline-none"
                 href={first.href}
               >
                 {t(first.label)}

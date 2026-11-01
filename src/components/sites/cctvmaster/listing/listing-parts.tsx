@@ -27,23 +27,23 @@ export function FacetFilters({
   };
   const active = groups.flatMap((g) => g.options.filter((o) => o.active).map((o) => ({ group: g, option: o })));
   return (
-    <div role="group" aria-label="Filter products" className="mb-5 divide-y divide-zinc-100 rounded-2xl border border-zinc-100 bg-white">
+    <div role="group" aria-label="Filter products" className="mb-5 divide-y divide-border rounded-2xl border border-border bg-white">
       {groups.map((group) => (
         <div key={group.key} className="flex flex-col gap-2 px-4 py-3 md:flex-row md:items-center md:gap-4">
-          <p className="w-28 shrink-0 text-sm font-semibold text-zinc-900">{group.label}</p>
+          <p className="w-28 shrink-0 text-sm font-semibold text-foreground">{group.label}</p>
           <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-0.5 [scrollbar-width:none] md:mx-0 md:flex-wrap md:overflow-visible md:px-0 [&::-webkit-scrollbar]:hidden">
             {group.options.map((option) => {
               const className = cn(
                 "inline-flex min-h-10 shrink-0 items-center gap-1.5 rounded-full border px-3.5 text-sm font-medium whitespace-nowrap transition-colors focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:outline-none",
                 option.active
                   ? "border-transparent bg-emerald-700 text-white"
-                  : "border-zinc-200 bg-white text-zinc-700 hover:border-emerald-300",
+                  : "border-border bg-white text-foreground/80 hover:border-emerald-300",
               );
               const content = (
                 <>
                   {option.active ? <Check className="h-3.5 w-3.5" aria-hidden="true" /> : null}
                   {option.label}
-                  <span className={cn("text-xs tabular-nums", option.active ? "text-white/70" : "text-slate-500")}>
+                  <span className={cn("text-xs tabular-nums", option.active ? "text-white/70" : "text-muted-foreground")}>
                     {option.count}
                   </span>
                 </>
@@ -69,7 +69,7 @@ export function FacetFilters({
       ))}
       {active.length ? (
         <div className="flex flex-wrap items-center gap-2 px-4 py-3 text-sm">
-          <span className="text-slate-600">Showing:</span>
+          <span className="text-muted-foreground">Showing:</span>
           {active.map(({ group, option }) => (
             <Link
               key={`${group.key}-${option.value}`}
@@ -111,7 +111,7 @@ export function Pagination({
   const href = (p: number) => listingHref(basePath, query, { page: p > 1 ? String(p) : null });
   return (
     <div className="mt-10 flex flex-col items-center gap-3">
-      <p className="text-sm text-gray-500">
+      <p className="text-sm text-muted-foreground">
         Showing {start}–{end} of {total}
       </p>
       <nav aria-label="Pagination" className="flex items-center gap-2">
@@ -141,7 +141,7 @@ export function Pagination({
             ),
           )}
         </div>
-        <span className="text-sm text-gray-500 sm:hidden">
+        <span className="text-sm text-muted-foreground sm:hidden">
           {page} / {pages}
         </span>
         {page < pages ? (
@@ -162,17 +162,17 @@ export function Pagination({
 export function EmptyListing({ search, clearHref }: { search: string; clearHref: string }) {
   return (
     <div className="mx-auto max-w-md py-16 text-center">
-      <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-gray-50">
+      <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-surface">
         <Package className="h-7 w-7 text-gray-400" aria-hidden="true" />
       </div>
-      <h2 className="text-lg font-bold tracking-[-0.02em] text-gray-900">No products found</h2>
-      <p className="mt-2 text-sm text-gray-500">
+      <h2 className="text-lg font-bold tracking-[-0.02em] text-foreground">No products found</h2>
+      <p className="mt-2 text-sm text-muted-foreground">
         {search ? `No results for "${search}". ` : "Nothing matches these filters. "}
         Try a different search or clear filters.
       </p>
       <Link
         href={clearHref}
-        className="bg-background hover:bg-accent mt-6 inline-flex h-9 items-center justify-center gap-2 rounded-md border border-gray-100 px-4 py-2 text-sm font-medium whitespace-nowrap text-gray-900 shadow-sm transition-colors hover:border-emerald-200 hover:text-emerald-700"
+        className="bg-background hover:bg-accent mt-6 inline-flex h-9 items-center justify-center gap-2 rounded-md border border-border px-4 py-2 text-sm font-medium whitespace-nowrap text-foreground shadow-sm transition-colors hover:border-emerald-200 hover:text-emerald-700"
       >
         View All Products
       </Link>

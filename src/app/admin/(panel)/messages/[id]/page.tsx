@@ -87,7 +87,7 @@ export default async function AdminMessagePage({ params }: PageProps<"/admin/mes
 
   return (
     <>
-      <Link href="/admin/messages" className="text-muted-foreground mb-3 inline-flex items-center gap-1.5 text-sm hover:text-zinc-950">
+      <Link href="/admin/messages" className="text-muted-foreground mb-3 inline-flex items-center gap-1.5 text-sm hover:text-foreground">
         <ArrowLeft className="size-4" aria-hidden="true" /> Messages
       </Link>
       <PageHeader

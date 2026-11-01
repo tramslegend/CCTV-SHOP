@@ -40,9 +40,9 @@ export function KitCard({ kit, preload = false }: { kit: KitSummary; preload?: b
   return (
     <Link
       href={kit.href}
-      className="group bg-card hover:border-primary/50 flex flex-col overflow-hidden rounded-2xl border transition-all hover:shadow-lg"
+      className="fc-reveal group bg-card hover:border-primary/50 flex flex-col overflow-hidden rounded-2xl border transition-all hover:shadow-[0_22px_40px_-18px_rgba(4,120,87,0.45)]"
     >
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-50 dark:bg-gray-900">
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-white">
         {kit.image && (
           <Image
             src={kit.image}
@@ -116,7 +116,7 @@ export function KitCard({ kit, preload = false }: { kit: KitSummary; preload?: b
               alt=""
               width={28}
               height={28}
-              className="h-7 w-7 shrink-0 rounded bg-white object-contain ring-1 ring-black/5 dark:bg-gray-100"
+              className="h-7 w-7 shrink-0 object-contain mix-blend-multiply"
             />
           )}
           <div className="min-w-0 text-xs leading-tight">
