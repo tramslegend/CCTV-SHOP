@@ -33,7 +33,7 @@ export default async function BlogPage({ searchParams }: PageProps<"/blog">) {
       <header className="fc-band">
         <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold tracking-wide text-emerald-700 uppercase">{store.name}</p>
+            <p className="text-sm font-semibold tracking-wide text-brand-700 uppercase">{store.name}</p>
             <h1 className="fc-rise mt-2 text-3xl font-bold tracking-tight md:text-5xl">Blog</h1>
             <p className="text-muted-foreground mt-3 text-base leading-relaxed md:text-lg">
               Buying guides, side-by-side comparisons and straight answers from the {store.name} team.

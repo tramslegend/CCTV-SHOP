@@ -40,7 +40,7 @@ export function OrderLines({ order }: { order: Pick<ReceiptOrder, "items"> }) {
           />
           <div className="min-w-0 flex-1">
             {line.slug ? (
-              <Link href={`/products/${line.slug}`} className="line-clamp-2 text-sm font-medium text-foreground hover:text-emerald-700">
+              <Link href={`/products/${line.slug}`} className="line-clamp-2 text-sm font-medium text-foreground hover:text-brand-700">
                 {line.name}
               </Link>
             ) : (
@@ -67,7 +67,7 @@ export function OrderTotals({ order }: { order: Pick<ReceiptOrder, "figures" | "
       ? [
           { label: `Items (inc. VAT) · ${units}`, value: formatGBP(f.itemsIncVat) },
           { label: charged ? "Delivery (inc. VAT)" : "Delivery", value: charged ? formatGBP(f.deliveryIncVat) : "Free" },
-          { label: discountLabel(f.discountCode), value: `−${formatGBP(f.discount)}`, tone: "text-emerald-700" },
+          { label: discountLabel(f.discountCode), value: `−${formatGBP(f.discount)}`, tone: "text-brand-700" },
         ]
       : [
           { label: `Subtotal (ex VAT) · ${units}`, value: formatGBP(f.itemsExVat) },

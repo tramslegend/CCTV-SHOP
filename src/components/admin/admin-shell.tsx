@@ -50,7 +50,7 @@ function NavLinks({ role, badges, onNavigate }: { role: string; badges: NavBadge
                   <span
                     className={cn(
                       "min-w-5 rounded-full px-1.5 text-center text-[11px] leading-5 font-semibold tabular-nums",
-                      isActive(href) ? "bg-white text-foreground" : "bg-emerald-600 text-white",
+                      isActive(href) ? "bg-white text-foreground" : "bg-brand-600 text-white",
                     )}
                   >
                     <span className="sr-only">(</span>

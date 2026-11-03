@@ -10,7 +10,7 @@ const TYPE_CLASS: Record<EnquiryType, string> = {
 };
 
 const STATUS_CLASS: Record<EnquiryStatus, string> = {
-  new: "bg-emerald-600 text-white",
+  new: "bg-brand-600 text-white",
   open: "bg-amber-100 text-amber-900",
   closed: "bg-muted text-muted-foreground",
 };

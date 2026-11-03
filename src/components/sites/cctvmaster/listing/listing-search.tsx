@@ -66,7 +66,7 @@ export function ListingSearch({
         }}
         placeholder="Search products…"
         aria-label="Search products"
-        className="w-full rounded-lg border border-border bg-surface py-2 pr-3 pl-9 text-sm text-foreground placeholder-muted-foreground focus:border-emerald-300 focus:ring-1 focus:ring-emerald-300 focus:outline-none"
+        className="w-full rounded-lg border border-border bg-surface py-2 pr-3 pl-9 text-sm text-foreground placeholder-muted-foreground focus:border-brand-300 focus:ring-1 focus:ring-brand-300 focus:outline-none"
       />
     </form>
   );

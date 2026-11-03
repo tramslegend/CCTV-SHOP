@@ -22,7 +22,7 @@ export function TopBar({
   links: LinkSetting[];
 }) {
   return (
-    <div className="w-full text-white bg-ink">
+    <div className="w-full bg-ink text-white shadow-[inset_0_-2px_0_0_var(--gold)]">
       <div className="mx-auto flex h-10 max-w-450 items-center justify-between px-4 text-sm md:px-6 lg:px-8">
         <div className="flex items-center gap-4">
           {phoneHref && (
@@ -30,7 +30,7 @@ export function TopBar({
               href={phoneHref}
               className="hidden items-center gap-1.5 text-xs text-white/90 transition-colors hover:text-white md:flex"
             >
-              <PhoneIcon className="h-3.5 w-3.5" />
+              <PhoneIcon className="h-3.5 w-3.5 text-amber-300" />
               <span>{phone}</span>
             </a>
           )}
@@ -41,13 +41,13 @@ export function TopBar({
               rel="noopener noreferrer"
               className="hidden items-center gap-1.5 text-xs text-white/90 transition-colors hover:text-white md:flex"
             >
-              <MapPinIcon className="h-3.5 w-3.5" />
+              <MapPinIcon className="h-3.5 w-3.5 text-amber-300" />
               <span>Our Store</span>
             </a>
           )}
           {deliverTo && (
             <Link className="flex h-auto items-center gap-2 px-2 py-1.5 text-sm font-normal transition-opacity hover:opacity-80 text-white" href="/delivery">
-              <MapPinIcon className="h-4 w-4 shrink-0 opacity-80" />
+              <MapPinIcon className="h-4 w-4 shrink-0 text-amber-300" />
               <span className="flex min-w-0 items-center gap-1.5 text-left">
                 <span className="hidden text-xs opacity-70 sm:inline">Deliver to</span>
                 <span className="font-medium">{deliverTo}</span>

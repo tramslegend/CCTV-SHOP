@@ -11,13 +11,13 @@ export const eyebrow =
 export const authLabel = "block font-mono text-[10px] font-medium tracking-[0.14em] text-zinc-500 uppercase";
 
 export const authInput =
-  "h-11 w-full rounded-md border border-zinc-200 bg-white px-3.5 text-sm text-zinc-950 placeholder:text-zinc-400 focus:border-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-700/20 aria-[invalid=true]:border-red-600";
+  "h-11 w-full rounded-md border border-zinc-200 bg-white px-3.5 text-sm text-zinc-950 placeholder:text-zinc-400 focus:border-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-700/20 aria-[invalid=true]:border-red-600";
 
 export const primaryButton =
-  "inline-flex h-12 w-full items-center justify-center gap-2 rounded-md bg-emerald-700 px-4 text-sm font-semibold text-white transition-colors hover:bg-emerald-800 focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-70";
+  "inline-flex h-12 w-full items-center justify-center gap-2 rounded-md fc-gold px-4 text-sm font-semibold focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-70";
 
 export const secondaryButton =
-  "inline-flex h-11 w-full items-center justify-center gap-2 rounded-md border border-zinc-200 bg-white px-4 text-sm font-semibold text-zinc-900 transition-colors hover:border-zinc-300 hover:bg-zinc-50 focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2 focus-visible:outline-none";
+  "inline-flex h-11 w-full items-center justify-center gap-2 rounded-md border border-zinc-200 bg-white px-4 text-sm font-semibold text-zinc-900 transition-colors hover:border-zinc-300 hover:bg-zinc-50 focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2 focus-visible:outline-none";
 
 export const formAlert = "rounded-md border border-red-100 bg-red-50 px-3 py-2 text-sm text-red-700";
 
@@ -32,13 +32,13 @@ export const shadcnOutline = "border border-input bg-background shadow-sm hover:
 /** Checkout form controls. */
 export const checkoutLabel = "mb-1 block text-sm font-medium text-zinc-700";
 export const checkoutInput =
-  "h-11 w-full rounded-md border border-zinc-300 bg-white px-3 text-base text-zinc-950 placeholder:text-zinc-400 focus:border-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-700/20 aria-[invalid=true]:border-red-600 md:text-sm";
+  "h-11 w-full rounded-md border border-zinc-300 bg-white px-3 text-base text-zinc-950 placeholder:text-zinc-400 focus:border-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-700/20 aria-[invalid=true]:border-red-600 md:text-sm";
 export const linkButton =
   "text-primary inline-flex min-h-11 items-center text-sm font-semibold underline underline-offset-4 hover:no-underline focus-visible:ring-primary rounded-sm focus-visible:ring-2 focus-visible:outline-none disabled:opacity-50";
 
 /** Account dashboard cards. */
 export const panel = "rounded-xl border border-zinc-200 bg-white";
 export const emeraldButton =
-  "inline-flex h-11 items-center justify-center gap-2 rounded-md bg-emerald-700 px-5 text-sm font-semibold text-white transition-colors hover:bg-emerald-800 focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2 focus-visible:outline-none disabled:opacity-60";
+  "inline-flex h-11 items-center justify-center gap-2 rounded-md fc-gold px-5 text-sm font-semibold focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2 focus-visible:outline-none disabled:opacity-60";
 export const outlineButton =
-  "inline-flex h-11 items-center justify-center gap-2 rounded-md border border-zinc-200 bg-white px-5 text-sm font-semibold text-zinc-900 transition-colors hover:border-zinc-300 hover:bg-zinc-50 focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2 focus-visible:outline-none";
+  "inline-flex h-11 items-center justify-center gap-2 rounded-md border border-zinc-200 bg-white px-5 text-sm font-semibold text-zinc-900 transition-colors hover:border-zinc-300 hover:bg-zinc-50 focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2 focus-visible:outline-none";

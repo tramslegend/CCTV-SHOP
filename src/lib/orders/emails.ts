@@ -14,7 +14,7 @@ type Order = OrderRow;
 type Item = OrderItemRow;
 
 const e = escapeHtml;
-const brand = "#047857";
+const brand = "#185096";
 
 const button = (href: string, label: string) =>
   `<p style="margin:24px 0"><a href="${e(href)}" style="display:inline-block;background:${brand};color:#ffffff;text-decoration:none;font-weight:bold;padding:12px 20px;border-radius:6px">${e(label)}</a></p>`;

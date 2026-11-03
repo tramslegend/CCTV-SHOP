@@ -100,7 +100,7 @@ const groupsFor = ({ store, delivery }: ShopSettings): { title: string; items: F
   ];
 };
 
-const linkCls = "font-semibold text-emerald-700 underline underline-offset-2 hover:text-emerald-800";
+const linkCls = "font-semibold text-brand-700 underline underline-offset-2 hover:text-brand-800";
 
 export default async function FaqsPage() {
   const [settings, page] = await Promise.all([loadSiteSettings(), getPublishedPage("faqs")]);

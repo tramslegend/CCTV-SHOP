@@ -102,7 +102,7 @@ export default async function DiscountCodePage({ params }: PageProps<"/admin/mar
                           <p className="font-medium">{(o.shippingAddress as StoredAddress).name}</p>
                           <p className="text-muted-foreground text-xs">{o.email}</p>
                         </TableCell>
-                        <TableCell className="text-right text-emerald-700 tabular-nums">−{formatGBP(o.discount)}</TableCell>
+                        <TableCell className="text-right text-brand-700 tabular-nums">−{formatGBP(o.discount)}</TableCell>
                         <TableCell className="text-right tabular-nums">{formatGBP(o.total)}</TableCell>
                         <TableCell>
                           <OrderStatusBadge status={o.status} />

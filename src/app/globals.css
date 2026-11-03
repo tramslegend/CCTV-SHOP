@@ -45,6 +45,9 @@
   --color-surface: var(--surface);
   --color-ink: var(--ink);
   --color-ink-foreground: var(--ink-foreground);
+  --color-gold: var(--gold);
+  --color-gold-hover: var(--gold-hover);
+  --color-gold-foreground: var(--gold-foreground);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -60,44 +63,65 @@
   --shadow-lg: 0 4px 10px -3px rgb(0 0 0 / 0.05);
 }
 
+/* Brand scale (ocean blue, from the steel blue of the security trade to the navy ink). It is what the storefront
+   and admin use for links, icons, tints and focus rings: brand-600 and darker pass WCAG AA as text on white. */
+@theme {
+  --color-brand-50: #eef5fd;
+  --color-brand-100: #dcebfa;
+  --color-brand-200: #b9d6f4;
+  --color-brand-300: #86b9ea;
+  --color-brand-400: #4d96dc;
+  --color-brand-500: #2a78cc;
+  --color-brand-600: #1c62b2;
+  --color-brand-700: #185096;
+  --color-brand-800: #17417a;
+  --color-brand-900: #163560;
+  --color-brand-950: #132238;
+}
+
 /*
- * CCTV Spania palette: a light green-grey page canvas with white cards and panels on it (~60%), deeper green-grey
- * bands and a forest-green "ink" for the top bar and footer (~30%), and the logo green as the one accent for
- * actions (~10%). Every neutral leans toward the logo green so the greys, the ink and the accent read as one family.
+ * CCTV Spania palette, after the security trade's navy, steel blue and safety gold: a cool blue-grey page canvas with
+ * white cards on it, blue-grey and navy bands, ocean blue for links and icons, and gold for the main actions (gold
+ * and navy sit opposite each other on the wheel, so the buttons stand out). Sky blue and coral appear only as small
+ * accents (icon tiles, glows). Every neutral leans blue so it reads as one family with the navy.
  */
 :root {
   /* Page background behind everything (body, site shell, admin). Cards, header and dialogs stay white. */
-  --canvas: #f0f5f2;
+  --canvas: #eef2f8;
   --background: #ffffff;
-  --foreground: #111816;
+  --foreground: #132238;
   --card: #ffffff;
-  --card-foreground: #111816;
+  --card-foreground: #132238;
   --popover: #ffffff;
-  --popover-foreground: #111816;
-  /* Logo green (#047857): white text on it is 5.5:1 (WCAG AA). */
-  --primary: #047857;
+  --popover-foreground: #132238;
+  /* Ocean blue (brand-700): white text on it is 8:1, and it is 7:1 as link text on the canvas. */
+  --primary: #185096;
   --primary-foreground: #ffffff;
-  --secondary: #eaf1ed;
-  --secondary-foreground: #111816;
-  --muted: #eaf1ed;
-  /* 6.0:1 on white, 5.1:1 on --surface. */
-  --muted-foreground: #5b6661;
-  --accent: #e3f1ea;
-  --accent-foreground: #065f46;
+  --secondary: #e6edf6;
+  --secondary-foreground: #132238;
+  --muted: #e6edf6;
+  /* 6.3:1 on white, 5.1:1 on --surface. */
+  --muted-foreground: #536176;
+  --accent: #e3edfa;
+  --accent-foreground: #17417a;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: #dde4e0;
-  --input: #9aa5a0;
-  --ring: #047857;
-  /* Section bands and panels: a clearly visible green-grey next to white. */
-  --surface: #e6efe9;
-  /* Top bar, footer and other dark bands: deep forest green from the logo hue (white text 12:1). */
-  --ink: #0f3d2e;
-  --ink-foreground: #e8efeb;
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  --border: #d6dee9;
+  --input: #8492a8;
+  --ring: #1c62b2;
+  /* Section bands and panels: a clearly visible blue-grey next to white. */
+  --surface: #e1e9f3;
+  /* Top bar, footer and other dark bands: deep navy (white text 16:1). */
+  --ink: #132238;
+  --ink-foreground: #e6edf6;
+  /* Main action buttons: safety gold with navy text (7.4:1; white on gold would be only 2.2:1). */
+  --gold: #e8a317;
+  --gold-hover: #f4b73a;
+  --gold-foreground: #132238;
+  --chart-1: #1c62b2;
+  --chart-2: #e8a317;
+  --chart-3: #0ea5e9;
+  --chart-4: #f2704f;
+  --chart-5: #132238;
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
@@ -211,22 +235,22 @@
 }
 
 /*
- * Dark band: a forest-green section scheme. Anything inside follows it through the theme variables (text, muted
- * text, borders, rings), and the few hard-coded light-theme greens and whites the page heroes use are remapped to
- * their on-dark versions, so a light hero turns dark by adding this one class. A slow green glow drifts behind the
- * content. These rules sit outside the cascade layers so they win over the utilities they remap.
+ * Dark band: a navy section scheme. Anything inside follows it through the theme variables (text, muted text,
+ * borders, rings), and the few hard-coded light-theme blues and whites the page heroes use are remapped to their
+ * on-dark versions, so a light hero turns dark by adding this one class. Slow blue, gold and coral glows drift behind
+ * the content. These rules sit outside the cascade layers so they win over the utilities they remap.
  */
 .fc-band {
   --foreground: #ffffff;
-  --muted-foreground: rgb(255 255 255 / 0.75);
+  --muted-foreground: rgb(255 255 255 / 0.76);
   --border: rgb(255 255 255 / 0.16);
-  --primary: #34d399;
-  --primary-foreground: #0f3d2e;
-  --ring: #6ee7b7;
+  --primary: #8ec5ff;
+  --primary-foreground: #132238;
+  --ring: #f4b73a;
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background-color: var(--ink);
+  background: linear-gradient(135deg, #132238 0%, #17305a 55%, #1a2a4f 100%);
   color: var(--foreground);
 }
 .fc-band::before {
@@ -235,27 +259,84 @@
   z-index: -1;
   inset: -40% -10%;
   background:
-    radial-gradient(38% 55% at 18% 30%, rgb(52 211 153 / 0.22), transparent 70%),
-    radial-gradient(32% 50% at 82% 70%, rgb(16 185 129 / 0.16), transparent 70%);
+    radial-gradient(34% 52% at 16% 28%, rgb(42 120 204 / 0.42), transparent 70%),
+    radial-gradient(28% 46% at 84% 72%, rgb(232 163 23 / 0.2), transparent 70%),
+    radial-gradient(22% 36% at 62% 10%, rgb(242 112 79 / 0.16), transparent 70%);
   animation: fc-drift 22s ease-in-out infinite alternate;
   pointer-events: none;
 }
-.fc-band :where(.text-emerald-600, .text-emerald-700, .text-emerald-800, .text-emerald-900, .text-primary) {
-  color: #6ee7b7;
+.fc-band :where(.text-brand-600, .text-brand-700, .text-brand-800, .text-brand-900, .text-primary) {
+  color: #8ec5ff;
 }
-.fc-band :where(.bg-white, .bg-surface, .bg-emerald-50, .bg-emerald-50\/70, .bg-emerald-100) {
-  background-color: rgb(255 255 255 / 0.07);
+.fc-band :where(.bg-white, .bg-surface, .bg-brand-50, .bg-brand-50\/70, .bg-brand-100) {
+  background-color: rgb(255 255 255 / 0.08);
 }
-.fc-band :where(.border-emerald-200, .border-zinc-300, .border-input) {
+.fc-band :where(.border-brand-200, .border-zinc-300, .border-input) {
   border-color: rgb(255 255 255 / 0.28);
 }
-.fc-band :where(.bg-emerald-700, .bg-primary) {
-  background-color: #34d399;
-  color: #0f3d2e;
+.fc-band :where(.bg-brand-700, .bg-primary) {
+  background-color: var(--gold);
+  color: var(--gold-foreground);
 }
-.fc-band :where(.hover\:bg-emerald-800, .hover\:bg-white):hover {
-  background-color: #6ee7b7;
-  color: #0f3d2e;
+.fc-band :where(.hover\:bg-brand-800, .hover\:bg-white):hover {
+  background-color: var(--gold-hover);
+  color: var(--gold-foreground);
+}
+
+/* Main action button: safety gold with navy text, a warm glow and a light sweep on hover. */
+.fc-gold {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: var(--gold);
+  color: var(--gold-foreground);
+  box-shadow: 0 10px 24px -12px rgb(232 163 23 / 0.75);
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.fc-gold:hover {
+  background-color: var(--gold-hover);
+  box-shadow: 0 14px 30px -12px rgb(232 163 23 / 0.9);
+}
+.fc-gold::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgb(255 255 255 / 0.45) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.7s ease;
+  pointer-events: none;
+}
+.fc-gold:hover::after {
+  transform: translateX(120%);
+}
+
+/* Homepage hero background: ocean-blue light on the left fading to a warm gold-cream on the right, with a faint
+   blueprint grid (a nod to site plans) that fades out towards the bottom. */
+.fc-hero-bg {
+  background:
+    radial-gradient(60% 80% at 0% 0%, rgb(42 120 204 / 0.16), transparent 70%),
+    radial-gradient(50% 70% at 70% 110%, rgb(232 163 23 / 0.18), transparent 70%),
+    linear-gradient(120deg, #e4eefb 0%, #eef2f8 45%, #fbf3e2 100%);
+}
+.fc-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgb(24 80 150 / 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(24 80 150 / 0.07) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(180deg, #000 0%, transparent 85%);
+}
+/* Navy panel behind the hero's featured kit. */
+.fc-navy-panel {
+  background:
+    radial-gradient(70% 50% at 70% 20%, rgb(42 120 204 / 0.45), transparent 70%),
+    radial-gradient(60% 40% at 20% 90%, rgb(232 163 23 / 0.22), transparent 70%),
+    linear-gradient(160deg, #17305a 0%, #132238 100%);
 }
 
 /* Product photos have white backgrounds. Where a thumbnail sits straight on a tinted strip, multiply blending lets
@@ -273,8 +354,8 @@
   }
 }
 
-/* Homepage hero: two soft green lights drifting behind the content, and a camera-style scan line that sweeps the
-   right-hand panel behind the featured kit (it sits inside that panel, so it never crosses the headline). */
+/* Homepage hero: soft blue and gold lights drifting behind the content, and a camera-style gold scan line that sweeps
+   the navy panel behind the featured kit (it sits inside that panel, so it never crosses the headline). */
 .fc-aurora {
   position: absolute;
   inset: 0;
@@ -294,13 +375,13 @@
 .fc-aurora::before {
   top: -22vmax;
   left: -12vmax;
-  background: rgb(52 211 153 / 0.35);
+  background: rgb(42 120 204 / 0.26);
   animation: fc-drift 18s ease-in-out infinite alternate;
 }
 .fc-aurora::after {
   right: -14vmax;
   bottom: -26vmax;
-  background: rgb(4 120 87 / 0.28);
+  background: rgb(232 163 23 / 0.22);
   animation: fc-drift 24s ease-in-out -6s infinite alternate-reverse;
 }
 .fc-scan {
@@ -309,8 +390,8 @@
   top: 0;
   height: 2px;
   pointer-events: none;
-  background: linear-gradient(90deg, transparent, rgb(16 185 129 / 0.3) 25%, rgb(52 211 153 / 0.6) 50%, rgb(16 185 129 / 0.3) 75%, transparent);
-  box-shadow: 0 0 12px 1px rgb(52 211 153 / 0.2);
+  background: linear-gradient(90deg, transparent, rgb(232 163 23 / 0.35) 25%, rgb(244 183 58 / 0.75) 50%, rgb(232 163 23 / 0.35) 75%, transparent);
+  box-shadow: 0 0 14px 1px rgb(244 183 58 / 0.3);
   animation: fc-scan 11s linear infinite;
 }
 @keyframes fc-scan {
@@ -458,7 +539,7 @@
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   }
   to {
-    box-shadow: 0 10px 30px -12px rgb(15 61 46 / 0.35);
+    box-shadow: 0 10px 30px -12px rgb(19 34 56 / 0.35);
   }
 }
 @keyframes fc-header-glass {
@@ -493,6 +574,9 @@
   .fc-header,
   .fc-header > :first-child {
     animation: none !important;
+  }
+  .fc-gold::after {
+    display: none;
   }
   .fc-scan {
     display: none;

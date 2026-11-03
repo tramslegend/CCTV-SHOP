@@ -13,7 +13,7 @@ export function CompareTray() {
       aria-label="Your comparison"
       className="fixed inset-x-0 bottom-[calc(4.5rem+env(safe-area-inset-bottom))] z-40 px-3 md:bottom-5"
     >
-      <div className="mx-auto flex max-w-4xl flex-wrap items-center gap-x-4 gap-y-2 rounded-2xl border border-emerald-200 bg-white p-3 shadow-[0_18px_40px_-20px_rgba(16,185,129,0.55)]">
+      <div className="mx-auto flex max-w-4xl flex-wrap items-center gap-x-4 gap-y-2 rounded-2xl border border-brand-200 bg-white p-3 shadow-[0_18px_40px_-20px_rgba(42,120,204,0.55)]">
         <p className="mr-auto text-sm font-semibold text-foreground sm:mr-0">
           <span>
             {items.length} of {COMPARE_MAX} picked
@@ -36,7 +36,7 @@ export function CompareTray() {
                 type="button"
                 onClick={() => removeCompare(item.slug)}
                 aria-label={`Remove ${item.title}`}
-                className="inline-flex h-8 w-8 items-center justify-center rounded-full text-base text-muted-foreground hover:bg-border hover:text-foreground focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:outline-none"
+                className="inline-flex h-8 w-8 items-center justify-center rounded-full text-base text-muted-foreground hover:bg-border hover:text-foreground focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:outline-none"
               >
                 <span aria-hidden="true">×</span>
               </button>
@@ -47,7 +47,7 @@ export function CompareTray() {
           {items.length > 1 ? (
             <Link
               href={compareHref(items)}
-              className="inline-flex min-h-10 items-center rounded-full bg-emerald-700 px-5 text-sm font-semibold text-white hover:bg-emerald-800 focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2 focus-visible:outline-none"
+              className="inline-flex min-h-10 items-center rounded-full bg-brand-700 px-5 text-sm font-semibold text-white hover:bg-brand-800 focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2 focus-visible:outline-none"
             >
               Compare now
             </Link>

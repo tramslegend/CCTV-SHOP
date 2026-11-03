@@ -115,7 +115,7 @@ export function ProductGallery({ images }: { images: GalleryImage[] }) {
         onPointerDown={onPointerDown}
         onPointerUp={onPointerUp}
         onPointerCancel={() => (start.current = null)}
-        className="group focus-visible:ring-ring relative aspect-square touch-pan-y overflow-hidden rounded-xl border border-border bg-white transition-shadow duration-300 select-none hover:shadow-[0_22px_40px_-22px_rgba(4,120,87,0.4)] focus-visible:ring-2 focus-visible:outline-none"
+        className="group focus-visible:ring-ring relative aspect-square touch-pan-y overflow-hidden rounded-xl border border-border bg-white transition-shadow duration-300 select-none hover:shadow-[0_22px_40px_-22px_rgba(24,80,150,0.4)] focus-visible:ring-2 focus-visible:outline-none"
       >
         {neighbours.map((i) => (
           <Image

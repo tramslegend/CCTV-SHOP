@@ -81,22 +81,22 @@ export const ANNOUNCEMENT_COLOURS = ["emerald", "dark", "blue", "amber", "red", 
 export type AnnouncementColour = (typeof ANNOUNCEMENT_COLOURS)[number];
 
 export const ANNOUNCEMENT_COLOUR_LABELS: Record<AnnouncementColour, string> = {
-  emerald: "Green",
+  emerald: "Ocean blue",
   dark: "Charcoal",
   blue: "Blue",
-  amber: "Amber",
+  amber: "Gold",
   red: "Red",
-  light: "Pale green",
+  light: "Pale blue",
 };
 
 /** Banner classes per colour (shared by the storefront and the admin preview). */
 export const ANNOUNCEMENT_STYLES: Record<AnnouncementColour, string> = {
-  emerald: "bg-emerald-700 text-white",
+  emerald: "bg-brand-700 text-white",
   dark: "bg-zinc-800 text-white",
   blue: "bg-sky-700 text-white",
-  amber: "bg-amber-300 text-zinc-950",
+  amber: "bg-gold text-gold-foreground",
   red: "bg-red-700 text-white",
-  light: "bg-emerald-50 text-emerald-950 border-b border-emerald-100",
+  light: "bg-brand-50 text-brand-950 border-b border-brand-100",
 };
 
 export interface AnnouncementSettings {

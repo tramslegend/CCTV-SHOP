@@ -40,7 +40,7 @@ export function KitCard({ kit, preload = false }: { kit: KitSummary; preload?: b
   return (
     <Link
       href={kit.href}
-      className="fc-reveal group bg-card hover:border-primary/50 flex flex-col overflow-hidden rounded-2xl border transition-all hover:shadow-[0_22px_40px_-18px_rgba(4,120,87,0.45)]"
+      className="fc-reveal group bg-card hover:border-primary/50 flex flex-col overflow-hidden rounded-2xl border transition-all hover:shadow-[0_22px_40px_-18px_rgba(24,80,150,0.45)]"
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-white">
         {kit.image && (
@@ -55,7 +55,7 @@ export function KitCard({ kit, preload = false }: { kit: KitSummary; preload?: b
         )}
         {/* The source badges every listed kit "Available"; back-ordered ones are only told apart by the stock filter. */}
         <div className="absolute top-2 left-2">
-          <span className="rounded-full bg-emerald-100 px-2.5 py-1 text-[11px] font-semibold text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
+          <span className="rounded-full bg-brand-100 px-2.5 py-1 text-[11px] font-semibold text-brand-700 dark:bg-brand-900/40 dark:text-brand-300">
             Available
           </span>
         </div>
@@ -153,7 +153,7 @@ export function KitCard({ kit, preload = false }: { kit: KitSummary; preload?: b
             <span className="text-muted-foreground">
               Buying the parts one by one <s className="tabular-nums">£{kit.partsTotal.toFixed(2)}</s>
             </span>
-            <span className="rounded-full bg-emerald-100 px-2 py-0.5 font-semibold text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300">
+            <span className="rounded-full bg-brand-100 px-2 py-0.5 font-semibold text-brand-800 dark:bg-brand-900/40 dark:text-brand-300">
               You save £{save.toFixed(2)} ({kit.savingPercent}% off)
             </span>
           </p>

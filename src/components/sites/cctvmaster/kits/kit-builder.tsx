@@ -1119,9 +1119,9 @@ export function KitBuilder({ catalog, seed }: { catalog: BuilderCatalog; seed?: 
           help="We've checked every part against every other part. Nothing here is guesswork."
         />
         {issues.length === 0 ? (
-          <div className="mb-5 flex items-start gap-2.5 rounded-2xl border border-emerald-300 bg-emerald-50 p-4 dark:border-emerald-800 dark:bg-emerald-950/30">
-            <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-emerald-700 dark:text-emerald-400" aria-hidden="true" />
-            <p className="text-sm leading-relaxed text-emerald-900 dark:text-emerald-200">
+          <div className="mb-5 flex items-start gap-2.5 rounded-2xl border border-brand-300 bg-brand-50 p-4 dark:border-brand-800 dark:bg-brand-950/30">
+            <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-brand-700 dark:text-brand-400" aria-hidden="true" />
+            <p className="text-sm leading-relaxed text-brand-900 dark:text-brand-200">
               <span className="font-semibold">All checked.</span> The drive fits, the power and cable are right, and your
               cameras plug into this recorder, which records them at the quality you picked.
             </p>
@@ -1357,7 +1357,7 @@ export function KitBuilder({ catalog, seed }: { catalog: BuilderCatalog; seed?: 
             type="button"
             onClick={primary.onClick}
             disabled={primary.disabled}
-            className="bg-primary text-primary-foreground hover:bg-primary/90 flex min-h-12 w-full items-center justify-center gap-2 rounded-xl px-4 text-base font-semibold transition-colors disabled:opacity-50"
+            className="fc-gold flex min-h-12 w-full items-center justify-center gap-2 rounded-xl px-4 text-base font-semibold disabled:opacity-50"
           >
             {primary.label}
             <ArrowRight className="h-5 w-5" aria-hidden="true" />

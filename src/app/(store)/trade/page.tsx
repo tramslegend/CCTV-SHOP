@@ -93,7 +93,7 @@ export default async function TradePage() {
         <div className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2">
           {benefits.map(({ icon: Icon, title, body }) => (
             <div key={title} className="flex flex-col gap-2 bg-white p-6">
-              <Icon className="h-5 w-5 text-emerald-600" aria-hidden="true" />
+              <Icon className="h-5 w-5 text-brand-600" aria-hidden="true" />
               <h3 className="text-base font-semibold text-foreground">{title}</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">{body}</p>
             </div>
@@ -157,11 +157,11 @@ function ApplySection({ store }: { store: StoreSettings }) {
         <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
           Only after a project quote, volume pricing or a PO? You don’t need an account —{" "}
           {store.email ? (
-            <a className="font-semibold text-emerald-700 hover:text-emerald-800" href={`mailto:${store.email}`}>
+            <a className="font-semibold text-brand-700 hover:text-brand-800" href={`mailto:${store.email}`}>
               email us
             </a>
           ) : (
-            <a className="font-semibold text-emerald-700 hover:text-emerald-800" href="/contact">
+            <a className="font-semibold text-brand-700 hover:text-brand-800" href="/contact">
               message us
             </a>
           )}
@@ -169,7 +169,7 @@ function ApplySection({ store }: { store: StoreSettings }) {
             <>
               {" "}
               or call{" "}
-              <a className="font-semibold text-emerald-700 hover:text-emerald-800" href={phoneHref}>
+              <a className="font-semibold text-brand-700 hover:text-brand-800" href={phoneHref}>
                 {store.phone}
               </a>
             </>

@@ -53,7 +53,7 @@ export default async function AccountPage() {
                 <li key={s.id} className="flex flex-wrap items-center justify-between gap-2 py-3">
                   <span className="font-medium">
                     {deviceLabel(s.userAgent)}
-                    {s.id === current?.session.id && <span className="ml-2 text-xs font-normal text-emerald-700">This device</span>}
+                    {s.id === current?.session.id && <span className="ml-2 text-xs font-normal text-brand-700">This device</span>}
                   </span>
                   <span className="text-muted-foreground tabular-nums">
                     {s.ipAddress ? `${s.ipAddress} · ` : ""}signed in {when.format(new Date(s.createdAt))}

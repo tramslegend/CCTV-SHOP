@@ -30,7 +30,7 @@ export function validateAddress(a: AddressValue, billing = false): AddressErrors
 
 const shadcnLabel = "flex items-center gap-1 text-sm leading-none font-medium select-none";
 const shadcnInput =
-  "placeholder:text-muted-foreground border-input h-11 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-emerald-700 focus-visible:ring-[3px] focus-visible:ring-emerald-700/30 aria-invalid:border-destructive aria-invalid:ring-destructive/20 md:text-base";
+  "placeholder:text-muted-foreground border-input h-11 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-brand-700 focus-visible:ring-[3px] focus-visible:ring-brand-700/30 aria-invalid:border-destructive aria-invalid:ring-destructive/20 md:text-base";
 
 function Field({
   id,

@@ -13,7 +13,7 @@ import { article, legal } from "./page-parts";
 
 export type BlockVariant = "article" | "plain" | "help" | "legal";
 
-const helpLink = "font-semibold text-emerald-700 underline underline-offset-2 hover:text-emerald-800";
+const helpLink = "font-semibold text-brand-700 underline underline-offset-2 hover:text-brand-800";
 
 const PROSE: Record<BlockVariant, ProseClasses> = {
   article: {

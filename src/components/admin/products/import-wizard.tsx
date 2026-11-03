@@ -68,12 +68,12 @@ async function send(mode: "preview" | "run", csv: string): Promise<ImportRespons
 }
 
 const ACTION_BADGE: Record<ImportAction, { label: string; className: string }> = {
-  create: { label: "New", className: "bg-emerald-50 text-emerald-700" },
+  create: { label: "New", className: "bg-brand-50 text-brand-700" },
   update: { label: "Update", className: "bg-sky-50 text-sky-700" },
   error: { label: "Problem", className: "bg-red-50 text-red-700" },
 };
 const OUTCOME_BADGE: Record<ImportOutcome, { label: string; className: string }> = {
-  created: { label: "Created", className: "bg-emerald-50 text-emerald-700" },
+  created: { label: "Created", className: "bg-brand-50 text-brand-700" },
   updated: { label: "Updated", className: "bg-sky-50 text-sky-700" },
   unchanged: { label: "No changes", className: "bg-muted text-muted-foreground" },
   failed: { label: "Not imported", className: "bg-red-50 text-red-700" },

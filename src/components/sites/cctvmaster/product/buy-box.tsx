@@ -201,7 +201,7 @@ export function BuyBox({
       )}
 
       {state === "contact" && (
-        <Link href={quoteHref} className={cn(outlineSmall, "bg-primary text-primary-foreground hover:bg-primary/90 h-12 text-base font-semibold")}>
+        <Link href={quoteHref} className={cn(outlineSmall, "fc-gold h-12 border-transparent text-base font-semibold")}>
           <Phone className="h-4 w-4" aria-hidden="true" />
           Contact sales for a price
         </Link>

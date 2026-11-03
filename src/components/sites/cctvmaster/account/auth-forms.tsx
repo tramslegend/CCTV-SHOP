@@ -24,7 +24,7 @@ export function PasswordInput({ className, ...props }: Omit<ComponentProps<"inpu
         type="button"
         onClick={() => setShow((s) => !s)}
         aria-label={show ? "Hide password" : "Show password"}
-        className="absolute inset-y-0 right-0 grid w-11 place-items-center text-zinc-400 hover:text-foreground/80 focus-visible:text-emerald-700 focus-visible:outline-none"
+        className="absolute inset-y-0 right-0 grid w-11 place-items-center text-zinc-400 hover:text-foreground/80 focus-visible:text-brand-700 focus-visible:outline-none"
         tabIndex={-1}
       >
         {show ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
@@ -47,7 +47,7 @@ function PasswordRules({ id, password }: { id: string; password: string }) {
       {PASSWORD_RULES.map((rule) => {
         const met = rule.test(password);
         return (
-          <li key={rule.key} className={cn("flex items-center gap-1", met ? "text-emerald-700" : "text-muted-foreground")}>
+          <li key={rule.key} className={cn("flex items-center gap-1", met ? "text-brand-700" : "text-muted-foreground")}>
             {met ? <Check className="h-3 w-3" aria-hidden="true" /> : <Circle className="h-2.5 w-2.5" aria-hidden="true" />}
             {rule.label}
             <span className="sr-only">{met ? " – done" : " – needed"}</span>
@@ -64,7 +64,7 @@ function SignedInNotice({ next, email }: { next: string; email: string }) {
   const [busy, setBusy] = useState(false);
   return (
     <div className="mt-7 space-y-4">
-      <p className="rounded-md border border-emerald-100 bg-emerald-50 px-3 py-2 text-sm text-emerald-900">
+      <p className="rounded-md border border-brand-100 bg-brand-50 px-3 py-2 text-sm text-brand-900">
         You&apos;re signed in as <span className="font-semibold">{email}</span>.
       </p>
       <Link href={next} className={primaryButton}>
@@ -148,7 +148,7 @@ export function LoginForm({ next }: { next: string }) {
             </label>
             <Link
               href="/forgot-password"
-              className="text-xs font-semibold text-emerald-700 hover:text-emerald-800 focus-visible:underline focus-visible:outline-none"
+              className="text-xs font-semibold text-brand-700 hover:text-brand-800 focus-visible:underline focus-visible:outline-none"
             >
               Forgot?
             </Link>
@@ -347,11 +347,11 @@ export function SignupForm({ next }: { next: string }) {
         </button>
         <p className="text-center text-[11px] text-muted-foreground">
           By signing up, you&apos;re agreeing to our{" "}
-          <Link className="font-semibold text-foreground/80 hover:text-emerald-700" href="/terms">
+          <Link className="font-semibold text-foreground/80 hover:text-brand-700" href="/terms">
             Terms
           </Link>{" "}
           and{" "}
-          <Link className="font-semibold text-foreground/80 hover:text-emerald-700" href="/privacy">
+          <Link className="font-semibold text-foreground/80 hover:text-brand-700" href="/privacy">
             Privacy Policy
           </Link>
           .
@@ -372,8 +372,8 @@ export function ForgotPasswordForm({ heading }: { heading: ReactNode }) {
   if (sentTo) {
     return (
       <div className="space-y-5 text-center">
-        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-50">
-          <MailCheck className="h-7 w-7 text-emerald-700" aria-hidden="true" />
+        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-brand-50">
+          <MailCheck className="h-7 w-7 text-brand-700" aria-hidden="true" />
         </div>
         <div className="space-y-1.5">
           <h1 className="text-2xl font-semibold tracking-tight text-foreground">Check your email</h1>
@@ -387,7 +387,7 @@ export function ForgotPasswordForm({ heading }: { heading: ReactNode }) {
           <button
             type="button"
             onClick={() => setSentTo(null)}
-            className="font-semibold text-emerald-700 hover:text-emerald-800 focus-visible:underline focus-visible:outline-none"
+            className="font-semibold text-brand-700 hover:text-brand-800 focus-visible:underline focus-visible:outline-none"
           >
             try again
           </button>
@@ -465,8 +465,8 @@ export function ResetPasswordForm({ token }: { token: string }) {
   if (done) {
     return (
       <div className="space-y-5 text-center">
-        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-50">
-          <Check className="h-7 w-7 text-emerald-700" aria-hidden="true" />
+        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-brand-50">
+          <Check className="h-7 w-7 text-brand-700" aria-hidden="true" />
         </div>
         <div className="space-y-1.5">
           <h1 className="text-2xl font-semibold tracking-tight text-foreground">Password updated</h1>

@@ -7,7 +7,7 @@ import { formatPostDate, readingMinutes } from "./blog-data";
 // Blog listing card, matching the source's /blog grid item.
 export function BlogCard({ post, eager = false }: { post: BlogPost; eager?: boolean }) {
   return (
-    <article className="fc-reveal group bg-card text-card-foreground flex h-full flex-col overflow-hidden rounded-xl border transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_22px_40px_-20px_rgba(4,120,87,0.45)]">
+    <article className="fc-reveal group bg-card text-card-foreground flex h-full flex-col overflow-hidden rounded-xl border transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_22px_40px_-20px_rgba(24,80,150,0.45)]">
       <Link className="flex h-full flex-col" href={`/blog/${post.slug}`}>
         <div className="bg-muted relative aspect-[16/9] w-full overflow-hidden">
           {post.image ? (

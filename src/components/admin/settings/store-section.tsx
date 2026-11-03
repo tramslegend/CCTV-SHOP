@@ -180,7 +180,7 @@ export function StoreSection({ initial, onDirtyChange }: { initial: StoreFormVal
               {map && (
                 <>
                   {" "}
-                  <a href={map} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-0.5 font-medium text-emerald-700 hover:underline">
+                  <a href={map} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-0.5 font-medium text-brand-700 hover:underline">
                     Test the link <ExternalLink className="size-3" aria-hidden="true" />
                   </a>
                 </>

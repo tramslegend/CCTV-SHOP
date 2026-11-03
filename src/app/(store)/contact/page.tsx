@@ -28,11 +28,11 @@ function Route({ href, label, value, icon, external }: { href: string; label: st
   return (
     <li>
       <a
-        className="group flex items-center gap-3 rounded-xl border border-border bg-white px-5 py-4 transition-all hover:-translate-y-0.5 hover:border-emerald-700 hover:shadow-[0_12px_24px_-16px_rgba(16,185,129,0.3)]"
+        className="group flex items-center gap-3 rounded-xl border border-border bg-white px-5 py-4 transition-all hover:-translate-y-0.5 hover:border-brand-700 hover:shadow-[0_12px_24px_-16px_rgba(42,120,204,0.3)]"
         href={href}
         {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       >
-        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-emerald-50 text-emerald-700 transition-colors group-hover:bg-emerald-100">
+        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-brand-50 text-brand-700 transition-colors group-hover:bg-brand-100">
           {icon}
         </span>
         <div className="min-w-0">
@@ -82,7 +82,7 @@ function ReachUs({ store, product }: { store: StoreSettings; product: Product | 
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid gap-8 lg:grid-cols-5 lg:gap-10">
           <div className="lg:col-span-2">
-            <p className="font-mono text-[10px] font-medium tracking-[0.18em] text-emerald-700 uppercase">Reach us</p>
+            <p className="font-mono text-[10px] font-medium tracking-[0.18em] text-brand-700 uppercase">Reach us</p>
             <h2 className="font-sentient mt-2 text-2xl leading-[1.1] font-bold tracking-tight text-foreground md:text-3xl">
               The fastest routes in.
             </h2>
@@ -100,7 +100,7 @@ function ReachUs({ store, product }: { store: StoreSettings; product: Product | 
             {store.openingHours.length > 0 && (
               <div className="mt-6 overflow-hidden rounded-2xl border border-border bg-white">
                 <div className="flex items-center gap-3 border-b border-border bg-surface/60 px-5 py-3">
-                  <Clock className="h-4 w-4 text-emerald-700" aria-hidden="true" />
+                  <Clock className="h-4 w-4 text-brand-700" aria-hidden="true" />
                   <p className="text-sm font-semibold text-foreground">Opening hours</p>
                 </div>
                 <dl className="divide-y divide-border px-5 py-3 text-sm">
@@ -113,7 +113,7 @@ function ReachUs({ store, product }: { store: StoreSettings; product: Product | 
                 </dl>
               </div>
             )}
-            <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 font-mono text-[10px] font-medium tracking-[0.18em] text-emerald-700 uppercase">
+            <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-3 py-1.5 font-mono text-[10px] font-medium tracking-[0.18em] text-brand-700 uppercase">
               <CircleCheck className="h-3 w-3" aria-hidden="true" />
               We answer messages in &lt; 1 hour
             </div>

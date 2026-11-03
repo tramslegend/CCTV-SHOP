@@ -87,7 +87,7 @@ export default async function AdminMessagesPage({ searchParams }: PageProps<"/ad
                 <span
                   className={cn(
                     "rounded-full px-1.5 text-xs tabular-nums",
-                    tab.value === "new" && counts.new ? "bg-emerald-600 text-white" : "text-muted-foreground",
+                    tab.value === "new" && counts.new ? "bg-brand-600 text-white" : "text-muted-foreground",
                   )}
                 >
                   {counts[tab.value]}
@@ -146,10 +146,10 @@ export default async function AdminMessagesPage({ searchParams }: PageProps<"/ad
             {rows.map((r) => {
               const isNew = r.status === "new";
               return (
-                <li key={r.id} className={cn(isNew && "bg-emerald-50/40")}>
+                <li key={r.id} className={cn(isNew && "bg-brand-50/40")}>
                   <Link href={`/admin/messages/${r.id}`} prefetch={false} className="flex flex-col gap-1 px-4 py-3">
                     <span className="flex items-center gap-2">
-                      {isNew && <span className="size-2 shrink-0 rounded-full bg-emerald-600" aria-hidden="true" />}
+                      {isNew && <span className="size-2 shrink-0 rounded-full bg-brand-600" aria-hidden="true" />}
                       <span className={cn("min-w-0 flex-1 truncate", isNew ? "font-semibold" : "font-medium")}>
                         {isNew && <span className="sr-only">Unread: </span>}
                         {r.name}
@@ -187,7 +187,7 @@ export default async function AdminMessagesPage({ searchParams }: PageProps<"/ad
                 {rows.map((r) => {
                   const isNew = r.status === "new";
                   return (
-                    <TableRow key={r.id} className={cn("relative", isNew && "bg-emerald-50/40")}>
+                    <TableRow key={r.id} className={cn("relative", isNew && "bg-brand-50/40")}>
                       <TableCell>
                         <TypeBadge type={r.type} />
                       </TableCell>
@@ -195,7 +195,7 @@ export default async function AdminMessagesPage({ searchParams }: PageProps<"/ad
                         <p className={cn("max-w-48 truncate", isNew ? "font-semibold" : "font-medium")}>
                           {isNew && (
                             <>
-                              <span className="mr-1.5 inline-block size-2 rounded-full bg-emerald-600" aria-hidden="true" />
+                              <span className="mr-1.5 inline-block size-2 rounded-full bg-brand-600" aria-hidden="true" />
                               <span className="sr-only">Unread: </span>
                             </>
                           )}

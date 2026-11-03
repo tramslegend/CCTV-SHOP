@@ -23,7 +23,7 @@ type Size = "sm" | "md" | "lg";
 const HEIGHT: Record<Size, string> = { sm: "h-9", md: "h-10", lg: "h-11" };
 
 const numberCls =
-  "border-input placeholder:text-muted-foreground w-full min-w-0 rounded-md rounded-s-none border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-emerald-700 focus-visible:ring-[3px] focus-visible:ring-emerald-700/50 aria-[invalid=true]:border-red-600 md:text-sm";
+  "border-input placeholder:text-muted-foreground w-full min-w-0 rounded-md rounded-s-none border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-brand-700 focus-visible:ring-[3px] focus-visible:ring-brand-700/50 aria-[invalid=true]:border-red-600 md:text-sm";
 
 export function PhoneInput({
   value,
@@ -114,7 +114,7 @@ function CountrySelect({
         disabled={disabled}
         aria-label={current ? `Country: ${current.label} (+${current.code})` : "Choose country"}
         className={cn(
-          "border-input flex shrink-0 items-center gap-1.5 rounded-s-md rounded-e-none border border-r-0 bg-surface px-2.5 shadow-xs outline-none hover:bg-muted focus-visible:border-emerald-700 focus-visible:ring-[3px] focus-visible:ring-emerald-700/50 disabled:opacity-50",
+          "border-input flex shrink-0 items-center gap-1.5 rounded-s-md rounded-e-none border border-r-0 bg-surface px-2.5 shadow-xs outline-none hover:bg-muted focus-visible:border-brand-700 focus-visible:ring-[3px] focus-visible:ring-brand-700/50 disabled:opacity-50",
           height,
         )}
       >

@@ -133,7 +133,7 @@ export function LensCalculator({ picks }: { picks: CameraPick[] }) {
                 <td className="text-muted-foreground px-3 py-2 tabular-nums">≥ {level.ppm} ppm</td>
                 <td className="px-3 py-2">
                   {result.ppm >= level.ppm ? (
-                    <span className="font-semibold text-emerald-700">Yes</span>
+                    <span className="font-semibold text-brand-700">Yes</span>
                   ) : (
                     <span className="text-muted-foreground">up to ~{fmt(result.rangeFor(level.ppm))} m</span>
                   )}

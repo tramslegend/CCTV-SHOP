@@ -61,12 +61,12 @@ export function ListingControls({
             type="button"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-white px-3 py-2 text-sm font-medium text-foreground/80 shadow-sm transition-colors hover:border-emerald-200 hover:text-emerald-700 lg:hidden"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-white px-3 py-2 text-sm font-medium text-foreground/80 shadow-sm transition-colors hover:border-brand-200 hover:text-brand-700 lg:hidden"
           >
             <SlidersHorizontal className="h-4 w-4" aria-hidden="true" />
             Filters
             {hasFilters ? (
-              <span className="flex h-4 w-4 items-center justify-center rounded-full bg-emerald-600 text-xs font-bold text-white">
+              <span className="flex h-4 w-4 items-center justify-center rounded-full bg-brand-600 text-xs font-bold text-white">
                 •
               </span>
             ) : null}
@@ -84,7 +84,7 @@ export function ListingControls({
                   { scroll: false },
                 )
               }
-              className="rounded-lg border border-border bg-white px-3 py-2 text-sm text-foreground focus:border-emerald-300 focus:ring-1 focus:ring-emerald-300 focus:outline-none"
+              className="rounded-lg border border-border bg-white px-3 py-2 text-sm text-foreground focus:border-brand-300 focus:ring-1 focus:ring-brand-300 focus:outline-none"
             >
               {SORT_OPTIONS.map((o) => (
                 <option key={o.value} value={o.value}>
@@ -103,7 +103,7 @@ export function ListingControls({
             <Link
               href="/products"
               aria-current={basePath === "/products" ? "true" : undefined}
-              className="inline-flex min-h-11 items-center rounded-full bg-emerald-700 px-3.5 py-1.5 text-sm font-medium text-white transition-all"
+              className="inline-flex min-h-11 items-center rounded-full bg-brand-700 px-3.5 py-1.5 text-sm font-medium text-white transition-all"
             >
               All
             </Link>

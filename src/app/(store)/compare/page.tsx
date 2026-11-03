@@ -184,13 +184,13 @@ export default async function ComparePage(props: PageProps<"/compare">) {
       </h1>
       <p className="mt-2 max-w-2xl text-muted-foreground">The same facts in the same rows, so the differences jump out.</p>
       {items.length === 0 ? (
-        <div className="mt-8 rounded-2xl border border-dashed border-emerald-200 bg-white p-8 text-center">
+        <div className="mt-8 rounded-2xl border border-dashed border-brand-200 bg-white p-8 text-center">
           <h2 className="text-lg font-bold tracking-[-0.02em] text-foreground">Nothing to compare yet</h2>
           <p className="mt-2">Tick “Compare” on any camera or recorder (four at most), then come back here.</p>
           <p className="mt-4">
             <Link
               href="/products"
-              className="inline-flex min-h-9 items-center rounded-full bg-emerald-700 px-4 text-xs font-semibold text-white hover:bg-emerald-800"
+              className="inline-flex min-h-9 items-center rounded-full bg-brand-700 px-4 text-xs font-semibold text-white hover:bg-brand-800"
             >
               Browse the shop
             </Link>
@@ -202,7 +202,7 @@ export default async function ComparePage(props: PageProps<"/compare">) {
             <p className="text-sm text-muted-foreground">Shaded rows are where they differ.</p>
             <Link
               href={compareUrl(skus, hideSame ? "" : "&same=hide")}
-              className="inline-flex min-h-10 items-center rounded-full border border-emerald-200 bg-white px-4 text-sm font-semibold text-emerald-800 hover:bg-emerald-50"
+              className="inline-flex min-h-10 items-center rounded-full border border-brand-200 bg-white px-4 text-sm font-semibold text-brand-800 hover:bg-brand-50"
             >
               {hideSame ? "Show everything" : "Hide what’s the same"}
             </Link>
@@ -211,7 +211,7 @@ export default async function ComparePage(props: PageProps<"/compare">) {
             role="region"
             aria-labelledby="compare-heading"
             tabIndex={0}
-            className="relative max-w-full overflow-x-auto rounded-2xl border border-border bg-white focus-visible:outline-2 focus-visible:outline-emerald-600"
+            className="relative max-w-full overflow-x-auto rounded-2xl border border-border bg-white focus-visible:outline-2 focus-visible:outline-brand-600"
           >
             <table className="w-full min-w-max border-separate border-spacing-0 text-left text-sm">
               <thead>
@@ -232,7 +232,7 @@ export default async function ComparePage(props: PageProps<"/compare">) {
                           >
                             {image ? <Image src={image} alt="" width={120} height={120} sizes="120px" /> : null}
                           </span>
-                          <Link href={href} className="text-sm leading-snug font-semibold text-foreground hover:text-emerald-800">
+                          <Link href={href} className="text-sm leading-snug font-semibold text-foreground hover:text-brand-800">
                             {title}
                             {item.card.decide ? <span className="sr-only"> — {item.product.name}</span> : null}
                           </Link>
@@ -249,7 +249,7 @@ export default async function ComparePage(props: PageProps<"/compare">) {
                             />
                             <Link
                               href={href}
-                              className="text-xs font-semibold text-emerald-700 underline-offset-2 hover:underline"
+                              className="text-xs font-semibold text-brand-700 underline-offset-2 hover:underline"
                             >
                               See full details
                             </Link>
@@ -269,7 +269,7 @@ export default async function ComparePage(props: PageProps<"/compare">) {
               </thead>
               <tbody>
                 {visibleRows.map((row) => (
-                  <tr key={row.label} className={cn(row.differs ? "bg-emerald-50" : "bg-white")} data-differs={row.differs || undefined}>
+                  <tr key={row.label} className={cn(row.differs ? "bg-brand-50" : "bg-white")} data-differs={row.differs || undefined}>
                     <th
                       scope="row"
                       className="sticky left-0 z-10 border-t border-border bg-inherit p-3 align-top text-xs font-semibold text-muted-foreground"

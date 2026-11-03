@@ -92,8 +92,8 @@ export function PurchasePanel({ item, children }: { item: Omit<CartLine, "qty">;
             onClick={add}
             className={cn(
               baseButton,
-              "text-primary-foreground shadow transition-all duration-300",
-              added ? "bg-emerald-600 hover:bg-emerald-700" : "bg-primary hover:bg-primary/90",
+              "shadow transition-all duration-300",
+              added ? "bg-emerald-600 text-white hover:bg-emerald-700" : "fc-gold",
             )}
           >
             {added ? (
@@ -132,7 +132,7 @@ export function PurchasePanel({ item, children }: { item: Omit<CartLine, "qty">;
         </div>
         {inCart > 0 && (
           <p
-            className="flex items-center gap-2 text-sm font-medium text-emerald-700"
+            className="flex items-center gap-2 text-sm font-medium text-brand-700"
             aria-live="polite"
             aria-atomic="true"
           >

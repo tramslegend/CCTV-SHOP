@@ -26,7 +26,7 @@ export function MegaMenuPanel({ category, top }: { category: MegaMenu; top: numb
               </div>
             </div>
             <Link
-              className="group/viewall flex items-center gap-2 rounded-lg bg-[#047857]/[0.063] px-4 py-2 text-sm font-medium text-[#047857] transition-all duration-200"
+              className="group/viewall flex items-center gap-2 rounded-lg bg-[#185096]/[0.063] px-4 py-2 text-sm font-medium text-[#185096] transition-all duration-200"
               href={category.href}
             >
               View All
@@ -67,7 +67,7 @@ export function MegaMenuPanel({ category, top }: { category: MegaMenu; top: numb
                         <span className="text-muted-foreground group-hover/item:text-foreground truncate text-xs transition-colors duration-200">
                           {item.name}
                         </span>
-                        <div className="ml-auto h-1.5 w-1.5 rounded-full bg-[#047857] opacity-0 transition-opacity duration-200 group-hover/item:opacity-100" />
+                        <div className="ml-auto h-1.5 w-1.5 rounded-full bg-[#185096] opacity-0 transition-opacity duration-200 group-hover/item:opacity-100" />
                       </Link>
                     ))}
                   </div>

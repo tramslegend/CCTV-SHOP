@@ -175,7 +175,7 @@ export function KitFinder({
           {n > 0 ? (
             <Link
               href={`${listingPath}${filterQuery(filters)}#prebuilt-kits`}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-6 text-base font-semibold transition-colors"
+              className="fc-gold inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-6 text-base font-semibold"
             >
               {n === 1 ? "See it" : "See them"}
               <ArrowRight className="h-5 w-5" aria-hidden="true" />
@@ -183,7 +183,7 @@ export function KitFinder({
           ) : (
             <Link
               href="/kit-builder/cctv"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-6 text-base font-semibold transition-colors"
+              className="fc-gold inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-6 text-base font-semibold"
             >
               Build it one part at a time
               <ArrowRight className="h-5 w-5" aria-hidden="true" />

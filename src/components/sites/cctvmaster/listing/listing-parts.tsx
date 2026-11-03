@@ -34,10 +34,10 @@ export function FacetFilters({
           <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-0.5 [scrollbar-width:none] md:mx-0 md:flex-wrap md:overflow-visible md:px-0 [&::-webkit-scrollbar]:hidden">
             {group.options.map((option) => {
               const className = cn(
-                "inline-flex min-h-10 shrink-0 items-center gap-1.5 rounded-full border px-3.5 text-sm font-medium whitespace-nowrap transition-colors focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:outline-none",
+                "inline-flex min-h-10 shrink-0 items-center gap-1.5 rounded-full border px-3.5 text-sm font-medium whitespace-nowrap transition-colors focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:outline-none",
                 option.active
-                  ? "border-transparent bg-emerald-700 text-white"
-                  : "border-border bg-white text-foreground/80 hover:border-emerald-300",
+                  ? "border-transparent bg-brand-700 text-white"
+                  : "border-border bg-white text-foreground/80 hover:border-brand-300",
               );
               const content = (
                 <>
@@ -172,7 +172,7 @@ export function EmptyListing({ search, clearHref }: { search: string; clearHref:
       </p>
       <Link
         href={clearHref}
-        className="bg-background hover:bg-accent mt-6 inline-flex h-9 items-center justify-center gap-2 rounded-md border border-border px-4 py-2 text-sm font-medium whitespace-nowrap text-foreground shadow-sm transition-colors hover:border-emerald-200 hover:text-emerald-700"
+        className="bg-background hover:bg-accent mt-6 inline-flex h-9 items-center justify-center gap-2 rounded-md border border-border px-4 py-2 text-sm font-medium whitespace-nowrap text-foreground shadow-sm transition-colors hover:border-brand-200 hover:text-brand-700"
       >
         View All Products
       </Link>

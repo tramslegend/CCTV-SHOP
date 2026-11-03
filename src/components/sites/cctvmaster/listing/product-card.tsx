@@ -18,7 +18,7 @@ export function ProductCard({ card, eager = false }: { card: ProductCardData; ea
     <div className="fc-reveal flex h-full flex-col gap-2">
       <Link
         href={href}
-        className="group flex flex-1 flex-col overflow-hidden rounded-2xl border border-border bg-white transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_22px_40px_-18px_rgba(4,120,87,0.45)] focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:outline-none"
+        className="group flex flex-1 flex-col overflow-hidden rounded-2xl border border-border bg-white transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_22px_40px_-18px_rgba(24,80,150,0.45)] focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:outline-none"
       >
         <div className="relative aspect-square w-full shrink-0 overflow-hidden bg-white">
           {image ? (
@@ -40,7 +40,7 @@ export function ProductCard({ card, eager = false }: { card: ProductCardData; ea
         <div className="flex flex-1 flex-col p-4">
           <h2
             className={cn(
-              "text-sm font-bold tracking-[-0.02em] text-foreground transition-colors group-hover:text-emerald-800",
+              "text-sm font-bold tracking-[-0.02em] text-foreground transition-colors group-hover:text-brand-800",
               decide ? "line-clamp-3" : "line-clamp-2",
             )}
           >
@@ -61,7 +61,7 @@ export function ProductCard({ card, eager = false }: { card: ProductCardData; ea
               {decide.chips.map((chip) => (
                 <li
                   key={chip.key}
-                  className="rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] leading-4 text-emerald-900"
+                  className="rounded-full bg-brand-50 px-2 py-0.5 text-[11px] leading-4 text-brand-900"
                 >
                   {chip.value}
                 </li>
@@ -74,13 +74,13 @@ export function ProductCard({ card, eager = false }: { card: ProductCardData; ea
             </p>
           ) : null}
           <p className="mt-2">
-            <Price value={splitPrice(withVat(card.price))} size="md" className="text-emerald-700" />
+            <Price value={splitPrice(withVat(card.price))} size="md" className="text-brand-700" />
           </p>
           <div className="mt-auto flex items-center justify-between gap-2 pt-3">
             <CartIconButton
               item={{ slug: card.slug, name: card.name, sku: card.sku, price: card.price, image }}
             />
-            <span className="inline-flex items-center gap-1 text-sm font-medium text-emerald-700 group-hover:underline">
+            <span className="inline-flex items-center gap-1 text-sm font-medium text-brand-700 group-hover:underline">
               View Details
               <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
             </span>

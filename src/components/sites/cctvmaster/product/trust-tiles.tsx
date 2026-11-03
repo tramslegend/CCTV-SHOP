@@ -24,7 +24,7 @@ export function TrustTiles({ delivery, className }: { delivery: DeliverySettings
           <li
             key={label}
             className={cn(
-              "fc-rise group flex flex-col items-center gap-1 rounded-xl border border-border bg-surface/50 p-3 text-center transition-[translate,background-color,border-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:bg-white hover:shadow-[0_12px_24px_-16px_rgba(4,120,87,0.5)]",
+              "fc-rise group flex flex-col items-center gap-1 rounded-xl border border-border bg-surface/50 p-3 text-center transition-[translate,background-color,border-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:bg-white hover:shadow-[0_12px_24px_-16px_rgba(24,80,150,0.5)]",
               delay,
             )}
           >

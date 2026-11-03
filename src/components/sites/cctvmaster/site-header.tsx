@@ -35,7 +35,7 @@ export function CartLink() {
     <Link className={iconButton} href="/cart">
       <ShoppingCartIcon className="h-5 w-5" />
       {count > 0 && (
-        <span className="bg-primary text-primary-foreground absolute top-0 right-0 flex h-4 min-w-4 translate-x-1 -translate-y-1 items-center justify-center rounded-full text-[10px] font-bold shadow-sm">
+        <span className="bg-gold text-gold-foreground absolute top-0 right-0 flex h-4 min-w-4 translate-x-1 -translate-y-1 items-center justify-center rounded-full text-[10px] font-bold shadow-sm">
           {count > 99 ? "99+" : count}
         </span>
       )}
@@ -152,7 +152,7 @@ export function SiteHeader({ brand, nav }: { brand: { name: string; logoUrl: str
                     <span
                       className={cn(
                         "pointer-events-none",
-                        isOpen ? "text-[#047857]" : "text-foreground/80 dark:text-slate-300",
+                        isOpen ? "text-[#185096]" : "text-foreground/80 dark:text-slate-300",
                       )}
                     >
                       {cat.name}

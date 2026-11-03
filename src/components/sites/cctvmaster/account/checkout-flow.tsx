@@ -127,7 +127,7 @@ export function CheckoutFlow(props: {
     return (
       <CheckoutFrame>
         <div className="mx-auto flex max-w-2xl items-center justify-center gap-2 px-4 py-16 text-muted-foreground" role="status">
-          <LoaderCircle className="h-5 w-5 animate-spin text-emerald-700" aria-hidden="true" />
+          <LoaderCircle className="h-5 w-5 animate-spin text-brand-700" aria-hidden="true" />
           {placing === "stripe" ? "Taking you to secure payment…" : "Placing your order…"}
         </div>
       </CheckoutFrame>
@@ -144,7 +144,7 @@ export function CheckoutFlow(props: {
           <p className="mt-2 text-sm text-muted-foreground">Your basket is saved, so you can come back to it later.</p>
           <Link
             href="/products"
-            className="mt-6 inline-flex h-11 items-center gap-2 rounded-md bg-emerald-700 px-5 text-sm font-semibold text-white hover:bg-emerald-800"
+            className="mt-6 inline-flex h-11 items-center gap-2 rounded-md bg-brand-700 px-5 text-sm font-semibold text-white hover:bg-brand-800"
           >
             Continue browsing
           </Link>
@@ -157,13 +157,13 @@ export function CheckoutFlow(props: {
     return (
       <CheckoutFrame>
         <div className="mx-auto max-w-2xl px-4 py-16 text-center">
-          <Lock className="mx-auto h-9 w-9 text-emerald-700" aria-hidden="true" />
+          <Lock className="mx-auto h-9 w-9 text-brand-700" aria-hidden="true" />
           <h1 className="mt-4 text-2xl font-semibold tracking-tight text-foreground">Sign in to check out</h1>
           <p className="mt-2 text-muted-foreground">You need an account to place an order. It takes a minute, and you can follow your orders from it.</p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Link
               href="/login?next=/checkout"
-              className="inline-flex h-11 items-center gap-2 rounded-md bg-emerald-700 px-5 text-sm font-semibold text-white hover:bg-emerald-800"
+              className="inline-flex h-11 items-center gap-2 rounded-md bg-brand-700 px-5 text-sm font-semibold text-white hover:bg-brand-800"
             >
               Sign in
             </Link>
@@ -187,7 +187,7 @@ export function CheckoutFlow(props: {
           <p className="mt-2 text-muted-foreground">Add some products to your cart before checking out.</p>
           <Link
             href="/products"
-            className="mt-6 inline-flex h-11 items-center gap-2 rounded-md bg-emerald-700 px-5 text-sm font-semibold text-white hover:bg-emerald-800"
+            className="mt-6 inline-flex h-11 items-center gap-2 rounded-md bg-brand-700 px-5 text-sm font-semibold text-white hover:bg-brand-800"
           >
             Continue shopping
           </Link>
@@ -599,7 +599,7 @@ function CheckoutForm({
               {!account && (
                 <p className="rounded-lg border border-border bg-surface/80 px-3 py-2.5 text-sm text-muted-foreground">
                   Have an account?{" "}
-                  <Link href="/login?next=/checkout" className="font-semibold text-emerald-700 underline underline-offset-2">
+                  <Link href="/login?next=/checkout" className="font-semibold text-brand-700 underline underline-offset-2">
                     Sign in
                   </Link>{" "}
                   to use your saved addresses and follow this order from your account.
@@ -633,7 +633,7 @@ function CheckoutForm({
                       <label htmlFor="guest-phone" className={checkoutLabel}>
                         Phone
                         {rules.phone === "required" ? (
-                          <span aria-hidden="true" className="ml-0.5 text-emerald-700">
+                          <span aria-hidden="true" className="ml-0.5 text-brand-700">
                             *
                           </span>
                         ) : (
@@ -671,7 +671,7 @@ function CheckoutForm({
                 </div>
                 <label className="flex items-start gap-2 text-sm leading-5 text-muted-foreground">
                   <input
-                    className="mt-0.5 h-4 w-4 shrink-0 rounded border-zinc-300 accent-emerald-700"
+                    className="mt-0.5 h-4 w-4 shrink-0 rounded border-zinc-300 accent-brand-700"
                     type="checkbox"
                     checked={optOut}
                     onChange={(e) => setOptOut(e.target.checked)}
@@ -694,7 +694,7 @@ function CheckoutForm({
                         key={a.id}
                         className={cn(
                           "flex cursor-pointer items-start gap-3 rounded-lg border px-3 py-3 text-sm",
-                          savedId === a.id ? "border-emerald-600/40 bg-emerald-50/70" : "border-border hover:bg-surface",
+                          savedId === a.id ? "border-brand-600/40 bg-brand-50/70" : "border-border hover:bg-surface",
                         )}
                       >
                         <input
@@ -702,9 +702,9 @@ function CheckoutForm({
                           name="saved-address"
                           checked={savedId === a.id}
                           onChange={() => chooseSaved(a)}
-                          className="mt-0.5 h-4 w-4 shrink-0 accent-emerald-700"
+                          className="mt-0.5 h-4 w-4 shrink-0 accent-brand-700"
                         />
-                        <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-emerald-700" aria-hidden="true" />
+                        <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" aria-hidden="true" />
                         <span className="min-w-0 flex-1">
                           <span className="block font-semibold text-foreground">
                             {a.label || a.name}
@@ -719,7 +719,7 @@ function CheckoutForm({
                     <label
                       className={cn(
                         "flex cursor-pointer items-center gap-3 rounded-lg border px-3 py-3 text-sm font-semibold",
-                        savedId === null ? "border-emerald-600/40 bg-emerald-50/70" : "border-border hover:bg-surface",
+                        savedId === null ? "border-brand-600/40 bg-brand-50/70" : "border-border hover:bg-surface",
                       )}
                     >
                       <input
@@ -727,7 +727,7 @@ function CheckoutForm({
                         name="saved-address"
                         checked={savedId === null}
                         onChange={() => chooseSaved(null)}
-                        className="h-4 w-4 shrink-0 accent-emerald-700"
+                        className="h-4 w-4 shrink-0 accent-brand-700"
                       />
                       Deliver somewhere else
                     </label>
@@ -756,7 +756,7 @@ function CheckoutForm({
                           type="checkbox"
                           checked={saveAddress}
                           onChange={(e) => setSaveAddress(e.target.checked)}
-                          className="h-4 w-4 shrink-0 rounded border-zinc-300 accent-emerald-700"
+                          className="h-4 w-4 shrink-0 rounded border-zinc-300 accent-brand-700"
                         />
                         Save this address to my account
                       </label>
@@ -767,7 +767,7 @@ function CheckoutForm({
 
               {billingSame ? (
                 <div className="checkout-billing-fold flex items-center gap-3 rounded-lg border border-border bg-surface/80 px-3 py-1.5">
-                  <CircleCheck className="h-5 w-5 shrink-0 text-emerald-600" aria-hidden="true" />
+                  <CircleCheck className="h-5 w-5 shrink-0 text-brand-600" aria-hidden="true" />
                   <p className="min-w-0 flex-1 py-1.5 text-sm text-foreground/80">
                     <span className="font-semibold">Billing address:</span> same as delivery
                   </p>
@@ -830,7 +830,7 @@ function CheckoutForm({
                       key={o.id}
                       className={cn(
                         "flex cursor-pointer items-start gap-3 rounded-lg border px-3 py-3",
-                        chosen ? "border-emerald-600/30 bg-emerald-50/70" : "border-border hover:bg-surface",
+                        chosen ? "border-brand-600/30 bg-brand-50/70" : "border-border hover:bg-surface",
                       )}
                     >
                       <input
@@ -842,9 +842,9 @@ function CheckoutForm({
                           setDeliveryId(o.id);
                           setDeliveryError("");
                         }}
-                        className="mt-0.5 h-4 w-4 shrink-0 accent-emerald-700"
+                        className="mt-0.5 h-4 w-4 shrink-0 accent-brand-700"
                       />
-                      {o.kind === "collect" && <Store className="mt-0.5 h-4 w-4 shrink-0 text-emerald-700" aria-hidden="true" />}
+                      {o.kind === "collect" && <Store className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" aria-hidden="true" />}
                       <span className="min-w-0 flex-1">
                         <span className="block text-sm font-semibold text-foreground">{o.name}</span>
                         {detail && <span className="mt-0.5 block text-xs text-muted-foreground">{detail}</span>}
@@ -880,7 +880,7 @@ function CheckoutForm({
                 )}
                 {!checkout.options.some((o) => o.kind === "collect") && shop.phoneHref && (
                   <p className="flex items-start gap-1.5 text-xs leading-5 text-muted-foreground">
-                    <Info className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-700" aria-hidden="true" />
+                    <Info className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-700" aria-hidden="true" />
                     <span>
                       Collecting from our {shop.city ? `${shop.city} ` : ""}store instead? Ring{" "}
                       <PhoneLink className="font-semibold text-foreground/80 underline underline-offset-2" /> and we&apos;ll have it ready.
@@ -911,7 +911,7 @@ function CheckoutForm({
                   type="button"
                   onClick={continueToReview}
                   disabled={quoting}
-                  className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-md bg-emerald-700 px-6 text-base font-semibold text-white transition-colors hover:bg-emerald-800 focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2 focus-visible:outline-none disabled:opacity-70 sm:w-auto"
+                  className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-md fc-gold px-6 text-base font-semibold focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2 focus-visible:outline-none disabled:opacity-70 sm:w-auto"
                 >
                   {quoting && <LoaderCircle className="h-4 w-4 animate-spin" aria-hidden="true" />}
                   Continue to review
@@ -926,7 +926,7 @@ function CheckoutForm({
               <h2 className="text-lg font-semibold text-foreground">Review your order</h2>
               {!quote ? (
                 <div className="flex items-center gap-2 py-6 text-sm text-muted-foreground" role="status">
-                  <LoaderCircle className="h-4 w-4 animate-spin text-emerald-700" aria-hidden="true" />
+                  <LoaderCircle className="h-4 w-4 animate-spin text-brand-700" aria-hidden="true" />
                   Checking prices and stock…
                   <button type="button" onClick={() => void refreshQuote()} disabled={quoting} className={cn(linkButton, "ml-auto min-h-9")}>
                     Check again
@@ -935,7 +935,7 @@ function CheckoutForm({
               ) : reviewLines.length === 0 ? (
                 <p className="py-6 text-sm text-muted-foreground">
                   Nothing in your basket can be bought online right now.{" "}
-                  <Link href="/cart" className="font-semibold text-emerald-700 underline underline-offset-2">
+                  <Link href="/cart" className="font-semibold text-brand-700 underline underline-offset-2">
                     Back to your basket
                   </Link>
                 </p>
@@ -964,7 +964,7 @@ function CheckoutForm({
                 <dl className="space-y-1 border-t border-border pt-3 text-sm" data-testid="review-discount">
                   <div className="flex items-baseline justify-between">
                     <dt className="text-muted-foreground">{discountLabel(applied.code)}</dt>
-                    <dd className="font-semibold text-emerald-700 tabular-nums">−{formatGBP(quote?.totals.discount ?? 0)}</dd>
+                    <dd className="font-semibold text-brand-700 tabular-nums">−{formatGBP(quote?.totals.discount ?? 0)}</dd>
                   </div>
                   <div className="flex items-baseline justify-between">
                     <dt className="font-semibold text-foreground">New total</dt>
@@ -1006,7 +1006,7 @@ function CheckoutForm({
                 <button
                   type="button"
                   onClick={() => go("shipping")}
-                  className="text-sm font-semibold text-foreground/80 hover:text-emerald-700"
+                  className="text-sm font-semibold text-foreground/80 hover:text-brand-700"
                 >
                   ← Edit details
                 </button>
@@ -1014,7 +1014,7 @@ function CheckoutForm({
                   type="button"
                   onClick={continueToPayment}
                   disabled={quoting || (quote !== null && reviewLines.length === 0) || belowMinimum(quote)}
-                  className="inline-flex h-11 items-center gap-2 rounded-md bg-emerald-700 px-5 text-sm font-semibold text-white transition-colors hover:bg-emerald-800 disabled:opacity-60"
+                  className="inline-flex h-11 items-center gap-2 rounded-md fc-gold px-5 text-sm font-semibold disabled:opacity-60"
                 >
                   Continue to payment
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -1040,7 +1040,7 @@ function CheckoutForm({
                       }}
                       aria-invalid={termsError ? true : undefined}
                       aria-describedby={termsError ? "accept-terms-error" : undefined}
-                      className="mt-0.5 h-4 w-4 shrink-0 rounded border-zinc-300 accent-emerald-700"
+                      className="mt-0.5 h-4 w-4 shrink-0 rounded border-zinc-300 accent-brand-700"
                     />
                     <span>
                       I agree to the{" "}
@@ -1061,7 +1061,7 @@ function CheckoutForm({
                 <button
                   type="button"
                   onClick={() => go("review")}
-                  className="text-sm font-semibold text-foreground/80 hover:text-emerald-700"
+                  className="text-sm font-semibold text-foreground/80 hover:text-brand-700"
                 >
                   ← Back to review
                 </button>
@@ -1069,7 +1069,7 @@ function CheckoutForm({
                   type="button"
                   onClick={pay}
                   disabled={submitting || mode === "disabled" || !quote}
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-emerald-700 px-6 text-base font-semibold text-white transition-colors hover:bg-emerald-800 focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-60"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md fc-gold px-6 text-base font-semibold focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {submitting ? (
                     <LoaderCircle className="h-4 w-4 animate-spin" aria-hidden="true" />
@@ -1096,7 +1096,7 @@ function CheckoutForm({
               <SummaryRow label={totals.delivery > 0 ? "Delivery (inc. VAT)" : "Delivery"}>
                 {totals.delivery > 0 ? formatGBP(totals.delivery) : "Free"}
               </SummaryRow>
-              <SummaryRow label={discountLabel(applied.code)} tone="text-emerald-700">
+              <SummaryRow label={discountLabel(applied.code)} tone="text-brand-700">
                 −{formatGBP(quote.totals.discount)}
               </SummaryRow>
             </dl>
@@ -1131,20 +1131,20 @@ function CheckoutForm({
           </div>
           <div className="border-t border-border pt-3">
             {appliedCode ? (
-              <div className="flex items-center gap-2 rounded-md border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm" data-testid="discount-applied">
-                <Tag className="h-4 w-4 shrink-0 text-emerald-700" aria-hidden="true" />
-                <p className="min-w-0 flex-1 text-emerald-950">
+              <div className="flex items-center gap-2 rounded-md border border-brand-200 bg-brand-50 px-3 py-2 text-sm" data-testid="discount-applied">
+                <Tag className="h-4 w-4 shrink-0 text-brand-700" aria-hidden="true" />
+                <p className="min-w-0 flex-1 text-brand-950">
                   <span className="font-mono font-semibold">{appliedCode}</span>
                   {applied ? ` · ${describeDiscount(applied)}` : ""} applied
                 </p>
                 {step === "payment" ? (
-                  <span className="text-xs text-emerald-900">Go back to review to change it</span>
+                  <span className="text-xs text-brand-900">Go back to review to change it</span>
                 ) : (
                   <button
                     type="button"
                     onClick={removeCode}
                     disabled={quoting}
-                    className="inline-flex min-h-9 shrink-0 items-center gap-1 rounded-sm px-1 text-xs font-semibold text-emerald-800 underline underline-offset-2 hover:no-underline disabled:opacity-50"
+                    className="inline-flex min-h-9 shrink-0 items-center gap-1 rounded-sm px-1 text-xs font-semibold text-brand-800 underline underline-offset-2 hover:no-underline disabled:opacity-50"
                   >
                     <X className="h-3.5 w-3.5" aria-hidden="true" />
                     Remove<span className="sr-only"> discount code {appliedCode}</span>
@@ -1178,7 +1178,7 @@ function CheckoutForm({
                     placeholder="e.g. THANKS-7K3QF9X"
                     aria-invalid={discountError ? true : undefined}
                     aria-describedby={discountError ? "guest-discount-error" : undefined}
-                    className="h-10 min-w-0 flex-1 rounded-md border border-border px-3 font-mono text-sm uppercase focus:border-emerald-700 focus:outline-none"
+                    className="h-10 min-w-0 flex-1 rounded-md border border-border px-3 font-mono text-sm uppercase focus:border-brand-700 focus:outline-none"
                   />
                   <button
                     type="submit"
@@ -1205,7 +1205,7 @@ function CheckoutForm({
                 </>
               ) : (
                 <>
-                  <ShieldCheck className="h-3.5 w-3.5 text-emerald-700" aria-hidden="true" />
+                  <ShieldCheck className="h-3.5 w-3.5 text-brand-700" aria-hidden="true" />
                   {mode === "stripe" ? "Secure card payment by Stripe" : "Online payment unavailable"}
                 </>
               )}
@@ -1213,11 +1213,11 @@ function CheckoutForm({
             <p className="flex items-center gap-1.5">
               {collect ? (
                 <>
-                  <Store className="h-3.5 w-3.5 shrink-0 text-emerald-700" aria-hidden="true" /> Collect from {checkout.collectFrom}
+                  <Store className="h-3.5 w-3.5 shrink-0 text-brand-700" aria-hidden="true" /> Collect from {checkout.collectFrom}
                 </>
               ) : (
                 <>
-                  <Truck className="h-3.5 w-3.5 shrink-0 text-emerald-700" aria-hidden="true" /> {selected?.estimate || DISPATCH_NOTE}
+                  <Truck className="h-3.5 w-3.5 shrink-0 text-brand-700" aria-hidden="true" /> {selected?.estimate || DISPATCH_NOTE}
                 </>
               )}
             </p>
@@ -1238,7 +1238,7 @@ function PaymentNotice({ mode, total, termsBox }: { mode: CheckoutPaymentMode; t
   );
   if (mode === "stripe") {
     return (
-      <div className="rounded-md border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-950">
+      <div className="rounded-md border border-brand-200 bg-brand-50 px-4 py-3 text-sm text-brand-950">
         <p className="flex items-center gap-1.5 font-semibold">
           <Lock className="h-4 w-4" aria-hidden="true" /> Secure payment by Stripe
         </p>
@@ -1300,8 +1300,8 @@ function StepList({ current, onBack }: { current: Step; onBack: (step: Step) => 
             <span
               className={cn(
                 "grid h-6 w-6 place-items-center rounded-full sm:h-7 sm:w-7",
-                active && "border-2 border-emerald-700 text-emerald-700",
-                done && "border border-emerald-700 bg-emerald-700 text-white",
+                active && "border-2 border-brand-700 text-brand-700",
+                done && "border border-brand-700 bg-brand-700 text-white",
                 !active && !done && "border border-border text-zinc-400",
               )}
             >
@@ -1370,7 +1370,7 @@ function TextField({
       <label htmlFor={id} className={checkoutLabel}>
         {label}
         {required && (
-          <span aria-hidden="true" className="ml-0.5 text-emerald-700">
+          <span aria-hidden="true" className="ml-0.5 text-brand-700">
             *
           </span>
         )}

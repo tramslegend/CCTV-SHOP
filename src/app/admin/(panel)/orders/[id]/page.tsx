@@ -209,7 +209,7 @@ export default async function AdminOrderPage({ params }: PageProps<"/admin/order
                       {discountLabel(f.discountCode)} ex VAT
                       <span className="block text-xs">{formatGBP(f.discount)} inc. VAT</span>
                     </dt>
-                    <dd className="text-right text-emerald-700 tabular-nums">−{formatGBP(f.discountExVat)}</dd>
+                    <dd className="text-right text-brand-700 tabular-nums">−{formatGBP(f.discountExVat)}</dd>
                   </>
                 )}
                 <dt className="text-muted-foreground">VAT ({f.vatPercent}%)</dt>
@@ -261,7 +261,7 @@ export default async function AdminOrderPage({ params }: PageProps<"/admin/order
             <CardContent className="flex flex-col gap-4 text-sm">
               <div>
                 <p className="font-medium">{ship.name}</p>
-                <a href={`mailto:${order.email}`} className="block break-all text-emerald-700 hover:underline">
+                <a href={`mailto:${order.email}`} className="block break-all text-brand-700 hover:underline">
                   {order.email}
                 </a>
                 {order.phone && (
@@ -274,7 +274,7 @@ export default async function AdminOrderPage({ params }: PageProps<"/admin/order
                   {previousOrders > 0 ? ` · ${previousOrders} other paid order${previousOrders === 1 ? "" : "s"}` : " · first order"}
                 </p>
                 {customerHref && (
-                  <Link href={customerHref} className="mt-1 inline-block text-xs font-medium text-emerald-700 hover:underline">
+                  <Link href={customerHref} className="mt-1 inline-block text-xs font-medium text-brand-700 hover:underline">
                     View customer
                   </Link>
                 )}
@@ -307,7 +307,7 @@ export default async function AdminOrderPage({ params }: PageProps<"/admin/order
                 <p>
                   Discount code{" "}
                   {codeId ? (
-                    <Link href={`/admin/marketing/${codeId}`} className="font-mono font-medium text-emerald-700 hover:underline">
+                    <Link href={`/admin/marketing/${codeId}`} className="font-mono font-medium text-brand-700 hover:underline">
                       {order.discountCode}
                     </Link>
                   ) : (
@@ -340,7 +340,7 @@ export default async function AdminOrderPage({ params }: PageProps<"/admin/order
                   <p>{order.carrier}</p>
                   <p className="font-mono text-xs">
                     {track ? (
-                      <a href={track} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-emerald-700 hover:underline">
+                      <a href={track} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-brand-700 hover:underline">
                         {order.trackingNumber} <ExternalLink className="size-3" aria-hidden="true" />
                       </a>
                     ) : (

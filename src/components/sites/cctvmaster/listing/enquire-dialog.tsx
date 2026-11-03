@@ -13,7 +13,7 @@ import { tryAgainMessage, useShopInfo } from "../shop-info";
 import { showToast } from "../shop-state";
 
 const input =
-  "border-input h-10 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs outline-none focus-visible:border-emerald-600 focus-visible:ring-2 focus-visible:ring-emerald-600/30 md:text-sm";
+  "border-input h-10 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs outline-none focus-visible:border-brand-600 focus-visible:ring-2 focus-visible:ring-brand-600/30 md:text-sm";
 const label = "flex items-center gap-2 text-sm leading-none font-medium select-none";
 
 type Contact = { name: string; company: string; phone: string; email: string };
@@ -227,7 +227,7 @@ function EnquireDialog({ name, sku, onClose }: { name: string; sku: string; onCl
                 aria-invalid={!!errors.message || undefined}
                 aria-describedby={errors.message ? `${id}-message-error` : undefined}
                 onChange={(e) => setMessage(e.target.value)}
-                className="border-input placeholder:text-muted-foreground aria-invalid:border-destructive w-full rounded-md border bg-transparent px-3 py-2 text-base shadow-xs outline-none focus-visible:border-emerald-600 focus-visible:ring-2 focus-visible:ring-emerald-600/30 md:text-sm"
+                className="border-input placeholder:text-muted-foreground aria-invalid:border-destructive w-full rounded-md border bg-transparent px-3 py-2 text-base shadow-xs outline-none focus-visible:border-brand-600 focus-visible:ring-2 focus-visible:ring-brand-600/30 md:text-sm"
               />
               {errors.message ? (
                 <FieldError id={`${id}-message-error`} error={errors.message} />
@@ -257,7 +257,7 @@ function EnquireDialog({ name, sku, onClose }: { name: string; sku: string; onCl
             <button
               type="submit"
               disabled={sending}
-              className="inline-flex h-9 items-center gap-2 rounded-md bg-emerald-700 px-4 text-sm font-semibold text-white hover:bg-emerald-800 disabled:pointer-events-none disabled:opacity-50"
+              className="inline-flex h-9 items-center gap-2 rounded-md bg-brand-700 px-4 text-sm font-semibold text-white hover:bg-brand-800 disabled:pointer-events-none disabled:opacity-50"
             >
               {sending ? <LoaderCircle className="h-4 w-4 animate-spin" aria-hidden="true" /> : null}
               {sending ? "Sending…" : "Send enquiry"}

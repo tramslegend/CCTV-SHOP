@@ -72,7 +72,7 @@ export function DashboardShell({
           <div className="fc-stagger grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-8">
             <aside className="min-w-0 space-y-3 lg:sticky lg:top-32 lg:h-fit">
               <div className="flex items-center gap-3 rounded-xl border border-border bg-white p-4">
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-emerald-50 text-sm font-semibold text-emerald-800">
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-brand-50 text-sm font-semibold text-brand-800">
                   {initials || "CM"}
                 </span>
                 <div className="min-w-0">
@@ -94,14 +94,14 @@ export function DashboardShell({
                       className={cn(
                         "flex shrink-0 items-center gap-2.5 rounded-full border px-3.5 py-2 text-sm font-medium whitespace-nowrap transition-colors lg:rounded-md lg:border-0 lg:px-3",
                         active
-                          ? "border-emerald-700 bg-emerald-50 text-emerald-800"
+                          ? "border-brand-700 bg-brand-50 text-brand-800"
                           : "border-border bg-white text-foreground/80 hover:bg-surface hover:text-foreground",
                       )}
                     >
                       <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
                       <span className="flex-1">{label}</span>
                       {href === "/dashboard/notifications" && unread > 0 && (
-                        <span className="grid h-5 min-w-5 place-items-center rounded-full bg-emerald-700 px-1.5 text-[10px] font-bold text-white">
+                        <span className="grid h-5 min-w-5 place-items-center rounded-full bg-brand-700 px-1.5 text-[10px] font-bold text-white">
                           {unread}
                           <span className="sr-only"> unread</span>
                         </span>
@@ -143,7 +143,7 @@ export function DashHeader({
     <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
       <div className="min-w-0">
         <p className={eyebrow}>
-          <span aria-hidden="true" className="h-px w-6 bg-emerald-700" />
+          <span aria-hidden="true" className="h-px w-6 bg-brand-700" />
           {kicker}
         </p>
         <h1 className="text-2xl font-semibold tracking-tight text-balance text-foreground sm:text-3xl">{title}</h1>

@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { FeatureIcon, Highlighted, InlineText, SmartLink } from "./feature-icon";
 import { ArrowRightIcon, PlusIcon, SearchIcon, SparklesIcon } from "./icons";
 import { Price, priceParts } from "./price";
+import { TILE_TONES } from "./tones";
 
 const pointColumns = ["", "sm:grid-cols-1", "sm:grid-cols-2", "sm:grid-cols-3", "sm:grid-cols-4"];
 
@@ -17,13 +18,13 @@ function FeaturedKitCard({ kit, label, badge, chip }: { kit: FeaturedKit; label:
       <div className="relative rotate-[-2.5deg] transform-gpu">
         <Link
           href={`/products/${kit.slug}`}
-          className="block rounded-2xl border border-border bg-white p-4 shadow-[0_28px_60px_-22px_rgba(16,185,129,0.35),0_8px_18px_-10px_rgba(0,0,0,0.08)] transition-colors hover:border-emerald-300 focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 focus-visible:outline-none"
+          className="block rounded-2xl border border-border bg-white p-4 shadow-[0_30px_60px_-20px_rgba(10,20,40,0.55),0_8px_18px_-10px_rgba(0,0,0,0.12)] transition-colors hover:border-brand-300 focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 focus-visible:outline-none"
         >
           {(label || badge) && (
             <div className="mb-3 flex items-center justify-between">
               <p className="font-mono text-[10px] font-medium tracking-[0.18em] text-muted-foreground uppercase">{label}</p>
               {badge && (
-                <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 font-mono text-[9px] font-semibold tracking-wider text-emerald-800 uppercase">
+                <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 font-mono text-[9px] font-semibold tracking-wider text-amber-900 uppercase">
                   <SparklesIcon className="h-2.5 w-2.5" />
                   {badge}
                 </span>
@@ -61,13 +62,13 @@ function FeaturedKitCard({ kit, label, badge, chip }: { kit: FeaturedKit; label:
           </ul>
           <div className="mt-3 flex items-center justify-between border-t border-border pt-3">
             <p className="font-mono text-[10px] font-medium tracking-[0.18em] text-muted-foreground uppercase">Kit total</p>
-            <Price value={priceParts(kit.price)} size="lg" className="text-emerald-700" />
+            <Price value={priceParts(kit.price)} size="lg" className="text-brand-700" />
           </div>
         </Link>
         {chip && (
           <div
             aria-hidden="true"
-            className="absolute -right-3 -bottom-3 inline-flex h-9 items-center gap-1.5 rounded-full bg-ink px-3 text-[11px] font-semibold text-white shadow-[0_10px_20px_-10px_rgba(0,0,0,0.45)]"
+            className="absolute -right-3 -bottom-3 inline-flex h-9 items-center gap-1.5 rounded-full bg-gold px-3 text-[11px] font-semibold text-gold-foreground shadow-[0_10px_20px_-8px_rgba(232,163,23,0.7)]"
           >
             <PlusIcon className="h-3 w-3" />
             {chip}
@@ -86,37 +87,31 @@ export function Hero({ hero, tokens, kit }: { hero: HeroSettings; tokens: TokenV
   const card = kit && <FeaturedKitCard kit={kit} label={t(hero.kit.label)} badge={t(hero.kit.badge)} chip={t(hero.kit.chip)} />;
   return (
     <section
-      className="relative overflow-hidden border-b border-border bg-surface text-foreground"
+      className="fc-hero-bg relative overflow-hidden border-b border-border text-foreground"
       aria-label="Welcome"
     >
       <div aria-hidden="true" className="fc-aurora" />
-      {/* Right-hand panel behind the featured kit; the camera-style scan line sweeps here only, never over the text. */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 right-0 hidden w-[42%] overflow-hidden bg-emerald-100/70 lg:block"
-      >
+      <div aria-hidden="true" className="fc-grid" />
+      {/* Navy panel behind the featured kit; the camera-style scan line sweeps here only, never over the text. */}
+      <div aria-hidden="true" className="fc-navy-panel pointer-events-none absolute inset-y-0 right-0 hidden w-[42%] overflow-hidden lg:block">
         <div className="fc-scan" />
       </div>
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 right-[42%] hidden w-px bg-linear-to-b from-transparent via-emerald-300/40 to-transparent lg:block"
-      />
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-y-12 px-4 pt-14 pb-12 md:px-6 md:pt-20 md:pb-16 lg:grid-cols-12 lg:gap-x-10 lg:py-24">
         <div className="fc-stagger lg:col-span-7">
           {hero.eyebrow && (
-            <span className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white px-3 py-1 font-mono text-[10px] font-medium tracking-[0.18em] text-emerald-800 uppercase">
+            <span className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-3 py-1 font-mono text-[10px] font-medium tracking-[0.18em] text-brand-800 uppercase">
               <span className="relative flex h-1.5 w-1.5">
                 <span
                   aria-hidden="true"
-                  className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75"
+                  className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-500 opacity-75"
                 />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-600" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand-600" />
               </span>
               {t(hero.eyebrow)}
             </span>
           )}
           <h1 className="font-sentient mt-6 max-w-[18ch] text-4xl leading-[1.02] font-medium tracking-tight text-balance text-foreground [font-variation-settings:'opsz'_36] sm:text-5xl md:text-6xl lg:text-[4.25rem]">
-            <Highlighted text={t(hero.headline)} highlight={t(hero.highlight)} wrap={(phrase) => <span className="text-muted-foreground">{phrase}</span>} />
+            <Highlighted text={t(hero.headline)} highlight={t(hero.highlight)} wrap={(phrase) => <span className="bg-linear-to-r from-brand-700 via-brand-500 to-sky-600 bg-clip-text text-transparent">{phrase}</span>} />
           </h1>
           {hero.intro && <p className="mt-6 max-w-[48ch] text-base leading-relaxed text-muted-foreground sm:text-lg">{t(hero.intro)}</p>}
           {(buttons[0] || buttons[1]) && (
@@ -124,7 +119,7 @@ export function Hero({ hero, tokens, kit }: { hero: HeroSettings; tokens: TokenV
               {buttons[0] && (
                 <div className="fc-press">
                   <SmartLink
-                    className="inline-flex h-12 items-center gap-2 rounded-md bg-primary px-5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-emerald-800 focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2 focus-visible:outline-none"
+                    className="inline-flex h-12 items-center gap-2 rounded-md fc-gold px-5 text-sm font-semibold focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2 focus-visible:outline-none"
                     href={buttons[0].href}
                   >
                     {t(buttons[0].label)}
@@ -135,7 +130,7 @@ export function Hero({ hero, tokens, kit }: { hero: HeroSettings; tokens: TokenV
               {buttons[1] && (
                 <div className="fc-press">
                   <SmartLink
-                    className="inline-flex h-12 items-center gap-2 rounded-md border border-zinc-300 bg-white px-5 text-sm font-semibold text-foreground transition-all hover:border-emerald-600 hover:bg-emerald-50 hover:text-emerald-800 focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 focus-visible:outline-none"
+                    className="inline-flex h-12 items-center gap-2 rounded-md border border-zinc-300 bg-white px-5 text-sm font-semibold text-foreground transition-all hover:border-brand-600 hover:bg-brand-50 hover:text-brand-800 focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 focus-visible:outline-none"
                     href={buttons[1].href}
                   >
                     {t(buttons[1].label)}
@@ -145,7 +140,7 @@ export function Hero({ hero, tokens, kit }: { hero: HeroSettings; tokens: TokenV
             </div>
           )}
           <form
-            className="mt-6 flex w-full max-w-md items-center gap-1 rounded-full border border-border bg-white p-1.5 transition-colors focus-within:border-emerald-500 focus-within:ring-2 focus-within:ring-emerald-500/30"
+            className="mt-6 flex w-full max-w-md items-center gap-1 rounded-full border border-border bg-white p-1.5 transition-colors focus-within:border-brand-500 focus-within:ring-2 focus-within:ring-brand-500/30"
             action="/products"
             method="GET"
           >
@@ -164,7 +159,7 @@ export function Hero({ hero, tokens, kit }: { hero: HeroSettings; tokens: TokenV
             />
             <button
               type="submit"
-              className="inline-flex h-10 items-center gap-1.5 rounded-full bg-emerald-700 px-4 text-sm font-semibold text-white transition-colors hover:bg-emerald-800 focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:outline-none"
+              className="inline-flex h-10 items-center gap-1.5 rounded-full bg-ink px-4 text-sm font-semibold text-white transition-colors hover:bg-brand-700 focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:outline-none"
             >
               Search
             </button>
@@ -173,7 +168,7 @@ export function Hero({ hero, tokens, kit }: { hero: HeroSettings; tokens: TokenV
             <p className="mt-6 text-sm text-muted-foreground">
               <InlineText
                 text={t(hero.note)}
-                linkClassName="font-semibold text-emerald-700 underline-offset-4 transition-colors hover:text-emerald-800 hover:underline"
+                linkClassName="font-semibold text-brand-700 underline-offset-4 transition-colors hover:text-brand-800 hover:underline"
               />
             </p>
           )}
@@ -192,7 +187,7 @@ export function Hero({ hero, tokens, kit }: { hero: HeroSettings; tokens: TokenV
           <ul className={cn("mx-auto grid max-w-7xl divide-x divide-border", points.length === 1 ? "grid-cols-1" : "grid-cols-2", pointColumns[points.length])}>
             {points.map((point, i) => (
               <li key={i} className="flex items-center gap-3 px-4 py-4 md:px-6 md:py-5">
-                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-emerald-50 text-emerald-700">
+                <span className={cn("grid h-9 w-9 shrink-0 place-items-center rounded-lg", TILE_TONES[i % TILE_TONES.length])}>
                   <FeatureIcon name={point.icon} className="h-4 w-4" />
                 </span>
                 <div className="min-w-0">

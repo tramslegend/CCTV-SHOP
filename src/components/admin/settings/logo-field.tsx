@@ -84,7 +84,7 @@ export function LogoField({
           ) : (
             <span className={cn("text-xs", dark ? "text-muted-foreground" : "text-muted-foreground")}>No logo</span>
           )}
-          {uploading && <Loader2 className="absolute size-5 animate-spin text-emerald-600" aria-label="Uploading" />}
+          {uploading && <Loader2 className="absolute size-5 animate-spin text-brand-600" aria-label="Uploading" />}
         </div>
         <div className="flex flex-wrap gap-2">
           <Button

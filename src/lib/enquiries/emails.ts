@@ -59,7 +59,7 @@ function factsTable(rows: { label: string; value: string }[]) {
 }
 
 const quote = (value: string) =>
-  `<div style="margin:0 0 18px;padding:12px 16px;border-left:3px solid #047857;background:#f4f4f5;font-size:14px">${multiline(value)}</div>`;
+  `<div style="margin:0 0 18px;padding:12px 16px;border-left:3px solid #185096;background:#f4f4f5;font-size:14px">${multiline(value)}</div>`;
 
 const factsText = (rows: { label: string; value: string }[]) => rows.map((r) => `${r.label}: ${r.value}`).join("\n");
 
@@ -118,7 +118,7 @@ export async function sendCustomerAcknowledgement(e: EnquiryEmailData) {
     p(`We've received your ${e.type === "trade" ? "application" : "message"}. ${escapeHtml(NEXT_STEP[e.type])}`),
     p(
       (phoneHref
-        ? `If it's urgent, call us on <a href="${escapeHtml(phoneHref)}" style="color:#047857;font-weight:bold">${escapeHtml(phone)}</a>. `
+        ? `If it's urgent, call us on <a href="${escapeHtml(phoneHref)}" style="color:#185096;font-weight:bold">${escapeHtml(phone)}</a>. `
         : "") + `You can also reply to this email.`,
     ),
     `<p style="margin:18px 0 8px;font-size:13px;color:#71717a;text-transform:uppercase;letter-spacing:.08em">What you sent</p>`,

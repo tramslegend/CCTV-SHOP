@@ -34,7 +34,7 @@ export function AuthShell({
       <div className={cn("w-full", variant === "signup" ? "max-w-[440px]" : "max-w-[420px]")}>
         {decorated && (
           <Link
-            className="mx-auto mb-8 flex items-center justify-center focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2 focus-visible:outline-none"
+            className="mx-auto mb-8 flex items-center justify-center focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2 focus-visible:outline-none"
             href="/"
           >
             <ShopLogo width={180} height={48} className="h-11 w-auto" textClassName="text-2xl" />
@@ -45,7 +45,7 @@ export function AuthShell({
           <ul className="mt-7 flex items-center justify-center gap-x-5 gap-y-2 text-muted-foreground">
             {trust.map(({ label, Icon }) => (
               <li key={label} className="flex items-center gap-1.5 font-mono text-[10px] tracking-[0.14em] uppercase">
-                <Icon className="h-3.5 w-3.5 text-emerald-700" aria-hidden="true" />
+                <Icon className="h-3.5 w-3.5 text-brand-700" aria-hidden="true" />
                 {label}
               </li>
             ))}
@@ -60,7 +60,7 @@ export function AuthHeading({ kicker, title, lede }: { kicker: string; title: st
   return (
     <>
       <p className={eyebrow}>
-        <span aria-hidden="true" className="h-px w-6 bg-emerald-700" />
+        <span aria-hidden="true" className="h-px w-6 bg-brand-700" />
         {kicker}
       </p>
       <h1 className="text-2xl font-semibold tracking-tight text-balance text-foreground">{title}</h1>

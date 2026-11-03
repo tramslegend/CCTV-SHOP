@@ -78,7 +78,7 @@ export function ListingView({
           <div className="border-b border-border bg-white">
             <div className={`${CONTAINER} py-3`}>
               <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                <Link href="/" className="transition-colors hover:text-emerald-700">
+                <Link href="/" className="transition-colors hover:text-brand-700">
                   Home
                 </Link>
                 <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />

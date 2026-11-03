@@ -56,10 +56,10 @@ export function CtaBox({ title, body, href, label }: { title: string; body: stri
 export function HelpHero({ kicker, title, intro }: { kicker: string; title: string; intro: string }) {
   return (
     <section className="fc-band border-b border-border">
-      <div className="absolute inset-y-0 left-0 hidden w-[6px] bg-emerald-600 lg:block" aria-hidden="true" />
+      <div className="absolute inset-y-0 left-0 hidden w-[6px] bg-brand-600 lg:block" aria-hidden="true" />
       <div className={cn(CONTAINER, "py-12 sm:py-16")}>
         <div className="max-w-3xl">
-          <p className="mb-3 font-mono text-xs tracking-widest text-emerald-700 uppercase">{kicker}</p>
+          <p className="mb-3 font-mono text-xs tracking-widest text-brand-700 uppercase">{kicker}</p>
           <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">{title}</h1>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">{intro}</p>
         </div>
@@ -78,11 +78,11 @@ export function MonoBreadcrumb({ label, className }: { label: string; className?
       )}
       aria-label="Breadcrumb"
     >
-      <Link className="transition-colors hover:text-emerald-700" href="/">
+      <Link className="transition-colors hover:text-brand-700" href="/">
         Home
       </Link>
       <ChevronRight className="h-3 w-3 shrink-0" aria-hidden="true" />
-      <span className="text-emerald-700">{label}</span>
+      <span className="text-brand-700">{label}</span>
     </nav>
   );
 }
@@ -106,7 +106,7 @@ export const legal = {
   h2: "mt-12 mb-4 text-[1.75rem] leading-[1.2] font-bold tracking-[-0.015em] text-foreground md:text-[2rem]",
   h3: "mt-9 mb-3 text-[1.375rem] leading-[1.2] font-semibold tracking-[-0.015em] text-foreground md:text-2xl",
   p: "my-4 leading-[1.7] text-[oklab(0.1912_0_0)]",
-  ul: "my-4 list-disc pl-6 leading-[1.7] text-[oklab(0.1912_0_0)] marker:text-emerald-600",
+  ul: "my-4 list-disc pl-6 leading-[1.7] text-[oklab(0.1912_0_0)] marker:text-brand-600",
   li: "my-1.5",
   link: "text-primary underline font-normal",
 };
@@ -187,22 +187,22 @@ export function LegalShell({
 }) {
   const phoneHref = telHref(store.phone);
   const linkClass =
-    "inline-flex h-11 items-center gap-1.5 text-sm font-semibold text-emerald-700 transition-colors hover:text-emerald-800 focus-visible:underline focus-visible:outline-none";
+    "inline-flex h-11 items-center gap-1.5 text-sm font-semibold text-brand-700 transition-colors hover:text-brand-800 focus-visible:underline focus-visible:outline-none";
   return (
     <div className="flex min-h-full flex-col text-foreground">
       <section className="fc-band border-b border-border">
-        <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-2 bg-emerald-50 lg:block" aria-hidden="true" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-2 bg-brand-50 lg:block" aria-hidden="true" />
         <div
-          className="pointer-events-none absolute inset-y-0 left-2 hidden w-px bg-emerald-200/60 lg:block"
+          className="pointer-events-none absolute inset-y-0 left-2 hidden w-px bg-brand-200/60 lg:block"
           aria-hidden="true"
         />
         <div
-          className="pointer-events-none absolute inset-x-0 top-6 mx-auto h-px max-w-5xl bg-linear-to-r from-transparent via-emerald-300/30 to-transparent"
+          className="pointer-events-none absolute inset-x-0 top-6 mx-auto h-px max-w-5xl bg-linear-to-r from-transparent via-brand-300/30 to-transparent"
           aria-hidden="true"
         />
         <div className="relative mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
           <MonoBreadcrumb label={crumb} className="mb-5" />
-          <p className="font-mono text-[10px] font-medium tracking-[0.18em] text-emerald-800 uppercase">{kicker}</p>
+          <p className="font-mono text-[10px] font-medium tracking-[0.18em] text-brand-800 uppercase">{kicker}</p>
           <h1 className="font-sentient mt-3 text-3xl leading-[1.05] font-bold tracking-tight text-balance text-foreground sm:text-4xl md:text-5xl">
             {title}
           </h1>
@@ -211,7 +211,7 @@ export function LegalShell({
           </p>
         </div>
         <div
-          className="relative h-px w-full bg-linear-to-r from-transparent via-emerald-500/40 to-transparent"
+          className="relative h-px w-full bg-linear-to-r from-transparent via-brand-500/40 to-transparent"
           aria-hidden="true"
         />
       </section>

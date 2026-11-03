@@ -93,7 +93,7 @@ export function TradeForm() {
   if (status === "sent") {
     return (
       <div className="flex flex-col items-center gap-4 text-center" role="status">
-        <span className="grid h-11 w-11 place-items-center rounded-full bg-emerald-50 text-emerald-700">
+        <span className="grid h-11 w-11 place-items-center rounded-full bg-brand-50 text-brand-700">
           <CircleCheck className="h-5 w-5" aria-hidden="true" />
         </span>
         <div>
@@ -104,14 +104,14 @@ export function TradeForm() {
             {shop.phoneHref && (
               <>
                 {" "}
-                Questions in the meantime? Call <PhoneLink className="font-semibold text-emerald-700 hover:underline" />.
+                Questions in the meantime? Call <PhoneLink className="font-semibold text-brand-700 hover:underline" />.
               </>
             )}
           </p>
         </div>
         <button
           type="button"
-          className="text-sm font-semibold text-emerald-700 underline underline-offset-2 hover:text-emerald-800"
+          className="text-sm font-semibold text-brand-700 underline underline-offset-2 hover:text-brand-800"
           onClick={() => {
             setValues(EMPTY);
             setErrors({});
@@ -248,7 +248,7 @@ export function TradeForm() {
           <input
             id="trade-terms"
             type="checkbox"
-            className="mt-0.5 h-4 w-4 shrink-0 accent-emerald-700"
+            className="mt-0.5 h-4 w-4 shrink-0 accent-brand-700"
             checked={values.terms}
             aria-invalid={!!errors.terms || undefined}
             aria-describedby={errors.terms ? "trade-terms-error" : undefined}
@@ -256,7 +256,7 @@ export function TradeForm() {
           />
           <span>
             I buy for business use and accept the{" "}
-            <Link className="font-semibold text-emerald-700 underline underline-offset-2" href="/terms">
+            <Link className="font-semibold text-brand-700 underline underline-offset-2" href="/terms">
               terms of sale
             </Link>
             .
@@ -281,7 +281,7 @@ export function TradeForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-emerald-700 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-800 disabled:opacity-50 sm:w-auto"
+        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-700 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-800 disabled:opacity-50 sm:w-auto"
       >
         {status === "sending" ? <LoaderCircle className="h-4 w-4 animate-spin" aria-hidden="true" /> : null}
         {status === "sending" ? "Sending…" : "Apply for an account"}

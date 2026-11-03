@@ -113,7 +113,7 @@ export default async function PartsPage() {
                           <EnquireButton name={p.name} sku={p.sku} />
                         </span>
                       ) : (
-                        <span className="text-emerald-600">Available</span>
+                        <span className="text-brand-600">Available</span>
                       )}
                     </td>
                   </tr>

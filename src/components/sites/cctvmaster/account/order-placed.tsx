@@ -96,15 +96,15 @@ export function OrderPlaced({
       {justPlaced && !awaiting && !closed && <ClearCart />}
       <div className="fc-rise mx-auto max-w-3xl px-4 py-10">
         <div className="text-center">
-          <div className={`mx-auto flex h-14 w-14 items-center justify-center rounded-full ${awaiting ? "bg-amber-50" : "bg-emerald-50"}`}>
+          <div className={`mx-auto flex h-14 w-14 items-center justify-center rounded-full ${awaiting ? "bg-amber-50" : "bg-brand-50"}`}>
             {awaiting ? (
               <Clock className="h-7 w-7 text-amber-600" aria-hidden="true" />
             ) : (
-              <CircleCheck className="h-7 w-7 text-emerald-700" aria-hidden="true" />
+              <CircleCheck className="h-7 w-7 text-brand-700" aria-hidden="true" />
             )}
           </div>
           <p className={`${eyebrow} mt-5 justify-center`}>
-            <span aria-hidden="true" className="h-px w-6 bg-emerald-700" />
+            <span aria-hidden="true" className="h-px w-6 bg-brand-700" />
             {awaiting ? "Confirming payment" : closed ? "Order" : "Order placed"}
           </p>
           <h1 className="text-2xl font-semibold tracking-tight text-balance text-foreground sm:text-3xl">
@@ -118,7 +118,7 @@ export function OrderPlaced({
                 : `A confirmation is on its way to ${order.email}.`}
           </p>
           {thankYou && !awaiting && !closed && (
-            <p className="mx-auto mt-4 max-w-xl rounded-lg border border-emerald-100 bg-emerald-50/60 px-4 py-3 text-sm whitespace-pre-line text-foreground/80">
+            <p className="mx-auto mt-4 max-w-xl rounded-lg border border-brand-100 bg-brand-50/60 px-4 py-3 text-sm whitespace-pre-line text-foreground/80">
               {thankYou}
             </p>
           )}
@@ -166,7 +166,7 @@ export function OrderPlaced({
                   <dd className="mt-1 text-foreground/80">
                     {order.carrier} ·{" "}
                     {order.trackingUrl ? (
-                      <a href={order.trackingUrl} className="font-semibold text-emerald-700 underline underline-offset-2" target="_blank" rel="noreferrer">
+                      <a href={order.trackingUrl} className="font-semibold text-brand-700 underline underline-offset-2" target="_blank" rel="noreferrer">
                         {order.trackingNumber}
                       </a>
                     ) : (
@@ -188,7 +188,7 @@ export function OrderPlaced({
             <ol className="mt-4 space-y-4">
               {nextSteps(order, cutoff, collectFrom).map((step, i) => (
                 <li key={step.title} className="flex gap-3">
-                  <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-emerald-700 text-xs font-semibold text-emerald-700">
+                  <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-brand-700 text-xs font-semibold text-brand-700">
                     {i + 1}
                   </span>
                   <div>
@@ -216,13 +216,13 @@ export function OrderPlaced({
               Create an account to track orders
             </Link>
           )}
-          <Link href="/products" className="inline-flex h-11 items-center justify-center px-3 text-sm font-semibold text-foreground/80 hover:text-emerald-700">
+          <Link href="/products" className="inline-flex h-11 items-center justify-center px-3 text-sm font-semibold text-foreground/80 hover:text-brand-700">
             Continue browsing
           </Link>
         </div>
         <p className="mt-6 text-center text-sm text-muted-foreground">
           A question about this order? Every way to reach us is on the{" "}
-          <Link href="/contact" className="font-semibold text-foreground/80 underline underline-offset-2 hover:text-emerald-700">
+          <Link href="/contact" className="font-semibold text-foreground/80 underline underline-offset-2 hover:text-brand-700">
             contact page
           </Link>
           .

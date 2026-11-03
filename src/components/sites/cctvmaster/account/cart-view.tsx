@@ -13,7 +13,7 @@ import { ProductThumb } from "./product-thumb";
 import { CONTAINER, shadcnButton, shadcnOutline, shadcnPrimary } from "./styles";
 import { basketTotals, itemsLabel } from "./totals";
 
-const brand = "text-[#047857]";
+const brand = "text-[#185096]";
 
 export function CartView({ pricing }: { pricing: PricingSettings }) {
   const hydrated = useHydrated();
@@ -86,7 +86,7 @@ export function CartView({ pricing }: { pricing: PricingSettings }) {
 
         <div className="min-w-0 lg:col-span-1">
           <div className="bg-card text-card-foreground sticky top-32 flex flex-col gap-0 overflow-hidden rounded-xl border py-0 shadow-sm">
-            <div className="grid auto-rows-min grid-rows-[auto_auto] items-start gap-2 rounded-t-xl bg-[#047857] px-6 py-4">
+            <div className="grid auto-rows-min grid-rows-[auto_auto] items-start gap-2 rounded-t-xl bg-[#185096] px-6 py-4">
               <h2 className="leading-none font-semibold text-white">Order Summary</h2>
             </div>
             <div className="space-y-4 px-6 pt-4">
@@ -143,7 +143,7 @@ export function CartView({ pricing }: { pricing: PricingSettings }) {
               </div>
             </div>
             <div className="flex flex-col items-center gap-3 px-6 pt-0 pb-6">
-              <Link href="/checkout" className={cn(shadcnButton, shadcnPrimary, "h-10 w-full rounded-md px-8")}>
+              <Link href="/checkout" className={cn(shadcnButton, "fc-gold h-11 w-full rounded-md px-8 font-semibold")}>
                 Proceed to Checkout
                 <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
               </Link>
@@ -176,7 +176,7 @@ export function CartView({ pricing }: { pricing: PricingSettings }) {
             <p className="text-muted-foreground text-xs">Total · {itemsLabel(totals.count)}</p>
             <p className={cn("text-lg font-bold", brand)}>{formatGBP(totals.total)}</p>
           </div>
-          <Link href="/checkout" className={cn(shadcnButton, shadcnPrimary, "h-12 shrink-0 rounded-md px-6")}>
+          <Link href="/checkout" className={cn(shadcnButton, "fc-gold h-12 shrink-0 rounded-md px-6 font-semibold")}>
             Checkout
             <ArrowRight aria-hidden="true" />
           </Link>

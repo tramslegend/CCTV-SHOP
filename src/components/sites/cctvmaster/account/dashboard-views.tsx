@@ -105,7 +105,7 @@ function EmptyState({
   );
 }
 
-const textLink = "text-sm font-semibold text-emerald-700 hover:text-emerald-800 hover:underline underline-offset-2";
+const textLink = "text-sm font-semibold text-brand-700 hover:text-brand-800 hover:underline underline-offset-2";
 
 function OrderRow({ order }: { order: DashboardOrder }) {
   return (
@@ -167,7 +167,7 @@ export function VerifyEmailNotice({ email, unclaimed }: { email: string; unclaim
             ? "Confirm it’s your email and those orders will show here too."
             : "We sent a confirmation link when you signed up. Confirming lets earlier guest orders show in your account."}
         </p>
-        {state === "sent" && <p className="mt-1 font-medium text-emerald-800">Sent. Check your inbox for the link.</p>}
+        {state === "sent" && <p className="mt-1 font-medium text-brand-800">Sent. Check your inbox for the link.</p>}
         {state === "error" && <p className="mt-1 font-medium text-red-700">{error}</p>}
       </div>
       <button type="button" onClick={send} disabled={state === "sending" || state === "sent"} className={cn(outlineButton, "h-9 px-3")}>
@@ -238,7 +238,7 @@ export function DashboardOverview({
               <p className="mt-1.5 text-2xl font-semibold tracking-tight text-foreground tabular-nums">{value}</p>
               {note && <p className="text-xs text-muted-foreground">{note}</p>}
             </div>
-            <Icon className="h-5 w-5 text-emerald-700" aria-hidden="true" />
+            <Icon className="h-5 w-5 text-brand-700" aria-hidden="true" />
           </Link>
         ))}
       </div>
@@ -279,7 +279,7 @@ export function DashboardOverview({
           {quick.map(({ href, title, body, Icon }) => (
             <li key={href}>
               <Link href={href} className={cn(panel, "flex h-full items-start gap-3 p-4 transition-colors hover:border-zinc-300")}>
-                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-md bg-emerald-50 text-emerald-700">
+                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-md bg-brand-50 text-brand-700">
                   <Icon className="h-4 w-4" aria-hidden="true" />
                 </span>
                 <span className="min-w-0">
@@ -312,8 +312,8 @@ export function OrdersList({
     <>
       <DashHeader kicker="My account" title="Your orders" lede="Every order on your account, newest first." />
       {justVerified && account.emailVerified && (
-        <p className="mb-6 flex items-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm font-medium text-emerald-900">
-          <CircleCheck className="h-5 w-5 text-emerald-700" aria-hidden="true" />
+        <p className="mb-6 flex items-center gap-2 rounded-xl border border-brand-200 bg-brand-50 p-4 text-sm font-medium text-brand-900">
+          <CircleCheck className="h-5 w-5 text-brand-700" aria-hidden="true" />
           Thanks, your email is confirmed. Orders placed with it now show here.
         </p>
       )}
@@ -381,7 +381,7 @@ export function OrderDetail({ order, collectFrom = null }: { order: DashboardOrd
 
   return (
     <>
-      <Link href="/dashboard/orders" className="mb-4 inline-flex items-center gap-1 text-sm font-semibold text-muted-foreground hover:text-emerald-700">
+      <Link href="/dashboard/orders" className="mb-4 inline-flex items-center gap-1 text-sm font-semibold text-muted-foreground hover:text-brand-700">
         ← Your orders
       </Link>
       <DashHeader
@@ -411,7 +411,7 @@ export function OrderDetail({ order, collectFrom = null }: { order: DashboardOrd
                     <span
                       className={cn(
                         "grid h-9 w-9 place-items-center rounded-full border",
-                        done ? "border-emerald-700 bg-emerald-700 text-white" : "border-border bg-white text-zinc-400",
+                        done ? "border-brand-700 bg-brand-700 text-white" : "border-border bg-white text-zinc-400",
                       )}
                     >
                       <Icon className="h-4 w-4" aria-hidden="true" />
@@ -433,7 +433,7 @@ export function OrderDetail({ order, collectFrom = null }: { order: DashboardOrd
                       {" "}
                       Tracking number{" "}
                       {order.trackingUrl ? (
-                        <a href={order.trackingUrl} target="_blank" rel="noreferrer" className="font-semibold text-emerald-700 underline underline-offset-2">
+                        <a href={order.trackingUrl} target="_blank" rel="noreferrer" className="font-semibold text-brand-700 underline underline-offset-2">
                           {order.trackingNumber}
                         </a>
                       ) : (
@@ -538,10 +538,10 @@ export function WishlistView() {
                 <ProductThumb src={item.image} alt={item.name} sizes="(min-width: 1280px) 280px, (min-width: 640px) 45vw, 90vw" className="aspect-[4/3] w-full" eager={i < 3} />
               </Link>
               <div className="flex flex-1 flex-col p-4">
-                <Link href={`/products/${item.slug}`} className="line-clamp-2 text-sm font-medium text-foreground hover:text-emerald-700">
+                <Link href={`/products/${item.slug}`} className="line-clamp-2 text-sm font-medium text-foreground hover:text-brand-700">
                   {item.name}
                 </Link>
-                <p className="mt-2 text-lg font-bold text-[#047857]">
+                <p className="mt-2 text-lg font-bold text-[#185096]">
                   {formatGBP(withVat(item.price))}
                   <span className="text-muted-foreground ml-1 text-xs font-medium">inc. VAT</span>
                 </p>
@@ -617,16 +617,16 @@ export function NotificationsView({ notes }: { notes: DashboardNotification[] })
                   <Link
                     href={`/dashboard/orders/${n.orderNumber}`}
                     onClick={() => markNotificationsRead([n.id])}
-                    className={cn("flex gap-3 px-5 py-4 transition-colors hover:bg-surface", fresh && "bg-emerald-50/40")}
+                    className={cn("flex gap-3 px-5 py-4 transition-colors hover:bg-surface", fresh && "bg-brand-50/40")}
                   >
-                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-emerald-50 text-emerald-700">
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-brand-50 text-brand-700">
                       <Icon className="h-4 w-4" aria-hidden="true" />
                     </span>
                     <span className="min-w-0 flex-1">
                       <span className="flex items-center gap-2">
                         <span className={cn("text-sm text-foreground", fresh ? "font-semibold" : "font-medium")}>{n.title}</span>
                         {fresh && (
-                          <span className="h-2 w-2 rounded-full bg-emerald-600">
+                          <span className="h-2 w-2 rounded-full bg-brand-600">
                             <span className="sr-only">Unread</span>
                           </span>
                         )}
@@ -659,7 +659,7 @@ export function NotificationsView({ notes }: { notes: DashboardNotification[] })
 // ---------- /dashboard/addresses ----------
 
 const fieldInput =
-  "h-11 w-full rounded-md border border-zinc-300 bg-white px-3 text-base text-foreground placeholder:text-zinc-400 focus:border-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-700/20 aria-[invalid=true]:border-red-600 md:text-sm";
+  "h-11 w-full rounded-md border border-zinc-300 bg-white px-3 text-base text-foreground placeholder:text-zinc-400 focus:border-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-700/20 aria-[invalid=true]:border-red-600 md:text-sm";
 const fieldLabel = "mb-1 block text-sm font-medium text-foreground/80";
 
 export function AddressesView({ addresses }: { addresses: DashboardAddress[] }) {
@@ -705,11 +705,11 @@ export function AddressesView({ addresses }: { addresses: DashboardAddress[] }) 
             <li key={a.id} className={cn(panel, "flex flex-col p-5 text-sm")}>
               <div className="mb-2 flex items-center justify-between gap-2">
                 <span className="flex items-center gap-2 font-semibold text-foreground">
-                  <MapPin className="h-4 w-4 text-emerald-700" aria-hidden="true" />
+                  <MapPin className="h-4 w-4 text-brand-700" aria-hidden="true" />
                   {a.label || "Address"}
                 </span>
                 {a.isDefault && (
-                  <span className="rounded-full bg-emerald-50 px-2 py-0.5 font-mono text-[10px] tracking-[0.14em] text-emerald-800 uppercase">
+                  <span className="rounded-full bg-brand-50 px-2 py-0.5 font-mono text-[10px] tracking-[0.14em] text-brand-800 uppercase">
                     Default
                   </span>
                 )}
@@ -900,7 +900,7 @@ function AddressForm({ initial, onDone }: { initial: DashboardAddress | null; on
           type="checkbox"
           checked={meta.isDefault}
           onChange={(e) => setMeta((m) => ({ ...m, isDefault: e.target.checked }))}
-          className="h-4 w-4 rounded border-zinc-300 accent-emerald-700"
+          className="h-4 w-4 rounded border-zinc-300 accent-brand-700"
         />
         Use as my default delivery address
       </label>
@@ -1005,7 +1005,7 @@ function AccountDetailsForm({ account }: { account: DashboardAccount }) {
           <input id="account-email" type="email" value={account.email} readOnly className={cn(fieldInput, "bg-surface text-muted-foreground")} aria-describedby="account-email-note" />
           <p id="account-email-note" className="mt-1 text-xs text-muted-foreground">
             {account.emailVerified ? "Confirmed." : "Not confirmed yet."} To change it,{" "}
-            <Link href="/contact" className="font-semibold text-emerald-700 underline underline-offset-2">
+            <Link href="/contact" className="font-semibold text-brand-700 underline underline-offset-2">
               contact us
             </Link>
             .

@@ -25,7 +25,7 @@ export function ListingSidebar({ basePath, query, allCount, nodes, kitNav, clear
         <p className="mb-2 px-1 text-xs font-semibold tracking-wider text-muted-foreground uppercase">Categories</p>
         <Link
           href="/products"
-          className="flex min-h-11 w-full items-center justify-between rounded-lg bg-emerald-50 px-3 py-2 text-sm font-semibold text-emerald-700 transition-colors"
+          className="flex min-h-11 w-full items-center justify-between rounded-lg bg-brand-50 px-3 py-2 text-sm font-semibold text-brand-700 transition-colors"
         >
           <span>All Products</span>
           <span className="text-xs text-muted-foreground">{allCount}</span>
@@ -33,7 +33,7 @@ export function ListingSidebar({ basePath, query, allCount, nodes, kitNav, clear
         <div className="space-y-0.5">
           <Link
             href={kitNav.href}
-            className="flex min-h-11 w-full items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-surface hover:text-emerald-700"
+            className="flex min-h-11 w-full items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-surface hover:text-brand-700"
           >
             <span>{kitNav.name}</span>
             <span className="text-xs text-muted-foreground">{kitNav.count}</span>
@@ -68,7 +68,7 @@ function KitSystem({ system }: { system: KitNavSystem }) {
       <div className="flex items-center gap-1">
         <Link
           href={system.href}
-          className="flex min-h-11 flex-1 items-center justify-between rounded-lg px-2.5 py-1.5 text-sm text-foreground/80 transition-colors hover:bg-surface hover:text-emerald-700"
+          className="flex min-h-11 flex-1 items-center justify-between rounded-lg px-2.5 py-1.5 text-sm text-foreground/80 transition-colors hover:bg-surface hover:text-brand-700"
         >
           <span>{system.name}</span>
           <span className="text-xs text-muted-foreground">{system.count}</span>
@@ -95,7 +95,7 @@ function KitSystem({ system }: { system: KitNavSystem }) {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="flex min-h-11 w-full items-center justify-between rounded-lg px-2 py-1 text-xs text-muted-foreground transition-colors hover:bg-surface hover:text-emerald-700"
+                  className="flex min-h-11 w-full items-center justify-between rounded-lg px-2 py-1 text-xs text-muted-foreground transition-colors hover:bg-surface hover:text-brand-700"
                 >
                   <span className="truncate">{link.name}</span>
                   <span className="ml-2 shrink-0 text-muted-foreground">{link.count}</span>
@@ -117,7 +117,7 @@ function CategoryBranch({ node, depth }: { node: SidebarNode; depth: number }) {
       <Link
         href={node.href}
         className={cn(
-          "flex min-h-11 w-full items-center gap-1 rounded-lg text-sm transition-colors hover:bg-surface hover:text-emerald-700",
+          "flex min-h-11 w-full items-center gap-1 rounded-lg text-sm transition-colors hover:bg-surface hover:text-brand-700",
           depth === 0 ? "px-3 py-2 text-foreground/80" : "px-2.5 py-1.5 text-muted-foreground",
         )}
       >
@@ -134,7 +134,7 @@ function CategoryBranch({ node, depth }: { node: SidebarNode; depth: number }) {
               e.stopPropagation();
               setOpen((v) => !v);
             }}
-            className="-m-2 ml-0.5 rounded p-2 hover:bg-emerald-100"
+            className="-m-2 ml-0.5 rounded p-2 hover:bg-brand-100"
           >
             <ChevronDown
               className={cn("h-3.5 w-3.5 text-muted-foreground transition-transform", open && "rotate-180")}

@@ -148,7 +148,7 @@ function FindUsCard({ store }: { store: StoreSettings }) {
         {store.openingHours.length > 0 && (
           <div>
             <p className="flex items-center gap-2 text-sm font-semibold text-foreground">
-              <Clock className="h-4 w-4 text-emerald-700" aria-hidden="true" />
+              <Clock className="h-4 w-4 text-brand-700" aria-hidden="true" />
               Opening hours
             </p>
             <dl className="mt-2 divide-y divide-border text-sm">
@@ -164,7 +164,7 @@ function FindUsCard({ store }: { store: StoreSettings }) {
         <div className="flex flex-col gap-3 text-sm">
           {map && (
             <a
-              className="inline-flex items-center gap-2 font-semibold text-emerald-700 hover:underline"
+              className="inline-flex items-center gap-2 font-semibold text-brand-700 hover:underline"
               href={map}
               target="_blank"
               rel="noopener noreferrer"
@@ -174,7 +174,7 @@ function FindUsCard({ store }: { store: StoreSettings }) {
             </a>
           )}
           {phoneHref && (
-            <a className="inline-flex items-center gap-2 font-semibold text-emerald-700 hover:underline" href={phoneHref}>
+            <a className="inline-flex items-center gap-2 font-semibold text-brand-700 hover:underline" href={phoneHref}>
               <Phone className="h-4 w-4" aria-hidden="true" />
               Call before you travel
             </a>

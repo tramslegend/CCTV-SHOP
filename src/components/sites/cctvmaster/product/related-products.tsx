@@ -31,7 +31,7 @@ export function RelatedProducts({ cards, viewAllHref }: { cards: ProductCard[]; 
               <li key={card.slug} className="fc-reveal">
                 <Link
                   href={`/products/${card.slug}`}
-                  className="group bg-card block w-[200px] flex-shrink-0 snap-start overflow-hidden rounded-xl border transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_22px_40px_-20px_rgba(4,120,87,0.45)]"
+                  className="group bg-card block w-[200px] flex-shrink-0 snap-start overflow-hidden rounded-xl border transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_22px_40px_-20px_rgba(24,80,150,0.45)]"
                 >
                   <div className="relative h-[200px] w-[200px] overflow-hidden bg-white">
                     {image && (

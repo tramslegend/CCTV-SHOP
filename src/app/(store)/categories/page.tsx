@@ -82,9 +82,9 @@ export default async function CategoriesPage() {
           {sections().map((section) => (
             <section
               key={section.slug}
-              className="fc-reveal border-border rounded-xl border bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_22px_40px_-22px_rgba(4,120,87,0.45)]"
+              className="fc-reveal border-border rounded-xl border bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_22px_40px_-22px_rgba(24,80,150,0.45)]"
             >
-              <Link href={section.href} className="text-lg font-semibold transition-colors hover:text-emerald-700">
+              <Link href={section.href} className="text-lg font-semibold transition-colors hover:text-brand-700">
                 {section.name}
                 <span className="text-muted-foreground ml-2 text-xs font-normal">{section.count}</span>
               </Link>

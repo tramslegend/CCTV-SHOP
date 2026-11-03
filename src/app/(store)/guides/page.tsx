@@ -92,7 +92,7 @@ function GuideList() {
           <p>
             <span>Can&apos;t find what you need?</span>{" "}
             <Link
-              className="font-semibold text-emerald-700 underline underline-offset-2 hover:decoration-2"
+              className="font-semibold text-brand-700 underline underline-offset-2 hover:decoration-2"
               href="/contact"
             >
               Just ask

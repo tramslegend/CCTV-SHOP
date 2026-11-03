@@ -97,7 +97,7 @@ export function ContactForm({
   if (status === "sent") {
     return (
       <div className="flex flex-col items-start gap-4" role="status">
-        <span className="grid h-11 w-11 place-items-center rounded-full bg-emerald-50 text-emerald-700">
+        <span className="grid h-11 w-11 place-items-center rounded-full bg-brand-50 text-brand-700">
           <CircleCheck className="h-5 w-5" aria-hidden="true" />
         </span>
         <div>
@@ -110,14 +110,14 @@ export function ContactForm({
             {shop.phoneHref && (
               <>
                 {" "}
-                If it’s urgent, call <PhoneLink className="font-semibold text-emerald-700 hover:underline" />.
+                If it’s urgent, call <PhoneLink className="font-semibold text-brand-700 hover:underline" />.
               </>
             )}
           </p>
         </div>
         <button
           type="button"
-          className="text-sm font-semibold text-emerald-700 underline underline-offset-2 hover:text-emerald-800"
+          className="text-sm font-semibold text-brand-700 underline underline-offset-2 hover:text-brand-800"
           onClick={() => {
             setValues({ name: "", email: "", phone: "", subject: "", message: "" });
             setErrors({});
@@ -226,7 +226,7 @@ export function ContactForm({
       <button
         type="submit"
         disabled={status === "sending"}
-        className="inline-flex h-10 w-full items-center justify-center gap-2 rounded-md bg-emerald-700 px-8 text-sm font-medium whitespace-nowrap text-white shadow-[0_10px_20px_-10px_rgba(16,185,129,0.6)] transition-colors hover:bg-emerald-800 focus-visible:ring-1 focus-visible:ring-emerald-700 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 sm:w-auto [&_svg]:size-4 [&_svg]:shrink-0"
+        className="inline-flex h-10 w-full items-center justify-center gap-2 rounded-md bg-brand-700 px-8 text-sm font-medium whitespace-nowrap text-white shadow-[0_10px_20px_-10px_rgba(42,120,204,0.6)] transition-colors hover:bg-brand-800 focus-visible:ring-1 focus-visible:ring-brand-700 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 sm:w-auto [&_svg]:size-4 [&_svg]:shrink-0"
       >
         {status === "sending" ? (
           <LoaderCircle className="h-4 w-4 animate-spin" aria-hidden="true" />

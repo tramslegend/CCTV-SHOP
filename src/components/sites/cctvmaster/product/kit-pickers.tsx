@@ -30,7 +30,7 @@ function Option({ option, mobile }: { option: KitOption; mobile?: boolean }) {
       <span
         className={cn(
           "text-xs font-medium tabular-nums",
-          option.delta < 0 ? "text-emerald-700" : "text-foreground/80",
+          option.delta < 0 ? "text-brand-700" : "text-foreground/80",
         )}
       >
         {option.delta < 0 ? "-" : "+"}
@@ -52,7 +52,7 @@ export function KitPickers({ saving, pickers }: { saving?: KitSaving; pickers: K
           </p>
           <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
             <span className="text-foreground font-semibold tabular-nums">This kit {plainGBP(saving.kit)}</span>
-            <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-800">
+            <span className="rounded-full bg-brand-100 px-2 py-0.5 text-xs font-semibold text-brand-800">
               You save {formatGBP(saving.save)} ({saving.percent}% off)
             </span>
           </p>

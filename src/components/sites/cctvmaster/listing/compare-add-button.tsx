@@ -9,7 +9,7 @@ export function CompareAddButton({ item }: { item: CartItemData }) {
       type="button"
       onClick={() => addToCart(item)}
       aria-label={`Add ${item.name} to your basket`}
-      className="inline-flex min-h-9 items-center rounded-full bg-emerald-700 px-4 text-xs font-semibold text-white hover:bg-emerald-800 disabled:opacity-60"
+      className="inline-flex min-h-9 items-center rounded-full fc-gold px-4 text-xs font-semibold disabled:opacity-60"
     >
       Add to basket
     </button>
